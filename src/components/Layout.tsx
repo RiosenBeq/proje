@@ -94,6 +94,21 @@ export default function Layout() {
             <Link to="/" className="font-body text-xs text-white/40 hover:text-[#ff3b5c] transition-colors">KVKK</Link>
           </div>
         </div>
+
+        <a
+          href="https://nextgenmedya.com.tr/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute bottom-3 right-8 lg:right-24 inline-flex items-center gap-2 opacity-40 hover:opacity-80 transition-opacity text-[10px] text-white/60"
+          aria-label="Web sitesi NextGenMedya tarafından yapılmıştır"
+        >
+          <img
+            src="https://lh3.googleusercontent.com/d/18wpfqJGwsE1h_t3vUpcNfeSjxQVtC4ls"
+            alt="NextGenMedya Logo"
+            className="w-4 h-4 object-contain rounded-sm"
+          />
+          <span>https://nextgenmedya.com.tr/ tarafından yapılmıştır.</span>
+        </a>
       </footer>
       
       {/* Mobile Bottom Navigation */}
