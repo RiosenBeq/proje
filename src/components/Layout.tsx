@@ -90,8 +90,8 @@ export default function Layout() {
           </div>
           <div className="flex flex-col gap-4 col-span-2 md:col-span-1">
             <span className="text-[10px] font-label text-primary uppercase tracking-widest">Yasal</span>
-            <Link to="/" className="font-body text-xs text-white/40 hover:text-[#ff3b5c] transition-colors">Gizlilik Politikası</Link>
-            <Link to="/" className="font-body text-xs text-white/40 hover:text-[#ff3b5c] transition-colors">KVKK</Link>
+            <Link to="/gizlilik-politikasi" className="font-body text-xs text-white/40 hover:text-[#ff3b5c] transition-colors">Gizlilik Politikası</Link>
+            <Link to="/kvkk" className="font-body text-xs text-white/40 hover:text-[#ff3b5c] transition-colors">KVKK</Link>
           </div>
         </div>
 
