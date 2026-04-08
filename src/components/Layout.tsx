@@ -107,7 +107,7 @@ export default function Layout() {
             alt="NextGenMedya Logo"
             className="w-4 h-4 object-contain rounded-sm"
           />
-          <span>https://nextgenmedya.com.tr/ tarafından yapılmıştır.</span>
+          <span>NextGenMedya tarafından yapılmıştır.</span>
         </a>
       </footer>
       
