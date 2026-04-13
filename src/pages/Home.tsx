@@ -134,6 +134,65 @@ export default function Home() {
 
       {/* 2026 Technical Vision Banner */}
       <section className="px-8 lg:px-24 py-32">
+        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span className="font-label text-primary text-xs tracking-widest uppercase mb-3 block">Instagram Seçkisi</span>
+            <h2 className="font-headline text-4xl md:text-5xl font-bold text-white tracking-tight uppercase">
+              BSK Proje'den Görsel İlham Panosu
+            </h2>
+          </div>
+          <a
+            href="https://www.instagram.com/bskproje?igsh=Zm02cjZjanA1YmYx"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-label text-[11px] uppercase tracking-[0.2em] text-primary-container hover:brightness-110 transition-all"
+          >
+            @bskproje profiline git →
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+          <figure className="md:col-span-7 relative overflow-hidden group rounded-lg">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Isf7r8KlNMiLJeaGlwNe6w6nKaFXvUM3BGdkp5gR1SU_Nlfks76_14kB2U3xijSTwRrXFHou2a84mVf5068BZQr1kywJbUEoLH0ql2NMRcpcSXpIgEjglD_fd6oAU7OhcXxYy8klEYWJDRtUh5kZwGqa43EOq-wgmfH7-KUKTMbE5slClRksAQo-42z9adAIT0docfiJBoKIhNQGYM3Kexv7BnG0zavqim16F3KBVsAygW9vbFbYasrZWKSJG-XHSmWX4ZiaWOiI"
+              alt="BSK Proje stüdyo kurulumu"
+              className="w-full h-[420px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            />
+            <figcaption className="absolute bottom-4 left-4 text-[10px] font-label uppercase tracking-widest bg-background/75 backdrop-blur-sm px-3 py-1 text-on-surface">
+              Stüdyo Akustiği
+            </figcaption>
+          </figure>
+
+          <figure className="md:col-span-5 relative overflow-hidden group rounded-lg">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk_E3QLgcssJqOzesp8_LEjKSfDovAYp--I6N9zCM0wtnZNNWr-CG8X8hWsDiZIfnGQz9rT4_DXMxrCO2tnm_947PsXThz0YqjoZY1krdU5IANKf9J-jCscdywlTJ9v4INlv2-cF1YrYXoVdzc_V2BkEjwYHipm71s7hovnwM-QrTy_UVHkroAv2IqItGGsZCa-ru4nJgYs8axdVo40Ss8__gpFLRrzcDQtlMDUM3m1YQJjvSsCVZ-ttBm7UTmw4YiyrpKUXFwgFqX"
+              alt="BSK Proje canlı performans sistemi"
+              className="w-full h-[420px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            />
+            <figcaption className="absolute bottom-4 left-4 text-[10px] font-label uppercase tracking-widest bg-background/75 backdrop-blur-sm px-3 py-1 text-on-surface">
+              Live Performance
+            </figcaption>
+          </figure>
+
+          <figure className="md:col-span-4 relative overflow-hidden group rounded-lg">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuArxv5GwPul1r7NA1-7MCden8O_oOI3wyztszjpk49y-psbB63Ia7rAf7Thq_kuDYFqpDYlSLJMs1kwKUu37mX710WE1hLM-D55OLfS54vCL_NOE7xe23IOCOyce9q71B9sUhS4SBJKcJ-AVbaKVV3H9_HmNBaJj7xCZVsff4QuPfKotrnoUspOUkCCUTUfX0ku968glthhFOtvYkMQkrduujuu894zWzCL3gsKpZ07IED8-cm7PPU0AYXXapCtt9gsr94oMAD0UA6r"
+              alt="BSK Proje konferans salonu uygulaması"
+              className="w-full h-[260px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            />
+          </figure>
+
+          <figure className="md:col-span-8 relative overflow-hidden group rounded-lg">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_4t-takg_rtGqpXiDQy1MAnamH4tBn03G9boPMhO8snAbXL-GWCVb3utMmoFuV7fM9k6bzFMS2lJBE4PQ2aZP6v2sU7kdlJ9MOqGveYaqGDarAk14r61yF5TIE051vgPKP4tL0QQ0Qb6_rzIF1xnUaY4EaqsehjwrU0MGuaBhtAw8LKnaqs2AMmTzMPgX9C6ZCqoF_BOpH1IhEuLDscQBi6tVIjE_Qoli0cUYgjLOwnlNC7YB9oDio420twDu3gpgahoV9AAsZUKV"
+              alt="BSK Proje akustik panel detayları"
+              className="w-full h-[260px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section className="px-8 lg:px-24 py-32">
         <div className="bg-gradient-to-r from-surface-container-high to-surface-container-lowest p-12 lg:p-24 relative overflow-hidden group">
           <div className="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
             <span className="font-headline text-[15rem] font-bold text-primary leading-none select-none tracking-tighter">2026</span>
