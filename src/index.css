@@ -4,7 +4,7 @@
   --color-background: #f7f9fd;
   --color-on-background: #162032;
   --color-primary: #f6a4bc;
-  --color-primary-container: #dd5f86;
+  --color-primary-container: #ff3b5c;
   --color-on-primary-container: #ffffff;
   --color-surface: #ffffff;
   --color-on-surface: #162032;
@@ -34,7 +34,7 @@
 }
 
 .museum-label {
-  border-left: 1px solid rgba(221, 95, 134, 0.35);
+  border-left: 1px solid rgba(255, 59, 92, 0.35);
 }
 
 .writing-mode-vertical {

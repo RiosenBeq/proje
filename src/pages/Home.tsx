@@ -149,6 +149,44 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Instagram Gallery */}
+      <section className="px-8 lg:px-24 pb-32">
+        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <span className="font-label text-primary-container text-xs tracking-[0.28em] uppercase">Instagram</span>
+            <h2 className="font-headline text-4xl font-bold text-slate-900 mt-3 uppercase tracking-tight">BSK Proje Görselleri</h2>
+            <p className="text-on-surface-variant mt-4 max-w-2xl">
+              En güncel proje paylaşımlarımızı Instagram hesabımızdan takip edebilirsiniz.
+            </p>
+          </div>
+          <a
+            href="https://www.instagram.com/bskproje?igsh=Zm02cjZjanA1YmYx"
+            target="_blank"
+            rel="noreferrer"
+            className="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-label text-xs font-bold uppercase tracking-widest w-fit"
+          >
+            @bskproje Profiline Git
+          </a>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a href="https://www.instagram.com/bskproje?igsh=Zm02cjZjanA1YmYx" target="_blank" rel="noreferrer" className="group">
+            <div className="overflow-hidden rounded-2xl border border-slate-200">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Isf7r8KlNMiLJeaGlwNe6w6nKaFXvUM3BGdkp5gR1SU_Nlfks76_14kB2U3xijSTwRrXFHou2a84mVf5068BZQr1kywJbUEoLH0ql2NMRcpcSXpIgEjglD_fd6oAU7OhcXxYy8klEYWJDRtUh5kZwGqa43EOq-wgmfH7-KUKTMbE5slClRksAQo-42z9adAIT0docfiJBoKIhNQGYM3Kexv7BnG0zavqim16F3KBVsAygW9vbFbYasrZWKSJG-XHSmWX4ZiaWOiI" alt="BSK Proje Instagram görseli 1" className="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+          </a>
+          <a href="https://www.instagram.com/bskproje?igsh=Zm02cjZjanA1YmYx" target="_blank" rel="noreferrer" className="group">
+            <div className="overflow-hidden rounded-2xl border border-slate-200">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk_E3QLgcssJqOzesp8_LEjKSfDovAYp--I6N9zCM0wtnZNNWr-CG8X8hWsDiZIfnGQz9rT4_DXMxrCO2tnm_947PsXThz0YqjoZY1krdU5IANKf9J-jCscdywlTJ9v4INlv2-cF1YrYXoVdzc_V2BkEjwYHipm71s7hovnwM-QrTy_UVHkroAv2IqItGGsZCa-ru4nJgYs8axdVo40Ss8__gpFLRrzcDQtlMDUM3m1YQJjvSsCVZ-ttBm7UTmw4YiyrpKUXFwgFqX" alt="BSK Proje Instagram görseli 2" className="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+          </a>
+          <a href="https://www.instagram.com/bskproje?igsh=Zm02cjZjanA1YmYx" target="_blank" rel="noreferrer" className="group">
+            <div className="overflow-hidden rounded-2xl border border-slate-200">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuArxv5GwPul1r7NA1-7MCden8O_oOI3wyztszjpk49y-psbB63Ia7rAf7Thq_kuDYFqpDYlSLJMs1kwKUu37mX710WE1hLM-D55OLfS54vCL_NOE7xe23IOCOyce9q71B9sUhS4SBJKcJ-AVbaKVV3H9_HmNBaJj7xCZVsff4QuPfKotrnoUspOUkCCUTUfX0ku968glthhFOtvYkMQkrduujuu894zWzCL3gsKpZ07IED8-cm7PPU0AYXXapCtt9gsr94oMAD0UA6r" alt="BSK Proje Instagram görseli 3" className="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+          </a>
+        </div>
+      </section>
     </motion.main>
   );
 }
