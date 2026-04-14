@@ -4,7 +4,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Top Navigation Bar */}
-      <header className="fixed top-0 w-full flex justify-between items-center px-8 py-4 bg-[#131314]/80 backdrop-blur-xl z-50 border-b border-white/5 shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
+      <header className="fixed top-0 w-full flex justify-between items-center px-8 py-4 bg-[#2b3342]/85 backdrop-blur-xl z-50 border-b border-white/10 shadow-[0_20px_40px_rgba(15,23,42,0.28)]">
         <Link to="/" className="flex items-center gap-2">
           <svg viewBox="0 0 180 50" className="h-8 lg:h-10" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(5, 5)">
@@ -27,7 +27,7 @@ export default function Layout() {
       </header>
 
       {/* Side Audio Engine Bar (Right) */}
-      <aside className="fixed right-0 top-0 h-full flex flex-col items-center py-24 z-40 bg-[#0e0e0f]/90 backdrop-blur-2xl border-l border-white/5 w-20 hidden lg:flex font-['Space_Grotesk'] text-[10px] font-light uppercase">
+      <aside className="fixed right-0 top-0 h-full flex flex-col items-center py-24 z-40 bg-[#1f2735]/90 backdrop-blur-2xl border-l border-white/10 w-20 hidden lg:flex font-['Space_Grotesk'] text-[10px] font-light uppercase">
         <div className="mb-12 flex flex-col items-center gap-2">
           <div className="w-1 h-12 bg-gradient-to-b from-primary-container to-transparent"></div>
           <span className="text-[#ff3b5c] font-mono text-[10px] origin-center -rotate-90 whitespace-nowrap tracking-widest">ENGINE STATUS</span>
@@ -57,7 +57,7 @@ export default function Layout() {
       </div>
 
       {/* Footer */}
-      <footer className="w-full bg-[#0e0e0f] py-12 px-8 lg:px-24 border-t border-white/5 flex flex-col md:flex-row justify-between items-start gap-8 mt-auto z-10 relative">
+      <footer className="w-full bg-[#1c2330] py-12 px-8 lg:px-24 border-t border-white/10 flex flex-col md:flex-row justify-between items-start gap-8 mt-auto z-10 relative">
         <div className="max-w-xs">
           <div className="mb-6">
             <svg viewBox="0 0 180 50" className="h-8" xmlns="http://www.w3.org/2000/svg">

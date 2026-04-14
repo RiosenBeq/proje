@@ -10,13 +10,13 @@ export default function Portfolio() {
       className="pt-32 pb-24 px-6 md:px-12 lg:pr-32 max-w-screen-2xl mx-auto flex-1"
     >
       <header className="mb-24 relative">
-        <div className="absolute -top-12 -left-4 text-[120px] font-headline font-bold text-white/[0.02] select-none pointer-events-none uppercase">Works</div>
+        <div className="absolute -top-12 -left-4 text-[120px] font-headline font-bold text-white/[0.03] select-none pointer-events-none uppercase">Referans</div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-headline font-bold tracking-tighter text-white leading-none">
-          SEÇİLİ <br/>
-          <span className="text-primary-container">PROJELER</span>
+          <span className="text-primary-container">REFERANS</span><br/>
+          LARIMIZ
         </h1>
         <p className="mt-8 max-w-2xl text-on-surface-variant font-body text-lg leading-relaxed">
-          Türkiye'nin en prestijli mekanları için tasarladığımız akustik ve ses sistemi çözümleri. Her proje, kendi akustik kimliğine sahip bir mühendislik eseridir.
+          Türkiye'nin farklı ölçeklerdeki prestijli mekanları için geliştirdiğimiz akustik ve ses sistemi projeleri. Her çalışma, kullanıcı deneyimini önceleyen mühendislik yaklaşımımızı yansıtır.
         </p>
       </header>
 

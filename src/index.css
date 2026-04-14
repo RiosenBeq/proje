@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #131314;
-  --color-on-background: #e5e2e3;
-  --color-primary: #ff8fa3;
-  --color-primary-container: #ff3b5c;
+  --color-background: #232a36;
+  --color-on-background: #eff3fa;
+  --color-primary: #ff9ab3;
+  --color-primary-container: #ff5f7f;
   --color-on-primary-container: #ffffff;
-  --color-surface: #131314;
-  --color-on-surface: #e5e2e3;
-  --color-surface-container-lowest: #0e0e0f;
-  --color-surface-container-low: #1c1b1c;
-  --color-surface-container: #201f20;
-  --color-surface-container-high: #2a2a2b;
-  --color-surface-container-highest: #353436;
-  --color-on-surface-variant: #c9c4c5;
-  --color-outline: #969091;
-  --color-outline-variant: #4c4546;
+  --color-surface: #232a36;
+  --color-on-surface: #eff3fa;
+  --color-surface-container-lowest: #1c2330;
+  --color-surface-container-low: #2b3342;
+  --color-surface-container: #343d4d;
+  --color-surface-container-high: #3e485a;
+  --color-surface-container-highest: #4a5568;
+  --color-on-surface-variant: #cdd6e4;
+  --color-outline: #9aa9c1;
+  --color-outline-variant: #5d6a80;
 
   --font-headline: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -23,7 +23,7 @@
 }
 
 .glass-panel, .glass-card {
-  background: rgba(19, 19, 20, 0.4);
+  background: rgba(39, 49, 66, 0.5);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
