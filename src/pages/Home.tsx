@@ -22,7 +22,7 @@ export default function Home() {
             <span className="h-[1px] w-12 bg-primary-container"></span>
             <span className="font-label text-primary-container text-xs tracking-[0.3em] uppercase">Akustik Otorite</span>
           </div>
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-none mb-8">
+          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 tracking-tighter leading-none mb-8">
             MÜKEMMEL <span className="text-primary-container">SESİN</span><br/>MÜHENDİSLİĞİ
           </h1>
           <p className="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed font-light mb-12">
@@ -32,7 +32,7 @@ export default function Home() {
             <Link to="/iletisim" className="bg-primary-container text-on-primary-container px-10 py-4 font-label text-sm font-bold uppercase tracking-widest hover:brightness-110 transition-all">
               Projeyi Başlat
             </Link>
-            <button className="border border-outline-variant text-white px-10 py-4 font-label text-sm font-bold uppercase tracking-widest hover:bg-white/5 transition-all backdrop-blur-sm">
+            <button className="border border-outline-variant text-slate-900 px-10 py-4 font-label text-sm font-bold uppercase tracking-widest hover:bg-slate-100 transition-all backdrop-blur-sm">
               Teknik Katalog
             </button>
           </div>
@@ -43,7 +43,7 @@ export default function Home() {
       <section className="px-8 lg:px-24 py-32 bg-surface-container-lowest relative">
         <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <h2 className="font-headline text-4xl font-bold text-white mb-4 tracking-tight uppercase">Hizmet Alanları</h2>
+            <h2 className="font-headline text-4xl font-bold text-slate-900 mb-4 tracking-tight uppercase">Hizmet Alanları</h2>
             <p className="text-outline max-w-md">Uzay akustiğinden dijital sinyal işleme sistemlerine kadar uçtan uca teknik mimari.</p>
           </div>
           <div className="font-label text-[10px] text-primary-container tracking-widest uppercase flex items-center gap-2">
@@ -52,9 +52,9 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
           {/* Service 1 */}
-          <div className="group relative bg-surface-container overflow-hidden p-12 transition-all duration-500 hover:bg-surface-container-high border-r border-white/5">
+          <div className="group relative bg-surface-container overflow-hidden p-12 transition-all duration-500 hover:bg-surface-container-high border-r border-slate-200">
             <span className="material-symbols-outlined text-4xl text-primary mb-8">architecture</span>
-            <h3 className="font-headline text-2xl text-white mb-4 uppercase">Akustik Tasarım</h3>
+            <h3 className="font-headline text-2xl text-slate-900 mb-4 uppercase">Akustik Tasarım</h3>
             <p className="text-on-surface-variant text-sm leading-relaxed font-light mb-8">Stüdyo, konferans salonu ve oditoryumlar için bilimsel modelleme tabanlı akustik çözümler.</p>
             <ul className="space-y-3 text-[11px] font-label text-outline uppercase tracking-wider">
               <li>• RT60 Analizi</li>
@@ -63,9 +63,9 @@ export default function Home() {
             </ul>
           </div>
           {/* Service 2 */}
-          <div className="group relative bg-surface-container-low overflow-hidden p-12 transition-all duration-500 hover:bg-surface-container-high border-r border-white/5">
+          <div className="group relative bg-surface-container-low overflow-hidden p-12 transition-all duration-500 hover:bg-surface-container-high border-r border-slate-200">
             <span className="material-symbols-outlined text-4xl text-primary mb-8">speaker_group</span>
-            <h3 className="font-headline text-2xl text-white mb-4 uppercase">Ses Sistemleri</h3>
+            <h3 className="font-headline text-2xl text-slate-900 mb-4 uppercase">Ses Sistemleri</h3>
             <p className="text-on-surface-variant text-sm leading-relaxed font-light mb-8">En üst düzey analog ve dijital sinyal zincirleri. 96kHz Native sistem mimarileri.</p>
             <ul className="space-y-3 text-[11px] font-label text-outline uppercase tracking-wider">
               <li>• Line Array Tasarımı</li>
@@ -76,7 +76,7 @@ export default function Home() {
           {/* Service 3 */}
           <div className="group relative bg-surface-container overflow-hidden p-12 transition-all duration-500 hover:bg-surface-container-high">
             <span className="material-symbols-outlined text-4xl text-primary mb-8">security</span>
-            <h3 className="font-headline text-2xl text-white mb-4 uppercase">Güvenlik Entegrasyonu</h3>
+            <h3 className="font-headline text-2xl text-slate-900 mb-4 uppercase">Güvenlik Entegrasyonu</h3>
             <p className="text-on-surface-variant text-sm leading-relaxed font-light mb-8">Kritik tesisler için yüksek hassasiyetli sesli tahliye ve güvenlik otomasyonları.</p>
             <ul className="space-y-3 text-[11px] font-label text-outline uppercase tracking-wider">
               <li>• EN54 Standartları</li>
@@ -92,21 +92,21 @@ export default function Home() {
         <div className="flex-1 order-2 lg:order-1 relative">
           <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary-container/10 rounded-full blur-[100px]"></div>
           <img alt="Acoustic Panels Detail" className="w-full aspect-square object-cover grayscale opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_4t-takg_rtGqpXiDQy1MAnamH4tBn03G9boPMhO8snAbXL-GWCVb3utMmoFuV7fM9k6bzFMS2lJBE4PQ2aZP6v2sU7kdlJ9MOqGveYaqGDarAk14r61yF5TIE051vgPKP4tL0QQ0Qb6_rzIF1xnUaY4EaqsehjwrU0MGuaBhtAw8LKnaqs2AMmTzMPgX9C6ZCqoF_BOpH1IhEuLDscQBi6tVIjE_Qoli0cUYgjLOwnlNC7YB9oDio420twDu3gpgahoV9AAsZUKV"/>
-          <div className="absolute bottom-12 left-12 glass-panel p-8 border border-white/10">
+          <div className="absolute bottom-12 left-12 glass-panel p-8 border border-slate-200">
             <div className="text-4xl font-headline font-bold text-primary-container mb-2 tracking-tighter">50+</div>
-            <div className="text-[10px] font-label text-white/60 tracking-widest uppercase">Akustik Panel Varyasyonu</div>
+            <div className="text-[10px] font-label text-slate-600 tracking-widest uppercase">Akustik Panel Varyasyonu</div>
           </div>
         </div>
         <div className="flex-1 order-1 lg:order-2">
           <span className="font-label text-primary text-xs tracking-widest uppercase mb-4 block">Teknik Hassasiyet</span>
-          <h2 className="font-headline text-5xl font-bold text-white mb-10 tracking-tight leading-tight uppercase">Mühendislik Standartlarını Yeniden Tanımlıyoruz.</h2>
+          <h2 className="font-headline text-5xl font-bold text-slate-900 mb-10 tracking-tight leading-tight uppercase">Mühendislik Standartlarını Yeniden Tanımlıyoruz.</h2>
           <div className="space-y-12">
             <div className="flex gap-6 items-start">
               <div className="w-12 h-12 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
                 <span className="text-primary font-headline font-bold">01</span>
               </div>
               <div>
-                <h4 className="text-white font-headline text-lg mb-2 uppercase">20+ Yıllık Deneyim</h4>
+                <h4 className="text-slate-900 font-headline text-lg mb-2 uppercase">20+ Yıllık Deneyim</h4>
                 <p className="text-on-surface-variant font-light text-sm">İki on yılı aşkın süredir Türkiye'nin en prestijli stüdyo ve konser alanlarını inşa ediyoruz.</p>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function Home() {
                 <span className="text-primary font-headline font-bold">02</span>
               </div>
               <div>
-                <h4 className="text-white font-headline text-lg mb-2 uppercase">24 Saatte Hızlı Kurulum</h4>
+                <h4 className="text-slate-900 font-headline text-lg mb-2 uppercase">24 Saatte Hızlı Kurulum</h4>
                 <p className="text-on-surface-variant font-light text-sm">Optimize edilmiş lojistik ve saha ekiplerimizle projelerinizi takvimine sadık kalarak hayata geçiriyoruz.</p>
               </div>
             </div>
@@ -124,7 +124,7 @@ export default function Home() {
                 <span className="text-primary font-headline font-bold">03</span>
               </div>
               <div>
-                <h4 className="text-white font-headline text-lg mb-2 uppercase">Ömür Boyu Destek</h4>
+                <h4 className="text-slate-900 font-headline text-lg mb-2 uppercase">Ömür Boyu Destek</h4>
                 <p className="text-on-surface-variant font-light text-sm">Sistem devreye alındıktan sonra periyodik akustik kalibrasyon ve yazılım güncellemeleri.</p>
               </div>
             </div>
@@ -140,7 +140,7 @@ export default function Home() {
           </div>
           <div className="relative z-10 max-w-2xl">
             <span className="bg-primary-container text-on-primary-container text-[10px] font-bold font-label px-3 py-1 mb-6 inline-block uppercase tracking-widest">Gelecek Vizyonu</span>
-            <h2 className="font-headline text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight uppercase leading-none">2026 Teknik Vizyonu: İmmerisif Sesin Geleceği</h2>
+            <h2 className="font-headline text-4xl md:text-5xl font-bold text-slate-900 mb-8 tracking-tight uppercase leading-none">2026 Teknik Vizyonu: İmmerisif Sesin Geleceği</h2>
             <p className="text-on-surface-variant font-light text-lg mb-10">Dolby Atmos sertifikalı tasarımlarımız ve yapay zeka destekli akustik analiz araçlarımızla, 2026'da ses teknolojilerini bir adım öteye taşıyoruz.</p>
             <Link to="/portfolyo" className="text-primary-container font-label text-sm uppercase tracking-widest flex items-center gap-3 group">
               Vizyon Belgesini İncele 
