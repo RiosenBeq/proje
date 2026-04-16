@@ -167,6 +167,71 @@ export default function Portfolio() {
               <span className="text-[10px] font-label text-white uppercase tracking-widest">Rooftop — Mekan Ses Sistemi</span>
             </div>
           </div>
+
+          {/* Neytin Wall Concept */}
+          <div className="col-span-2 md:col-span-1 overflow-hidden rounded-xl aspect-[3/4] group relative">
+            <img
+              src="https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Neytin Konsept Duvar ve Mekan Aydınlatması"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="text-[10px] font-label text-white uppercase tracking-widest">Neytin — Konsept Duvar</span>
+            </div>
+          </div>
+
+          {/* Blue Hall Speaker Setup */}
+          <div className="col-span-2 overflow-hidden rounded-xl aspect-[16/9] group relative">
+            <img
+              src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Mavi Temalı Restoran İç Mekan Ses Sistemi"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="text-[10px] font-label text-white uppercase tracking-widest">Restoran — Kolon Tipi Hoparlör</span>
+            </div>
+          </div>
+
+          {/* Warm Pioneer Closeup */}
+          <div className="overflow-hidden rounded-xl aspect-square group relative">
+            <img
+              src="https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Gece Ambiyansında Pioneer Hoparlör Yakın Plan"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="text-[10px] font-label text-white uppercase tracking-widest">Pioneer — Gece Ambiyansı</span>
+            </div>
+          </div>
+
+          {/* Vinyl + Speaker Wall */}
+          <div className="overflow-hidden rounded-xl aspect-[3/4] group relative row-span-2">
+            <img
+              src="https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Vinyl Koleksiyonu ve Kırmızı Hoparlör Duvarı"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="text-[10px] font-label text-white uppercase tracking-widest">Vinyl + Speaker Wall</span>
+            </div>
+          </div>
+
+          {/* Ceiling Speaker Angle */}
+          <div className="overflow-hidden rounded-xl aspect-square group relative">
+            <img
+              src="https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Tavan Altı Beyaz Hoparlör Montaj Açısı"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="text-[10px] font-label text-white uppercase tracking-widest">Tavan Montaj — Beyaz Hoparlör</span>
+            </div>
+          </div>
         </div>
       </section>
     </motion.main>
