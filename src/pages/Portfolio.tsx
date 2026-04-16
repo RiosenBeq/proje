@@ -29,7 +29,7 @@ export default function Portfolio() {
             <img className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 bg-stone-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Isf7r8KlNMiLJeaGlwNe6w6nKaFXvUM3BGdkp5gR1SU_Nlfks76_14kB2U3xijSTwRrXFHou2a84mVf5068BZQr1kywJbUEoLH0ql2NMRcpcSXpIgEjglD_fd6oAU7OhcXxYy8klEYWJDRtUh5kZwGqa43EOq-wgmfH7-KUKTMbE5slClRksAQo-42z9adAIT0docfiJBoKIhNQGYM3Kexv7BnG0zavqim16F3KBVsAygW9vbFbYasrZWKSJG-XHSmWX4ZiaWOiI" alt="Studio Alpha"/>
             <div className="absolute bottom-4 left-4 z-20 flex gap-2">
               <span className="bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-white tracking-widest uppercase">Stüdyo</span>
-              <span className="bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-[#ff3b5c] tracking-widest uppercase">2023</span>
+              <span className="bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-primary-container tracking-widest uppercase">2023</span>
             </div>
           </div>
           <h2 className="text-xl font-headline font-bold text-on-surface mb-2 uppercase tracking-tight group-hover:text-primary-container transition-colors">Studio Alpha - İstanbul</h2>
@@ -43,7 +43,7 @@ export default function Portfolio() {
             <img className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 bg-stone-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk_E3QLgcssJqOzesp8_LEjKSfDovAYp--I6N9zCM0wtnZNNWr-CG8X8hWsDiZIfnGQz9rT4_DXMxrCO2tnm_947PsXThz0YqjoZY1krdU5IANKf9J-jCscdywlTJ9v4INlv2-cF1YrYXoVdzc_V2BkEjwYHipm71s7hovnwM-QrTy_UVHkroAv2IqItGGsZCa-ru4nJgYs8axdVo40Ss8__gpFLRrzcDQtlMDUM3m1YQJjvSsCVZ-ttBm7UTmw4YiyrpKUXFwgFqX" alt="Club Nexus"/>
             <div className="absolute bottom-4 left-4 z-20 flex gap-2">
               <span className="bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-white tracking-widest uppercase">Canlı Müzik</span>
-              <span className="bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-[#ff3b5c] tracking-widest uppercase">2024</span>
+              <span className="bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-primary-container tracking-widest uppercase">2024</span>
             </div>
           </div>
           <h2 className="text-xl font-headline font-bold text-on-surface mb-2 uppercase tracking-tight group-hover:text-primary-container transition-colors">Club Nexus - İzmir</h2>
@@ -57,7 +57,7 @@ export default function Portfolio() {
             <img className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 bg-stone-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArxv5GwPul1r7NA1-7MCden8O_oOI3wyztszjpk49y-psbB63Ia7rAf7Thq_kuDYFqpDYlSLJMs1kwKUu37mX710WE1hLM-D55OLfS54vCL_NOE7xe23IOCOyce9q71B9sUhS4SBJKcJ-AVbaKVV3H9_HmNBaJj7xCZVsff4QuPfKotrnoUspOUkCCUTUfX0ku968glthhFOtvYkMQkrduujuu894zWzCL3gsKpZ07IED8-cm7PPU0AYXXapCtt9gsr94oMAD0UA6r" alt="Grand Auditorium"/>
             <div className="absolute bottom-4 left-4 z-20 flex gap-2">
               <span className="bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-white tracking-widest uppercase">Konferans</span>
-              <span className="bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-[#ff3b5c] tracking-widest uppercase">2023</span>
+              <span className="bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-primary-container tracking-widest uppercase">2023</span>
             </div>
           </div>
           <h2 className="text-xl font-headline font-bold text-on-surface mb-2 uppercase tracking-tight group-hover:text-primary-container transition-colors">Grand Auditorium - Ankara</h2>
@@ -80,7 +80,7 @@ export default function Portfolio() {
           {/* Featured - Restaurant Interior */}
           <div className="col-span-2 row-span-1 overflow-hidden rounded-xl aspect-[16/9] group relative">
             <img
-              src="/gallery/restaurant-interior.jpg"
+              src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80"
               alt="Restoran Ses Sistemi Kurulumu"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
@@ -93,7 +93,7 @@ export default function Portfolio() {
           {/* Vinyl Wall */}
           <div className="overflow-hidden rounded-xl aspect-[3/4] group relative row-span-2">
             <img
-              src="/gallery/vinyl-wall.jpg"
+              src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=900&q=80"
               alt="Vinil Koleksiyon Duvarı ve Hoparlör Sistemi"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
@@ -106,7 +106,7 @@ export default function Portfolio() {
           {/* VOID Speaker */}
           <div className="overflow-hidden rounded-xl aspect-square group relative">
             <img
-              src="/gallery/void-speaker.jpg"
+              src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80"
               alt="VOID Hoparlör Tavan Kurulumu"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
@@ -119,7 +119,7 @@ export default function Portfolio() {
           {/* Cafe Sonos */}
           <div className="overflow-hidden rounded-xl aspect-square group relative">
             <img
-              src="/gallery/cafe-speaker.jpg"
+              src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80"
               alt="Kafe Ses Sistemi Kurulumu"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
@@ -132,13 +132,39 @@ export default function Portfolio() {
           {/* Pioneer Speaker */}
           <div className="overflow-hidden rounded-xl aspect-square group relative">
             <img
-              src="/gallery/pioneer-wall.jpg"
+              src="https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?auto=format&fit=crop&w=900&q=80"
               alt="Pioneer Hoparlör Duvar Montajı"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
             <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               <span className="text-[10px] font-label text-white uppercase tracking-widest">Pioneer — Duvar Montajı</span>
+            </div>
+          </div>
+
+          {/* DJ Booth */}
+          <div className="overflow-hidden rounded-xl aspect-square group relative">
+            <img
+              src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="DJ Booth Ses Kurulumu"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="text-[10px] font-label text-white uppercase tracking-widest">DJ Booth — Ses Kurulumu</span>
+            </div>
+          </div>
+
+          {/* Rooftop Venue */}
+          <div className="overflow-hidden rounded-xl aspect-square group relative">
+            <img
+              src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=900&q=80"
+              alt="Rooftop Mekan Ses Sistemi"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="text-[10px] font-label text-white uppercase tracking-widest">Rooftop — Mekan Ses Sistemi</span>
             </div>
           </div>
         </div>
