@@ -119,7 +119,7 @@ export default function Portfolio() {
           {/* Cafe Sonos */}
           <div className="overflow-hidden rounded-xl aspect-square group relative">
             <img
-              src="https://images.unsplash.com/photo-1558089687-f282ffcbc0d4?auto=format&fit=crop&w=900&q=80"
+              src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80"
               alt="Kafe Ses Sistemi Kurulumu"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
@@ -139,6 +139,32 @@ export default function Portfolio() {
             <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
             <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               <span className="text-[10px] font-label text-white uppercase tracking-widest">Pioneer — Duvar Montajı</span>
+            </div>
+          </div>
+
+          {/* DJ Booth */}
+          <div className="overflow-hidden rounded-xl aspect-square group relative">
+            <img
+              src="https://images.unsplash.com/photo-1571266028243-d220c9f9cc0e?auto=format&fit=crop&w=900&q=80"
+              alt="DJ Booth Ses Kurulumu"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="text-[10px] font-label text-white uppercase tracking-widest">DJ Booth — Ses Kurulumu</span>
+            </div>
+          </div>
+
+          {/* Rooftop Venue */}
+          <div className="overflow-hidden rounded-xl aspect-square group relative">
+            <img
+              src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=900&q=80"
+              alt="Rooftop Mekan Ses Sistemi"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="text-[10px] font-label text-white uppercase tracking-widest">Rooftop — Mekan Ses Sistemi</span>
             </div>
           </div>
         </div>
