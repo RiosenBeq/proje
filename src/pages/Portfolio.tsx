@@ -80,7 +80,7 @@ export default function Portfolio() {
           {/* Featured - Restaurant Interior */}
           <div className="col-span-2 row-span-1 overflow-hidden rounded-xl aspect-[16/9] group relative">
             <img
-              src="/gallery/restaurant-interior.jpg"
+              src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80"
               alt="Restoran Ses Sistemi Kurulumu"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
@@ -93,7 +93,7 @@ export default function Portfolio() {
           {/* Vinyl Wall */}
           <div className="overflow-hidden rounded-xl aspect-[3/4] group relative row-span-2">
             <img
-              src="/gallery/vinyl-wall.jpg"
+              src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=900&q=80"
               alt="Vinil Koleksiyon Duvarı ve Hoparlör Sistemi"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
@@ -106,7 +106,7 @@ export default function Portfolio() {
           {/* VOID Speaker */}
           <div className="overflow-hidden rounded-xl aspect-square group relative">
             <img
-              src="/gallery/void-speaker.jpg"
+              src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80"
               alt="VOID Hoparlör Tavan Kurulumu"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
@@ -119,7 +119,7 @@ export default function Portfolio() {
           {/* Cafe Sonos */}
           <div className="overflow-hidden rounded-xl aspect-square group relative">
             <img
-              src="/gallery/cafe-speaker.jpg"
+              src="https://images.unsplash.com/photo-1558089687-f282ffcbc0d4?auto=format&fit=crop&w=900&q=80"
               alt="Kafe Ses Sistemi Kurulumu"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
@@ -132,7 +132,7 @@ export default function Portfolio() {
           {/* Pioneer Speaker */}
           <div className="overflow-hidden rounded-xl aspect-square group relative">
             <img
-              src="/gallery/pioneer-wall.jpg"
+              src="https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?auto=format&fit=crop&w=900&q=80"
               alt="Pioneer Hoparlör Duvar Montajı"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-stone-200"
             />
