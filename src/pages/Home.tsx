@@ -1,7 +1,59 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { useEffect } from 'react';
+
+const marqueeImages = [
+  {
+    src: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    alt: 'Neytin konsept duvar aydınlatması',
+  },
+  {
+    src: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    alt: 'Restoran iç mekan ses sistemi kurulumu',
+  },
+  {
+    src: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    alt: 'Gece ambiyansında hoparlör yakın plan',
+  },
+  {
+    src: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    alt: 'Vinyl duvar ve ses kurulum detayları',
+  },
+  {
+    src: 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    alt: 'Tavan montaj beyaz hoparlör kurulumu',
+  },
+];
 
 export default function Home() {
+  useEffect(() => {
+    document.title = 'On Music | Akustik Tasarım ve Profesyonel Ses Sistemleri';
+
+    const updateMeta = (name: string, content: string, isProperty = false) => {
+      const selector = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+      let tag = document.head.querySelector(selector) as HTMLMetaElement | null;
+      if (!tag) {
+        tag = document.createElement('meta');
+        if (isProperty) tag.setAttribute('property', name);
+        else tag.setAttribute('name', name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', content);
+    };
+
+    updateMeta(
+      'description',
+      "On Music; İstanbul merkezli profesyonel akustik tasarım, line array ses sistemleri, mekan seslendirme ve teknik kalibrasyon hizmetleri sunar.",
+    );
+    updateMeta('keywords', 'akustik tasarım, profesyonel ses sistemi, line array, dante network, istanbul ses sistemi');
+    updateMeta('og:title', 'On Music | Mükemmel Sesin Mühendisliği', true);
+    updateMeta(
+      'og:description',
+      'Stüdyo, restoran, konser mekanı ve kurumsal projelerde uçtan uca ses mühendisliği çözümleri.',
+      true,
+    );
+  }, []);
+
   return (
     <motion.main
       initial={{ opacity: 0, y: 20 }}
@@ -35,6 +87,26 @@ export default function Home() {
             <button className="border border-white/30 text-white px-8 py-3.5 font-label text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all backdrop-blur-sm">
               Teknik Katalog
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Moving Gallery Strip */}
+      <section className="py-14 border-y border-stone-200 bg-background">
+        <div className="px-6 lg:px-24 mb-6">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface uppercase tracking-tight">Proje Galerisi</h2>
+          <p className="text-on-surface-variant mt-3 max-w-2xl">
+            Mekânların akustik karakterini dönüştürdüğümüz uygulamalardan seçilen görseller. Galeri sürekli akış halinde
+            yeni referans projeleri sergiler.
+          </p>
+        </div>
+        <div className="marquee-wrapper">
+          <div className="marquee-track">
+            {[...marqueeImages, ...marqueeImages].map((image, index) => (
+              <div key={`${image.src}-${index}`} className="w-[320px] md:w-[420px] h-[220px] md:h-[260px] rounded-xl overflow-hidden border border-stone-200 bg-surface-container-low shrink-0">
+                <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -151,6 +223,99 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SEO Rich Content Block */}
+      <section className="px-6 lg:px-24 py-20 bg-background">
+        <div className="max-w-5xl">
+          <span className="font-label text-primary text-xs tracking-[0.35em] uppercase">Akustik ve Ses Mühendisliği</span>
+          <h2 className="mt-4 font-headline text-3xl md:text-5xl font-bold text-on-surface tracking-tight uppercase">
+            İstanbul’dan Türkiye Geneline <br /> Profesyonel Ses Altyapısı
+          </h2>
+          <p className="mt-6 text-on-surface-variant leading-relaxed">
+            On Music; restoran, kafe, otel, canlı performans sahnesi, konferans salonu ve kurumsal alanlar için
+            akustik tasarım, ses sistemi keşfi, cihaz konumlandırma, DSP ayarı ve periyodik teknik bakım hizmetlerini
+            tek çatı altında sunar. Her proje için hedefimiz; net konuşma anlaşılabilirliği, dengeli frekans dağılımı ve
+            uzun ömürlü sistem performansıdır.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+            <article className="border border-stone-200 rounded-xl p-6 bg-surface-container-low">
+              <h3 className="font-headline text-xl uppercase mb-3">Hizmet Kapsamı</h3>
+              <ul className="space-y-2 text-sm text-on-surface-variant">
+                <li>• Mekân akustik analizi ve RT60 optimizasyonu</li>
+                <li>• Ses sistemi projelendirme ve ürün seçimi</li>
+                <li>• DSP, EQ, crossover ve gain staging kalibrasyonu</li>
+                <li>• Dante / network tabanlı ses altyapısı kurulumu</li>
+              </ul>
+            </article>
+            <article className="border border-stone-200 rounded-xl p-6 bg-surface-container-low">
+              <h3 className="font-headline text-xl uppercase mb-3">Neden On Music?</h3>
+              <ul className="space-y-2 text-sm text-on-surface-variant">
+                <li>• Uygulamaya özel mühendislik yaklaşımı</li>
+                <li>• Yerinde keşif ve performans odaklı kurulum</li>
+                <li>• Marka bağımsız teknik danışmanlık</li>
+                <li>• Proje sonrası bakım ve teknik destek</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-6 lg:px-24 pb-24">
+        <div className="max-w-4xl">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface uppercase tracking-tight">Sık Sorulan Sorular</h2>
+          <div className="mt-8 space-y-4">
+            <details className="bg-surface-container-low border border-stone-200 rounded-xl p-5">
+              <summary className="cursor-pointer font-headline text-on-surface uppercase">Ses sistemi kurulumu ne kadar sürer?</summary>
+              <p className="mt-3 text-sm text-on-surface-variant">Proje ölçeğine göre değişmekle birlikte orta ölçekli mekân kurulumları genellikle 1-3 gün içinde tamamlanır.</p>
+            </details>
+            <details className="bg-surface-container-low border border-stone-200 rounded-xl p-5">
+              <summary className="cursor-pointer font-headline text-on-surface uppercase">Akustik ölçüm hizmeti veriyor musunuz?</summary>
+              <p className="mt-3 text-sm text-on-surface-variant">Evet. RT60, frekans tepkisi, yankı kontrolü ve konuşma anlaşılırlığı ölçümleriyle raporlu hizmet sunuyoruz.</p>
+            </details>
+            <details className="bg-surface-container-low border border-stone-200 rounded-xl p-5">
+              <summary className="cursor-pointer font-headline text-on-surface uppercase">İstanbul dışına hizmet var mı?</summary>
+              <p className="mt-3 text-sm text-on-surface-variant">İstanbul merkezli çalışıyoruz ancak Türkiye genelinde proje bazlı keşif, kurulum ve devreye alma hizmeti sağlıyoruz.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'Ses sistemi kurulumu ne kadar sürer?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Proje ölçeğine göre değişmekle birlikte orta ölçekli mekân kurulumları genellikle 1-3 gün içinde tamamlanır.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Akustik ölçüm hizmeti veriyor musunuz?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'RT60, frekans tepkisi, yankı kontrolü ve konuşma anlaşılırlığı ölçümleriyle raporlu hizmet sunuyoruz.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'İstanbul dışına hizmet var mı?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'İstanbul merkezli çalışıyoruz ancak Türkiye genelinde proje bazlı keşif, kurulum ve devreye alma hizmeti sağlıyoruz.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
     </motion.main>
   );
 }
