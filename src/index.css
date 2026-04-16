@@ -3,8 +3,8 @@
 @theme {
   --color-background: #f7f4f0;
   --color-on-background: #1c1a1b;
-  --color-primary: #b41538;
-  --color-primary-container: #d61f4b;
+  --color-primary: #d71935;
+  --color-primary-container: #ff304f;
   --color-on-primary-container: #ffffff;
   --color-surface: #f7f4f0;
   --color-on-surface: #1c1a1b;
@@ -34,7 +34,7 @@
 }
 
 .museum-label {
-  border-left: 2px solid rgba(214, 31, 75, 0.35);
+  border-left: 2px solid rgba(255, 48, 79, 0.35);
 }
 
 .writing-mode-vertical {
