@@ -8,9 +8,9 @@ export default function Layout() {
         <Link to="/" className="flex items-center gap-2 flex-shrink-0">
           <svg viewBox="0 0 180 50" className="h-8 lg:h-10" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(5, 5)">
-              <circle cx="20" cy="20" r="20" fill="#b11235" />
+              <circle cx="20" cy="20" r="20" fill="#d61f4b" />
               <circle cx="20" cy="20" r="7" fill="#ffffff" />
-              <circle cx="20" cy="20" r="2" fill="#b11235" />
+              <circle cx="20" cy="20" r="2" fill="#d61f4b" />
               <path d="M 38 0 L 38 12 L 28 22" stroke="#ffffff" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
               <rect x="25" y="20" width="6" height="10" fill="#ffffff" rx="1.5" transform="rotate(45 28 22)" />
             </g>
@@ -62,9 +62,9 @@ export default function Layout() {
           <div className="mb-6">
             <svg viewBox="0 0 180 50" className="h-8" xmlns="http://www.w3.org/2000/svg">
               <g transform="translate(5, 5)">
-                <circle cx="20" cy="20" r="20" fill="#b11235" />
+                <circle cx="20" cy="20" r="20" fill="#d61f4b" />
                 <circle cx="20" cy="20" r="7" fill="#ffffff" />
-                <circle cx="20" cy="20" r="2" fill="#b11235" />
+                <circle cx="20" cy="20" r="2" fill="#d61f4b" />
                 <path d="M 38 0 L 38 12 L 28 22" stroke="#ffffff" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
                 <rect x="25" y="20" width="6" height="10" fill="#ffffff" rx="1.5" transform="rotate(45 28 22)" />
               </g>

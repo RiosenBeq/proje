@@ -13,8 +13,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-[620px] md:min-h-[780px] flex items-center px-6 lg:px-24 overflow-hidden py-24 md:py-32">
         <div className="absolute inset-0 z-0">
-          <img alt="Professional Studio Console" className="w-full h-full object-cover opacity-50 grayscale contrast-125 scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Isf7r8KlNMiLJeaGlwNe6w6nKaFXvUM3BGdkp5gR1SU_Nlfks76_14kB2U3xijSTwRrXFHou2a84mVf5068BZQr1kywJbUEoLH0ql2NMRcpcSXpIgEjglD_fd6oAU7OhcXxYy8klEYWJDRtUh5kZwGqa43EOq-wgmfH7-KUKTMbE5slClRksAQo-42z9adAIT0docfiJBoKIhNQGYM3Kexv7BnG0zavqim16F3KBVsAygW9vbFbYasrZWKSJG-XHSmWX4ZiaWOiI"/>
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/95 via-stone-900/75 to-stone-900/20"></div>
+          <img alt="Modern mixing studio with warm ambient lights" className="w-full h-full object-cover opacity-75 contrast-110 scale-105" src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=2200&q=80"/>
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 via-stone-900/45 to-stone-900/15"></div>
           <div className="absolute inset-0 noise-texture pointer-events-none"></div>
         </div>
         <div className="relative z-10 max-w-3xl">
