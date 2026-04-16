@@ -68,14 +68,14 @@ export default function Contact() {
                 <span className="material-symbols-outlined text-primary-container mt-1">location_on</span>
                 <div>
                   <div className="text-[10px] font-label text-white/40 uppercase tracking-widest mb-1">Adres</div>
-                  <p className="text-white font-body text-sm leading-relaxed">Teknoloji Geliştirme Bölgesi<br/>Ar-Ge Binası No: 42<br/>34000 İstanbul, Türkiye</p>
+                  <p className="text-white font-body text-sm leading-relaxed">Atatürk Mahallesi Ataşehir Bulvarı, Ertuğrul,<br/>Gazi Sokak, 34758 Ataşehir/İstanbul, Türkiye</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <span className="material-symbols-outlined text-primary-container mt-1">call</span>
                 <div>
                   <div className="text-[10px] font-label text-white/40 uppercase tracking-widest mb-1">Telefon</div>
-                  <p className="text-white font-body text-sm leading-relaxed">+90 (212) 555 01 23</p>
+                  <p className="text-white font-body text-sm leading-relaxed">0850 241 9515</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
