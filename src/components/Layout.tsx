@@ -8,9 +8,9 @@ export default function Layout() {
         <Link to="/" className="flex items-center gap-2 flex-shrink-0">
           <svg viewBox="0 0 180 50" className="h-8 lg:h-10" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(5, 5)">
-              <circle cx="20" cy="20" r="20" fill="#ff3b5c" />
+              <circle cx="20" cy="20" r="20" fill="#ff304f" />
               <circle cx="20" cy="20" r="7" fill="#ffffff" />
-              <circle cx="20" cy="20" r="2" fill="#ff3b5c" />
+              <circle cx="20" cy="20" r="2" fill="#ff304f" />
               <path d="M 38 0 L 38 12 L 28 22" stroke="#ffffff" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
               <rect x="25" y="20" width="6" height="10" fill="#ffffff" rx="1.5" transform="rotate(45 28 22)" />
             </g>
@@ -18,10 +18,10 @@ export default function Layout() {
           </svg>
         </Link>
         <nav className="hidden md:flex items-center gap-8 lg:gap-12 font-['Space_Grotesk'] tracking-widest uppercase text-sm">
-          <NavLink to="/" end className={({isActive}) => isActive ? "text-[#ff3b5c] border-b-2 border-[#ff3b5c] pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>Ana Sayfa</NavLink>
-          <NavLink to="/hizmetler" className={({isActive}) => isActive ? "text-[#ff3b5c] border-b-2 border-[#ff3b5c] pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>Hizmetler</NavLink>
-          <NavLink to="/portfolyo" className={({isActive}) => isActive ? "text-[#ff3b5c] border-b-2 border-[#ff3b5c] pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>Portfolyo</NavLink>
-          <NavLink to="/iletisim" className={({isActive}) => isActive ? "text-[#ff3b5c] border-b-2 border-[#ff3b5c] pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>İletişim</NavLink>
+          <NavLink to="/" end className={({isActive}) => isActive ? "text-primary-container border-b-2 border-primary-container pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>Ana Sayfa</NavLink>
+          <NavLink to="/hizmetler" className={({isActive}) => isActive ? "text-primary-container border-b-2 border-primary-container pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>Hizmetler</NavLink>
+          <NavLink to="/portfolyo" className={({isActive}) => isActive ? "text-primary-container border-b-2 border-primary-container pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>Portfolyo</NavLink>
+          <NavLink to="/iletisim" className={({isActive}) => isActive ? "text-primary-container border-b-2 border-primary-container pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>İletişim</NavLink>
         </nav>
         <Link to="/iletisim" className="bg-primary-container text-on-primary-container px-5 lg:px-6 py-2 rounded-lg font-headline text-xs lg:text-sm font-bold uppercase tracking-widest transition-all hover:brightness-110 active:scale-95">Teklif Al</Link>
       </header>
@@ -30,16 +30,16 @@ export default function Layout() {
       <aside className="fixed right-0 top-0 h-full flex-col items-center py-24 z-40 bg-[#ede9e3]/95 backdrop-blur-2xl border-l border-stone-200 w-20 hidden lg:flex font-['Space_Grotesk'] text-[10px] font-light uppercase">
         <div className="mb-12 flex flex-col items-center gap-2">
           <div className="w-1 h-12 bg-gradient-to-b from-primary-container to-transparent"></div>
-          <span className="text-[#ff3b5c] font-mono text-[10px] origin-center -rotate-90 whitespace-nowrap tracking-widest">ENGINE STATUS</span>
+          <span className="text-primary-container font-mono text-[10px] origin-center -rotate-90 whitespace-nowrap tracking-widest">ENGINE STATUS</span>
         </div>
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-center gap-2 group cursor-help" title="96kHz Native Processing">
-            <span className="material-symbols-outlined text-[#ff3b5c] text-xl">graphic_eq</span>
+            <span className="material-symbols-outlined text-primary-container text-xl">graphic_eq</span>
             <span className="font-label text-[9px] text-stone-400 uppercase tracking-tighter vertical-text">96kHz</span>
           </div>
-          <div className="flex flex-col items-center gap-2 bg-[#ff3b5c]/10 p-2 border-r-2 border-[#ff3b5c]" title="Active Monitoring">
-            <span className="material-symbols-outlined text-[#ff3b5c] text-xl">settings_input_component</span>
-            <span className="font-label text-[9px] text-[#ff3b5c] uppercase tracking-tighter vertical-text">INDEX</span>
+          <div className="flex flex-col items-center gap-2 bg-primary-container/10 p-2 border-r-2 border-primary-container" title="Active Monitoring">
+            <span className="material-symbols-outlined text-primary-container text-xl">settings_input_component</span>
+            <span className="font-label text-[9px] text-primary-container uppercase tracking-tighter vertical-text">INDEX</span>
           </div>
           <div className="flex flex-col items-center gap-2 text-stone-400 hover:text-stone-600 transition-all duration-500 ease-out">
             <span className="material-symbols-outlined text-xl">memory</span>
@@ -62,9 +62,9 @@ export default function Layout() {
           <div className="mb-6">
             <svg viewBox="0 0 180 50" className="h-8" xmlns="http://www.w3.org/2000/svg">
               <g transform="translate(5, 5)">
-                <circle cx="20" cy="20" r="20" fill="#ff3b5c" />
+                <circle cx="20" cy="20" r="20" fill="#ff304f" />
                 <circle cx="20" cy="20" r="7" fill="#ffffff" />
-                <circle cx="20" cy="20" r="2" fill="#ff3b5c" />
+                <circle cx="20" cy="20" r="2" fill="#ff304f" />
                 <path d="M 38 0 L 38 12 L 28 22" stroke="#ffffff" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
                 <rect x="25" y="20" width="6" height="10" fill="#ffffff" rx="1.5" transform="rotate(45 28 22)" />
               </g>
@@ -78,20 +78,20 @@ export default function Layout() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
           <div className="flex flex-col gap-4">
             <span className="text-[10px] font-label text-primary uppercase tracking-widest">Kurumsal</span>
-            <Link to="/" className="font-body text-xs text-stone-500 hover:text-[#ff3b5c] transition-colors">Biz Kimiz?</Link>
-            <Link to="/" className="font-body text-xs text-stone-500 hover:text-[#ff3b5c] transition-colors">Çözüm Ortakları</Link>
-            <Link to="/" className="font-body text-xs text-stone-500 hover:text-[#ff3b5c] transition-colors">Kariyer</Link>
+            <Link to="/" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Biz Kimiz?</Link>
+            <Link to="/" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Çözüm Ortakları</Link>
+            <Link to="/" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Kariyer</Link>
           </div>
           <div className="flex flex-col gap-4">
             <span className="text-[10px] font-label text-primary uppercase tracking-widest">Hizmetler</span>
-            <Link to="/hizmetler" className="font-body text-xs text-stone-500 hover:text-[#ff3b5c] transition-colors">Stüdyo Akustiği</Link>
-            <Link to="/hizmetler" className="font-body text-xs text-stone-500 hover:text-[#ff3b5c] transition-colors">PA Sistemleri</Link>
-            <Link to="/hizmetler" className="font-body text-xs text-stone-500 hover:text-[#ff3b5c] transition-colors">Kalibrasyon</Link>
+            <Link to="/hizmetler" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Stüdyo Akustiği</Link>
+            <Link to="/hizmetler" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">PA Sistemleri</Link>
+            <Link to="/hizmetler" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Kalibrasyon</Link>
           </div>
           <div className="flex flex-col gap-4 col-span-2 md:col-span-1">
             <span className="text-[10px] font-label text-primary uppercase tracking-widest">Yasal</span>
-            <Link to="/" className="font-body text-xs text-stone-500 hover:text-[#ff3b5c] transition-colors">Gizlilik Politikası</Link>
-            <Link to="/" className="font-body text-xs text-stone-500 hover:text-[#ff3b5c] transition-colors">KVKK</Link>
+            <Link to="/gizlilik-politikasi" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Gizlilik Politikası</Link>
+            <Link to="/kvkk" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">KVKK</Link>
           </div>
         </div>
       </footer>

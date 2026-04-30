@@ -30,7 +30,7 @@ export default function Services() {
             <div className="relative grid md:grid-cols-5 gap-8">
               <div className="md:col-span-2 overflow-hidden rounded-xl aspect-[4/5] relative">
                 <img className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 bg-stone-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArxv5GwPul1r7NA1-7MCden8O_oOI3wyztszjpk49y-psbB63Ia7rAf7Thq_kuDYFqpDYlSLJMs1kwKUu37mX710WE1hLM-D55OLfS54vCL_NOE7xe23IOCOyce9q71B9sUhS4SBJKcJ-AVbaKVV3H9_HmNBaJj7xCZVsff4QuPfKotrnoUspOUkCCUTUfX0ku968glthhFOtvYkMQkrduujuu894zWzCL3gsKpZ07IED8-cm7PPU0AYXXapCtt9gsr94oMAD0UA6r" alt="Acoustic Design"/>
-                <div className="absolute top-4 left-4 bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-[#ff3b5c] tracking-widest uppercase">ID: AT-01</div>
+                <div className="absolute top-4 left-4 bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-primary-container tracking-widest uppercase">ID: AT-01</div>
               </div>
               <div className="md:col-span-3 flex flex-col">
                 <h2 className="text-2xl font-headline font-bold text-on-surface mb-4 uppercase tracking-tight">Akustik Tasarım</h2>
@@ -61,7 +61,7 @@ export default function Services() {
             <div className="relative grid md:grid-cols-5 gap-8">
               <div className="md:col-span-2 overflow-hidden rounded-xl aspect-[4/5] relative">
                 <img className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 bg-stone-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk_E3QLgcssJqOzesp8_LEjKSfDovAYp--I6N9zCM0wtnZNNWr-CG8X8hWsDiZIfnGQz9rT4_DXMxrCO2tnm_947PsXThz0YqjoZY1krdU5IANKf9J-jCscdywlTJ9v4INlv2-cF1YrYXoVdzc_V2BkEjwYHipm71s7hovnwM-QrTy_UVHkroAv2IqItGGsZCa-ru4nJgYs8axdVo40Ss8__gpFLRrzcDQtlMDUM3m1YQJjvSsCVZ-ttBm7UTmw4YiyrpKUXFwgFqX" alt="Professional Audio"/>
-                <div className="absolute top-4 left-4 bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-[#ff3b5c] tracking-widest uppercase">ID: PS-04</div>
+                <div className="absolute top-4 left-4 bg-stone-950/75 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-primary-container tracking-widest uppercase">ID: PS-04</div>
               </div>
               <div className="md:col-span-3 flex flex-col">
                 <div className="flex items-center gap-3 mb-2">
