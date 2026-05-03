@@ -1,120 +1,153 @@
-import { NavLink, Outlet, Link } from 'react-router-dom';
+import { NavLink, Outlet, Link, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+const NAV = [
+  { to: '/', label: 'Anasayfa', end: true },
+  { to: '/hizmetler', label: 'Hizmetler' },
+  { to: '/portfolyo', label: 'Projeler' },
+  { to: '/iletisim', label: 'İletişim' },
+];
+
+function BrandLockup({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
+  const src = tone === 'light' ? '/assets/on-music-logo-light.png' : '/assets/on-music-logo-dark.png';
+  return (
+    <span className="brand-lockup">
+      <img src={src} alt="On Music" className="brand-logo" />
+      <small className="brand-suffix">PROJE</small>
+    </span>
+  );
+}
 
 export default function Layout() {
+  const [drawer, setDrawer] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => { setDrawer(false); }, [location.pathname]);
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [location.pathname]);
+
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden">
-      {/* Top Navigation Bar */}
-      <header className="fixed top-0 w-full flex justify-between items-center px-6 lg:px-8 py-4 bg-[#f7f4f0]/95 backdrop-blur-xl z-50 border-b border-stone-200 shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
-        <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-          <svg viewBox="0 0 180 50" className="h-8 lg:h-10" xmlns="http://www.w3.org/2000/svg">
-            <g transform="translate(5, 5)">
-              <circle cx="20" cy="20" r="20" fill="#ff304f" />
-              <circle cx="20" cy="20" r="7" fill="#ffffff" />
-              <circle cx="20" cy="20" r="2" fill="#ff304f" />
-              <path d="M 38 0 L 38 12 L 28 22" stroke="#ffffff" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-              <rect x="25" y="20" width="6" height="10" fill="#ffffff" rx="1.5" transform="rotate(45 28 22)" />
-            </g>
-            <text x="55" y="36" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="34" fill="#1c1a1b" letterSpacing="-0.03em">n music</text>
-          </svg>
-        </Link>
-        <nav className="hidden md:flex items-center gap-8 lg:gap-12 font-['Space_Grotesk'] tracking-widest uppercase text-sm">
-          <NavLink to="/" end className={({isActive}) => isActive ? "text-primary-container border-b-2 border-primary-container pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>Ana Sayfa</NavLink>
-          <NavLink to="/hizmetler" className={({isActive}) => isActive ? "text-primary-container border-b-2 border-primary-container pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>Hizmetler</NavLink>
-          <NavLink to="/portfolyo" className={({isActive}) => isActive ? "text-primary-container border-b-2 border-primary-container pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>Portfolyo</NavLink>
-          <NavLink to="/iletisim" className={({isActive}) => isActive ? "text-primary-container border-b-2 border-primary-container pb-1" : "text-stone-500 hover:text-stone-900 transition-colors"}>İletişim</NavLink>
-        </nav>
-        <Link to="/iletisim" className="bg-primary-container text-on-primary-container px-5 lg:px-6 py-2 rounded-lg font-headline text-xs lg:text-sm font-bold uppercase tracking-widest transition-all hover:brightness-110 active:scale-95">Teklif Al</Link>
+    <>
+      <header className="site-header">
+        <div className="container nav">
+          <Link to="/" className="brand" aria-label="On Music Proje">
+            <BrandLockup />
+          </Link>
+          <nav className="nav-links">
+            {NAV.map((n) => (
+              <NavLink key={n.to} to={n.to} end={n.end} className={({ isActive }) => (isActive ? 'active' : '')}>
+                {n.label}
+              </NavLink>
+            ))}
+          </nav>
+          <div className="nav-actions">
+            <span className="nav-tel"><span className="pulse" />+90 212 000 00 00</span>
+            <Link to="/iletisim" className="btn btn-red">Teklif Al <span className="arrow" /></Link>
+            <button className="hamburger" aria-label="Menü" onClick={() => setDrawer((d) => !d)}>
+              <span />
+            </button>
+          </div>
+        </div>
       </header>
 
-      {/* Side Audio Engine Bar (Right) */}
-      <aside className="fixed right-0 top-0 h-full flex-col items-center py-24 z-40 bg-[#ede9e3]/95 backdrop-blur-2xl border-l border-stone-200 w-20 hidden lg:flex font-['Space_Grotesk'] text-[10px] font-light uppercase">
-        <div className="mb-12 flex flex-col items-center gap-2">
-          <div className="w-1 h-12 bg-gradient-to-b from-primary-container to-transparent"></div>
-          <span className="text-primary-container font-mono text-[10px] origin-center -rotate-90 whitespace-nowrap tracking-widest">ENGINE STATUS</span>
+      {drawer && (
+        <div className="mobile-drawer" role="dialog" aria-label="Mobil menü">
+          <span className="m-tel"><span className="pulse" />+90 212 000 00 00</span>
+          <nav>
+            {NAV.map((n) => (
+              <NavLink key={n.to} to={n.to} end={n.end} className={({ isActive }) => (isActive ? 'active' : '')}>
+                {n.label}
+              </NavLink>
+            ))}
+            <NavLink to="/gizlilik-politikasi" className={({ isActive }) => (isActive ? 'active' : '')}>Gizlilik</NavLink>
+            <NavLink to="/kvkk" className={({ isActive }) => (isActive ? 'active' : '')}>KVKK</NavLink>
+          </nav>
+          <Link to="/iletisim" className="btn btn-red">Keşif Talep Et <span className="arrow" /></Link>
         </div>
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-col items-center gap-2 group cursor-help" title="96kHz Native Processing">
-            <span className="material-symbols-outlined text-primary-container text-xl">graphic_eq</span>
-            <span className="font-label text-[9px] text-stone-400 uppercase tracking-tighter vertical-text">96kHz</span>
-          </div>
-          <div className="flex flex-col items-center gap-2 bg-primary-container/10 p-2 border-r-2 border-primary-container" title="Active Monitoring">
-            <span className="material-symbols-outlined text-primary-container text-xl">settings_input_component</span>
-            <span className="font-label text-[9px] text-primary-container uppercase tracking-tighter vertical-text">INDEX</span>
-          </div>
-          <div className="flex flex-col items-center gap-2 text-stone-400 hover:text-stone-600 transition-all duration-500 ease-out">
-            <span className="material-symbols-outlined text-xl">memory</span>
-            <span className="font-label text-[9px] uppercase tracking-tighter vertical-text">64spls</span>
-          </div>
-          <div className="flex flex-col items-center gap-2 text-stone-400 hover:text-stone-600 transition-all duration-500 ease-out">
-            <span className="material-symbols-outlined text-xl">timer</span>
-            <span className="font-label text-[9px] uppercase tracking-tighter vertical-text">1.2ms</span>
-          </div>
-        </div>
-      </aside>
+      )}
 
-      <div className="flex-1 flex flex-col">
+      <main>
         <Outlet />
-      </div>
+      </main>
 
-      {/* Footer */}
-      <footer className="w-full bg-[#ede9e3] py-12 px-6 lg:px-24 border-t border-stone-200 flex flex-col md:flex-row justify-between items-start gap-8 mt-auto z-10 relative pb-24 md:pb-12">
-        <div className="max-w-xs">
-          <div className="mb-6">
-            <svg viewBox="0 0 180 50" className="h-8" xmlns="http://www.w3.org/2000/svg">
-              <g transform="translate(5, 5)">
-                <circle cx="20" cy="20" r="20" fill="#ff304f" />
-                <circle cx="20" cy="20" r="7" fill="#ffffff" />
-                <circle cx="20" cy="20" r="2" fill="#ff304f" />
-                <path d="M 38 0 L 38 12 L 28 22" stroke="#ffffff" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                <rect x="25" y="20" width="6" height="10" fill="#ffffff" rx="1.5" transform="rotate(45 28 22)" />
-              </g>
-              <text x="55" y="36" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="34" fill="#1c1a1b" letterSpacing="-0.03em">n music</text>
-            </svg>
+      <footer className="footer">
+        <div className="container">
+          <div className="foot-cta">
+            <div>
+              <span className="eyebrow" style={{ color: 'rgba(245,239,224,0.6)' }}>
+                <span className="bar" style={{ background: 'rgba(245,239,224,0.4)' }} />BAŞLAYALIM
+              </span>
+              <h3>Bir sonraki proje için<br /><em>mühendislik tarafı</em> hazır.</h3>
+            </div>
+            <Link to="/iletisim" className="btn btn-on-stage">Keşif Talep Et <span className="arrow" /></Link>
           </div>
-          <p className="font-body text-xs tracking-normal text-stone-500 leading-relaxed">
-            © 2024 On Music. Sonic Excellence through Engineering. Akustik ve ses sistemlerinde yarının teknolojisini bugünden tasarlıyoruz.
-          </p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
-          <div className="flex flex-col gap-4">
-            <span className="text-[10px] font-label text-primary uppercase tracking-widest">Kurumsal</span>
-            <Link to="/" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Biz Kimiz?</Link>
-            <Link to="/" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Çözüm Ortakları</Link>
-            <Link to="/" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Kariyer</Link>
+          <div className="foot-grid">
+            <div className="foot-brand">
+              <BrandLockup tone="light" />
+              <p>İstanbul merkezli, 16 yıllık akustik ve ses mühendisliği stüdyosu. Türkiye genelinde proje teslim ediyoruz.</p>
+            </div>
+            <div>
+              <h6>DİSİPLİNLER</h6>
+              <ul>
+                <li><Link to="/hizmetler">Akustik Tasarım</Link></li>
+                <li><Link to="/hizmetler">Ses Sistemi</Link></li>
+                <li><Link to="/hizmetler">Stüdyo</Link></li>
+                <li><Link to="/hizmetler">LED & Video</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h6>MEKÂNLAR</h6>
+              <ul>
+                <li><Link to="/hizmetler">Restoran</Link></li>
+                <li><Link to="/hizmetler">Otel</Link></li>
+                <li><Link to="/hizmetler">Sahne</Link></li>
+                <li><Link to="/hizmetler">Stüdyo</Link></li>
+                <li><Link to="/hizmetler">Konferans</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h6>ŞİRKET</h6>
+              <ul>
+                <li><Link to="/portfolyo">Projeler</Link></li>
+                <li><Link to="/iletisim">İletişim</Link></li>
+                <li><Link to="/gizlilik-politikasi">Gizlilik</Link></li>
+                <li><Link to="/kvkk">KVKK</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h6>İLETİŞİM</h6>
+              <ul>
+                <li><a href="tel:+902120000000">+90 212 000 00 00</a></li>
+                <li><a href="mailto:info@onmuzikproje.com">info@onmuzikproje.com</a></li>
+                <li><span>İstanbul, Türkiye</span></li>
+              </ul>
+            </div>
           </div>
-          <div className="flex flex-col gap-4">
-            <span className="text-[10px] font-label text-primary uppercase tracking-widest">Hizmetler</span>
-            <Link to="/hizmetler" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Stüdyo Akustiği</Link>
-            <Link to="/hizmetler" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">PA Sistemleri</Link>
-            <Link to="/hizmetler" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Kalibrasyon</Link>
-          </div>
-          <div className="flex flex-col gap-4 col-span-2 md:col-span-1">
-            <span className="text-[10px] font-label text-primary uppercase tracking-widest">Yasal</span>
-            <Link to="/gizlilik-politikasi" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">Gizlilik Politikası</Link>
-            <Link to="/kvkk" className="font-body text-xs text-stone-500 hover:text-primary-container transition-colors">KVKK</Link>
+          <div className="foot-meta">
+            <span>© 2026 ON MUZIK PROJE</span>
+            <span>
+              <Link to="/kvkk">KVKK</Link> · <Link to="/gizlilik-politikasi">GİZLİLİK</Link> · ÇEREZ POLİTİKASI
+            </span>
           </div>
         </div>
       </footer>
 
-      {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-0 w-full bg-[#f7f4f0]/95 backdrop-blur-xl border-t border-stone-200 flex justify-around items-center py-3 z-50 shadow-[0_-2px_12px_rgba(0,0,0,0.06)]">
-        <Link to="/" className="flex flex-col items-center gap-1 text-primary-container">
-          <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>home</span>
-          <span className="font-label text-[10px] uppercase text-primary-container">Ana Sayfa</span>
-        </Link>
-        <Link to="/hizmetler" className="flex flex-col items-center gap-1 text-stone-400">
-          <span className="material-symbols-outlined">grid_view</span>
-          <span className="font-label text-[10px] uppercase">Hizmetler</span>
-        </Link>
-        <Link to="/portfolyo" className="flex flex-col items-center gap-1 text-stone-400">
-          <span className="material-symbols-outlined">photo_library</span>
-          <span className="font-label text-[10px] uppercase">Portfolyo</span>
-        </Link>
-        <Link to="/iletisim" className="flex flex-col items-center gap-1 text-stone-400">
-          <span className="material-symbols-outlined">mail</span>
-          <span className="font-label text-[10px] uppercase">İletişim</span>
-        </Link>
-      </nav>
-    </div>
+      <div className="sticky-cta">
+        <Link to="/iletisim" className="btn btn-red">Teklif Al <span className="arrow" /></Link>
+        <a href="tel:+902120000000" className="btn btn-ghost">Ara</a>
+      </div>
+    </>
   );
 }

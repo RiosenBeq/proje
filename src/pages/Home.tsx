@@ -1,321 +1,684 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import { useEffect } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 
-const marqueeImages = [
-  {
-    src: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    alt: 'Neytin konsept duvar aydınlatması',
-  },
-  {
-    src: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    alt: 'Restoran iç mekan ses sistemi kurulumu',
-  },
-  {
-    src: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    alt: 'Gece ambiyansında hoparlör yakın plan',
-  },
-  {
-    src: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    alt: 'Vinyl duvar ve ses kurulum detayları',
-  },
-  {
-    src: 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    alt: 'Tavan montaj beyaz hoparlör kurulumu',
-  },
+/* ===== Hero Vinyl SVG (logo style) ===== */
+function HeroVinyl() {
+  return (
+    <svg className="hv-vinyl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <defs>
+        <clipPath id="discClip">
+          <circle cx="100" cy="100" r="88" />
+        </clipPath>
+      </defs>
+      <circle cx="100" cy="100" r="94" fill="rgba(232,65,43,0.08)" />
+      <circle cx="100" cy="100" r="88" className="hv-v-outer" />
+      <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(0,0,0,0.10)" strokeWidth="0.6" />
+
+      <g className="hv-v-spin" clipPath="url(#discClip)">
+        {[80, 72, 64, 56, 48, 40, 32].map((r) => (
+          <circle key={r} cx="100" cy="100" r={r} fill="none" stroke="rgba(255,255,255,0.10)" strokeWidth="0.5" />
+        ))}
+        <path d="M 60 56 A 36 36 0 0 1 96 44" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
+        <path d="M 50 70 A 38 38 0 0 1 80 50" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" opacity="0.85" />
+        <path d="M 44 86 A 38 38 0 0 1 66 60" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" opacity="0.7" />
+        <path d="M 50 130 A 30 30 0 0 0 70 146" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
+        <circle cx="100" cy="100" r="24" fill="#fff" />
+        <circle cx="100" cy="100" r="24" fill="none" stroke="rgba(0,0,0,0.06)" strokeWidth="0.6" />
+        <circle cx="100" cy="100" r="4.5" fill="#E8412B" />
+      </g>
+
+      <g className="hv-v-pickup">
+        <line x1="160" y1="48" x2="120" y2="118" stroke="#fff" strokeWidth="3.2" strokeLinecap="round" />
+        <circle cx="162" cy="46" r="3.5" fill="#fff" />
+        <circle cx="162" cy="46" r="1.5" fill="#E8412B" />
+        <rect x="114" y="113" width="12" height="10" rx="1.5" fill="#fff" transform="rotate(-30 120 118)" />
+        <circle cx="118" cy="120" r="1.5" fill="#E8412B" />
+      </g>
+    </svg>
+  );
+}
+
+/* ===== Hero ===== */
+function Hero() {
+  return (
+    <section className="hero">
+      <div className="container hero-inner">
+        <div>
+          <div className="hero-mark">
+            <span className="live">CANLI ÖLÇÜM</span>
+            <span>·</span>
+            <span>İSTANBUL · 2009'DAN BERİ</span>
+          </div>
+          <h1 className="hero-h1">
+            <span className="word"><span>Mekânınızın</span></span>
+            <span className="word"><span>sesini</span></span>
+            <br />
+            <span className="word"><span><em>mühendislikle</em></span></span>
+            <span className="word"><span>tasarlıyoruz.</span></span>
+          </h1>
+          <p className="hero-sub">
+            Restoran, otel, sahne, stüdyo ve konferans için <b>ölçüme dayalı akustik tasarım</b>, profesyonel ses sistemleri ve LED görüntü mimarisi. Marka bağımsız, mühendislik odaklı.
+          </p>
+          <div className="hero-cta">
+            <Link to="/iletisim" className="btn btn-red">Ücretsiz Keşif Talep Et <span className="arrow" /></Link>
+            <Link to="/portfolyo" className="btn btn-ghost">Projeleri İncele <span className="arrow" /></Link>
+          </div>
+          <div className="hero-stat-strip">
+            <div className="hero-stat">
+              <div className="num">240<small>+</small></div>
+              <div className="lbl">Tamamlanan Proje</div>
+            </div>
+            <div className="hero-stat">
+              <div className="num"><em>16</em><small>yıl</small></div>
+              <div className="lbl">Mühendislik Tecrübesi</div>
+            </div>
+            <div className="hero-stat">
+              <div className="num">RT60 <em>0.6</em><small>s</small></div>
+              <div className="lbl">Ortalama Hedef Süre</div>
+            </div>
+          </div>
+        </div>
+        <div className="hero-visual">
+          <div className="hv-stage">
+            <span className="hv-grid" aria-hidden />
+            <span className="hv-ring r1" aria-hidden />
+            <span className="hv-ring r2" aria-hidden />
+            <span className="hv-ring r3" aria-hidden />
+            <HeroVinyl />
+            <span className="hv-axis-x" aria-hidden />
+            <span className="hv-axis-y" aria-hidden />
+            <span className="hv-corner tl"><i className="dot-r" />SİDE A</span>
+            <span className="hv-corner tr">33⅓ RPM</span>
+            <span className="hv-corner bl">RT60 / STI · LIVE</span>
+            <span className="hv-corner br">REC</span>
+          </div>
+          <div className="hv-card hv-rt">
+            <small>RT60 ÖLÇÜM</small>
+            <b>0.42<em>s</em></b>
+            <span className="bars">
+              <i style={{ height: '40%' }} /><i style={{ height: '70%' }} />
+              <i style={{ height: '55%' }} /><i style={{ height: '85%' }} />
+              <i style={{ height: '45%' }} />
+            </span>
+          </div>
+          <div className="hv-card hv-bpm">
+            <span className="dot" />
+            <div>
+              <b>92<small>BPM</small></b>
+              <small className="lbl">Live · Beat Sync</small>
+            </div>
+          </div>
+          <div className="hv-card hv-spl">
+            <small>SPL · 1 kHz</small>
+            <b>82<em>dB</em></b>
+            <span className="meter"><i /></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ===== Marquee ===== */
+function Marquee() {
+  const items = [
+    'AKUSTİK TASARIM', 'SES SİSTEMİ', 'LED EKRAN', 'STÜDYO MİMARİSİ',
+    'KONFERANS / AV', 'ANONS / VOICE ALARM', 'RT60 ÖLÇÜM', 'STI HEDEF',
+    'DSP KALİBRASYON', 'DANTE NETWORK', 'PIXEL PITCH',
+  ];
+  return (
+    <div className="marquee">
+      <div className="marquee-track">
+        {[0, 1].flatMap((k) => items.map((it, i) => (
+          <span key={`${k}-${i}`} className="pill">{it}<em>★</em></span>
+        )))}
+      </div>
+    </div>
+  );
+}
+
+/* ===== Discipline Deck ===== */
+type DiscKey = 'all' | 'ses' | 'akustik' | 'led' | 'studio' | 'konf' | 'anons';
+type DiscCls = 'red' | 'gold' | 'indigo' | 'teal' | 'plum' | 'olive';
+
+const DISCIPLINES: Array<{ k: Exclude<DiscKey, 'all'>; short: string; n: string; sub: string; cls: DiscCls; hz: string; bars: number[] }> = [
+  { k: 'ses',     short: 'SES',        n: 'Ses Sistemi',         sub: 'Zonlu PA · DSP · Dante',     cls: 'red',    hz: '40 Hz – 18 kHz', bars: [3, 5, 7, 8, 10, 12, 11, 9, 7, 5, 4] },
+  { k: 'akustik', short: 'AKUSTİK',    n: 'Akustik Tasarım',     sub: 'RT60 · STI · Modal Kontrol', cls: 'gold',   hz: '63 Hz – 4 kHz',  bars: [10, 11, 12, 11, 9, 7, 6, 5, 4, 3, 2] },
+  { k: 'led',     short: 'LED',        n: 'LED Ekran & Video',   sub: 'Pixel Pitch · Processor',    cls: 'indigo', hz: 'P1.5 – P3.9',    bars: [2, 4, 6, 9, 12, 11, 9, 6, 4, 3, 2] },
+  { k: 'studio',  short: 'STÜDYO',     n: 'Stüdyo Akustiği',     sub: 'NC-20 · RFZ · Bass Trap',    cls: 'teal',   hz: '20 Hz – 20 kHz', bars: [4, 7, 10, 12, 11, 10, 9, 8, 7, 6, 5] },
+  { k: 'konf',    short: 'KONFERANS',  n: 'Toplantı / AV',       sub: 'Beamforming · AEC · Hibrit', cls: 'plum',   hz: 'DICENTIS',       bars: [3, 5, 7, 9, 11, 12, 11, 9, 7, 5, 3] },
+  { k: 'anons',   short: 'ANONS',      n: 'Anons & Güvenlik',    sub: 'EN 54-16 · Voice Alarm',     cls: 'olive',  hz: '100V · 70V',     bars: [5, 6, 7, 8, 9, 10, 10, 9, 8, 7, 6] },
 ];
 
-export default function Home() {
-  useEffect(() => {
-    document.title = 'On Music | Akustik Tasarım ve Profesyonel Ses Sistemleri';
+const CLS_VARS: Record<DiscCls, CSSProperties> = {
+  red:    { ['--c' as any]: 'var(--red)',    ['--cs' as any]: 'var(--red-soft)',    ['--cl' as any]: 'var(--red-line)' },
+  gold:   { ['--c' as any]: 'var(--gold)',   ['--cs' as any]: 'var(--gold-soft)',   ['--cl' as any]: 'var(--gold-line)' },
+  indigo: { ['--c' as any]: 'var(--indigo)', ['--cs' as any]: 'var(--indigo-soft)', ['--cl' as any]: 'var(--indigo-line)' },
+  teal:   { ['--c' as any]: 'var(--teal)',   ['--cs' as any]: 'var(--teal-soft)',   ['--cl' as any]: 'var(--teal-line)' },
+  plum:   { ['--c' as any]: 'var(--plum)',   ['--cs' as any]: 'var(--plum-soft)',   ['--cl' as any]: 'var(--plum-line)' },
+  olive:  { ['--c' as any]: 'var(--olive)',  ['--cs' as any]: 'var(--olive-soft)',  ['--cl' as any]: 'var(--olive-line)' },
+};
 
-    const updateMeta = (name: string, content: string, isProperty = false) => {
-      const selector = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
-      let tag = document.head.querySelector(selector) as HTMLMetaElement | null;
-      if (!tag) {
-        tag = document.createElement('meta');
-        if (isProperty) tag.setAttribute('property', name);
-        else tag.setAttribute('name', name);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute('content', content);
-    };
-
-    updateMeta(
-      'description',
-      "On Music; İstanbul merkezli profesyonel akustik tasarım, line array ses sistemleri, mekan seslendirme ve teknik kalibrasyon hizmetleri sunar.",
-    );
-    updateMeta('keywords', 'akustik tasarım, profesyonel ses sistemi, line array, dante network, istanbul ses sistemi');
-    updateMeta('og:title', 'On Music | Mükemmel Sesin Mühendisliği', true);
-    updateMeta(
-      'og:description',
-      'Stüdyo, restoran, konser mekanı ve kurumsal projelerde uçtan uca ses mühendisliği çözümleri.',
-      true,
-    );
-  }, []);
-
+function DisciplineDeck({ active, setActive }: { active: DiscKey; setActive: (k: DiscKey) => void }) {
   return (
-    <motion.main
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="relative pt-16 overflow-x-hidden"
-    >
-      {/* Hero Section */}
-      <section className="relative min-h-[620px] md:min-h-[780px] flex items-center px-6 lg:px-24 overflow-hidden py-24 md:py-32">
-        <div className="absolute inset-0 z-0">
-          <img alt="Modern mixing studio with warm ambient lights" className="w-full h-full object-cover opacity-75 contrast-110 scale-105" src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=2200&q=80"/>
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 via-stone-900/45 to-stone-900/15"></div>
-          <div className="absolute inset-0 noise-texture pointer-events-none"></div>
-        </div>
-        <div className="relative z-10 max-w-3xl">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="h-[1px] w-12 bg-primary-container"></span>
-            <span className="font-label text-primary-container text-xs tracking-[0.3em] uppercase">Akustik Otorite</span>
+    <section className="disc-deck" id="disiplinler">
+      <div className="container">
+        <div className="disc-deck-head reveal">
+          <span className="eyebrow"><span className="dot" />DİSİPLİN SEÇİCİ · 01</span>
+          <div className="dd-q">
+            Hangi <em>frekansta</em> çalışıyorsunuz?
+            <small className="dd-hint">İhtiyacınızı seçin — sistem kendini ona göre kalibre eder.</small>
           </div>
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-none mb-8">
-            MÜKEMMEL <span className="text-primary-container">SESİN</span><br/>MÜHENDİSLİĞİ
-          </h1>
-          <p className="font-body text-lg md:text-xl text-white/70 max-w-xl leading-relaxed font-light mb-10">
-            96kHz Native çözünürlükle, profesyonel akustik tasarım ve ses sistemleri çözümlerinde Türkiye'nin teknik otoritesi.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/iletisim" className="bg-primary-container text-on-primary-container px-8 py-3.5 font-label text-sm font-bold uppercase tracking-widest hover:brightness-110 transition-all">
-              Projeyi Başlat
-            </Link>
-            <button className="border border-white/30 text-white px-8 py-3.5 font-label text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all backdrop-blur-sm">
-              Teknik Katalog
+          <div className="dd-meter">
+            <span>−12</span><span>−6</span><span className="zero">0</span><span className="peak">+3 dB</span>
+          </div>
+        </div>
+        <div className="disc-grid">
+          {DISCIPLINES.map((it, i) => (
+            <button
+              key={it.k}
+              type="button"
+              className={`disc-card${active === it.k ? ' on' : ''} reveal`}
+              style={{ ...CLS_VARS[it.cls], transitionDelay: `${i * 40}ms` }}
+              onClick={() => setActive(active === it.k ? 'all' : it.k)}
+              aria-pressed={active === it.k}
+            >
+              <span className="dc-num">0{i + 1}</span>
+              <div className="dc-eq" aria-hidden>
+                {it.bars.map((h, j) => (
+                  <span key={j} style={{ height: `${h * 7}%`, animationDelay: `${j * 0.08}s` }} />
+                ))}
+              </div>
+              <span className="dc-short">{it.short}</span>
+              <span className="dc-name">{it.n}</span>
+              <span className="dc-sub">{it.sub}</span>
+              <span className="dc-hz">{it.hz}</span>
+              <span className="dc-cta">
+                {active === it.k ? 'SEÇİLDİ ✓' : 'BU DİSİPLİN'}
+                <span className="dc-arrow" />
+              </span>
             </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ===== Path icons ===== */
+function PathIcon({ kind }: { kind: Exclude<DiscKey, 'all'> }) {
+  const c = { width: 30, height: 30, viewBox: '0 0 30 30', fill: 'none' as const, stroke: 'currentColor', strokeWidth: 1.5 };
+  if (kind === 'ses') return (
+    <svg {...c}>
+      {[3, 7, 11, 15, 19, 23, 27].map((x, i) => {
+        const env = Math.sin((i / 6) * Math.PI);
+        const h = 4 + env * 16;
+        return <line key={i} x1={x} x2={x} y1={15 - h / 2} y2={15 + h / 2} strokeLinecap="round" />;
+      })}
+    </svg>
+  );
+  if (kind === 'akustik') return (
+    <svg {...c}>
+      <circle cx="15" cy="15" r="12" strokeOpacity="0.4" />
+      <circle cx="15" cy="15" r="7" />
+      <circle cx="15" cy="15" r="2.5" fill="currentColor" />
+    </svg>
+  );
+  if (kind === 'led') return (
+    <svg {...c}>
+      <rect x="2" y="5" width="26" height="18" rx="1" />
+      {[8, 14, 20].map((x) => <line key={x} x1={x} x2={x} y1="5" y2="23" strokeOpacity="0.45" />)}
+      <line x1="11" y1="27" x2="19" y2="27" />
+    </svg>
+  );
+  if (kind === 'studio') return (
+    <svg {...c}>
+      <rect x="3" y="7" width="24" height="16" rx="1" />
+      <circle cx="15" cy="15" r="5" />
+      <circle cx="15" cy="15" r="1.5" fill="currentColor" />
+    </svg>
+  );
+  if (kind === 'konf') return (
+    <svg {...c}>
+      <rect x="3" y="8" width="24" height="14" rx="2" />
+      <circle cx="9" cy="15" r="1.5" />
+      <circle cx="15" cy="15" r="1.5" />
+      <circle cx="21" cy="15" r="1.5" />
+      <line x1="15" y1="3" x2="15" y2="6" strokeLinecap="round" />
+    </svg>
+  );
+  if (kind === 'anons') return (
+    <svg {...c}>
+      <path d="M15 3 L26 9 V17 C26 23 21 27 15 28 C9 27 4 23 4 17 V9 Z" />
+      <path d="M10 15 L13.5 18.5 L21 11" />
+    </svg>
+  );
+  return null;
+}
+
+/* ===== Solution Pathways ===== */
+const PATHS: Array<{ k: Exclude<DiscKey, 'all'>; cls: DiscCls; tag: string; t: string; d: string; list: string[]; price: string }> = [
+  { k: 'ses',     cls: 'red',    tag: 'SES SİSTEMİ',     t: 'Profesyonel Ses',       d: 'Restoran, otel, sahne için zonlu ses mimarisi, marka bağımsız ürün seçimi ve DSP kalibrasyonu.',          list: ['Çok zon hoparlör', 'DSP & matrix', 'EQ kalibrasyon', 'Dante / 70V'], price: '4–8 HAFTA · ANAHTAR TESLİM' },
+  { k: 'akustik', cls: 'gold',   tag: 'AKUSTİK TASARIM', t: 'Akustik Mühendislik',   d: 'RT60, STI, EDT hedefli panel ve diffüzör mimarisi. Modal kontrol ve in-situ ölçüm.',                       list: ['Akustik ölçüm', 'Panel & diffüzör', 'Modal analiz', 'RFZ tasarımı'], price: 'ÖLÇÜM · 1–2 HAFTA' },
+  { k: 'led',     cls: 'indigo', tag: 'LED & GÖRÜNTÜ',   t: 'LED Ekran Sistemi',     d: 'Sahne, kurumsal lobi ve kontrol odaları için pixel pitch, processor ve AV-sync entegrasyonu.',              list: ['Pixel pitch analizi', 'Video processor', 'Truss & rigging', 'AV sync'], price: 'P1.5 · P2.6 · P3.9' },
+  { k: 'studio',  cls: 'teal',   tag: 'STÜDYO',          t: 'Stüdyo & Kayıt',        d: 'Kontrol ve kayıt odaları için modal kontrol, izolasyon ve kalibre referans dinleme.',                       list: ['Bass trap', 'Kayan kat', 'RFZ kontrol', 'Monitör tuning'], price: 'NC-20 · RT60 0.28S' },
+  { k: 'konf',    cls: 'plum',   tag: 'KONFERANS / AV',  t: 'Toplantı & Konferans',  d: 'Beamforming mikrofon, hibrit toplantı, tek dokunuş kontrol ve simultane çeviri sistemleri.',               list: ['Beamforming mic', 'AEC + AGC', 'Kamera tracking', 'Tek dokunuş'], price: 'DICENTIS · DANTE' },
+  { k: 'anons',   cls: 'olive',  tag: 'ANONS / VA',      t: 'Anons & Güvenlik',      d: 'EN 54-16 uyumlu Voice Alarm, evakuasyon mimarisi ve merkezi anons sistemi tasarımı.',                       list: ['EN 54-16', 'Evakuasyon', 'Zone yönetimi', 'BMS entegrasyon'], price: 'KAMU · KURUMSAL' },
+];
+
+function SolutionPathways({ filter }: { filter: DiscKey }) {
+  const filtered = filter !== 'all';
+  const list = filtered ? PATHS.filter((p) => p.k === filter) : PATHS;
+  return (
+    <section className="section" id="cozum-yollari">
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />02 · ÇÖZÜM YOLLARI</span>
+            <h2 className="h-section" style={{ marginTop: 18 }}>Doğru kapı<br /><em>buradan</em>.</h2>
+          </div>
+          <div className="right">
+            Her disiplin için kapsam, teknik hedefler ve süre tahmini bir arada. Birden fazla disipline ihtiyacınız varsa entegre paket teklifi öneririz.
           </div>
         </div>
-      </section>
-
-      {/* Moving Gallery Strip */}
-      <section className="py-14 border-y border-stone-200 bg-background">
-        <div className="px-6 lg:px-24 mb-6">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface uppercase tracking-tight">Proje Galerisi</h2>
-          <p className="text-on-surface-variant mt-3 max-w-2xl">
-            Mekânların akustik karakterini dönüştürdüğümüz uygulamalardan seçilen görseller. Galeri sürekli akış halinde
-            yeni referans projeleri sergiler.
-          </p>
+        <div className={`paths${filtered ? ' is-filtered' : ''}`}>
+          {list.map((p, i) => (
+            <Link key={p.k} to="/iletisim" className="path reveal" style={{ ...CLS_VARS[p.cls], transitionDelay: `${i * 60}ms` }}>
+              <span className="p-tag">{p.tag}</span>
+              <div className="p-icon"><PathIcon kind={p.k} /></div>
+              <h4>{p.t}</h4>
+              <p>{p.d}</p>
+              <ul className="p-list">{p.list.map((x) => <li key={x}>{x}</li>)}</ul>
+              <div className="p-foot">
+                <span className="p-link">Detayları İncele <span className="arrow" /></span>
+                <span className="p-price">{p.price}</span>
+              </div>
+            </Link>
+          ))}
         </div>
-        <div className="marquee-wrapper">
-          <div className="marquee-track">
-            {[...marqueeImages, ...marqueeImages].map((image, index) => (
-              <div key={`${image.src}-${index}`} className="w-[320px] md:w-[420px] h-[220px] md:h-[260px] rounded-xl overflow-hidden border border-stone-200 bg-surface-container-low shrink-0">
-                <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />
+      </div>
+    </section>
+  );
+}
+
+/* ===== Process ===== */
+const STEPS = [
+  { t: 'Keşif & Brifing', d: 'SAHA ZIYARETI' },
+  { t: 'Ölçüm & Analiz', d: 'RT60 · STI · NC' },
+  { t: 'Konsept Tasarım', d: '3D · SİMÜLASYON' },
+  { t: 'Uygulama', d: 'MONTAJ · DEVREYE' },
+  { t: 'Kalibrasyon', d: 'DSP TUNING' },
+];
+
+function Process() {
+  const [step, setStep] = useState(2);
+  useEffect(() => {
+    const id = setInterval(() => setStep((s) => (s + 1) % (STEPS.length + 1)), 2200);
+    return () => clearInterval(id);
+  }, []);
+  const progress = `${(step / (STEPS.length - 1)) * 100}%`;
+  return (
+    <section className="section process" id="surec">
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />03 · ÇALIŞMA SÜRECİ</span>
+            <h2 className="h-section gold" style={{ marginTop: 18 }}>Beş aşamalı<br /><em>mühendislik</em> hattı.</h2>
+          </div>
+          <div className="right">
+            Her proje sahada başlar, ölçüme dayalı tasarımla devam eder ve in-situ kalibrasyon ile teslim edilir.
+          </div>
+        </div>
+        <div className="process-track reveal">
+          <div className="process-line" style={{ ['--progress' as any]: progress }} />
+          <div className="steps">
+            {STEPS.map((s, i) => (
+              <div key={s.t} className={`step${i <= step ? ' done' : ''}`}>
+                <div className="num">0{i + 1}</div>
+                <div className="title">{s.t}</div>
+                <div className="deliv">{s.d}</div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* Services Section */}
-      <section className="px-6 lg:px-24 py-24 bg-surface-container-lowest relative">
-        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <h2 className="font-headline text-4xl font-bold text-on-surface mb-4 tracking-tight uppercase">Hizmet Alanları</h2>
-            <p className="text-outline max-w-md">Uzay akustiğinden dijital sinyal işleme sistemlerine kadar uçtan uca teknik mimari.</p>
-          </div>
-          <div className="font-label text-[10px] text-primary-container tracking-widest uppercase flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-primary-container"></span> System Active: Core 01
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0.5">
-          {/* Service 1 */}
-          <div className="group relative bg-surface-container overflow-hidden p-10 transition-all duration-500 hover:bg-surface-container-high border-r border-stone-200">
-            <span className="material-symbols-outlined text-4xl text-primary mb-8 block">architecture</span>
-            <h3 className="font-headline text-xl text-on-surface mb-4 uppercase">Akustik Tasarım</h3>
-            <p className="text-on-surface-variant text-sm leading-relaxed font-light mb-8">Stüdyo, konferans salonu ve oditoryumlar için bilimsel modelleme tabanlı akustik çözümler.</p>
-            <ul className="space-y-3 text-[11px] font-label text-outline uppercase tracking-wider">
-              <li>• RT60 Analizi</li>
-              <li>• Modale Yanıt Optimizasyonu</li>
-              <li>• Diffüzör Entegrasyonu</li>
-            </ul>
-          </div>
-          {/* Service 2 */}
-          <div className="group relative bg-surface-container-low overflow-hidden p-10 transition-all duration-500 hover:bg-surface-container-high border-r border-stone-200">
-            <span className="material-symbols-outlined text-4xl text-primary mb-8 block">speaker_group</span>
-            <h3 className="font-headline text-xl text-on-surface mb-4 uppercase">Ses Sistemleri</h3>
-            <p className="text-on-surface-variant text-sm leading-relaxed font-light mb-8">En üst düzey analog ve dijital sinyal zincirleri. 96kHz Native sistem mimarileri.</p>
-            <ul className="space-y-3 text-[11px] font-label text-outline uppercase tracking-wider">
-              <li>• Line Array Tasarımı</li>
-              <li>• Dante Network Yapılandırma</li>
-              <li>• DSP Ayarlama</li>
-            </ul>
-          </div>
-          {/* Service 3 */}
-          <div className="group relative bg-surface-container overflow-hidden p-10 transition-all duration-500 hover:bg-surface-container-high">
-            <span className="material-symbols-outlined text-4xl text-primary mb-8 block">security</span>
-            <h3 className="font-headline text-xl text-on-surface mb-4 uppercase">Güvenlik Entegrasyonu</h3>
-            <p className="text-on-surface-variant text-sm leading-relaxed font-light mb-8">Kritik tesisler için yüksek hassasiyetli sesli tahliye ve güvenlik otomasyonları.</p>
-            <ul className="space-y-3 text-[11px] font-label text-outline uppercase tracking-wider">
-              <li>• EN54 Standartları</li>
-              <li>• Merkezi Anons Kontrolü</li>
-              <li>• Akıllı Bina Entegrasyonu</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+/* ===== Venues ===== */
+type VenueTag = [DiscCls, string];
+const VENUES: Array<{ k: string; n: string; h: string; goals: Array<[string, string]>; tags: VenueTag[] }> = [
+  { k: 'restoran', n: 'Restoran & Bar', h: 'Restoran ve barlar için arka plan müziği ve canlı performans dengesi. Müşteri konuşma netliği <em>ön planda</em>.', goals: [['RT60 Hedef', '0.6 – 0.9 s'], ['Ses Basıncı', '82 dB SPL'], ['Zon Sayısı', '2–4 zon'], ['Hoparlör Tipi', 'Tavan + sahne'], ['Sistem', 'Dante / 70V']], tags: [['red', 'SES'], ['gold', 'AKUSTİK']] },
+  { k: 'otel',     n: 'Otel & SPA',      h: 'Lobi, restoran, ballroom ve SPA için <em>çok zonlu</em> ses ve akustik konfor.',                                  goals: [['RT60 Hedef', '0.7 – 1.0 s'], ['Ses Basıncı', '78 dB SPL'], ['Zon Sayısı', '6–12 zon'], ['Akustik Panel', 'Tavan + duvar'], ['Anons', 'EN 54-16']], tags: [['red', 'SES'], ['gold', 'AKUSTİK'], ['olive', 'VA']] },
+  { k: 'sahne',    n: 'Sahne & Etkinlik', h: 'Konser, sahne ve etkinlik mekânları için <em>line array</em> ve yüksek SPL teslimat.',                            goals: [['RT60 Hedef', '1.2 – 1.6 s'], ['Ses Basıncı', '105 dB SPL'], ['Sistem Tipi', 'Line array'], ['Sub', 'Cardioid array'], ['Görüntü', 'LED P3.9']], tags: [['red', 'SES'], ['indigo', 'LED']] },
+  { k: 'studio',   n: 'Stüdyo & Kayıt', h: 'Kayıt ve kontrol odaları için <em>RFZ</em> mimarisi, modal kontrol ve düşük arka plan gürültüsü.',                  goals: [['RT60 Hedef', '0.25 – 0.32 s'], ['NC Hedef', 'NC-20'], ['Modal Kontrol', 'Bass trap'], ['Monitör', 'Stereo + sub'], ['İzolasyon', 'Kayan kat']], tags: [['teal', 'STÜDYO'], ['gold', 'AKUSTİK']] },
+  { k: 'konferans', n: 'Toplantı & Konferans', h: 'Hibrit toplantı odaları, board room ve simültane konferans için <em>beamforming</em> ve AEC.',              goals: [['RT60 Hedef', '0.5 – 0.7 s'], ['STI Hedef', '≥ 0.62'], ['Mikrofon', 'Beamforming'], ['Kontrol', 'Tek dokunuş'], ['Sistem', 'DICENTIS']], tags: [['plum', 'KONFERANS'], ['gold', 'AKUSTİK']] },
+];
 
-      {/* Technical Precision Section */}
-      <section className="px-6 lg:px-24 py-24 flex flex-col lg:flex-row gap-16 items-center">
-        <div className="flex-1 order-2 lg:order-1 relative">
-          <div className="absolute -top-10 -left-10 w-48 h-48 bg-primary-container/10 rounded-full blur-[80px] pointer-events-none"></div>
-          <div className="relative overflow-hidden rounded-xl aspect-square">
-            <img alt="Acoustic Panels Detail" className="w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_4t-takg_rtGqpXiDQy1MAnamH4tBn03G9boPMhO8snAbXL-GWCVb3utMmoFuV7fM9k6bzFMS2lJBE4PQ2aZP6v2sU7kdlJ9MOqGveYaqGDarAk14r61yF5TIE051vgPKP4tL0QQ0Qb6_rzIF1xnUaY4EaqsehjwrU0MGuaBhtAw8LKnaqs2AMmTzMPgX9C6ZCqoF_BOpH1IhEuLDscQBi6tVIjE_Qoli0cUYgjLOwnlNC7YB9oDio420twDu3gpgahoV9AAsZUKV"/>
-            <div className="absolute bottom-6 left-6 bg-[#f7f4f0]/90 backdrop-blur-md p-6 border border-stone-200 rounded-lg shadow-lg">
-              <div className="text-3xl font-headline font-bold text-primary-container mb-1 tracking-tighter">50+</div>
-              <div className="text-[10px] font-label text-stone-500 tracking-widest uppercase">Akustik Panel Varyasyonu</div>
+function Venues() {
+  const [active, setActive] = useState(0);
+  const v = VENUES[active];
+  return (
+    <section className="section venues" id="mekanlar">
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />04 · MEKÂN TİPLERİ</span>
+            <h2 className="h-section indigo" style={{ marginTop: 18 }}>Her mekânın<br /><em>kendi sesi</em> var.</h2>
+          </div>
+          <div className="right">
+            Mekân tipinizi seçin — o tipoloji için tipik akustik hedefler, ses basıncı ve sistem mimarisi anında görünür.
+          </div>
+        </div>
+        <div className="venue-tabs reveal">
+          {VENUES.map((vv, i) => (
+            <button key={vv.k} type="button" className={`venue-tab${active === i ? ' on' : ''}`} onClick={() => setActive(i)}>
+              <span className="vt-num">0{i + 1}</span>{vv.n}
+            </button>
+          ))}
+        </div>
+        <div className="venue-detail reveal">
+          <div className="vd-info">
+            <div className="vd-tag-row">
+              {v.tags.map(([cls, n]) => <span key={n} className={`tag ${cls}`}><span className="dot" />{n}</span>)}
+            </div>
+            <h3 dangerouslySetInnerHTML={{ __html: v.n }} />
+            <p className="vd-desc" dangerouslySetInnerHTML={{ __html: v.h }} />
+            <ul className="vd-list">
+              {v.goals.map(([k, val]) => <li key={k}><span className="k">{k}</span><span>{val}</span></li>)}
+            </ul>
+            <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              <Link to="/iletisim" className="btn btn-red">Bu Mekân İçin Teklif <span className="arrow" /></Link>
+              <Link to="/portfolyo" className="btn btn-ghost">Benzer Projeler <span className="arrow" /></Link>
+            </div>
+          </div>
+          <div className="vd-stage">
+            <div className="vd-stage-overlay">
+              <div className="vd-tag-row">
+                <span className="tag" style={{ borderColor: 'rgba(245,239,224,0.25)', color: 'rgba(245,239,224,0.85)' }}>{v.n.toUpperCase()}</span>
+              </div>
+              <div className="vd-stage-mini">
+                <span className="b"><strong>{v.goals[0][1].split(' ')[0]}</strong>{v.goals[0][0]}</span>
+                <span className="b"><strong>{v.goals[1][1].split(' ')[0]}</strong>{v.goals[1][0]}</span>
+              </div>
             </div>
           </div>
         </div>
-        <div className="flex-1 order-1 lg:order-2">
-          <span className="font-label text-primary text-xs tracking-widest uppercase mb-4 block">Teknik Hassasiyet</span>
-          <h2 className="font-headline text-4xl lg:text-5xl font-bold text-on-surface mb-10 tracking-tight leading-tight uppercase">Mühendislik Standartlarını Yeniden Tanımlıyoruz.</h2>
-          <div className="space-y-10">
-            <div className="flex gap-5 items-start">
-              <div className="w-11 h-11 flex-shrink-0 bg-surface-container-high rounded flex items-center justify-center">
-                <span className="text-primary font-headline font-bold text-sm">01</span>
-              </div>
-              <div>
-                <h4 className="text-on-surface font-headline text-base mb-2 uppercase">20+ Yıllık Deneyim</h4>
-                <p className="text-on-surface-variant font-light text-sm leading-relaxed">İki on yılı aşkın süredir Türkiye'nin en prestijli stüdyo ve konser alanlarını inşa ediyoruz.</p>
-              </div>
-            </div>
-            <div className="flex gap-5 items-start">
-              <div className="w-11 h-11 flex-shrink-0 bg-surface-container-high rounded flex items-center justify-center">
-                <span className="text-primary font-headline font-bold text-sm">02</span>
-              </div>
-              <div>
-                <h4 className="text-on-surface font-headline text-base mb-2 uppercase">24 Saatte Hızlı Kurulum</h4>
-                <p className="text-on-surface-variant font-light text-sm leading-relaxed">Optimize edilmiş lojistik ve saha ekiplerimizle projelerinizi takvimine sadık kalarak hayata geçiriyoruz.</p>
-              </div>
-            </div>
-            <div className="flex gap-5 items-start">
-              <div className="w-11 h-11 flex-shrink-0 bg-surface-container-high rounded flex items-center justify-center">
-                <span className="text-primary font-headline font-bold text-sm">03</span>
-              </div>
-              <div>
-                <h4 className="text-on-surface font-headline text-base mb-2 uppercase">Ömür Boyu Destek</h4>
-                <p className="text-on-surface-variant font-light text-sm leading-relaxed">Sistem devreye alındıktan sonra periyodik akustik kalibrasyon ve yazılım güncellemeleri.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* 2026 Technical Vision Banner */}
-      <section className="px-6 lg:px-24 py-20">
-        <div className="bg-gradient-to-r from-stone-900 to-stone-800 p-10 lg:p-20 relative overflow-hidden rounded-2xl group">
-          <div className="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity select-none flex items-center justify-end pr-8">
-            <span className="font-headline text-[12rem] font-bold text-white leading-none tracking-tighter">2026</span>
+/* ===== Dashboard ===== */
+function Dashboard() {
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setTick((t) => t + 1), 1500);
+    return () => clearInterval(id);
+  }, []);
+  const bars = Array.from({ length: 20 }, (_, i) => {
+    const env = Math.sin((i / 19) * Math.PI) * 0.7 + 0.3;
+    const noise = Math.sin(tick * 0.6 + i * 0.4) * 0.18 + 0.5;
+    const h = Math.max(8, env * noise * 100);
+    const cls = h > 75 ? 'hot' : h > 55 ? 'warm' : '';
+    return { h, cls };
+  });
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />05 · CANLI ÖLÇÜM PANOSU</span>
+            <h2 className="h-section" style={{ marginTop: 18 }}>Ölçüm <em>somut</em>,<br />tasarım <em>doğrulanabilir</em>.</h2>
           </div>
-          <div className="relative z-10 max-w-2xl">
-            <span className="bg-primary-container text-on-primary-container text-[10px] font-bold font-label px-3 py-1 mb-6 inline-block uppercase tracking-widest rounded">Gelecek Vizyonu</span>
-            <h2 className="font-headline text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight uppercase leading-tight">2026 Teknik Vizyonu: İmmerisif Sesin Geleceği</h2>
-            <p className="text-white/60 font-light text-base md:text-lg mb-8 leading-relaxed">Dolby Atmos sertifikalı tasarımlarımız ve yapay zeka destekli akustik analiz araçlarımızla, 2026'da ses teknolojilerini bir adım öteye taşıyoruz.</p>
-            <Link to="/portfolyo" className="text-primary-container font-label text-sm uppercase tracking-widest flex items-center gap-3 group/link w-fit">
-              Vizyon Belgesini İncele
-              <span className="material-symbols-outlined group-hover/link:translate-x-2 transition-transform">arrow_forward</span>
+          <div className="right">
+            Her projede teslim öncesi RT60, STI, SPL ve NC değerleri sahada ölçülür ve raporlanır. Aşağıda örnek bir tuning oturumundan canlı veri.
+          </div>
+        </div>
+        <div className="dashboard reveal">
+          <div className="dash-head">
+            <div className="dash-tabs">
+              <button className="on" type="button">SPL FREKANS DAĞILIMI</button>
+              <button type="button">RT60 BAND ANALİZİ</button>
+              <button type="button">STI HARİTASI</button>
+            </div>
+            <div className="dash-meta"><span className="dot" />CANLI · İSTANBUL · SAHA #042</div>
+          </div>
+          <div className="dash-grid">
+            <div className="dash-cell">
+              <div className="lbl"><span>SPL · 31 Hz – 16 kHz</span><span>dB</span></div>
+              <div className="spl-bars">
+                {bars.map((b, i) => <span key={i} className={b.cls} style={{ height: `${b.h}%` }} />)}
+              </div>
+            </div>
+            <div className="dash-cell">
+              <div className="lbl"><span>RT60 ORTALAMA</span><span>HEDEF 0.6 s</span></div>
+              <div className="val"><em>0.58</em><small>s</small></div>
+              <div className="sub">→ 100Hz: 0.71 · 1kHz: 0.55 · 4kHz: 0.48</div>
+            </div>
+            <div className="dash-cell">
+              <div className="lbl"><span>STI · KONUŞMA NETLİĞİ</span><span>EXCELLENT</span></div>
+              <div className="val">0.<em>72</em></div>
+              <div className="sub">→ 60+ noktada ortalama, std σ 0.04</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ===== Portfolio teaser ===== */
+const CASES: Array<{ t: string; e: string; tags: VenueTag[]; st: Array<[string, string]>; d: string; img: string }> = [
+  { t: 'Boğaz Restoran',  e: 'İstanbul', tags: [['red', 'SES'], ['gold', 'AKUSTİK']],                d: '180 kişilik teras restoran için 4 zonlu ses sistemi ve akustik panel mimarisi. Konuşma netliği hedef üstünde teslim edildi.', st: [['RT60', '0.62s'], ['SPL', '82dB']], img: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1400' },
+  { t: 'Ballroom Otel',   e: 'Antalya',  tags: [['red', 'SES'], ['olive', 'VA'], ['indigo', 'LED']], d: '800 kişilik ballroom + lobi + 24 oda zon yönetimi. EN 54-16 uyumlu voice alarm + LED P2.6 sahne ekranı.',                        st: [['RT60', '1.2s'], ['SPL', '98dB']], img: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=1400' },
+  { t: 'Konser Sahnesi',  e: 'Ankara',   tags: [['red', 'SES'], ['indigo', 'LED']],                  d: '3000 kişilik açık hava sahnesi. Cardioid sub array + line array L/R, 64m² LED ana sahne ekranı.',                                  st: [['SPL', '106dB'], ['LED', 'P3.9']], img: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1400' },
+  { t: 'Kayıt Stüdyosu',  e: 'İstanbul', tags: [['teal', 'STÜDYO'], ['gold', 'AKUSTİK']],            d: 'Mix + tracking room. Modal kontrol için kayan kat, bass trap kasetleri ve RFZ kontrol odası tasarımı.',                            st: [['NC', 'NC-18'], ['RT60', '0.28s']], img: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg?auto=compress&cs=tinysrgb&w=1400' },
+];
+
+function PortfolioTeaser() {
+  return (
+    <section className="section" id="projeler">
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />06 · SEÇİLMİŞ PROJELER</span>
+            <h2 className="h-section gold" style={{ marginTop: 18 }}>Sahaya teslim<br />edilmiş <em>mühendislik</em>.</h2>
+          </div>
+          <div className="right">
+            Mekân tipi, sahne, kayıt stüdyosu ve kurumsal lobi dahil 240+ projeden seçmeler. Her birinde ölçülmüş veri ve hedef-fiili karşılaştırma raporu mevcut.
+          </div>
+        </div>
+        <div className="portfolio-grid">
+          {CASES.map((c, i) => (
+            <Link key={c.t} to="/portfolyo" className="case reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+              <div className="frame">
+                <img src={c.img} alt={c.t} loading="lazy" />
+                <div className="ph">{c.t.toUpperCase()} · GÖRSEL</div>
+                <div className="stat-overlay">
+                  {c.st.map(([k, v]) => <span key={k} className="mini">{k}<b>{v}</b></span>)}
+                </div>
+              </div>
+              <div className="meta"><span>{c.e}</span><span>2024</span></div>
+              <h4>{c.t}</h4>
+              <p>{c.d}</p>
+              <div className="case-tags">
+                {c.tags.map(([cls, n]) => <span key={n} className={`tag ${cls}`}><span className="dot" />{n}</span>)}
+              </div>
             </Link>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* SEO Rich Content Block */}
-      <section className="px-6 lg:px-24 py-20 bg-background">
-        <div className="max-w-5xl">
-          <span className="font-label text-primary text-xs tracking-[0.35em] uppercase">Akustik ve Ses Mühendisliği</span>
-          <h2 className="mt-4 font-headline text-3xl md:text-5xl font-bold text-on-surface tracking-tight uppercase">
-            İstanbul’dan Türkiye Geneline <br /> Profesyonel Ses Altyapısı
-          </h2>
-          <p className="mt-6 text-on-surface-variant leading-relaxed">
-            On Music; restoran, kafe, otel, canlı performans sahnesi, konferans salonu ve kurumsal alanlar için
-            akustik tasarım, ses sistemi keşfi, cihaz konumlandırma, DSP ayarı ve periyodik teknik bakım hizmetlerini
-            tek çatı altında sunar. Her proje için hedefimiz; net konuşma anlaşılabilirliği, dengeli frekans dağılımı ve
-            uzun ömürlü sistem performansıdır.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-            <article className="border border-stone-200 rounded-xl p-6 bg-surface-container-low">
-              <h3 className="font-headline text-xl uppercase mb-3">Hizmet Kapsamı</h3>
-              <ul className="space-y-2 text-sm text-on-surface-variant">
-                <li>• Mekân akustik analizi ve RT60 optimizasyonu</li>
-                <li>• Ses sistemi projelendirme ve ürün seçimi</li>
-                <li>• DSP, EQ, crossover ve gain staging kalibrasyonu</li>
-                <li>• Dante / network tabanlı ses altyapısı kurulumu</li>
-              </ul>
-            </article>
-            <article className="border border-stone-200 rounded-xl p-6 bg-surface-container-low">
-              <h3 className="font-headline text-xl uppercase mb-3">Neden On Music?</h3>
-              <ul className="space-y-2 text-sm text-on-surface-variant">
-                <li>• Uygulamaya özel mühendislik yaklaşımı</li>
-                <li>• Yerinde keşif ve performans odaklı kurulum</li>
-                <li>• Marka bağımsız teknik danışmanlık</li>
-                <li>• Proje sonrası bakım ve teknik destek</li>
-              </ul>
-            </article>
+/* ===== Quote ===== */
+function Quote() {
+  const needs = ['Akustik Tasarım', 'Ses Sistemi', 'Stüdyo Akustiği', 'LED / Görüntü', 'Konferans / AV', 'Anons / VA', 'Kalibrasyon', 'Bakım'];
+  const [picked, setPicked] = useState<Set<string>>(new Set(['Akustik Tasarım', 'Ses Sistemi']));
+  const toggle = (n: string) => {
+    const s = new Set(picked);
+    if (s.has(n)) s.delete(n); else s.add(n);
+    setPicked(s);
+  };
+  return (
+    <section className="section quote-section" id="iletisim">
+      <div className="container">
+        <div className="quote-grid">
+          <div className="quote-side reveal">
+            <span className="eyebrow"><span className="bar" />07 · TEKLİF AL</span>
+            <h2 className="h-section">Birlikte<br /><em>başlayalım</em>.</h2>
+            <p className="lead">Formu doldurun; 24 saat içinde mekân tipinize uygun teknik bir teklif önerisiyle dönelim.</p>
+            <div className="qprocess">
+              {[
+                ['01', 'Form & Brifing', 'BUGÜN'],
+                ['02', 'Ön Görüşme', '24 SAAT İÇİNDE'],
+                ['03', 'Saha Keşfi', 'ÜCRETSİZ'],
+                ['04', 'Teknik Teklif', '5–7 GÜN İÇİNDE'],
+              ].map(([n, t, d]) => (
+                <div key={n} className="qp-row">
+                  <div className="qn">{n}</div>
+                  <div><div className="qt">{t}</div><div className="qd">{d}</div></div>
+                </div>
+              ))}
+            </div>
           </div>
+          <form className="form reveal" onSubmit={(e) => e.preventDefault()}>
+            <div className="form-row">
+              <div className="field"><label>Ad Soyad</label><input type="text" placeholder="Adınız Soyadınız" /></div>
+              <div className="field"><label>Şirket</label><input type="text" placeholder="Şirket / Marka" /></div>
+            </div>
+            <div className="form-row">
+              <div className="field"><label>E-posta</label><input type="email" placeholder="ornek@ornek.com" /></div>
+              <div className="field"><label>Telefon</label><input type="tel" placeholder="+90 ..." /></div>
+            </div>
+            <div className="form-row">
+              <div className="field">
+                <label>Mekân Tipi</label>
+                <select>
+                  <option>Restoran / Bar</option>
+                  <option>Otel / SPA</option>
+                  <option>Sahne / Etkinlik</option>
+                  <option>Stüdyo / Kayıt</option>
+                  <option>Toplantı / Konferans</option>
+                  <option>Diğer</option>
+                </select>
+              </div>
+              <div className="field">
+                <label>Bütçe Aralığı</label>
+                <select>
+                  <option>250.000 ₺ altı</option>
+                  <option>250–750.000 ₺</option>
+                  <option>750.000 – 2 M ₺</option>
+                  <option>2 M ₺ üstü</option>
+                </select>
+              </div>
+            </div>
+            <div className="form-row full">
+              <div className="field">
+                <label>İhtiyaç Duyduğunuz Disiplinler</label>
+                <div className="checks">
+                  {needs.map((n) => (
+                    <button
+                      key={n}
+                      type="button"
+                      className={`check${picked.has(n) ? ' on' : ''}`}
+                      onClick={() => toggle(n)}
+                      aria-pressed={picked.has(n)}
+                    >
+                      <span className="box" />{n}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="form-row full">
+              <div className="field"><label>Proje Detayı</label><textarea placeholder="Mekân büyüklüğü, kullanım amacı, mevcut sorunlar..." /></div>
+            </div>
+            <div className="form-foot">
+              <p className="micro">24 saat içinde teknik bir cevapla döneriz. Verileriniz KVKK kapsamında saklanır.</p>
+              <button type="submit" className="btn btn-red">Keşif Talep Et <span className="arrow" /></button>
+            </div>
+          </form>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* FAQ */}
-      <section className="px-6 lg:px-24 pb-24">
-        <div className="max-w-4xl">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface uppercase tracking-tight">Sık Sorulan Sorular</h2>
-          <div className="mt-8 space-y-4">
-            <details className="bg-surface-container-low border border-stone-200 rounded-xl p-5">
-              <summary className="cursor-pointer font-headline text-on-surface uppercase">Ses sistemi kurulumu ne kadar sürer?</summary>
-              <p className="mt-3 text-sm text-on-surface-variant">Proje ölçeğine göre değişmekle birlikte orta ölçekli mekân kurulumları genellikle 1-3 gün içinde tamamlanır.</p>
-            </details>
-            <details className="bg-surface-container-low border border-stone-200 rounded-xl p-5">
-              <summary className="cursor-pointer font-headline text-on-surface uppercase">Akustik ölçüm hizmeti veriyor musunuz?</summary>
-              <p className="mt-3 text-sm text-on-surface-variant">Evet. RT60, frekans tepkisi, yankı kontrolü ve konuşma anlaşılırlığı ölçümleriyle raporlu hizmet sunuyoruz.</p>
-            </details>
-            <details className="bg-surface-container-low border border-stone-200 rounded-xl p-5">
-              <summary className="cursor-pointer font-headline text-on-surface uppercase">İstanbul dışına hizmet var mı?</summary>
-              <p className="mt-3 text-sm text-on-surface-variant">İstanbul merkezli çalışıyoruz ancak Türkiye genelinde proje bazlı keşif, kurulum ve devreye alma hizmeti sağlıyoruz.</p>
-            </details>
+/* ===== FAQ ===== */
+function FAQ() {
+  const items: Array<[string, string]> = [
+    ['Akustik ölçüm yapıyor musunuz?', 'Evet. RT60, EDT, STI ve NC ölçümleri için kalibre edilmiş B&K mikrofon ve ölçüm yazılımı kullanıyoruz. Saha keşfi ücretsizdir.'],
+    ['Marka bağımsız mısınız?', 'Evet. Projeye en uygun ürünü seçeriz; d&b, L-Acoustics, Meyer Sound, Bose, JBL, Genelec, Bosch dahil pek çok marka ile çalışıyoruz.'],
+    ['Garanti süreniz nedir?', 'Tüm sistemlerde 2 yıl üretici garantisi + 1 yıl yerinde servis garantisi sunuyoruz. Yıllık bakım anlaşması opsiyoneldir.'],
+    ['Anahtar teslim mi çalışıyorsunuz?', 'Tasarım, satın alma, montaj, devreye alma ve kalibrasyon dahil anahtar teslim teslimat yapıyoruz. Yalnız tasarım veya yalnız kalibrasyon hizmeti de mümkündür.'],
+    ['EN 54-16 sertifikalı sistem kuruyor musunuz?', 'Evet. Kamu binaları, AVM, otel ve hastaneler için EN 54-16 uyumlu Voice Alarm sistemleri tasarlıyoruz.'],
+  ];
+  const [open, setOpen] = useState(0);
+  return (
+    <section className="section" id="sss">
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />08 · SIK SORULAN</span>
+            <h2 className="h-section" style={{ marginTop: 18 }}>Önce<br /><em>cevaplar</em>.</h2>
           </div>
+          <div className="right">Daha fazla sorunuz varsa formu doldurun ya da doğrudan arayın — 16 yıllık mühendislik birikimimizle dönelim.</div>
         </div>
-      </section>
+        <div className="reveal">
+          {items.map(([q, a], i) => (
+            <div key={q} className={`faq-row${open === i ? ' open' : ''}`} onClick={() => setOpen(open === i ? -1 : i)}>
+              <div className="qn">0{i + 1}</div>
+              <div>
+                <div className="qq">{q}</div>
+                <div className="qa">{a}</div>
+              </div>
+              <div className="toggle" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: [
-              {
-                '@type': 'Question',
-                name: 'Ses sistemi kurulumu ne kadar sürer?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: 'Proje ölçeğine göre değişmekle birlikte orta ölçekli mekân kurulumları genellikle 1-3 gün içinde tamamlanır.',
-                },
-              },
-              {
-                '@type': 'Question',
-                name: 'Akustik ölçüm hizmeti veriyor musunuz?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: 'RT60, frekans tepkisi, yankı kontrolü ve konuşma anlaşılırlığı ölçümleriyle raporlu hizmet sunuyoruz.',
-                },
-              },
-              {
-                '@type': 'Question',
-                name: 'İstanbul dışına hizmet var mı?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: 'İstanbul merkezli çalışıyoruz ancak Türkiye genelinde proje bazlı keşif, kurulum ve devreye alma hizmeti sağlıyoruz.',
-                },
-              },
-            ],
-          }),
-        }}
-      />
-    </motion.main>
+/* ===== Page ===== */
+export default function Home() {
+  const [filter, setFilter] = useState<DiscKey>('all');
+
+  useEffect(() => {
+    document.title = 'On Muzik Proje — Akustik & Ses Mühendisliği';
+    const set = (name: string, content: string, isProperty = false) => {
+      const sel = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+      let tag = document.head.querySelector(sel) as HTMLMetaElement | null;
+      if (!tag) {
+        tag = document.createElement('meta');
+        if (isProperty) tag.setAttribute('property', name); else tag.setAttribute('name', name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', content);
+    };
+    set('description', 'Restoran, otel, stüdyo, sahne ve konferans için akustik tasarım, profesyonel ses sistemleri ve LED görüntü mimarisi. Ölçüme dayalı, marka bağımsız mühendislik.');
+    set('keywords', 'akustik tasarım, ses sistemi, line array, dante, RT60, STI, LED ekran, EN 54-16, istanbul ses sistemi');
+    set('og:title', 'On Muzik Proje — Akustik & Ses Mühendisliği', true);
+    set('og:description', 'Ölçüme dayalı akustik tasarım ve marka bağımsız ses sistemi mühendisliği.', true);
+  }, []);
+
+  return (
+    <>
+      <Hero />
+      <Marquee />
+      <DisciplineDeck active={filter} setActive={setFilter} />
+      <SolutionPathways filter={filter} />
+      <Process />
+      <Venues />
+      <Dashboard />
+      <PortfolioTeaser />
+      <Quote />
+      <FAQ />
+    </>
   );
 }

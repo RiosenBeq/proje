@@ -1,10 +1,4 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'motion/react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Services from './pages/Services';
@@ -13,12 +7,10 @@ import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Kvkk from './pages/Kvkk';
 
-function AnimatedRoutes() {
-  const location = useLocation();
-  
+export default function App() {
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+    <BrowserRouter>
+      <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="hizmetler" element={<Services />} />
@@ -28,14 +20,6 @@ function AnimatedRoutes() {
           <Route path="kvkk" element={<Kvkk />} />
         </Route>
       </Routes>
-    </AnimatePresence>
-  );
-}
-
-export default function App() {
-  return (
-    <BrowserRouter>
-      <AnimatedRoutes />
     </BrowserRouter>
   );
 }
