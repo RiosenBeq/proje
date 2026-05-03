@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, type ImgHTMLAttributes } from 'react';
+
+function ImgFade(props: ImgHTMLAttributes<HTMLImageElement>) {
+  return <img {...props} onLoad={(e) => { e.currentTarget.classList.add('loaded'); props.onLoad?.(e); }} />;
+}
 
 type DiscCls = 'red' | 'gold' | 'indigo' | 'teal' | 'plum' | 'olive';
 type Tag = [DiscCls, string];
@@ -92,7 +96,7 @@ export default function Portfolio() {
             {CASES.map((c, i) => (
               <article key={c.t} className="case reveal" style={{ transitionDelay: `${i * 60}ms` }}>
                 <div className="frame">
-                  <img src={c.img} alt={c.t} loading="lazy" />
+                  <ImgFade src={c.img} alt={c.t} loading="lazy" />
                   <div className="ph">{c.t.toUpperCase()} · GÖRSEL</div>
                   <div className="stat-overlay">
                     {c.st.map(([k, v]) => <span key={k} className="mini">{k}<b>{v}</b></span>)}
@@ -125,7 +129,7 @@ export default function Portfolio() {
           <div className="gal-grid">
             {GALLERY.map((g, i) => (
               <div key={`${g.src}-${i}`} className={`gal-cell ${g.size} reveal`} style={{ transitionDelay: `${i * 40}ms` }}>
-                <img src={g.src} alt={g.label} loading="lazy" />
+                <ImgFade src={g.src} alt={g.label} loading="lazy" />
                 <span className="badge">SAHA · 2024</span>
                 <span className="lbl">{g.label}</span>
               </div>

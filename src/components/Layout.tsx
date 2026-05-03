@@ -1,11 +1,20 @@
 import { NavLink, Outlet, Link, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState, type TouchEvent as ReactTouchEvent } from 'react';
+import SectionProgress from './SectionProgress';
+import CookieBanner from './CookieBanner';
+import { smoothScrollToHash } from '../lib/hooks';
 
 const NAV = [
   { to: '/', label: 'Anasayfa', end: true },
   { to: '/hizmetler', label: 'Hizmetler' },
   { to: '/portfolyo', label: 'Projeler' },
   { to: '/iletisim', label: 'İletişim' },
+];
+
+const SOCIALS: Array<{ href: string; label: string; svg: string }> = [
+  { href: 'https://www.instagram.com/', label: 'Instagram', svg: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>' },
+  { href: 'https://www.linkedin.com/',  label: 'LinkedIn',  svg: '<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="17"/><circle cx="8" cy="7.5" r="0.9" fill="currentColor" stroke="none"/><path d="M12 17v-4a2 2 0 0 1 4 0v4"/><line x1="12" y1="11" x2="12" y2="17"/>' },
+  { href: 'https://www.youtube.com/',   label: 'YouTube',   svg: '<rect x="3" y="6" width="18" height="12" rx="3"/><path d="M11 9.5v5l4-2.5z" fill="currentColor" stroke="none"/>' },
 ];
 
 function BrandLockup({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
@@ -75,26 +84,32 @@ function ScrollTopFab() {
   );
 }
 
+function haptic(ms = 8) {
+  if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+    try { navigator.vibrate(ms); } catch { /* ignore */ }
+  }
+}
+
 function BottomNav() {
   return (
     <nav className="bottom-nav" aria-label="Mobil gezinti">
-      <NavLink to="/" end className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`}>
+      <NavLink to="/" end className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`} onClick={() => haptic()}>
         <NavIcon kind="home" />
         <span>Anasayfa</span>
       </NavLink>
-      <NavLink to="/hizmetler" className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`}>
+      <NavLink to="/hizmetler" className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`} onClick={() => haptic()}>
         <NavIcon kind="grid" />
         <span>Hizmetler</span>
       </NavLink>
-      <Link to="/iletisim" className="bn-cta" aria-label="Teklif Al">
+      <Link to="/iletisim" className="bn-cta" aria-label="Teklif Al" onClick={() => haptic(12)}>
         <span className="bn-cta-inner"><NavIcon kind="plus" /></span>
         <span className="bn-cta-lbl">Teklif</span>
       </Link>
-      <NavLink to="/portfolyo" className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`}>
+      <NavLink to="/portfolyo" className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`} onClick={() => haptic()}>
         <NavIcon kind="star" />
         <span>Projeler</span>
       </NavLink>
-      <NavLink to="/iletisim" className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`}>
+      <NavLink to="/iletisim" className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`} onClick={() => haptic()}>
         <NavIcon kind="mail" />
         <span>İletişim</span>
       </NavLink>
@@ -104,39 +119,134 @@ function BottomNav() {
 
 export default function Layout() {
   const [drawer, setDrawer] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const drawerRef = useRef<HTMLElement | null>(null);
+  const drawerCloseRef = useRef<HTMLButtonElement | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchDeltaX = useRef(0);
 
+  // Close drawer on route change
   useEffect(() => { setDrawer(false); }, [location.pathname]);
 
+  // Body lock + Esc to close + focus trap on drawer
   useEffect(() => {
-    if (drawer) {
-      document.body.style.overflow = 'hidden';
-      return () => { document.body.style.overflow = ''; };
-    }
-    return undefined;
+    if (!drawer) return;
+    document.body.style.overflow = 'hidden';
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const t = window.setTimeout(() => drawerCloseRef.current?.focus(), 80);
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setDrawer(false);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const root = drawerRef.current;
+      if (!root) return;
+      const focusables = root.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
+      window.clearTimeout(t);
+      previouslyFocused?.focus();
+    };
   }, [drawer]);
 
+  // Scroll-aware header + auto scroll-to-top + reveal observer (per route)
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
     const els = document.querySelectorAll('.reveal');
-    if (!els.length) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    let io: IntersectionObserver | null = null;
+    if (els.length) {
+      io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io?.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach((el) => io!.observe(el));
+    }
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      io?.disconnect();
+    };
   }, [location.pathname]);
+
+  // Smooth-scroll for in-page anchor links with header offset
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      const a = t.closest('a[href]');
+      if (!(a instanceof HTMLAnchorElement)) return;
+      const href = a.getAttribute('href');
+      if (!href || !href.startsWith('#') || href === '#') return;
+      const target = document.querySelector(href);
+      if (!(target instanceof HTMLElement)) return;
+      e.preventDefault();
+      smoothScrollToHash(href, 80);
+      history.replaceState(null, '', href);
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
+
+  // Swipe-to-close drawer
+  function onTouchStart(e: ReactTouchEvent) {
+    touchStartX.current = e.touches[0].clientX;
+    touchDeltaX.current = 0;
+  }
+  function onTouchMove(e: ReactTouchEvent) {
+    if (touchStartX.current === null) return;
+    const dx = e.touches[0].clientX - touchStartX.current;
+    if (dx > 0 && drawerRef.current) {
+      touchDeltaX.current = dx;
+      drawerRef.current.style.transform = `translateX(${dx}px)`;
+      drawerRef.current.style.transition = 'none';
+    }
+  }
+  function onTouchEnd() {
+    if (touchStartX.current === null) return;
+    const el = drawerRef.current;
+    if (el) {
+      el.style.transition = '';
+      el.style.transform = '';
+    }
+    if (touchDeltaX.current > 80) setDrawer(false);
+    touchStartX.current = null;
+    touchDeltaX.current = 0;
+  }
 
   return (
     <>
+      <a href="#main" className="skip-link">İçeriğe geç</a>
+
       <ScrollProgress />
 
-      <header className="site-header">
+      <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
         <div className="container nav">
           <Link to="/" className="brand" aria-label="On Music Proje">
             <BrandLockup />
@@ -156,6 +266,7 @@ export default function Layout() {
               className={`hamburger${drawer ? ' on' : ''}`}
               aria-label={drawer ? 'Menüyü kapat' : 'Menüyü aç'}
               aria-expanded={drawer}
+              aria-controls="mobile-drawer"
               onClick={() => setDrawer((d) => !d)}
             >
               <span />
@@ -169,10 +280,23 @@ export default function Layout() {
         onClick={() => setDrawer(false)}
         aria-hidden
       />
-      <aside className={`mobile-drawer${drawer ? ' on' : ''}`} role="dialog" aria-label="Mobil menü" aria-hidden={!drawer}>
+      <aside
+        id="mobile-drawer"
+        ref={drawerRef}
+        className={`mobile-drawer${drawer ? ' on' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobil menü"
+        aria-hidden={!drawer}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        <div className="md-grip" aria-hidden />
         <div className="md-head">
           <BrandLockup />
           <button
+            ref={drawerCloseRef}
             type="button"
             className="md-close"
             aria-label="Menüyü kapat"
@@ -183,14 +307,27 @@ export default function Layout() {
             </svg>
           </button>
         </div>
+
+        <p className="md-intro">
+          <span className="md-eyebrow"><span className="bar" />İSTANBUL · 2009'DAN BERİ</span>
+          16 yıllık akustik ve ses mühendisliği. <em>Marka bağımsız</em>, ölçüme dayalı tasarım.
+        </p>
+
         <nav className="md-nav">
-          {NAV.map((n) => (
-            <NavLink key={n.to} to={n.to} end={n.end} className={({ isActive }) => (isActive ? 'active' : '')}>
+          {NAV.map((n, i) => (
+            <NavLink
+              key={n.to}
+              to={n.to}
+              end={n.end}
+              className={({ isActive }) => (isActive ? 'active' : '')}
+              style={{ ['--i' as string]: i }}
+            >
               <span className="md-arrow">↗</span>
               {n.label}
             </NavLink>
           ))}
         </nav>
+
         <div className="md-meta">
           <a href="tel:+908502419515" className="md-row">
             <span className="md-k">TEL</span>
@@ -205,19 +342,30 @@ export default function Layout() {
             <span className="md-v">Ataşehir / İstanbul</span>
           </span>
         </div>
+
+        <div className="md-social" aria-label="Sosyal medya">
+          {SOCIALS.map((s) => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: s.svg }} />
+            </a>
+          ))}
+        </div>
+
         <div className="md-foot">
           <Link to="/iletisim" className="btn btn-red">Keşif Talep Et <span className="arrow" /></Link>
           <div className="md-legal">
-            <NavLink to="/gizlilik-politikasi">Gizlilik</NavLink>
+            <NavLink to="/gizlilik-politikasi" className={({ isActive }) => (isActive ? 'active' : '')}>Gizlilik</NavLink>
             <span>·</span>
-            <NavLink to="/kvkk">KVKK</NavLink>
+            <NavLink to="/kvkk" className={({ isActive }) => (isActive ? 'active' : '')}>KVKK</NavLink>
           </div>
         </div>
       </aside>
 
-      <main className="page-transition" key={location.pathname}>
+      <main id="main" className="page-transition" key={location.pathname}>
         <Outlet />
       </main>
+
+      {location.pathname === '/' && <SectionProgress />}
 
       <footer className="footer">
         <div className="container">
@@ -234,6 +382,13 @@ export default function Layout() {
             <div className="foot-brand">
               <BrandLockup tone="light" />
               <p>İstanbul merkezli, 16 yıllık akustik ve ses mühendisliği stüdyosu. Türkiye genelinde proje teslim ediyoruz.</p>
+              <div className="foot-social" aria-label="Sosyal medya">
+                {SOCIALS.map((s) => (
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: s.svg }} />
+                  </a>
+                ))}
+              </div>
             </div>
             <div>
               <h6>DİSİPLİNLER</h6>
@@ -283,6 +438,7 @@ export default function Layout() {
 
       <ScrollTopFab />
       <BottomNav />
+      <CookieBanner />
     </>
   );
 }
