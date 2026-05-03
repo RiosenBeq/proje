@@ -103,7 +103,7 @@ export default function Contact() {
                 </div>
                 <div className="ic-row">
                   <span className="k">E-POSTA</span>
-                  <span className="v"><a href="mailto:info@onmuzikproje.com">info@onmuzikproje.com</a></span>
+                  <span className="v"><a href="mailto:info@onmuzik.com">info@onmuzik.com</a></span>
                 </div>
                 <div className="ic-row">
                   <span className="k">SAAT</span>

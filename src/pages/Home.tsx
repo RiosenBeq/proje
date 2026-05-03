@@ -119,7 +119,7 @@ function Hero() {
   );
 }
 
-/* ===== Marquee ===== */
+/* ===== Marquee (text) ===== */
 function Marquee() {
   const items = [
     'AKUSTİK TASARIM', 'SES SİSTEMİ', 'LED EKRAN', 'STÜDYO MİMARİSİ',
@@ -134,6 +134,157 @@ function Marquee() {
         )))}
       </div>
     </div>
+  );
+}
+
+/* ===== Photo Marquee gallery ===== */
+const PHOTO_GALLERY: Array<{ src: string; alt: string; lbl: string }> = [
+  { src: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=1200', alt: 'Neytin konsept duvar aydınlatması',           lbl: 'Konsept · Duvar' },
+  { src: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1200',  alt: 'Restoran iç mekan ses sistemi kurulumu',         lbl: 'Restoran · PA' },
+  { src: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=1200', alt: 'Gece ambiyansında hoparlör yakın plan',          lbl: 'Pioneer · Gece' },
+  { src: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg?auto=compress&cs=tinysrgb&w=1200', alt: 'Vinyl duvar ve ses kurulum detayları',           lbl: 'Vinyl · Duvar' },
+  { src: 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=1200',   alt: 'Tavan montaj beyaz hoparlör kurulumu',           lbl: 'Tavan · Montaj' },
+  { src: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1200', alt: 'DJ booth ses kurulumu',                          lbl: 'DJ · Booth' },
+  { src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80',       alt: 'Restoran ses sistemi ortam',                     lbl: 'Restoran · Sahne' },
+  { src: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=1200&q=80',       alt: 'Vinil koleksiyon duvarı ve hoparlör sistemi',    lbl: 'Vinyl · Wall' },
+];
+
+function PhotoMarquee() {
+  return (
+    <section className="photo-marquee" aria-label="Saha görsel arşivi">
+      <div className="container">
+        <div className="section-head reveal" style={{ marginBottom: 8 }}>
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />SAHA · GÖRSEL ARŞİV</span>
+            <h2 className="h-section gold" style={{ marginTop: 18, fontSize: 'clamp(28px, 4vw, 48px)' }}>
+              Tasarımdan<br /><em>sahaya</em>.
+            </h2>
+          </div>
+          <div className="right">
+            Mekânların akustik karakterini dönüştürdüğümüz uygulamalardan seçilen kareler. Galeri sürekli akış halinde yeni referans projeleri sergiler.
+          </div>
+        </div>
+      </div>
+      <div className="pm-strip">
+        <div className="pm-track">
+          {[...PHOTO_GALLERY, ...PHOTO_GALLERY].map((img, i) => (
+            <div key={`${img.src}-${i}`} className="pm-cell">
+              <img src={img.src} alt={img.alt} loading="lazy" />
+              <span className="pm-lbl">{img.lbl}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ===== Mühendislik Standartları ===== */
+function Standards() {
+  const items = [
+    { n: '01', t: '16+ Yıl Mühendislik', d: '2009\'dan beri Türkiye\'nin en prestijli stüdyo, restoran ve konser alanlarını teslim ediyoruz.' },
+    { n: '02', t: 'Hızlı Devreye Alma', d: 'Optimize edilmiş lojistik ve saha ekiplerimizle projelerinizi takvimine sadık kalarak hayata geçiriyoruz.' },
+    { n: '03', t: 'Ömür Boyu Destek', d: 'Sistem devreye alındıktan sonra periyodik akustik kalibrasyon, yazılım güncellemeleri ve uzaktan teşhis.' },
+  ];
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />MÜHENDİSLİK STANDARTLARI</span>
+            <h2 className="h-section" style={{ marginTop: 18 }}>Standartları<br /><em>yeniden</em> tanımlıyoruz.</h2>
+          </div>
+          <div className="right">
+            Sesin fiziğini mühendislik disipliniyle harmanlıyoruz. Her proje, milimetrik hesaplamalar ve akustik mükemmeliyet arayışıyla şekillenen bir başyapıttır.
+          </div>
+        </div>
+        <div className="standards-grid reveal">
+          {items.map((it) => (
+            <div key={it.n} className="standard">
+              <div className="s-num">{it.n}</div>
+              <h4>{it.t}</h4>
+              <p>{it.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ===== 2026 Vision Banner ===== */
+function Vision2026() {
+  return (
+    <section className="section" style={{ paddingTop: 0 }}>
+      <div className="container">
+        <div className="vision-banner reveal">
+          <span className="vb-year" aria-hidden>2026</span>
+          <div className="vb-content">
+            <span className="eyebrow" style={{ color: 'rgba(245,239,224,0.6)' }}>
+              <span className="bar" style={{ background: 'rgba(245,239,224,0.4)' }} />GELECEK VİZYONU
+            </span>
+            <h2 className="h-section" style={{ color: 'var(--stage-fg)', marginTop: 18 }}>
+              <em style={{ color: 'var(--gold-2)' }}>İmmersif</em> sesin geleceği.
+            </h2>
+            <p>
+              Dolby Atmos sertifikalı tasarımlarımız, 96 kHz native işleme ve yapay zeka destekli akustik analiz araçlarımızla 2026'da ses teknolojilerini bir adım öteye taşıyoruz.
+            </p>
+            <div className="vb-tags">
+              <span className="tag" style={{ borderColor: 'rgba(245,239,224,0.3)', color: 'rgba(245,239,224,0.85)' }}>DOLBY ATMOS</span>
+              <span className="tag" style={{ borderColor: 'rgba(245,239,224,0.3)', color: 'rgba(245,239,224,0.85)' }}>AI ACOUSTIC</span>
+              <span className="tag" style={{ borderColor: 'rgba(245,239,224,0.3)', color: 'rgba(245,239,224,0.85)' }}>96 kHz NATIVE</span>
+              <span className="tag" style={{ borderColor: 'rgba(245,239,224,0.3)', color: 'rgba(245,239,224,0.85)' }}>DANTE / AES67</span>
+            </div>
+            <Link to="/portfolyo" className="btn btn-on-stage">Vizyon Belgesini İncele <span className="arrow" /></Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ===== SEO Content ===== */
+function SEOContent() {
+  return (
+    <section className="section" style={{ paddingTop: 0 }}>
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />AKUSTİK & SES MÜHENDİSLİĞİ</span>
+            <h2 className="h-section gold" style={{ marginTop: 18 }}>
+              İstanbul'dan<br />Türkiye'ye <em>profesyonel</em><br />ses altyapısı.
+            </h2>
+          </div>
+          <div className="right">
+            On Muzik Proje; restoran, kafe, otel, canlı performans sahnesi, konferans salonu ve kurumsal alanlar için akustik tasarım, ses sistemi keşfi, cihaz konumlandırma, DSP ayarı ve periyodik teknik bakım hizmetlerini tek çatı altında sunar. Her proje için hedefimiz; net konuşma anlaşılabilirliği, dengeli frekans dağılımı ve uzun ömürlü sistem performansıdır.
+          </div>
+        </div>
+        <div className="seo-grid reveal">
+          <article className="seo-card">
+            <h3>Hizmet Kapsamı</h3>
+            <ul>
+              <li>Mekân akustik analizi ve RT60 optimizasyonu</li>
+              <li>Ses sistemi projelendirme ve ürün seçimi</li>
+              <li>DSP, EQ, crossover ve gain staging kalibrasyonu</li>
+              <li>Dante / network tabanlı ses altyapısı kurulumu</li>
+              <li>EN 54-16 uyumlu Voice Alarm sistemleri</li>
+              <li>Periyodik bakım ve uzaktan teşhis</li>
+            </ul>
+          </article>
+          <article className="seo-card">
+            <h3>Neden On Muzik Proje?</h3>
+            <ul>
+              <li>Uygulamaya özel mühendislik yaklaşımı</li>
+              <li>Yerinde keşif ve performans odaklı kurulum</li>
+              <li>Marka bağımsız teknik danışmanlık</li>
+              <li>Proje sonrası bakım ve teknik destek</li>
+              <li>16 yıllık saha tecrübesi</li>
+              <li>Türkiye genelinde proje teslim ağı</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -671,12 +822,16 @@ export default function Home() {
     <>
       <Hero />
       <Marquee />
+      <PhotoMarquee />
       <DisciplineDeck active={filter} setActive={setFilter} />
       <SolutionPathways filter={filter} />
       <Process />
       <Venues />
+      <Standards />
       <Dashboard />
       <PortfolioTeaser />
+      <Vision2026 />
+      <SEOContent />
       <Quote />
       <FAQ />
     </>
