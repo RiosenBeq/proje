@@ -1559,6 +1559,31 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   line-height: 1.5;
 }
 
+/* Form status messages */
+.form-msg {
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  border: 1px solid var(--line-2);
+  background: var(--bg-1);
+  color: var(--ink-2);
+  font-family: var(--f-body);
+}
+.form-msg a { color: inherit; border-bottom: 1px dashed currentColor; }
+.form-msg-ok {
+  border-color: var(--olive-line);
+  background: var(--olive-soft);
+  color: var(--olive);
+}
+.form-msg-err {
+  border-color: var(--red-line);
+  background: var(--red-soft);
+  color: var(--red);
+}
+.btn:disabled { opacity: 0.6; cursor: progress; }
+
 /* ============================================================ FAQ */
 .faq-row {
   display: grid;

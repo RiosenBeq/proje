@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState, type CSSProperties } from 'react';
+import { useEffect, useState, type CSSProperties, type FormEvent } from 'react';
 
 /* ===== Hero Vinyl SVG (logo style) ===== */
 function HeroVinyl() {
@@ -666,14 +666,57 @@ function PortfolioTeaser() {
 }
 
 /* ===== Quote ===== */
+type QuoteStatus = 'idle' | 'sending' | 'success' | 'error';
+const QUOTE_NEEDS = ['Akustik Tasarım', 'Ses Sistemi', 'Stüdyo Akustiği', 'LED / Görüntü', 'Konferans / AV', 'Anons / VA', 'Kalibrasyon', 'Bakım'];
+const QUOTE_VENUES = ['Restoran / Bar', 'Otel / SPA', 'Sahne / Etkinlik', 'Stüdyo / Kayıt', 'Toplantı / Konferans', 'Diğer'];
+const QUOTE_BUDGETS = ['250.000 ₺ altı', '250–750.000 ₺', '750.000 – 2 M ₺', '2 M ₺ üstü'];
+
 function Quote() {
-  const needs = ['Akustik Tasarım', 'Ses Sistemi', 'Stüdyo Akustiği', 'LED / Görüntü', 'Konferans / AV', 'Anons / VA', 'Kalibrasyon', 'Bakım'];
   const [picked, setPicked] = useState<Set<string>>(new Set(['Akustik Tasarım', 'Ses Sistemi']));
+  const [name, setName] = useState('');
+  const [company, setCompany] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [venue, setVenue] = useState(QUOTE_VENUES[0]);
+  const [budget, setBudget] = useState(QUOTE_BUDGETS[0]);
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<QuoteStatus>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
+
   const toggle = (n: string) => {
     const s = new Set(picked);
     if (s.has(n)) s.delete(n); else s.add(n);
     setPicked(s);
   };
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (status === 'sending') return;
+    setStatus('sending');
+    setErrorMsg('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'quote',
+          name, company, email, phone, venue, budget, message,
+          needs: Array.from(picked),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || `Sunucu hatası (${res.status})`);
+      }
+      setStatus('success');
+      setName(''); setCompany(''); setEmail(''); setPhone(''); setMessage('');
+      setPicked(new Set(['Akustik Tasarım', 'Ses Sistemi']));
+    } catch (err) {
+      setStatus('error');
+      setErrorMsg(err instanceof Error ? err.message : 'Beklenmedik bir hata oluştu.');
+    }
+  }
+
   return (
     <section className="section quote-section" id="iletisim">
       <div className="container">
@@ -696,34 +739,38 @@ function Quote() {
               ))}
             </div>
           </div>
-          <form className="form reveal" onSubmit={(e) => e.preventDefault()}>
+          <form className="form reveal" onSubmit={onSubmit} noValidate>
             <div className="form-row">
-              <div className="field"><label>Ad Soyad</label><input type="text" placeholder="Adınız Soyadınız" /></div>
-              <div className="field"><label>Şirket</label><input type="text" placeholder="Şirket / Marka" /></div>
+              <div className="field">
+                <label>Ad Soyad</label>
+                <input type="text" placeholder="Adınız Soyadınız" value={name} onChange={(e) => setName(e.target.value)} required minLength={2} />
+              </div>
+              <div className="field">
+                <label>Şirket</label>
+                <input type="text" placeholder="Şirket / Marka" value={company} onChange={(e) => setCompany(e.target.value)} />
+              </div>
             </div>
             <div className="form-row">
-              <div className="field"><label>E-posta</label><input type="email" placeholder="ornek@ornek.com" /></div>
-              <div className="field"><label>Telefon</label><input type="tel" placeholder="+90 ..." /></div>
+              <div className="field">
+                <label>E-posta</label>
+                <input type="email" placeholder="ornek@ornek.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              </div>
+              <div className="field">
+                <label>Telefon</label>
+                <input type="tel" placeholder="+90 ..." value={phone} onChange={(e) => setPhone(e.target.value)} />
+              </div>
             </div>
             <div className="form-row">
               <div className="field">
                 <label>Mekân Tipi</label>
-                <select>
-                  <option>Restoran / Bar</option>
-                  <option>Otel / SPA</option>
-                  <option>Sahne / Etkinlik</option>
-                  <option>Stüdyo / Kayıt</option>
-                  <option>Toplantı / Konferans</option>
-                  <option>Diğer</option>
+                <select value={venue} onChange={(e) => setVenue(e.target.value)}>
+                  {QUOTE_VENUES.map((v) => <option key={v} value={v}>{v}</option>)}
                 </select>
               </div>
               <div className="field">
                 <label>Bütçe Aralığı</label>
-                <select>
-                  <option>250.000 ₺ altı</option>
-                  <option>250–750.000 ₺</option>
-                  <option>750.000 – 2 M ₺</option>
-                  <option>2 M ₺ üstü</option>
+                <select value={budget} onChange={(e) => setBudget(e.target.value)}>
+                  {QUOTE_BUDGETS.map((v) => <option key={v} value={v}>{v}</option>)}
                 </select>
               </div>
             </div>
@@ -731,7 +778,7 @@ function Quote() {
               <div className="field">
                 <label>İhtiyaç Duyduğunuz Disiplinler</label>
                 <div className="checks">
-                  {needs.map((n) => (
+                  {QUOTE_NEEDS.map((n) => (
                     <button
                       key={n}
                       type="button"
@@ -746,11 +793,31 @@ function Quote() {
               </div>
             </div>
             <div className="form-row full">
-              <div className="field"><label>Proje Detayı</label><textarea placeholder="Mekân büyüklüğü, kullanım amacı, mevcut sorunlar..." /></div>
+              <div className="field">
+                <label>Proje Detayı</label>
+                <textarea
+                  placeholder="Mekân büyüklüğü, kullanım amacı, mevcut sorunlar..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+              </div>
             </div>
+            {status === 'success' && (
+              <div className="form-msg form-msg-ok" role="status">
+                Talebiniz iletildi. 24 saat içinde sizinle iletişime geçeceğiz.
+              </div>
+            )}
+            {status === 'error' && (
+              <div className="form-msg form-msg-err" role="alert">
+                Talebiniz gönderilemedi: {errorMsg} — lütfen tekrar deneyin veya doğrudan{' '}
+                <a href="mailto:info@onmuzik.com">info@onmuzik.com</a> adresine yazın.
+              </div>
+            )}
             <div className="form-foot">
               <p className="micro">24 saat içinde teknik bir cevapla döneriz. Verileriniz KVKK kapsamında saklanır.</p>
-              <button type="submit" className="btn btn-red">Keşif Talep Et <span className="arrow" /></button>
+              <button type="submit" className="btn btn-red" disabled={status === 'sending'}>
+                {status === 'sending' ? 'Gönderiliyor…' : 'Keşif Talep Et'} <span className="arrow" />
+              </button>
             </div>
           </form>
         </div>
