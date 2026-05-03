@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect, type CSSProperties } from 'react';
+import { useEffect, type CSSProperties, type ReactNode } from 'react';
 
 type DiscCls = 'red' | 'gold' | 'indigo' | 'teal' | 'plum' | 'olive';
 
@@ -19,6 +19,38 @@ const SERVICES: Array<{ cls: DiscCls; tag: string; title: string; desc: string; 
   { cls: 'teal',   tag: 'STÜDYO',          title: 'Stüdyo & Kayıt',       desc: 'Kontrol ve kayıt odaları için modal kontrol, izolasyon ve kalibre referans dinleme.',              bullets: ['Bass trap', 'Kayan kat', 'RFZ kontrol', 'Monitör tuning'],                                 metric: ['NC HEDEF', 'NC-18 / NC-20'] },
   { cls: 'plum',   tag: 'KONFERANS / AV',  title: 'Toplantı & Konferans', desc: 'Beamforming mikrofon, hibrit toplantı, tek dokunuş kontrol ve simültane çeviri sistemleri.',       bullets: ['Beamforming mic', 'AEC + AGC', 'Kamera tracking', 'Tek dokunuş kontrol'],                  metric: ['STI HEDEF', '≥ 0.62'] },
   { cls: 'olive',  tag: 'ANONS / VA',      title: 'Anons & Güvenlik',     desc: 'EN 54-16 uyumlu Voice Alarm, evakuasyon mimarisi ve merkezi anons sistemi tasarımı.',                bullets: ['EN 54-16 sertifika', 'Evakuasyon zoneları', 'BMS entegrasyon', 'Merkezi kontrol'],         metric: ['STANDART', 'EN 54-16'] },
+];
+
+const FEATURES: Array<{
+  id: string; cls: DiscCls; partner?: string; title: ReactNode; desc: string;
+  img: string; alt: string; flip?: boolean;
+  stats: Array<[string, string]>;
+}> = [
+  {
+    id: 'AT-01', cls: 'gold',
+    title: <>Akustik <em>tasarım</em>.</>,
+    desc: 'İzolasyon ve diffüzyon stratejileriyle, mekânın sonik karakterini yeniden tanımlıyoruz. Her yüzey, ses dalgalarını kontrol etmek için hibrit polimer panel ve modal kontrol kasetleriyle optimize edilir.',
+    img: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=900&q=80',
+    alt: 'Akustik tasarım — vinyl ve hoparlör duvarı',
+    stats: [['RT60 HEDEFİ', '0.45 – 0.60 s'], ['FREKANS', '20Hz – 22kHz'], ['MATERYAL', 'Hibrit Polimer'], ['İZOLASYON', '−55 dB STC']],
+  },
+  {
+    id: 'PS-04', cls: 'red', partner: 'PIONEER PRO AUDIO',
+    title: <>Profesyonel <em>ses</em>.</>,
+    desc: 'Pioneer Pro Audio iş ortaklığımız ile konser salonlarından butik stüdyolara kadar en yüksek sadakatli ses sistemlerini kuruyoruz. Class-D amfi zinciri, 96kHz DSP ve cardioid sub array tasarımı.',
+    img: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=900',
+    alt: 'Profesyonel ses sistemi — gece ambiyansında hoparlör',
+    flip: true,
+    stats: [['MAX SPL', '136 dB Peak'], ['DİSPERSİYON', '110° × 10°'], ['İŞLEME', '96 kHz DSP'], ['AMFİ', 'Class-D Peak']],
+  },
+  {
+    id: 'GU-09', cls: 'plum',
+    title: <>Güvenlik & <em>kontrol</em>.</>,
+    desc: 'Entegre bina otomasyonu ve üst düzey güvenlik sistemleri. Akustik konforunuzu teknik güvenlik ile mühürlüyoruz — yapay zeka destekli takip, biyometrik erişim ve DALI-2 aydınlatma entegrasyonu.',
+    img: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80',
+    alt: 'Güvenlik kontrol odası ve hoparlör tavan kurulumu',
+    stats: [['AI TAKİP', 'Aktif'], ['BİYOMETRİK', 'L5 Secure'], ['AYDINLATMA', 'DALI-2'], ['UZAK İZLEME', 'Mobil / Web']],
+  },
 ];
 
 export default function Services() {
@@ -64,8 +96,57 @@ export default function Services() {
         <div className="container">
           <div className="section-head reveal">
             <div className="left">
-              <span className="eyebrow"><span className="bar" />02 · TESLİM ZİNCİRİ</span>
-              <h2 className="h-section gold" style={{ marginTop: 18 }}>Anahtar teslim<br /><em>mühendislik</em>.</h2>
+              <span className="eyebrow"><span className="bar" />02 · ÖNE ÇIKAN DİSİPLİNLER</span>
+              <h2 className="h-section gold" style={{ marginTop: 18 }}>Detayda<br /><em>fark yaratan</em>.</h2>
+            </div>
+            <div className="right">
+              Akustik tasarım, profesyonel ses ve güvenlik entegrasyonu üçlüsü için detaylı kapsam
+              ve teslim hedefleri. Her başlık marka-bağımsız ve ölçüme dayalıdır.
+            </div>
+          </div>
+
+          <div className="svc-features">
+            {FEATURES.map((f, i) => (
+              <article
+                key={f.id}
+                className={`svc-feature reveal${f.flip ? ' flip' : ''}`}
+                style={{ ...CLS_VARS[f.cls], transitionDelay: `${i * 80}ms` }}
+              >
+                <div className="sf-frame">
+                  <span className="sf-id">ID: {f.id}</span>
+                  <img src={f.img} alt={f.alt} loading="lazy" />
+                </div>
+                <div>
+                  {f.partner && (
+                    <div className="sf-tag-row">
+                      <span>OFFICIAL PARTNER</span>
+                      <span className="line" />
+                      <b>{f.partner}</b>
+                    </div>
+                  )}
+                  <h3>{f.title}</h3>
+                  <p className="sf-desc">{f.desc}</p>
+                  <div className="sf-stats">
+                    {f.stats.map(([k, v]) => (
+                      <div key={k} className="sf-stat">
+                        <div className="k">{k}</div>
+                        <div className="v">{v}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head reveal">
+            <div className="left">
+              <span className="eyebrow"><span className="bar" />03 · TESLİM ZİNCİRİ</span>
+              <h2 className="h-section" style={{ marginTop: 18 }}>Anahtar teslim<br /><em>mühendislik</em>.</h2>
             </div>
             <div className="right">
               Her hizmet bağımsız olarak veya entegre paket olarak alınabilir. Akustik ölçüm + ses
@@ -99,7 +180,62 @@ export default function Services() {
             </div>
           </div>
 
-          <div style={{ marginTop: 36, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 18, marginTop: 32 }} className="svc-policy-grid">
+            <div className="stat-hero reveal">
+              <div className="sh-num">0.00%</div>
+              <div className="sh-lbl">HATA PAYI POLİTİKASI</div>
+              <p>
+                Mühendislik ekibimiz, her kurulumda sıfır tolerans prensibiyle çalışır. Tüm donanımlar
+                kurulum öncesi 48 saatlik stres testine tabi tutulur ve teslim öncesi RT60 / STI / NC ölçümleri
+                hedef-fiili karşılaştırmasıyla raporlanır.
+              </p>
+            </div>
+            <div className="contact-card reveal">
+              <h3>Marka Bağımsız Mimari</h3>
+              <div className="ic-row">
+                <span className="k">SES</span>
+                <span className="v">d&b · L-Acoustics · Meyer · Bose · JBL · Pioneer Pro</span>
+              </div>
+              <div className="ic-row">
+                <span className="k">STÜDYO</span>
+                <span className="v">Genelec · Neumann · Focal</span>
+              </div>
+              <div className="ic-row">
+                <span className="k">AĞ</span>
+                <span className="v">Dante · AES67 · AVB</span>
+              </div>
+              <div className="ic-row">
+                <span className="k">VA</span>
+                <span className="v">Bosch · Honeywell · TOA</span>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: 40 }}>
+            <div className="section-head reveal" style={{ marginBottom: 0, alignItems: 'baseline' }}>
+              <div className="left">
+                <span className="eyebrow"><span className="bar" />04 · LABORATUVAR STANDARTLARI</span>
+                <h2 className="h-section" style={{ marginTop: 18, fontSize: 'clamp(28px, 4vw, 48px)' }}>Ekipman <em>envanteri</em>.</h2>
+              </div>
+              <div className="right">
+                Envanterimizdeki tüm ürünler, küresel akustik standartlarına (ISO 3382) uygun olarak seçilmiştir.
+              </div>
+            </div>
+            <div className="equip-grid reveal">
+              <div className="equip-cell"><div className="k">Marka</div><div className="v">Pioneer Pro</div></div>
+              <div className="equip-cell"><div className="k">Tip</div><div className="v">Point Source</div></div>
+              <div className="equip-cell"><div className="k">Menşei</div><div className="v">UK / Japan</div></div>
+              <div className="equip-cell"><div className="k">Destek</div><div className="v">24/7 Remote</div></div>
+              <div className="equip-cell"><div className="k">Garanti</div><div className="v">5 Yıl Ltd.</div></div>
+              <div className="equip-cell"><div className="k">Mikrofon</div><div className="v">B&K · DPA</div></div>
+              <div className="equip-cell"><div className="k">Ölçüm</div><div className="v">SMAART · ARTA</div></div>
+              <div className="equip-cell"><div className="k">DSP</div><div className="v">Q-SYS · BSS</div></div>
+              <div className="equip-cell"><div className="k">Amfi</div><div className="v">Powersoft · Lab.gruppen</div></div>
+              <div className="equip-cell"><div className="k">Ağ</div><div className="v">Dante / AES67</div></div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: 40, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Link to="/iletisim" className="btn btn-red">Hizmet İçin Teklif <span className="arrow" /></Link>
             <Link to="/portfolyo" className="btn btn-ghost">Portföyü Gör <span className="arrow" /></Link>
           </div>

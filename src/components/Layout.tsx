@@ -53,7 +53,7 @@ export default function Layout() {
             ))}
           </nav>
           <div className="nav-actions">
-            <span className="nav-tel"><span className="pulse" />+90 212 000 00 00</span>
+            <span className="nav-tel"><span className="pulse" />0850 241 9515</span>
             <Link to="/iletisim" className="btn btn-red">Teklif Al <span className="arrow" /></Link>
             <button className="hamburger" aria-label="Menü" onClick={() => setDrawer((d) => !d)}>
               <span />
@@ -64,7 +64,7 @@ export default function Layout() {
 
       {drawer && (
         <div className="mobile-drawer" role="dialog" aria-label="Mobil menü">
-          <span className="m-tel"><span className="pulse" />+90 212 000 00 00</span>
+          <span className="m-tel"><span className="pulse" />0850 241 9515</span>
           <nav>
             {NAV.map((n) => (
               <NavLink key={n.to} to={n.to} end={n.end} className={({ isActive }) => (isActive ? 'active' : '')}>
@@ -129,9 +129,9 @@ export default function Layout() {
             <div>
               <h6>İLETİŞİM</h6>
               <ul>
-                <li><a href="tel:+902120000000">+90 212 000 00 00</a></li>
-                <li><a href="mailto:info@onmuzikproje.com">info@onmuzikproje.com</a></li>
-                <li><span>İstanbul, Türkiye</span></li>
+                <li><a href="tel:+908502419515">0850 241 9515</a></li>
+                <li><a href="mailto:info@onmuzik.com">info@onmuzik.com</a></li>
+                <li><span>Ataşehir, İstanbul</span></li>
               </ul>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function Layout() {
 
       <div className="sticky-cta">
         <Link to="/iletisim" className="btn btn-red">Teklif Al <span className="arrow" /></Link>
-        <a href="tel:+902120000000" className="btn btn-ghost">Ara</a>
+        <a href="tel:+908502419515" className="btn btn-ghost">Ara</a>
       </div>
     </>
   );
