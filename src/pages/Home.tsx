@@ -864,7 +864,7 @@ function Quote() {
             {status === 'error' && (
               <div className="form-msg form-msg-err" role="alert">
                 Talebiniz gönderilemedi: {errorMsg} — lütfen tekrar deneyin veya doğrudan{' '}
-                <a href="mailto:proje@onmuzik.com">proje@onmuzik.com</a> adresine yazın.
+                <a href="mailto:proje@onmuzikproje.com">proje@onmuzikproje.com</a> adresine yazın.
               </div>
             )}
             <div className="form-foot">

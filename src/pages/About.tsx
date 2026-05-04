@@ -144,7 +144,7 @@ export default function About() {
               </div>
               <div className="ic-row">
                 <span className="k">E-POSTA</span>
-                <span className="v"><a href="mailto:proje@onmuzik.com">proje@onmuzik.com</a></span>
+                <span className="v"><a href="mailto:proje@onmuzikproje.com">proje@onmuzikproje.com</a></span>
               </div>
               <div className="ic-row">
                 <span className="k">SAAT</span>
