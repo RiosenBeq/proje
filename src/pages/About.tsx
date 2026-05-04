@@ -54,7 +54,7 @@ export default function About() {
       {/* Sayısal başarılar */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
-          <div className="hero-stat-strip" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          <div className="hero-stat-strip" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))' }}>
             {STATS.map(([num, lbl]) => (
               <div key={lbl} className="hero-stat">
                 <div className="num"><em>{num}</em></div>
@@ -144,7 +144,7 @@ export default function About() {
               </div>
               <div className="ic-row">
                 <span className="k">E-POSTA</span>
-                <span className="v"><a href="mailto:info@onmuzik.com">info@onmuzik.com</a></span>
+                <span className="v"><a href="mailto:proje@onmuzik.com">proje@onmuzik.com</a></span>
               </div>
               <div className="ic-row">
                 <span className="k">SAAT</span>

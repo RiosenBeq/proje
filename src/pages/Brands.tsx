@@ -70,7 +70,7 @@ export default function Brands() {
           </div>
 
           {/* Grid */}
-          <div className="equip-grid reveal" style={{ marginTop: 0, gridTemplateColumns: 'repeat(3, 1fr)' }}>
+          <div className="equip-grid reveal" style={{ marginTop: 0, gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
             {list.map((b) => {
               const lvl = BRAND_LEVELS[b.level];
               return (

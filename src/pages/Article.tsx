@@ -131,7 +131,7 @@ export default function Article() {
               </div>
               <div className="right">Bilgi Merkezi'ndeki diğer derin teknik makaleler.</div>
             </div>
-            <div className="paths reveal" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+            <div className="paths reveal" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
               {related.map((r, i) => (
                 <Link key={r.slug} to={`/bilgi-merkezi/${r.slug}`} className="path" style={{ ['--c' as any]: 'var(--gold)', ['--cs' as any]: 'var(--gold-soft)', ['--cl' as any]: 'var(--gold-line)', transitionDelay: `${i * 60}ms` }}>
                   <span className="p-tag">{r.category.toUpperCase()}</span>
