@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
-import { ARTICLES, getArticle, getDiscipline, getVenue } from '../lib/content';
+import { getDiscipline, getVenue } from '../lib/content';
+import { ARTICLES, getArticle } from '../lib/articles';
 import { useSeo } from '../lib/seo';
 import CrossSell from '../components/CrossSell';
 import NotFound from './NotFound';

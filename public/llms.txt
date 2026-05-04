@@ -16,6 +16,11 @@
   - [RT60 nedir, nasıl ölçülür ve neden kritik](https://onmuzik.com/bilgi-merkezi/rt60-nedir) (Akustik, 6 dk)
   - [Restoran ses sistemi tasarımı: 4 zonlu PA + akustik denge](https://onmuzik.com/bilgi-merkezi/restoran-ses-sistemi-rehberi) (Ses, 7 dk)
   - [EN 54-16 Voice Alarm: hangi yapılarda zorunlu, nasıl tasarlanır](https://onmuzik.com/bilgi-merkezi/en-54-16-voice-alarm-rehberi) (Mevzuat, 8 dk)
+  - [STI nedir, neden RT60'tan farklı bir şey ölçer?](https://onmuzik.com/bilgi-merkezi/sti-nedir) (Akustik, 6 dk)
+  - [Line array mı, point source mu? Doğru sistem mimarisi nasıl seçilir?](https://onmuzik.com/bilgi-merkezi/line-array-vs-point-source) (Ses, 8 dk)
+  - [LED ekranda pixel pitch nasıl seçilir? P1.5 ile P3.9 karar rehberi](https://onmuzik.com/bilgi-merkezi/led-pixel-pitch-secimi) (LED, 7 dk)
+  - [DSP kalibrasyonu: devreye almada gerçekte ne yapılır?](https://onmuzik.com/bilgi-merkezi/dsp-kalibrasyonu-rehberi) (Ses, 8 dk)
+  - [Stüdyo akustiği: kayan kat, bass trap ve RFZ kontrol odasının fizik temeli](https://onmuzik.com/bilgi-merkezi/studio-akustigi-rehberi) (Stüdyo, 9 dk)
 - [İletişim](https://onmuzik.com/iletisim): teklif formu + saha keşfi
 - [Gizlilik Politikası](https://onmuzik.com/gizlilik-politikasi)
 - [KVKK Aydınlatma Metni](https://onmuzik.com/kvkk)
