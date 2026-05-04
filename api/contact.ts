@@ -299,11 +299,33 @@ function buildUserText(b: Body) {
  * team gets a summary in their inbox.  proje@onmuzik.com is no longer hard-
  * coded as a recipient (it's been suppressed at the Resend level), so we only
  * send if the env explicitly lists deliverable addresses.
+ *
+ * Defensive filter: even if proje@onmuzik.com leaks into the env value (left
+ * over from a previous config), we strip it so Resend never tries — and so
+ * the dashboard isn't flooded with suppression errors. Override via
+ * SKIP_RECIPIENTS env (comma-separated) if you need to add more.
  */
+const KNOWN_SUPPRESSED = new Set<string>([
+  'proje@onmuzik.com',
+]);
+
 function notificationRecipients(): string[] {
   const env = (process.env.CONTACT_TO_EMAIL ?? '').trim();
   if (!env) return [];
-  return Array.from(new Set(env.split(/[;,]/).map((s) => s.trim()).filter(Boolean)));
+  const skip = new Set<string>(KNOWN_SUPPRESSED);
+  (process.env.SKIP_RECIPIENTS ?? '')
+    .split(/[;,]/)
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .forEach((s) => skip.add(s));
+  return Array.from(
+    new Set(
+      env.split(/[;,]/)
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .filter((addr) => !skip.has(addr.toLowerCase()))
+    )
+  );
 }
 
 function buildAdminText(b: Body) {
