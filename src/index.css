@@ -312,6 +312,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .nav-links a:hover::after,
 .nav-links a.active::after { right: 0; }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
+.nav-cta-compact { display: none; }
 .nav-tel {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--f-mono);
@@ -3557,10 +3558,12 @@ a.md-row:hover .md-v { color: var(--red); }
 }
 
 @media (max-width: 540px) {
-  .nav { gap: 12px; height: 64px; }
+  .nav { gap: 10px; height: 62px; }
   .site-header .brand-logo { height: 26px; }
   .brand-suffix { display: none; }
-  .nav-actions .btn-red { display: none; }
+  .nav-actions { gap: 8px; }
+  .nav-actions .nav-cta { display: none; }
+  .nav-actions .nav-cta-compact { display: inline-flex; }
   .hamburger { width: 38px; height: 38px; }
   .container { padding-left: clamp(16px, 4vw, 24px); padding-right: clamp(16px, 4vw, 24px); }
   .hero-cta .btn { flex: 1; justify-content: center; }
@@ -3573,4 +3576,118 @@ a.md-row:hover .md-v { color: var(--red); }
 @media (max-width: 480px) {
   .disc-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
+}
+
+/* ============================================================ Compact header CTA (mobile) */
+.nav-cta-compact {
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(232,65,43,0.32);
+  transition: background 180ms var(--ease), transform 180ms var(--ease);
+}
+.nav-cta-compact:hover,
+.nav-cta-compact:focus-visible { background: var(--red-2); outline: 0; transform: translateY(-1px); }
+.nav-cta-compact svg { display: block; }
+
+/* ============================================================ Mobile bottom navigation */
+.mobile-bottomnav { display: none; }
+
+@media (max-width: 720px) {
+  .mobile-bottomnav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: end;
+    position: fixed;
+    left: 0; right: 0;
+    bottom: 0;
+    z-index: 58;
+    padding: 8px 6px calc(8px + env(safe-area-inset-bottom, 0));
+    background: rgba(250,248,244,0.94);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -8px 24px rgba(20,17,12,0.06);
+  }
+  .mbn-item {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 3px;
+    padding: 8px 4px 6px;
+    background: transparent;
+    border: 0;
+    color: var(--ink-3);
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 160ms var(--ease);
+    position: relative;
+  }
+  .mbn-item svg { opacity: 0.85; }
+  .mbn-item.active { color: var(--red); }
+  .mbn-item.active svg { opacity: 1; }
+  .mbn-item.active::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: 50%;
+    width: 22px; height: 2px;
+    background: var(--red);
+    border-radius: 2px;
+    transform: translateX(-50%);
+  }
+  .mbn-cta { color: var(--ink); }
+  .mbn-cta-bubble {
+    display: grid; place-items: center;
+    width: 46px; height: 46px;
+    border-radius: 999px;
+    background: var(--red);
+    color: #fff;
+    margin-top: -22px;
+    margin-bottom: 2px;
+    box-shadow: 0 10px 22px rgba(232,65,43,0.40), 0 2px 6px rgba(20,17,12,0.10);
+    transition: transform 200ms var(--ease-spring), background 180ms;
+  }
+  .mbn-cta:hover .mbn-cta-bubble,
+  .mbn-cta:focus-visible .mbn-cta-bubble { background: var(--red-2); transform: scale(1.05); }
+  .mbn-cta.active::before { display: none; }
+
+  /* Lift WhatsApp FAB & scroll-top above the bottom nav */
+  .whatsapp-fab {
+    bottom: calc(78px + env(safe-area-inset-bottom, 0));
+    right: 14px;
+  }
+  .scroll-top {
+    bottom: calc(78px + env(safe-area-inset-bottom, 0));
+  }
+
+  /* Make sure footer + fixed cookie banner clear the bottom nav */
+  body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0)); }
+  .cookie-banner { bottom: calc(70px + env(safe-area-inset-bottom, 0)) !important; }
+}
+
+@media (max-width: 540px) {
+  .mobile-bottomnav { padding-bottom: calc(6px + env(safe-area-inset-bottom, 0)); }
+  .mbn-item { font-size: 9px; }
+  .mbn-cta-bubble { width: 44px; height: 44px; margin-top: -20px; }
+  /* Tighten WhatsApp FAB on phones so it doesn't crowd the CTA bubble */
+  .whatsapp-fab {
+    height: 44px;
+    padding: 0 12px 0 10px;
+    font-size: 10px;
+    right: 12px;
+    bottom: calc(72px + env(safe-area-inset-bottom, 0));
+  }
+  .whatsapp-fab .wf-pulse { width: 44px; height: 44px; }
 }
