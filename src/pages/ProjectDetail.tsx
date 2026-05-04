@@ -72,7 +72,7 @@ export default function ProjectDetail() {
         <div className="container">
           <div className="case reveal" style={{ maxWidth: 'var(--maxw)' }}>
             <div className="frame" style={{ aspectRatio: '16 / 9' }}>
-              <Img src={p.hero.image} alt={p.name} priority width={1600} height={900} />
+              <Img src={p.hero.image} alt={p.name} priority width={1600} height={900} sizes="100vw" />
               <span className="tonearm" aria-hidden />
               <div className="stat-overlay">
                 {p.specs.slice(0, 3).map(([k, v]) => <span key={k} className="mini">{k}<b>{v}</b></span>)}
@@ -177,7 +177,7 @@ export default function ProjectDetail() {
             <div className="gal-grid reveal">
               {p.gallery.map((src, i) => (
                 <div key={`${src}-${i}`} className={`gal-cell ${i === 0 ? 'wide' : i === 1 ? 'tall' : ''}`}>
-                  <Img src={src} alt={`${p.name} galeri ${i + 1}`} width={1200} height={900} />
+                  <Img src={src} alt={`${p.name} galeri ${i + 1}`} width={1200} height={900} sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw" />
                   <span className="badge">{p.city.toUpperCase()} · {p.year}</span>
                   <span className="lbl">{p.name}</span>
                 </div>

@@ -115,7 +115,7 @@ export default function Portfolio() {
             {CASES.map((c, i) => (
               <Link key={c.t} to={`/projeler/${c.slug}`} className="case reveal" style={{ transitionDelay: `${i * 60}ms` }}>
                 <div className="frame">
-                  <ImgFade src={c.img} alt={c.t} loading="lazy" />
+                  <ImgFade src={c.img} alt={c.t} sizes="(max-width: 1100px) 100vw, 700px" />
                   <span className="tonearm" aria-hidden />
                   <div className="ph">{c.t.toUpperCase()} · GÖRSEL</div>
                   <div className="stat-overlay">
@@ -149,7 +149,7 @@ export default function Portfolio() {
           <div className="gal-grid">
             {GALLERY.map((g, i) => (
               <div key={`${g.src}-${i}`} className={`gal-cell ${g.size} reveal`} style={{ transitionDelay: `${i * 40}ms` }}>
-                <ImgFade src={g.src} alt={g.label} loading="lazy" />
+                <ImgFade src={g.src} alt={g.label} sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw" />
                 <span className="badge">SAHA · 2024</span>
                 <span className="lbl">{g.label}</span>
               </div>

@@ -191,7 +191,7 @@ function PhotoMarquee() {
         <div className="pm-track">
           {[...PHOTO_GALLERY, ...PHOTO_GALLERY].map((img, i) => (
             <div key={`${img.src}-${i}`} className="pm-cell">
-              <ImgFade src={img.src} alt={img.alt} loading="lazy" />
+              <ImgFade src={img.src} alt={img.alt} sizes="(max-width: 720px) 70vw, 28vw" />
               <span className="pm-lbl">{img.lbl}</span>
             </div>
           ))}
@@ -698,7 +698,7 @@ function PortfolioTeaser() {
           {CASES.map((c, i) => (
             <Link key={c.t} to={`/projeler/${c.slug}`} className="case reveal" style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="frame">
-                <ImgFade src={c.img} alt={c.t} loading="lazy" />
+                <ImgFade src={c.img} alt={c.t} sizes="(max-width: 1100px) 100vw, 700px" />
                 <span className="tonearm" aria-hidden />
                 <div className="ph">{c.t.toUpperCase()} · GÖRSEL</div>
                 <div className="stat-overlay">
@@ -940,7 +940,7 @@ function Testimonials() {
               <span className="t-quote-mark" aria-hidden>"</span>
               <p className="t-quote">{t.quote}</p>
               <div className="t-meta">
-                <Img src={t.portrait} alt={`${t.name} — ${t.role}`} width={56} height={56} />
+                <Img src={t.portrait} alt={`${t.name} — ${t.role}`} width={56} height={56} sizes="56px" />
                 <div>
                   <div className="t-name">{t.name}</div>
                   <div className="t-role">{t.role}</div>
@@ -978,7 +978,7 @@ function References() {
               style={{ ['--c' as any]: ACCENT_BY_CLS[r.cls], transitionDelay: `${i * 30}ms` }}
             >
               <div className="ref-thumb">
-                <Img src={r.image} alt={`${r.name} — ${r.sector}`} width={900} height={675} />
+                <Img src={r.image} alt={`${r.name} — ${r.sector}`} width={900} height={675} sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw" />
                 <span className="ref-tag">{r.sector.toUpperCase()}</span>
               </div>
               <div className="ref-info">

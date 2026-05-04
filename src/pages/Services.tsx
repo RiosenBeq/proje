@@ -128,7 +128,7 @@ export default function Services() {
               >
                 <div className="sf-frame">
                   <span className="sf-id">ID: {f.id}</span>
-                  <ImgFade src={f.img} alt={f.alt} loading="lazy" />
+                  <ImgFade src={f.img} alt={f.alt} sizes="(max-width: 1100px) 100vw, 40vw" />
                 </div>
                 <div>
                   {f.partner && (
