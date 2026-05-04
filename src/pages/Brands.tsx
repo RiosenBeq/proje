@@ -16,8 +16,8 @@ export default function Brands() {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
       name: 'Markalar — On Muzik Proje',
-      url: 'https://onmuzik.com/markalar',
-      isPartOf: { '@id': 'https://onmuzik.com/#website' },
+      url: 'https://onmuzikproje.com/markalar',
+      isPartOf: { '@id': 'https://onmuzikproje.com/#website' },
     },
   });
 

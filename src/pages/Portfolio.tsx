@@ -87,8 +87,8 @@ export default function Portfolio() {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
       name: 'Projeler — On Muzik Proje',
-      url: 'https://onmuzik.com/portfolyo',
-      isPartOf: { '@id': 'https://onmuzik.com/#website' },
+      url: 'https://onmuzikproje.com/portfolyo',
+      isPartOf: { '@id': 'https://onmuzikproje.com/#website' },
       about: {
         '@type': 'Thing',
         name: 'Akustik tasarım ve ses sistemi projeleri',

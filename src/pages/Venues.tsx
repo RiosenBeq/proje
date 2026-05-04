@@ -21,8 +21,8 @@ export default function Venues() {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
       name: 'Mekân Tipleri — On Muzik Proje',
-      url: 'https://onmuzik.com/mekanlar',
-      isPartOf: { '@id': 'https://onmuzik.com/#website' },
+      url: 'https://onmuzikproje.com/mekanlar',
+      isPartOf: { '@id': 'https://onmuzikproje.com/#website' },
     },
   });
 

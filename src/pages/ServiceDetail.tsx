@@ -24,20 +24,20 @@ export default function ServiceDetail() {
       '@graph': [
         {
           '@type': 'Service',
-          '@id': `https://onmuzik.com/hizmetler/${d.slug}#service`,
+          '@id': `https://onmuzikproje.com/hizmetler/${d.slug}#service`,
           name: d.name,
           description: d.hero.lead,
-          provider: { '@id': 'https://onmuzik.com/#business' },
+          provider: { '@id': 'https://onmuzikproje.com/#business' },
           areaServed: { '@type': 'Country', name: 'Türkiye' },
           serviceType: d.short,
-          url: `https://onmuzik.com/hizmetler/${d.slug}`,
+          url: `https://onmuzikproje.com/hizmetler/${d.slug}`,
         },
         {
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Anasayfa', item: 'https://onmuzik.com/' },
-            { '@type': 'ListItem', position: 2, name: 'Hizmetler', item: 'https://onmuzik.com/hizmetler' },
-            { '@type': 'ListItem', position: 3, name: d.name, item: `https://onmuzik.com/hizmetler/${d.slug}` },
+            { '@type': 'ListItem', position: 1, name: 'Anasayfa', item: 'https://onmuzikproje.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Hizmetler', item: 'https://onmuzikproje.com/hizmetler' },
+            { '@type': 'ListItem', position: 3, name: d.name, item: `https://onmuzikproje.com/hizmetler/${d.slug}` },
           ],
         },
       ],

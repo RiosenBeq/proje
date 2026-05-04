@@ -66,8 +66,8 @@ export default function Services() {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Anasayfa', item: 'https://onmuzik.com/' },
-        { '@type': 'ListItem', position: 2, name: 'Hizmetler', item: 'https://onmuzik.com/hizmetler' },
+        { '@type': 'ListItem', position: 1, name: 'Anasayfa', item: 'https://onmuzikproje.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Hizmetler', item: 'https://onmuzikproje.com/hizmetler' },
       ],
     },
   });

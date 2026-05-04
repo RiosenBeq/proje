@@ -68,9 +68,9 @@ export default function Service() {
       '@type': 'Service',
       name: 'Servis & Bakım',
       description: 'AV ses, akustik, LED ve voice alarm sistemlerinin SLA destekli bakım, uzaktan izleme ve acil müdahale hizmeti.',
-      provider: { '@id': 'https://onmuzik.com/#business' },
+      provider: { '@id': 'https://onmuzikproje.com/#business' },
       areaServed: { '@type': 'Country', name: 'Türkiye' },
-      url: 'https://onmuzik.com/servis-bakim',
+      url: 'https://onmuzikproje.com/servis-bakim',
       offers: SLA_TIERS.map((t) => ({
         '@type': 'Offer',
         name: `${t.name} SLA`,

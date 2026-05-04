@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const SITE_URL = 'https://onmuzik.com';
+const SITE_URL = 'https://onmuzikproje.com';
 const DEFAULT_IMAGE = `${SITE_URL}/assets/on-music-logo.png`;
 
 type JsonLd = Record<string, unknown> | Array<Record<string, unknown>>;

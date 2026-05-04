@@ -32,9 +32,9 @@ export default function VenueDetail() {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Anasayfa', item: 'https://onmuzik.com/' },
-        { '@type': 'ListItem', position: 2, name: 'Mekân Tipleri', item: 'https://onmuzik.com/mekanlar' },
-        { '@type': 'ListItem', position: 3, name: v.name, item: `https://onmuzik.com/mekanlar/${v.slug}` },
+        { '@type': 'ListItem', position: 1, name: 'Anasayfa', item: 'https://onmuzikproje.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Mekân Tipleri', item: 'https://onmuzikproje.com/mekanlar' },
+        { '@type': 'ListItem', position: 3, name: v.name, item: `https://onmuzikproje.com/mekanlar/${v.slug}` },
       ],
     },
   } : { title: '404', description: '404', path: `/mekanlar/${slug}`, noIndex: true });

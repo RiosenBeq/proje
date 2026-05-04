@@ -11,11 +11,11 @@ export default function Knowledge() {
       '@context': 'https://schema.org',
       '@type': 'Blog',
       name: 'Bilgi Merkezi — On Muzik Proje',
-      url: 'https://onmuzik.com/bilgi-merkezi',
+      url: 'https://onmuzikproje.com/bilgi-merkezi',
       blogPost: ARTICLES.map((a) => ({
         '@type': 'BlogPosting',
         headline: a.title,
-        url: `https://onmuzik.com/bilgi-merkezi/${a.slug}`,
+        url: `https://onmuzikproje.com/bilgi-merkezi/${a.slug}`,
         datePublished: a.publishedAt,
         articleSection: a.category,
         description: a.summary,

@@ -3,52 +3,52 @@
 > İstanbul merkezli, 2009'dan beri faaliyet gösteren akustik ve ses mühendisliği stüdyosu. Restoran, otel, sahne, stüdyo ve konferans için ölçüme dayalı akustik tasarım, profesyonel ses sistemi, LED görüntü mimarisi, EN 54-16 voice alarm ve konferans/AV çözümleri sunuyoruz. Marka bağımsız, mühendislik odaklı yaklaşımla 240+ proje tamamladık.
 
 ## Ana sayfalar
-- [Anasayfa](https://onmuzik.com/): hizmet kapsamı, disiplin seçici, çözüm yolları, çalışma süreci, mekân tipleri, canlı ölçüm panosu, seçilmiş projeler, teklif formu
-- [Hizmetler](https://onmuzik.com/hizmetler): 6 disiplin index sayfası
-- [Mekânlar](https://onmuzik.com/mekanlar): 5 mekân tipi index sayfası
-- [Projeler](https://onmuzik.com/portfolyo): 240+ projeden seçmeler + 12 görsellik kurulum galerisi
-- [Hakkımızda](https://onmuzik.com/hakkimizda): 2009'dan bugüne tarihçe, manifesto, lokasyon, ekipman lab
-- [SSS](https://onmuzik.com/sss): 4 kategori altında 18 soru-cevap (akustik, ses, süreç & garanti, KVKK & yasal)
-- [Servis & Bakım](https://onmuzik.com/servis-bakim): 3 SLA seviyesi (Standart, Premium, 7/24 Mission Critical) + WhatsApp + servis talep formu
-- [Markalar](https://onmuzik.com/markalar): 40+ profesyonel AV marka portföyü, 8 kategori filtresi, premium / yetkili / çözüm ortağı seviyeleri
-- [Sertifikalar](https://onmuzik.com/sertifikalar): EN 54-16, EN 54-24, ISO 3382, ISO 9001, CE, TSE, CEDIA, Dante Lvl 2/3 — ihale + mevzuat
-- [Bilgi Merkezi](https://onmuzik.com/bilgi-merkezi): teknik rehber blog
-  - [RT60 nedir, nasıl ölçülür ve neden kritik](https://onmuzik.com/bilgi-merkezi/rt60-nedir) (Akustik, 6 dk)
-  - [Restoran ses sistemi tasarımı: 4 zonlu PA + akustik denge](https://onmuzik.com/bilgi-merkezi/restoran-ses-sistemi-rehberi) (Ses, 7 dk)
-  - [EN 54-16 Voice Alarm: hangi yapılarda zorunlu, nasıl tasarlanır](https://onmuzik.com/bilgi-merkezi/en-54-16-voice-alarm-rehberi) (Mevzuat, 8 dk)
-  - [STI nedir, neden RT60'tan farklı bir şey ölçer?](https://onmuzik.com/bilgi-merkezi/sti-nedir) (Akustik, 6 dk)
-  - [Line array mı, point source mu? Doğru sistem mimarisi nasıl seçilir?](https://onmuzik.com/bilgi-merkezi/line-array-vs-point-source) (Ses, 8 dk)
-  - [LED ekranda pixel pitch nasıl seçilir? P1.5 ile P3.9 karar rehberi](https://onmuzik.com/bilgi-merkezi/led-pixel-pitch-secimi) (LED, 7 dk)
-  - [DSP kalibrasyonu: devreye almada gerçekte ne yapılır?](https://onmuzik.com/bilgi-merkezi/dsp-kalibrasyonu-rehberi) (Ses, 8 dk)
-  - [Stüdyo akustiği: kayan kat, bass trap ve RFZ kontrol odasının fizik temeli](https://onmuzik.com/bilgi-merkezi/studio-akustigi-rehberi) (Stüdyo, 9 dk)
-- [İletişim](https://onmuzik.com/iletisim): teklif formu + saha keşfi
-- [Gizlilik Politikası](https://onmuzik.com/gizlilik-politikasi)
-- [KVKK Aydınlatma Metni](https://onmuzik.com/kvkk)
+- [Anasayfa](https://onmuzikproje.com/): hizmet kapsamı, disiplin seçici, çözüm yolları, çalışma süreci, mekân tipleri, canlı ölçüm panosu, seçilmiş projeler, teklif formu
+- [Hizmetler](https://onmuzikproje.com/hizmetler): 6 disiplin index sayfası
+- [Mekânlar](https://onmuzikproje.com/mekanlar): 5 mekân tipi index sayfası
+- [Projeler](https://onmuzikproje.com/portfolyo): 240+ projeden seçmeler + 12 görsellik kurulum galerisi
+- [Hakkımızda](https://onmuzikproje.com/hakkimizda): 2009'dan bugüne tarihçe, manifesto, lokasyon, ekipman lab
+- [SSS](https://onmuzikproje.com/sss): 4 kategori altında 18 soru-cevap (akustik, ses, süreç & garanti, KVKK & yasal)
+- [Servis & Bakım](https://onmuzikproje.com/servis-bakim): 3 SLA seviyesi (Standart, Premium, 7/24 Mission Critical) + WhatsApp + servis talep formu
+- [Markalar](https://onmuzikproje.com/markalar): 40+ profesyonel AV marka portföyü, 8 kategori filtresi, premium / yetkili / çözüm ortağı seviyeleri
+- [Sertifikalar](https://onmuzikproje.com/sertifikalar): EN 54-16, EN 54-24, ISO 3382, ISO 9001, CE, TSE, CEDIA, Dante Lvl 2/3 — ihale + mevzuat
+- [Bilgi Merkezi](https://onmuzikproje.com/bilgi-merkezi): teknik rehber blog
+  - [RT60 nedir, nasıl ölçülür ve neden kritik](https://onmuzikproje.com/bilgi-merkezi/rt60-nedir) (Akustik, 6 dk)
+  - [Restoran ses sistemi tasarımı: 4 zonlu PA + akustik denge](https://onmuzikproje.com/bilgi-merkezi/restoran-ses-sistemi-rehberi) (Ses, 7 dk)
+  - [EN 54-16 Voice Alarm: hangi yapılarda zorunlu, nasıl tasarlanır](https://onmuzikproje.com/bilgi-merkezi/en-54-16-voice-alarm-rehberi) (Mevzuat, 8 dk)
+  - [STI nedir, neden RT60'tan farklı bir şey ölçer?](https://onmuzikproje.com/bilgi-merkezi/sti-nedir) (Akustik, 6 dk)
+  - [Line array mı, point source mu? Doğru sistem mimarisi nasıl seçilir?](https://onmuzikproje.com/bilgi-merkezi/line-array-vs-point-source) (Ses, 8 dk)
+  - [LED ekranda pixel pitch nasıl seçilir? P1.5 ile P3.9 karar rehberi](https://onmuzikproje.com/bilgi-merkezi/led-pixel-pitch-secimi) (LED, 7 dk)
+  - [DSP kalibrasyonu: devreye almada gerçekte ne yapılır?](https://onmuzikproje.com/bilgi-merkezi/dsp-kalibrasyonu-rehberi) (Ses, 8 dk)
+  - [Stüdyo akustiği: kayan kat, bass trap ve RFZ kontrol odasının fizik temeli](https://onmuzikproje.com/bilgi-merkezi/studio-akustigi-rehberi) (Stüdyo, 9 dk)
+- [İletişim](https://onmuzikproje.com/iletisim): teklif formu + saha keşfi
+- [Gizlilik Politikası](https://onmuzikproje.com/gizlilik-politikasi)
+- [KVKK Aydınlatma Metni](https://onmuzikproje.com/kvkk)
 
 ## Hizmet detay sayfaları
-- [Ses Sistemi](https://onmuzik.com/hizmetler/ses) — Zonlu PA, DSP, Dante; SPL 82–105 dB; line array / point source / cardioid sub
-- [Akustik Tasarım](https://onmuzik.com/hizmetler/akustik) — RT60 0.28–1.4 s, STI ≥ 0.62, modal kontrol, RFZ, in-situ ölçüm
-- [LED Ekran & Video](https://onmuzik.com/hizmetler/led) — P1.5–P3.9 pixel pitch, processor, AV-sync, truss & rigging
-- [Stüdyo Akustiği](https://onmuzik.com/hizmetler/studio) — NC-15/NC-20, RFZ, bass trap, kayan kat izolasyon, monitör tuning
-- [Toplantı / AV](https://onmuzik.com/hizmetler/konferans) — Beamforming, AEC + AGC, DICENTIS, Teams Rooms / Zoom Rooms
-- [Anons & Voice Alarm](https://onmuzik.com/hizmetler/anons) — EN 54-16, evakuasyon zoneları, BMS entegrasyon, STI-PA
+- [Ses Sistemi](https://onmuzikproje.com/hizmetler/ses) — Zonlu PA, DSP, Dante; SPL 82–105 dB; line array / point source / cardioid sub
+- [Akustik Tasarım](https://onmuzikproje.com/hizmetler/akustik) — RT60 0.28–1.4 s, STI ≥ 0.62, modal kontrol, RFZ, in-situ ölçüm
+- [LED Ekran & Video](https://onmuzikproje.com/hizmetler/led) — P1.5–P3.9 pixel pitch, processor, AV-sync, truss & rigging
+- [Stüdyo Akustiği](https://onmuzikproje.com/hizmetler/studio) — NC-15/NC-20, RFZ, bass trap, kayan kat izolasyon, monitör tuning
+- [Toplantı / AV](https://onmuzikproje.com/hizmetler/konferans) — Beamforming, AEC + AGC, DICENTIS, Teams Rooms / Zoom Rooms
+- [Anons & Voice Alarm](https://onmuzikproje.com/hizmetler/anons) — EN 54-16, evakuasyon zoneları, BMS entegrasyon, STI-PA
 
 ## Mekân tipi sayfaları
-- [Restoran & Bar](https://onmuzik.com/mekanlar/restoran) — RT60 0.6–0.9 s, 2–4 zon, tavan + sahne hoparlör, Dante / 70V
-- [Otel & SPA](https://onmuzik.com/mekanlar/otel) — 6–24 zon, ballroom + lobi + oda yönetimi, EN 54-16 anons, LED P2.6
-- [Sahne & Etkinlik](https://onmuzik.com/mekanlar/sahne) — RT60 1.2–1.6 s, 100–110 dB SPL, line array + cardioid sub, LED P3.9
-- [Stüdyo & Kayıt](https://onmuzik.com/mekanlar/studio) — NC-15/NC-20, RT60 0.25–0.32 s, kayan kat, bass trap
-- [Toplantı & Konferans](https://onmuzik.com/mekanlar/konferans) — RT60 0.5–0.7 s, STI ≥ 0.62, beamforming + DICENTIS
+- [Restoran & Bar](https://onmuzikproje.com/mekanlar/restoran) — RT60 0.6–0.9 s, 2–4 zon, tavan + sahne hoparlör, Dante / 70V
+- [Otel & SPA](https://onmuzikproje.com/mekanlar/otel) — 6–24 zon, ballroom + lobi + oda yönetimi, EN 54-16 anons, LED P2.6
+- [Sahne & Etkinlik](https://onmuzikproje.com/mekanlar/sahne) — RT60 1.2–1.6 s, 100–110 dB SPL, line array + cardioid sub, LED P3.9
+- [Stüdyo & Kayıt](https://onmuzikproje.com/mekanlar/studio) — NC-15/NC-20, RT60 0.25–0.32 s, kayan kat, bass trap
+- [Toplantı & Konferans](https://onmuzikproje.com/mekanlar/konferans) — RT60 0.5–0.7 s, STI ≥ 0.62, beamforming + DICENTIS
 
 ## Proje detay sayfaları (önce/sonra ölçüm + hikâye + galeri + spec)
-- [Studio Alpha — İstanbul, 2024](https://onmuzik.com/projeler/studio-alpha) — Dolby Atmos 9.1.4 stüdyo, NC-18, RT60 0.28 s
-- [Club Nexus — İzmir, 2024](https://onmuzik.com/projeler/club-nexus) — 3.000 kişilik mekân, Pioneer Pro XY, 64 m² LED P3.9
-- [Grand Auditorium — Ankara, 2023](https://onmuzik.com/projeler/grand-auditorium) — 420 kişilik salon, DICENTIS, beamforming 32-ch
-- [Boğaz Restoran — İstanbul, 2024](https://onmuzik.com/projeler/bogaz-restoran) — 180 kişilik teras, 4 zonlu Dante, RT60 0.62 s
-- [Ballroom Otel — Antalya, 2024](https://onmuzik.com/projeler/ballroom-otel) — 800 kişilik ballroom + 24 zon + EN 54-16 + LED P2.6
-- [Konser Sahnesi — Ankara, 2023](https://onmuzik.com/projeler/konser-sahnesi) — Açık hava, L-Acoustics K2, cardioid sub, delay tower
-- [Kurumsal Lobi — İstanbul, 2025](https://onmuzik.com/projeler/kurumsal-lobi) — Plaza ana lobi, 3 zon, 24 tavan hoparlör
-- [Konferans Merkezi — İzmir, 2023](https://onmuzik.com/projeler/konferans-merkezi) — 6 huddle + boardroom + audi, MTR sertifikalı
+- [Studio Alpha — İstanbul, 2024](https://onmuzikproje.com/projeler/studio-alpha) — Dolby Atmos 9.1.4 stüdyo, NC-18, RT60 0.28 s
+- [Club Nexus — İzmir, 2024](https://onmuzikproje.com/projeler/club-nexus) — 3.000 kişilik mekân, Pioneer Pro XY, 64 m² LED P3.9
+- [Grand Auditorium — Ankara, 2023](https://onmuzikproje.com/projeler/grand-auditorium) — 420 kişilik salon, DICENTIS, beamforming 32-ch
+- [Boğaz Restoran — İstanbul, 2024](https://onmuzikproje.com/projeler/bogaz-restoran) — 180 kişilik teras, 4 zonlu Dante, RT60 0.62 s
+- [Ballroom Otel — Antalya, 2024](https://onmuzikproje.com/projeler/ballroom-otel) — 800 kişilik ballroom + 24 zon + EN 54-16 + LED P2.6
+- [Konser Sahnesi — Ankara, 2023](https://onmuzikproje.com/projeler/konser-sahnesi) — Açık hava, L-Acoustics K2, cardioid sub, delay tower
+- [Kurumsal Lobi — İstanbul, 2025](https://onmuzikproje.com/projeler/kurumsal-lobi) — Plaza ana lobi, 3 zon, 24 tavan hoparlör
+- [Konferans Merkezi — İzmir, 2023](https://onmuzikproje.com/projeler/konferans-merkezi) — 6 huddle + boardroom + audi, MTR sertifikalı
 
 ## Çalışma Süreci (5 Aşama)
 1. **Keşif & Brifing** — saha ziyareti, ücretsiz
