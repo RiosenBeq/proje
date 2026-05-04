@@ -14,9 +14,10 @@ const CLS_VARS: Record<DisciplineCls, CSSProperties> = {
 
 export default function Venues() {
   useSeo({
-    title: 'Mekân Tipleri — Restoran · Otel · Sahne · Stüdyo · Konferans | On Muzik Proje',
-    description: 'Restoran, otel, sahne, stüdyo ve konferans mekânları için tipik akustik hedefler, ses sistemi mimarisi ve teslim deneyimi. Mekân tipinize göre özel kurumsal AV çözümleri.',
+    title: 'Mekân Tipleri — Restoran · Otel · Sahne · Kayıt Stüdyosu · Konferans Salonu | On Muzik Proje',
+    description: 'Restoran ses sistemi, otel akustiği, sahne ses çözümü, kayıt stüdyosu tasarımı ve konferans salonu AV — her mekân tipi için tipik akustik hedef, sistem mimarisi ve marka bağımsız kurumsal teslim. RT60, STI, EN 54-16 dahil.',
     path: '/mekanlar',
+    keywords: 'restoran ses sistemi, otel ses sistemi, sahne ses sistemi, kayıt stüdyosu akustiği, konferans salonu ses sistemi, mekân akustiği, kurumsal ses çözümü, RT60 hedef, STI ölçüm, ses mühendisliği',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',

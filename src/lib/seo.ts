@@ -10,6 +10,10 @@ export type SeoOptions = {
   description: string;
   path: string;
   image?: string;
+  /** og:type — defaults to "website". Use "article" for Bilgi Merkezi posts. */
+  ogType?: 'website' | 'article';
+  /** Optional comma-separated keywords for meta keywords (legacy SEO support, harmless). */
+  keywords?: string;
   jsonLd?: JsonLd;
   noIndex?: boolean;
 };
@@ -45,10 +49,15 @@ export function useSeo(opts: SeoOptions) {
     document.title = opts.title;
     setMeta('name', 'description', opts.description);
     setMeta('name', 'robots', robots);
+    if (opts.keywords) setMeta('name', 'keywords', opts.keywords);
+    setMeta('property', 'og:type', opts.ogType ?? 'website');
     setMeta('property', 'og:title', opts.title);
     setMeta('property', 'og:description', opts.description);
     setMeta('property', 'og:url', url);
     setMeta('property', 'og:image', image);
+    setMeta('property', 'og:locale', 'tr_TR');
+    setMeta('property', 'og:site_name', 'On Muzik Proje');
+    setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:title', opts.title);
     setMeta('name', 'twitter:description', opts.description);
     setMeta('name', 'twitter:image', image);
@@ -66,5 +75,5 @@ export function useSeo(opts: SeoOptions) {
     } else if (scriptEl) {
       scriptEl.remove();
     }
-  }, [opts.title, opts.description, opts.path, opts.image, opts.noIndex, JSON.stringify(opts.jsonLd ?? null)]);
+  }, [opts.title, opts.description, opts.path, opts.image, opts.noIndex, opts.ogType, opts.keywords, JSON.stringify(opts.jsonLd ?? null)]);
 }

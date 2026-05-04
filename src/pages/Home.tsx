@@ -1011,9 +1011,10 @@ export default function Home() {
   const [filter, setFilter] = useState<DiscKey>('all');
 
   useSeo({
-    title: 'On Muzik Proje — Akustik Tasarım & Profesyonel Ses Mühendisliği | İstanbul',
-    description: 'İstanbul merkezli, 16 yıllık akustik ve ses mühendisliği stüdyosu. Restoran, otel, sahne, stüdyo ve konferans için ölçüme dayalı akustik tasarım, profesyonel ses sistemleri ve LED görüntü mimarisi.',
+    title: 'On Muzik Proje — Akustik Tasarım & Profesyonel Ses Sistemi · İstanbul',
+    description: '2009\'dan beri İstanbul merkezli akustik mühendisliği ve kurumsal ses sistemi tasarımı. Restoran, otel, sahne, kayıt stüdyosu ve konferans için RT60/STI ölçümlü, marka bağımsız çözüm. 240+ proje, 6 disiplin — EN 54-16, line array, Dante, LED.',
     path: '/',
+    keywords: 'akustik tasarım, ses sistemi, ses mühendisliği, restoran ses sistemi, otel ses sistemi, kayıt stüdyosu akustiği, konferans ses sistemi, EN 54-16 voice alarm, LED ekran, line array, Dante ağ, DSP kalibrasyon, RT60, STI ölçümü, kurumsal AV, İstanbul ses sistemi, akustik mühendis İstanbul',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',

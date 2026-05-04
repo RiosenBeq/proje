@@ -59,9 +59,10 @@ const FEATURES: Array<{
 
 export default function Services() {
   useSeo({
-    title: 'Hizmetler — Akustik · Ses · LED · Stüdyo · Konferans · Anons | On Muzik Proje',
-    description: 'Akustik tasarım, profesyonel ses sistemi, LED ekran, stüdyo akustiği, konferans/AV ve EN 54-16 voice alarm. Ölçüme dayalı, marka bağımsız mühendislik. RT60, STI, NC hedefli teslim.',
+    title: 'Hizmetler — Akustik · Ses Sistemi · LED · Stüdyo · Konferans · Voice Alarm | On Muzik Proje',
+    description: 'Profesyonel ses sistemi tasarımı, akustik mühendisliği, LED ekran, kayıt stüdyosu akustiği, konferans/AV ve EN 54-16 voice alarm — kurumsal projeler için ölçüme dayalı, marka bağımsız çözüm. RT60, STI, NC hedefli teslim.',
     path: '/hizmetler',
+    keywords: 'akustik tasarım, profesyonel ses sistemi, LED ekran kurulum, stüdyo akustiği, konferans AV, EN 54-16 voice alarm, RT60 ölçüm, STI hesaplama, line array, Dante ağ, DSP kalibrasyon, ses mühendisliği İstanbul',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
