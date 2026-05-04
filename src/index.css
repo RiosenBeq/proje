@@ -311,7 +311,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .nav-links a:hover::after,
 .nav-links a.active::after { right: 0; }
-.nav-actions { display: flex; align-items: center; gap: 12px; }
+.nav-actions { display: flex; align-items: center; gap: 12px; justify-self: end; }
 .nav-cta-compact { display: none; }
 .nav-tel {
   display: inline-flex; align-items: center; gap: 8px;
@@ -2386,7 +2386,21 @@ a.md-row:hover .md-v { color: var(--red); }
     radial-gradient(40% 60% at 0% 100%, var(--gold-soft), transparent 60%);
   pointer-events: none;
 }
-.subhero-inner { position: relative; }
+/* Audio motif: sine wave under every sub-page hero */
+.subhero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 140px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'><path d='M0 100 Q 75 40 150 100 T 300 100 T 450 100 T 600 100 T 750 100 T 900 100 T 1050 100 T 1200 100' fill='none' stroke='%2314110C' stroke-width='1' opacity='0.07'/><path d='M0 130 Q 60 80 120 130 T 240 130 T 360 130 T 480 130 T 600 130 T 720 130 T 840 130 T 960 130 T 1080 130 T 1200 130' fill='none' stroke='%23E8412B' stroke-width='1' stroke-dasharray='2 6' opacity='0.5'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Page-specific override marker (used by Venues' inline JSX wave is no longer needed) */
+.subhero-wave { display: none; }
+.subhero-inner { position: relative; z-index: 1; }
 .subhero-title {
   font-family: var(--f-display);
   font-weight: 300;
@@ -3560,8 +3574,8 @@ a.md-row:hover .md-v { color: var(--red); }
 }
 
 @media (max-width: 540px) {
-  .nav { gap: 10px; height: 62px; }
-  .site-header .brand-logo { height: 26px; }
+  .nav { gap: 16px; height: 62px; grid-template-columns: auto 1fr auto; }
+  .site-header .brand-logo { height: 24px; }
   .brand-suffix { display: none; }
   .nav-actions { gap: 8px; }
   .nav-actions .nav-cta { display: none; }
@@ -3578,6 +3592,12 @@ a.md-row:hover .md-v { color: var(--red); }
 @media (max-width: 480px) {
   .disc-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
+  /* Tighten header on very narrow phones so logo never touches the CTA pill */
+  .nav { gap: 12px; }
+  .nav-actions { gap: 6px; }
+  .site-header .brand-logo { height: 22px; }
+  .hamburger { width: 36px; height: 36px; }
+  .nav-cta-compact { padding: 0 9px; height: 30px; font-size: 9.5px; letter-spacing: 0.12em; }
 }
 
 /* ============================================================ Compact header CTA (mobile) */
@@ -3667,7 +3687,7 @@ a.md-row:hover .md-v { color: var(--red); }
 
   /* Lift WhatsApp FAB above the bottom nav; hide scroll-top entirely on mobile */
   .whatsapp-fab {
-    bottom: calc(86px + env(safe-area-inset-bottom, 0));
+    bottom: calc(96px + env(safe-area-inset-bottom, 0));
     right: 14px;
   }
   .scroll-top { display: none !important; }
@@ -3697,7 +3717,7 @@ a.md-row:hover .md-v { color: var(--red); }
     padding: 0 12px 0 10px;
     font-size: 10px;
     right: 12px;
-    bottom: calc(80px + env(safe-area-inset-bottom, 0));
+    bottom: calc(92px + env(safe-area-inset-bottom, 0));
   }
   .whatsapp-fab .wf-pulse { width: 44px; height: 44px; }
 }

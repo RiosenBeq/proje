@@ -15,7 +15,7 @@ const CLS_VARS: Record<DisciplineCls, CSSProperties> = {
 export default function Venues() {
   useSeo({
     title: 'Mekân Tipleri — Restoran · Otel · Sahne · Stüdyo · Konferans | On Muzik Proje',
-    description: 'Restoran, otel, sahne, stüdyo ve konferans mekânları için tipik akustik hedefler, ses sistemi mimarisi ve teslim deneyimi. Mekân tipinize göre özel çözüm.',
+    description: 'Restoran, otel, sahne, stüdyo ve konferans mekânları için tipik akustik hedefler, ses sistemi mimarisi ve teslim deneyimi. Mekân tipinize göre özel kurumsal AV çözümleri.',
     path: '/mekanlar',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -30,15 +30,17 @@ export default function Venues() {
     <>
       <section className="subhero">
         <div className="container subhero-inner">
-          <span className="eyebrow"><span className="bar" />MEKÂN TİPLERİ · 04</span>
+          <span className="eyebrow"><span className="bar" />MEKÂN TİPLERİ · {VENUES.length}</span>
           <h1 className="subhero-title">Her mekânın<br /><em>kendi sesi</em> var.</h1>
           <p className="subhero-lead">
-            Restoran ve otelden konser sahnesine, kayıt stüdyosundan konferans merkezine — her mekân tipi
-            kendi akustik hedeflerine ve sistem mimarisine sahiptir. Aşağıdan tipinizi seçin.
+            Restoran ve otelden konser sahnesine, kayıt stüdyosundan konferans merkezine — her mekân
+            tipi kendi akustik hedeflerine, sistem mimarisine ve mevzuat zorunluluklarına sahiptir.
+            Kurumsal projeler için marka bağımsız, ölçüme dayalı tasarım yapıyoruz.
           </p>
         </div>
       </section>
 
+      {/* Mekân kartları */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="paths">
@@ -67,6 +69,96 @@ export default function Venues() {
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Mekân-tipine-göre karşılaştırma */}
+      <section className="section venues" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head reveal">
+            <div className="left">
+              <span className="eyebrow"><span className="bar" />HEDEF METRİKLER</span>
+              <h2 className="h-section indigo" style={{ marginTop: 18 }}>Mekân tipi,<br /><em>frekans cevabını</em> belirler.</h2>
+            </div>
+            <div className="right">
+              Aynı sistem her mekâna uymaz. Bir restoranın ideal RT60'ı bir konser sahnesinde tamamen
+              yanlış olur. Hedef metriği, hacmi ve kullanıcı senaryosunu birlikte ele alıyoruz.
+            </div>
+          </div>
+          <div className="dashboard reveal">
+            <div className="dash-head">
+              <div className="dash-tabs"><button className="on" type="button">MEKÂN HEDEF KARŞILAŞTIRMASI</button></div>
+              <div className="dash-meta"><span className="dot" />ÖLÇÜLMÜŞ</div>
+            </div>
+            <div className="article-table" style={{ margin: 0, border: 0, borderRadius: 0 }}>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Mekân</th>
+                    <th>RT60</th>
+                    <th>SPL</th>
+                    <th>Zon</th>
+                    <th>Tipik Sistem</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {VENUES.map((v) => {
+                    const rt = v.goals.find((g) => g[0].toLowerCase().includes('rt60'))?.[1] ?? '—';
+                    const spl = v.goals.find((g) => g[0].toLowerCase().includes('basınc') || g[0].toLowerCase().includes('spl'))?.[1] ?? '—';
+                    const zone = v.goals.find((g) => g[0].toLowerCase().includes('zon'))?.[1] ?? '—';
+                    const sys = v.systemSpec.find((s) => s[0].toLowerCase().includes('hoparlör'))?.[1] ?? v.systemSpec[0]?.[1] ?? '—';
+                    return (
+                      <tr key={v.slug}>
+                        <td><strong>{v.name}</strong></td>
+                        <td>{rt}</td>
+                        <td>{spl}</td>
+                        <td>{zone}</td>
+                        <td>{sys}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Kurumsal yaklaşım */}
+      <section className="section venues" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head reveal">
+            <div className="left">
+              <span className="eyebrow"><span className="bar" />KURUMSAL TESLİM</span>
+              <h2 className="h-section gold" style={{ marginTop: 18 }}>Tek mekân değil,<br /><em>zincir</em> ölçeği.</h2>
+            </div>
+            <div className="right">
+              Tek şube açılışından 24 odalı otel zincirine — proje yönetimi, satın alma, kurulum ve
+              servis bakımını tek elden yürütüyoruz. Saha keşfi, şartname uyumu ve ihale dosyası dahil.
+            </div>
+          </div>
+          <div className="standards-grid reveal">
+            <div className="standard">
+              <div className="s-num">01</div>
+              <h4>Saha keşfi</h4>
+              <p>Mekânda ölçüm + akustik fotoğraflama. Hedef metrik, mevcut durum ve kullanıcı senaryosu raporlanır.</p>
+            </div>
+            <div className="standard">
+              <div className="s-num">02</div>
+              <h4>Mühendislik</h4>
+              <p>EASE / ODEON simülasyonu, sistem mimarisi, akustik kaplama detayı. Marka bağımsız ürün karşılaştırması.</p>
+            </div>
+            <div className="standard">
+              <div className="s-num">03</div>
+              <h4>Saha teslim</h4>
+              <p>Kurulum + DSP kalibrasyon + STI-PA / RT60 ölçüm raporu. EN 54-16 mevzuatı için belgelendirme.</p>
+            </div>
+          </div>
+          <div style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <Link to="/iletisim" className="btn btn-red">Saha keşfi talep et <span className="arrow" /></Link>
+            <Link to="/portfolyo" className="btn btn-ghost">Tamamlanan projeler <span className="arrow" /></Link>
+            <Link to="/sertifikalar" className="btn btn-ghost">Sertifikalar <span className="arrow" /></Link>
           </div>
         </div>
       </section>
