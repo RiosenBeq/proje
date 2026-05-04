@@ -2037,25 +2037,31 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   margin-bottom: 24px;
 }
 .md-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0 0 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.md-intro-body {
+  margin: 0;
   font-family: var(--f-display);
   font-weight: 300;
   font-size: clamp(16px, 1.6vw, 19px);
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--ink-2);
   letter-spacing: -0.01em;
-  margin: 0 0 24px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid var(--line);
 }
 .md-intro em { font-style: italic; color: var(--red); }
 .md-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
+  align-self: flex-start;
   font-family: var(--f-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
   color: var(--muted);
   text-transform: uppercase;
-  margin-bottom: 12px;
 }
 .md-eyebrow .bar { width: 24px; height: 1px; background: var(--ink-3); }
 .md-close {
@@ -2074,19 +2080,23 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   margin-bottom: 22px;
 }
 .md-nav a {
-  display: flex; align-items: center; gap: 14px;
-  padding: 18px 0;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px;
+  padding: 18px 4px 18px 0;
   border-bottom: 1px solid var(--line);
   font-family: var(--f-display);
   font-weight: 300;
-  font-size: clamp(24px, 6vw, 32px);
+  font-size: clamp(26px, 6.5vw, 34px);
   letter-spacing: -0.025em;
   line-height: 1.1;
   color: var(--ink);
-  transition: color 160ms;
+  transition: color 160ms var(--ease), padding 200ms var(--ease);
   opacity: 0;
   transform: translateX(20px);
+  position: relative;
 }
+.md-nav a:hover { padding-left: 8px; color: var(--red); }
+.md-nav a:hover .md-arrow { transform: translate(0, -2px); color: var(--red); }
 .mobile-drawer.on .md-nav a {
   animation: drawerItemIn 360ms var(--ease) forwards;
   animation-delay: calc(var(--i, 0) * 60ms + 80ms);
@@ -2213,6 +2223,17 @@ a.md-row:hover .md-v { color: var(--red); }
 @keyframes routeBar {
   0%   { background-position: -240px 0; }
   100% { background-position: calc(100% + 240px) 0; }
+}
+/* Keep <main> tall enough during route changes / Suspense fallbacks so the
+   footer doesn't briefly flash up under the header before the next page
+   chunk renders. 100vh - header (~70px) - mobile bottom nav (≈64px). */
+#main.page-transition {
+  min-height: calc(100vh - 70px);
+}
+@media (max-width: 720px) {
+  #main.page-transition {
+    min-height: calc(100vh - 62px - 64px - env(safe-area-inset-bottom, 0));
+  }
 }
 .page-transition {
   animation: pageIn 140ms var(--ease) both;
