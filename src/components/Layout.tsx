@@ -151,12 +151,18 @@ export default function Layout() {
             io?.unobserve(e.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.08, rootMargin: '0px 0px 10% 0px' });
       els.forEach((el) => io!.observe(el));
     }
+    // Safety net: if any .reveal element hasn't been activated within 1.4s
+    // (IO never fired, JS race, etc.), force-show it so content is never invisible.
+    const fallback = window.setTimeout(() => {
+      document.querySelectorAll<HTMLElement>('.reveal:not(.in)').forEach((el) => el.classList.add('in'));
+    }, 1400);
     return () => {
       window.removeEventListener('scroll', onScroll);
       io?.disconnect();
+      window.clearTimeout(fallback);
     };
   }, [location.pathname]);
 
