@@ -296,10 +296,12 @@ export default function Layout() {
           </button>
         </div>
 
-        <p className="md-intro">
+        <div className="md-intro">
           <span className="md-eyebrow"><span className="bar" />İSTANBUL · 2009'DAN BERİ</span>
-          16 yıllık akustik ve ses mühendisliği. <em>Marka bağımsız</em>, ölçüme dayalı tasarım.
-        </p>
+          <p className="md-intro-body">
+            16 yıllık akustik ve ses mühendisliği. <em>Marka bağımsız</em>, ölçüme dayalı tasarım.
+          </p>
+        </div>
 
         <nav className="md-nav">
           {NAV.map((n, i) => (
