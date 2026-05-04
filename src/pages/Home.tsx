@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState, type CSSProperties, type FormEvent, type ImgHTMLAttributes } from 'react';
+import { useEffect, useState, type CSSProperties, type FormEvent } from 'react';
 import { useCountUp, useMagnetic } from '../lib/hooks';
 import { useSeo } from '../lib/seo';
 import { REFERENCES, TESTIMONIALS, type DisciplineCls as ContentDiscCls } from '../lib/content';
+import Img from '../components/Img';
 
 const ACCENT_BY_CLS: Record<ContentDiscCls, string> = {
   red: 'var(--red)', gold: 'var(--gold)', indigo: 'var(--indigo)',
@@ -18,17 +19,7 @@ function StatCount({ end, prefix = '', suffix = '' }: { end: number; prefix?: st
   );
 }
 
-function ImgFade(props: ImgHTMLAttributes<HTMLImageElement>) {
-  return (
-    <img
-      {...props}
-      onLoad={(e) => {
-        e.currentTarget.classList.add('loaded');
-        props.onLoad?.(e);
-      }}
-    />
-  );
-}
+const ImgFade = Img;
 
 /* ===== Hero Vinyl SVG (logo style) ===== */
 function HeroVinyl() {
@@ -376,36 +367,41 @@ function DisciplineDeck({ active, setActive }: { active: DiscKey; setActive: (k:
         </div>
         <div className="disc-grid">
           {DISCIPLINES.map((it, i) => (
-            <button
+            <div
               key={it.k}
-              type="button"
-              className={`disc-card${active === it.k ? ' on' : ''} reveal`}
+              className="disc-cell reveal"
               style={{ ...CLS_VARS[it.cls], transitionDelay: `${i * 40}ms` }}
-              onClick={() => setActive(active === it.k ? 'all' : it.k)}
-              aria-pressed={active === it.k}
             >
-              <span className="dc-num">0{i + 1}</span>
-              <div className="dc-eq" aria-hidden>
-                {it.bars.map((h, j) => (
-                  <span key={j} style={{ height: `${h * 7}%`, animationDelay: `${j * 0.08}s` }} />
-                ))}
-              </div>
-              <span className="dc-short">{it.short}</span>
-              <span className="dc-name">{it.n}</span>
-              <span className="dc-sub">{it.sub}</span>
-              <span className="dc-hz">{it.hz}</span>
-              <span className="dc-cta">
-                {active === it.k ? 'SEÇİLDİ ✓' : 'BU DİSİPLİN'}
-                <span className="dc-arrow" />
-              </span>
+              <button
+                type="button"
+                className={`disc-card${active === it.k ? ' on' : ''}`}
+                onClick={() => setActive(active === it.k ? 'all' : it.k)}
+                aria-pressed={active === it.k}
+                aria-label={`${it.n} disiplinini filtrele`}
+              >
+                <span className="dc-num">0{i + 1}</span>
+                <div className="dc-eq" aria-hidden>
+                  {it.bars.map((h, j) => (
+                    <span key={j} style={{ height: `${h * 7}%`, animationDelay: `${j * 0.08}s` }} />
+                  ))}
+                </div>
+                <span className="dc-short">{it.short}</span>
+                <span className="dc-name">{it.n}</span>
+                <span className="dc-sub">{it.sub}</span>
+                <span className="dc-hz">{it.hz}</span>
+                <span className="dc-cta">
+                  {active === it.k ? 'SEÇİLDİ ✓' : 'BU DİSİPLİN'}
+                  <span className="dc-arrow" />
+                </span>
+              </button>
               <Link
                 to={`/hizmetler/${SERVICE_SLUG[it.k]}`}
                 className="dc-detail"
-                onClick={(e) => e.stopPropagation()}
+                aria-label={`${it.n} hizmet detay sayfası`}
               >
                 Detay sayfası <span className="arrow" />
               </Link>
-            </button>
+            </div>
           ))}
         </div>
       </div>
@@ -944,7 +940,7 @@ function Testimonials() {
               <span className="t-quote-mark" aria-hidden>"</span>
               <p className="t-quote">{t.quote}</p>
               <div className="t-meta">
-                <img src={t.portrait} alt={t.name} loading="lazy" onLoad={(e) => e.currentTarget.classList.add('loaded')} />
+                <Img src={t.portrait} alt={`${t.name} — ${t.role}`} width={56} height={56} />
                 <div>
                   <div className="t-name">{t.name}</div>
                   <div className="t-role">{t.role}</div>
@@ -982,7 +978,7 @@ function References() {
               style={{ ['--c' as any]: ACCENT_BY_CLS[r.cls], transitionDelay: `${i * 30}ms` }}
             >
               <div className="ref-thumb">
-                <img src={r.image} alt={`${r.name} — ${r.sector}`} loading="lazy" onLoad={(e) => e.currentTarget.classList.add('loaded')} />
+                <Img src={r.image} alt={`${r.name} — ${r.sector}`} width={900} height={675} />
                 <span className="ref-tag">{r.sector.toUpperCase()}</span>
               </div>
               <div className="ref-info">

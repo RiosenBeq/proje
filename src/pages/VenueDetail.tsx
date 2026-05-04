@@ -172,7 +172,7 @@ export default function VenueDetail() {
               {projects.map((p, i) => p && (
                 <Link key={p.slug} to={`/projeler/${p.slug}`} className="case reveal" style={{ transitionDelay: `${i * 60}ms` }}>
                   <div className="frame">
-                    <img src={p.hero.image} alt={p.name} loading="lazy" />
+                    <img src={p.hero.image} alt={p.name} loading="lazy" decoding="async" width={1400} height={1050} />
                     <span className="tonearm" aria-hidden />
                     <div className="ph">{p.name.toUpperCase()}</div>
                     <div className="stat-overlay">

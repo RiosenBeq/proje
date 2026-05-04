@@ -781,6 +781,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   grid-template-columns: repeat(6, 1fr);
   gap: 14px;
 }
+.disc-cell {
+  display: flex; flex-direction: column;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms var(--ease), transform 800ms var(--ease);
+}
+.disc-cell.in { opacity: 1; transform: translateY(0); }
 .disc-card {
   --c: var(--red);
   --cs: var(--red-soft);
@@ -790,12 +797,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   padding: 22px 20px 20px;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 0;
   cursor: pointer;
   text-align: left;
   overflow: hidden;
   transition: transform 280ms var(--ease), border-color 280ms var(--ease), box-shadow 280ms var(--ease), background 280ms var(--ease);
-  min-height: 320px;
+  min-height: 300px;
+  flex: 1;
 }
 .disc-card::before {
   content: "";
@@ -907,18 +916,21 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .disc-card:hover .dc-arrow { width: 28px; }
 
 .dc-detail {
-  margin-top: 10px;
   font-family: var(--f-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 6px 0;
+  color: var(--ink-3);
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 12px 20px;
+  border: 1px solid var(--line);
   border-top: 1px dashed var(--line);
+  border-radius: 0 0 10px 10px;
+  background: var(--bg-1);
   text-decoration: none;
-  transition: color 200ms var(--ease);
+  transition: color 200ms var(--ease), background 200ms var(--ease), border-color 200ms var(--ease);
 }
+.disc-cell:hover .dc-detail { background: var(--panel); border-color: var(--cl); color: var(--c); }
 .dc-detail:hover { color: var(--c); }
 .dc-detail .arrow {
   display: inline-block;

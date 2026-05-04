@@ -26,7 +26,7 @@ function BrandLockup({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
   const src = tone === 'light' ? '/assets/on-music-logo-light.png' : '/assets/on-music-logo-dark.png';
   return (
     <span className="brand-lockup">
-      <img src={src} alt="On Music" className="brand-logo" />
+      <img src={src} alt="On Music Proje" className="brand-logo" width={120} height={28} decoding="async" />
       <small className="brand-suffix">PROJE</small>
     </span>
   );
