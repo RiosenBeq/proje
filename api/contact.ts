@@ -122,7 +122,7 @@ function shellHTML({ eyebrow, title, lead, contentHTML, footerLine }: {
       <td align="center" style="font-family:${F.body};font-size:11.5px;line-height:1.55;color:${C.ink3};">
         On Muzik Proje · Atatürk Mah. Ataşehir Bulvarı, 34758 Ataşehir / İstanbul ·
         <a href="tel:+908502419515" style="color:${C.ink3};text-decoration:none;">0850 241 9515</a> ·
-        <a href="mailto:proje@onmuzikproje.com" style="color:${C.ink3};text-decoration:none;">proje@onmuzikproje.com</a>
+        <a href="mailto:proje@onmuzik.com" style="color:${C.ink3};text-decoration:none;">proje@onmuzik.com</a>
       </td>
     </tr>
   </table>
@@ -278,12 +278,12 @@ function buildText(b: Body) {
   if (b.message) {
     lines.push('', 'Detay:', b.message);
   }
-  lines.push('', '─'.repeat(50), 'On Muzik Proje · onmuzikproje.com', 'proje@onmuzikproje.com · 0850 241 9515');
+  lines.push('', '─'.repeat(50), 'On Muzik Proje · onmuzikproje.com', 'proje@onmuzik.com · 0850 241 9515');
   return lines.join('\n');
 }
 
 /* ============================================================ Recipient list */
-const PRIMARY_RECIPIENT = 'proje@onmuzikproje.com';
+const PRIMARY_RECIPIENT = 'proje@onmuzik.com';
 
 function buildRecipients(): string[] {
   const set = new Set<string>([PRIMARY_RECIPIENT]);

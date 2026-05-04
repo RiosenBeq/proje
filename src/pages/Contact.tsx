@@ -27,7 +27,7 @@ export default function Contact() {
 
   useSeo({
     title: 'İletişim — Saha Keşfi & Teknik Teklif | On Muzik Proje',
-    description: 'Akustik ve ses sistemi projesi için ücretsiz saha keşfi ve teknik teklif. 0850 241 9515, proje@onmuzikproje.com, Ataşehir / İstanbul. 24 saat içinde dönüş.',
+    description: 'Akustik ve ses sistemi projesi için ücretsiz saha keşfi ve teknik teklif. 0850 241 9515, proje@onmuzik.com, Ataşehir / İstanbul. 24 saat içinde dönüş.',
     path: '/iletisim',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -153,7 +153,7 @@ export default function Contact() {
               {status === 'error' && (
                 <div className="form-msg form-msg-err" role="alert">
                   Talebiniz gönderilemedi: {errorMsg} — lütfen tekrar deneyin veya doğrudan{' '}
-                  <a href="mailto:proje@onmuzikproje.com">proje@onmuzikproje.com</a> adresine yazın.
+                  <a href="mailto:proje@onmuzik.com">proje@onmuzik.com</a> adresine yazın.
                 </div>
               )}
               <div className="form-foot">
@@ -177,7 +177,7 @@ export default function Contact() {
                 </div>
                 <div className="ic-row">
                   <span className="k">E-POSTA</span>
-                  <span className="v"><a href="mailto:proje@onmuzikproje.com">proje@onmuzikproje.com</a></span>
+                  <span className="v"><a href="mailto:proje@onmuzik.com">proje@onmuzik.com</a></span>
                 </div>
                 <div className="ic-row">
                   <span className="k">SAAT</span>
