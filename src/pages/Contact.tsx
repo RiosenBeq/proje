@@ -32,9 +32,9 @@ export default function Contact() {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'ContactPage',
-      url: 'https://onmuzik.com/iletisim',
-      isPartOf: { '@id': 'https://onmuzik.com/#website' },
-      mainEntity: { '@id': 'https://onmuzik.com/#business' },
+      url: 'https://onmuzikproje.com/iletisim',
+      isPartOf: { '@id': 'https://onmuzikproje.com/#website' },
+      mainEntity: { '@id': 'https://onmuzikproje.com/#business' },
     },
   });
 

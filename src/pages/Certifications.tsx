@@ -11,8 +11,8 @@ export default function Certifications() {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
       name: 'Sertifikalar — On Muzik Proje',
-      url: 'https://onmuzik.com/sertifikalar',
-      isPartOf: { '@id': 'https://onmuzik.com/#website' },
+      url: 'https://onmuzikproje.com/sertifikalar',
+      isPartOf: { '@id': 'https://onmuzikproje.com/#website' },
     },
   });
 

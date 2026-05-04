@@ -30,8 +30,8 @@ export default function About() {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'AboutPage',
-      url: 'https://onmuzik.com/hakkimizda',
-      mainEntity: { '@id': 'https://onmuzik.com/#org' },
+      url: 'https://onmuzikproje.com/hakkimizda',
+      mainEntity: { '@id': 'https://onmuzikproje.com/#org' },
     },
   });
 
