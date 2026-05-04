@@ -3811,3 +3811,308 @@ a.md-row:hover .md-v { color: var(--red); }
 @media (max-width: 360px) {
   .article-table table { min-width: 360px; }
 }
+
+/* ============================================================ 404 — Sinyal kaybı */
+.nf-stage {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  padding: clamp(60px, 9vw, 100px) 0 clamp(80px, 10vw, 120px);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-1) 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+.nf-stage::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 70% at 90% 10%, var(--red-soft), transparent 60%),
+    radial-gradient(50% 60% at 10% 100%, var(--gold-soft), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Background sine wave that drops out at the midpoint = lost signal */
+.nf-wave {
+  position: absolute;
+  left: 0; right: 0; top: clamp(180px, 22vw, 280px);
+  width: 100%;
+  height: clamp(160px, 22vw, 260px);
+  fill: none;
+  pointer-events: none;
+  z-index: 1;
+}
+.nf-wave-line { stroke-linecap: round; }
+.nf-wave-back { stroke: var(--ink); stroke-width: 1; opacity: 0.07; }
+.nf-wave-front { stroke: var(--red); stroke-width: 1.4; opacity: 0.6; stroke-dasharray: 2 6; animation: nfWaveDraw 3.6s var(--ease) infinite; }
+.nf-wave-flat { stroke: var(--red); stroke-width: 1; opacity: 0.35; stroke-dasharray: 1 5; }
+
+@keyframes nfWaveDraw {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 0.18; }
+}
+
+/* EQ bars at the bottom */
+.nf-eq {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 96px;
+  display: flex; gap: 6px; align-items: flex-end; justify-content: center;
+  padding: 0 clamp(20px, 4vw, 48px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+.nf-eq span {
+  flex: 1;
+  max-width: 14px;
+  background: linear-gradient(180deg, var(--red), var(--gold));
+  border-radius: 2px;
+  height: var(--h, 30%);
+  transform-origin: bottom;
+  animation: nfEq 1.6s ease-in-out infinite;
+}
+@keyframes nfEq {
+  0%, 100% { transform: scaleY(0.3); }
+  50%      { transform: scaleY(1); }
+}
+
+/* Floating musical notes */
+.nf-notes { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.nf-note {
+  position: absolute;
+  font-family: var(--f-display);
+  color: var(--ink-3);
+  opacity: 0.18;
+  user-select: none;
+  animation: nfFloat 12s ease-in-out infinite;
+}
+.nf-note-1 { top: 10%;  left: 8%;   font-size: 64px; animation-delay: 0s;     color: var(--red); opacity: 0.22; }
+.nf-note-2 { top: 18%;  right: 12%; font-size: 88px; animation-delay: -2.5s;  color: var(--gold); opacity: 0.20; }
+.nf-note-3 { top: 56%;  left: 14%;  font-size: 52px; animation-delay: -5s;    color: var(--indigo); opacity: 0.18; }
+.nf-note-4 { top: 70%;  right: 9%;  font-size: 72px; animation-delay: -7.5s;  color: var(--teal); opacity: 0.18; }
+.nf-note-5 { top: 38%;  left: 50%;  font-size: 44px; animation-delay: -3.5s;  color: var(--red); opacity: 0.14; transform: translateX(-50%); }
+
+@keyframes nfFloat {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50%      { transform: translateY(-22px) rotate(4deg); }
+}
+.nf-note-5 { animation-name: nfFloatCenter; }
+@keyframes nfFloatCenter {
+  0%, 100% { transform: translate(-50%, 0) rotate(-3deg); }
+  50%      { transform: translate(-50%, -16px) rotate(3deg); }
+}
+
+/* Inner content */
+.nf-inner {
+  position: relative;
+  z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+  padding-left: clamp(20px, 4vw, 32px);
+  padding-right: clamp(20px, 4vw, 32px);
+}
+
+.nf-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 7px 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  margin-bottom: 36px;
+}
+.nf-eyebrow .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 0 3px var(--red-soft);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+/* Big "404" with a vinyl-disc as the zero */
+.nf-display {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.5vw, 22px);
+  margin-bottom: 28px;
+  line-height: 1;
+}
+.nf-glyph {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(120px, 22vw, 240px);
+  letter-spacing: -0.05em;
+  color: var(--ink);
+}
+.nf-glyph-disc {
+  display: inline-block;
+  width: clamp(110px, 20vw, 220px);
+  height: clamp(110px, 20vw, 220px);
+  color: var(--red);
+  font-style: normal;
+  animation: nfSpin 18s linear infinite;
+}
+.nf-glyph-disc svg { display: block; }
+@keyframes nfSpin {
+  to { transform: rotate(360deg); }
+}
+
+.nf-title {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(34px, 5vw, 56px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 18px;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.nf-title em { font-style: italic; color: var(--red); font-weight: 300; }
+
+.nf-lead {
+  max-width: 56ch;
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.65;
+  color: var(--ink-3);
+  margin: 0 0 30px;
+  text-wrap: balance;
+}
+
+/* Path trace card */
+.nf-trace {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 8px 8px 8px 14px;
+  background: var(--ink);
+  color: var(--stage-fg);
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  margin-bottom: 36px;
+  max-width: 100%;
+}
+.nf-trace-k { color: rgba(245,239,224,0.5); letter-spacing: 0.18em; text-transform: uppercase; font-size: 10px; }
+.nf-trace-v {
+  color: var(--stage-fg);
+  font-family: var(--f-mono);
+  font-size: 12px;
+  background: rgba(245,239,224,0.06);
+  padding: 4px 10px;
+  border-radius: 999px;
+  max-width: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nf-trace-status {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  background: var(--red);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* Portal cards */
+.nf-portals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin: 0 0 36px;
+}
+.nf-portal {
+  --c: var(--red);
+  --cs: var(--red-soft);
+  --cl: var(--red-line);
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  text-align: left;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 220ms var(--ease), border-color 220ms var(--ease), box-shadow 220ms var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.nf-portal::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--c);
+  transform: scaleY(0.4); transform-origin: top;
+  transition: transform 280ms var(--ease);
+}
+.nf-portal:hover {
+  transform: translateY(-3px);
+  border-color: var(--cl);
+  box-shadow: 0 14px 30px rgba(20,17,12,0.08);
+}
+.nf-portal:hover::before { transform: scaleY(1); }
+.nf-portal-num {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--c);
+  font-weight: 600;
+}
+.nf-portal-body { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.nf-portal-label {
+  font-family: var(--f-display);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.nf-portal-sub {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nf-portal-arrow {
+  font-family: var(--f-mono);
+  color: var(--muted);
+  transition: transform 220ms var(--ease), color 220ms var(--ease);
+}
+.nf-portal:hover .nf-portal-arrow { transform: translate(2px, -2px); color: var(--c); }
+
+.nf-portal-red    { --c: var(--red);    --cs: var(--red-soft);    --cl: var(--red-line); }
+.nf-portal-gold   { --c: var(--gold);   --cs: var(--gold-soft);   --cl: var(--gold-line); }
+.nf-portal-indigo { --c: var(--indigo); --cs: var(--indigo-soft); --cl: var(--indigo-line); }
+.nf-portal-teal   { --c: var(--teal);   --cs: var(--teal-soft);   --cl: var(--teal-line); }
+.nf-portal-plum   { --c: var(--plum);   --cs: var(--plum-soft);   --cl: var(--plum-line); }
+
+.nf-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+@media (max-width: 720px) {
+  .nf-stage { min-height: calc(100vh - 62px - 64px); }
+  .nf-wave { top: clamp(140px, 32vw, 220px); height: clamp(120px, 28vw, 180px); }
+  .nf-eq { height: 72px; gap: 4px; }
+  .nf-eq span { max-width: 9px; }
+  .nf-eyebrow { margin-bottom: 24px; }
+  .nf-display { gap: 8px; margin-bottom: 22px; }
+  .nf-glyph { font-size: clamp(96px, 28vw, 160px); }
+  .nf-glyph-disc { width: clamp(86px, 26vw, 150px); height: clamp(86px, 26vw, 150px); }
+  .nf-title { margin-bottom: 14px; }
+  .nf-lead { margin-bottom: 24px; }
+  .nf-trace { margin-bottom: 28px; flex-wrap: wrap; gap: 8px; }
+  .nf-trace-v { font-size: 11.5px; }
+  .nf-portals { gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nf-wave-front, .nf-eq span, .nf-note, .nf-glyph-disc { animation: none; }
+}
