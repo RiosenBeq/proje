@@ -3034,6 +3034,287 @@ a.md-row:hover .md-v { color: var(--red); }
   .ba-row { grid-template-columns: 1fr; gap: 8px; }
 }
 
+/* ============================================================ Testimonials grid */
+.t-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.t-card {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 32px 28px 26px;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  transition: transform 320ms var(--ease), border-color 320ms var(--ease), box-shadow 320ms var(--ease);
+  opacity: 0; transform: translateY(20px);
+  animation: tIn 600ms var(--ease) forwards;
+  animation-delay: var(--d, 0ms);
+}
+.reveal.in .t-card,
+.t-card { opacity: 1; transform: none; }
+@keyframes tIn { to { opacity: 1; transform: translateY(0); } }
+.t-card::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--c, var(--red));
+}
+.t-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--c, var(--red)) 45%, transparent);
+  box-shadow: 0 18px 40px rgba(20,17,12,0.10);
+}
+.t-quote-mark {
+  position: absolute;
+  right: 22px; top: 12px;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 96px;
+  line-height: 1;
+  color: var(--c, var(--red));
+  opacity: 0.16;
+  pointer-events: none;
+}
+.t-quote {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 24px;
+  position: relative;
+  z-index: 1;
+}
+.t-meta {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.t-meta img {
+  width: 56px; height: 56px;
+  border-radius: 999px;
+  object-fit: cover;
+  background: var(--bg-1);
+  opacity: 0;
+  transition: opacity 320ms var(--ease);
+}
+.t-meta img.loaded { opacity: 1; }
+.t-name {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.t-role {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  margin-top: 2px;
+}
+.t-venue {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c, var(--red));
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* ============================================================ References grid (logo wall + venue thumbs) */
+.ref-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.ref-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 240ms var(--ease), border-color 240ms var(--ease), box-shadow 240ms var(--ease);
+  display: flex; flex-direction: column;
+}
+.ref-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--c, var(--red));
+  box-shadow: 0 14px 28px rgba(20,17,12,0.10);
+}
+.ref-thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--ink);
+}
+.ref-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity 360ms var(--ease), transform 600ms var(--ease);
+}
+.ref-thumb img.loaded { opacity: 0.92; }
+.ref-card:hover .ref-thumb img { transform: scale(1.04); opacity: 1; }
+.ref-thumb::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(14,12,9,0.55));
+}
+.ref-tag {
+  position: absolute;
+  left: 10px; top: 10px;
+  z-index: 2;
+  background: rgba(20,17,12,0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(245,239,224,0.18);
+  color: var(--stage-fg);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+.ref-info {
+  padding: 14px 16px 16px;
+  display: grid; gap: 4px;
+}
+.ref-name {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.ref-meta {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ref-scope {
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* ============================================================ WhatsApp FAB */
+.whatsapp-fab {
+  position: fixed;
+  right: clamp(16px, 3vw, 28px);
+  bottom: calc(72px + env(safe-area-inset-bottom, 0));
+  z-index: 51;
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 52px;
+  padding: 0 18px 0 14px;
+  border-radius: 999px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  box-shadow: 0 10px 26px rgba(37,211,102,0.40), 0 2px 6px rgba(20,17,12,0.10);
+  opacity: 0; pointer-events: none;
+  transform: translateY(8px) scale(0.92);
+  transition: opacity 260ms var(--ease), transform 260ms var(--ease-spring), background 200ms;
+}
+.whatsapp-fab.show { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+.whatsapp-fab:hover { background: #20BD5A; }
+.whatsapp-fab .wf-pulse {
+  position: absolute;
+  left: 0; top: 0;
+  width: 52px; height: 52px;
+  border-radius: 999px;
+  background: rgba(37,211,102,0.45);
+  z-index: -1;
+  animation: wfPulse 2.4s ease-in-out infinite;
+}
+@keyframes wfPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50%      { transform: scale(1.45); opacity: 0; }
+}
+
+/* ============================================================ Newsletter (footer) */
+.newsletter {
+  margin-top: 22px;
+  padding: 18px 0 0;
+  border-top: 1px solid rgba(245,239,224,0.10);
+  max-width: 360px;
+}
+.newsletter .nl-head { margin-bottom: 12px; }
+.newsletter h6 {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,239,224,0.4);
+  margin: 0 0 6px;
+}
+.newsletter .nl-head p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: rgba(245,239,224,0.65);
+  max-width: none;
+}
+.nl-row {
+  display: flex; gap: 6px;
+  background: rgba(245,239,224,0.06);
+  border: 1px solid rgba(245,239,224,0.16);
+  border-radius: 999px;
+  padding: 4px 4px 4px 14px;
+  transition: border-color 200ms var(--ease);
+}
+.nl-row:focus-within { border-color: var(--gold-2); }
+.nl-row input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  color: var(--stage-fg);
+  font-family: var(--f-body);
+  font-size: 13px;
+  padding: 8px 0;
+  outline: 0;
+  min-width: 0;
+}
+.nl-row input::placeholder { color: rgba(245,239,224,0.35); }
+.nl-row button {
+  background: var(--gold-2);
+  color: var(--ink);
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-family: var(--f-body);
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 200ms;
+}
+.nl-row button:hover { background: var(--stage-fg); }
+.nl-row button:disabled { opacity: 0.6; cursor: progress; }
+.nl-ok, .nl-err {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.nl-ok { color: var(--gold-2); }
+.nl-err { color: var(--red-2); }
+
 /* ============================================================ Article body (Bilgi Merkezi) */
 .article-body { font-size: 16.5px; line-height: 1.75; color: var(--ink-2); }
 .article-body p { margin: 0 0 18px; }
@@ -3169,6 +3450,8 @@ a.md-row:hover .md-v { color: var(--red); }
 
   .svc-grid { grid-template-columns: repeat(2, 1fr); }
   .gal-grid { grid-template-columns: repeat(2, 1fr); }
+  .t-grid { grid-template-columns: 1fr; }
+  .ref-grid { grid-template-columns: repeat(2, 1fr); }
   .gal-cell.wide { grid-column: span 2; }
   .legal-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -3229,6 +3512,11 @@ a.md-row:hover .md-v { color: var(--red); }
   .hv-spl { right: 0; top: 50%; }
   .hv-corner.tl, .hv-corner.tr, .hv-corner.bl, .hv-corner.br { font-size: 9px; }
   .pm-cell { width: clamp(220px, 70vw, 320px); }
+  .ref-grid { grid-template-columns: 1fr; }
+  .t-card { padding: 24px 22px 20px; }
+  .t-quote-mark { font-size: 72px; right: 14px; top: 6px; }
+  .whatsapp-fab { padding: 0 14px 0 12px; height: 48px; font-size: 10.5px; }
+  .whatsapp-fab .wf-pulse { width: 48px; height: 48px; }
   .venue-tabs {
     flex-wrap: nowrap;
     overflow-x: auto;

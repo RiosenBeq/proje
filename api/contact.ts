@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
 
 type Body = {
-  source?: 'contact' | 'quote';
+  source?: 'contact' | 'quote' | 'newsletter';
   name?: string;
   company?: string;
   email?: string;
@@ -31,7 +31,11 @@ function row(label: string, value: string | undefined) {
 }
 
 function buildHtml(b: Body) {
-  const sourceLabel = b.source === 'quote' ? 'Anasayfa · Teklif Formu' : 'İletişim Sayfası';
+  const sourceLabel = b.source === 'quote'
+    ? 'Anasayfa · Teklif Formu'
+    : b.source === 'newsletter'
+    ? 'Bülten Aboneliği'
+    : 'İletişim Sayfası';
   const needs = (b.needs ?? []).join(', ');
   return `<!doctype html>
 <html><body style="margin:0;padding:24px;background:#FAF8F4;font-family:Arial,sans-serif;color:#14110C;">
@@ -121,6 +125,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const from = process.env.RESEND_FROM_EMAIL ?? 'On Muzik Proje <noreply@onmuzik.com>';
   const subject = body.source === 'quote'
     ? `Anasayfa Teklif · ${name}`
+    : body.source === 'newsletter'
+    ? `Bülten Aboneliği · ${email}`
     : `İletişim Talebi · ${name}`;
 
   const resend = new Resend(apiKey);

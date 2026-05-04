@@ -1262,6 +1262,91 @@ export const ARTICLES: Article[] = [
 ];
 
 /* =========================================================
+   REFERENCES — Bizi seçen mekânlar
+   (placeholder isimler + sektörel etiketler — gerçek müşteri
+    referanslarınızla değiştirin)
+   ========================================================= */
+export type Reference = {
+  id: string;
+  name: string;
+  city: string;
+  year: string;
+  sector: 'Restoran' | 'Otel' | 'Sahne' | 'Stüdyo' | 'Konferans' | 'Kurumsal' | 'AVM' | 'Kamu';
+  cls: DisciplineCls;
+  image: string;
+  scope: string;
+};
+
+export const REFERENCES: Reference[] = [
+  { id: 'r1',  name: 'Bosphorus Bistro',        city: 'İstanbul', year: '2024', sector: 'Restoran',  cls: 'red',    image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=900',  scope: '4 zon Dante + akustik panel' },
+  { id: 'r2',  name: 'Aurora Hotel & SPA',      city: 'Antalya',  year: '2024', sector: 'Otel',      cls: 'gold',   image: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=900', scope: '24 zon + EN 54-16 + LED P2.6' },
+  { id: 'r3',  name: 'Kıyı Konser Alanı',       city: 'İzmir',    year: '2024', sector: 'Sahne',     cls: 'red',    image: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=900', scope: 'Line array + cardioid sub' },
+  { id: 'r4',  name: 'Studio Alpha Mix',        city: 'İstanbul', year: '2024', sector: 'Stüdyo',    cls: 'teal',   image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=80', scope: 'Atmos 9.1.4 + RFZ' },
+  { id: 'r5',  name: 'Capital Konferans',       city: 'Ankara',   year: '2023', sector: 'Konferans', cls: 'plum',   image: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=900', scope: 'DICENTIS + 32 ch beamforming' },
+  { id: 'r6',  name: 'Plaza Lobi',              city: 'İstanbul', year: '2025', sector: 'Kurumsal',  cls: 'gold',   image: 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=900',  scope: '3 zon tavan + EN 54-16' },
+  { id: 'r7',  name: 'Riva Sahne',              city: 'İstanbul', year: '2023', sector: 'Sahne',     cls: 'indigo', image: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=900&q=80', scope: 'L-Acoustics K2 + delay tower' },
+  { id: 'r8',  name: 'Kafe Akustik',            city: 'İzmir',    year: '2024', sector: 'Restoran',  cls: 'red',    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80', scope: '2 zon + tavan absorpsiyon' },
+  { id: 'r9',  name: 'Marina Vista Restoran',   city: 'Bodrum',   year: '2024', sector: 'Restoran',  cls: 'gold',   image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=80', scope: 'Outdoor IP65 + iç + teras' },
+  { id: 'r10', name: 'Anadolu Toplantı Salonu', city: 'Bursa',    year: '2024', sector: 'Konferans', cls: 'plum',   image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80', scope: 'MTR sertifikalı + steerable' },
+  { id: 'r11', name: 'Lifestyle AVM',           city: 'Ankara',   year: '2023', sector: 'AVM',       cls: 'olive',  image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80', scope: 'EN 54-16 VA + 48 zon paging' },
+  { id: 'r12', name: 'Şehir Kongre Merkezi',    city: 'İzmir',    year: '2023', sector: 'Kamu',      cls: 'plum',   image: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=900', scope: '8 oda + auditorium + çeviri' },
+];
+
+/* =========================================================
+   TESTIMONIALS — Müşteri yorumları
+   (placeholder Türkçe yorumlar — gerçek müşteri izniyle
+    güncellenmesi tavsiye edilir)
+   ========================================================= */
+export type Testimonial = {
+  id: string;
+  name: string;
+  role: string;
+  venue: string;
+  cls: DisciplineCls;
+  quote: string;
+  portrait: string;
+};
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: 't1',
+    name: 'M. Eren Yıldız',
+    role: 'F&B Direktörü',
+    venue: 'Bosphorus Bistro · İstanbul',
+    cls: 'red',
+    quote: 'Ölçüm raporuna kadar her şeyi şeffaf paylaştılar. Açılıştan sonra masada konuşma şikâyeti gerçekten sıfıra indi — daha önceki sistemde her gece duyuyorduk.',
+    portrait: 'https://images.pexels.com/photos/3771807/pexels-photo-3771807.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    id: 't2',
+    name: 'Selin Aksoy',
+    role: 'Genel Müdür',
+    venue: 'Aurora Hotel & SPA · Antalya',
+    cls: 'gold',
+    quote: 'EN 54-16 yapı denetim sürecinde dosya hazırlığı dahil her şeyi onlar üstlendi. Otel zinciri standartlarına uygun bir teslim aldık, denetimden ilk seferde geçtik.',
+    portrait: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    id: 't3',
+    name: 'Caner Demir',
+    role: 'Mix Mühendisi',
+    venue: 'Studio Alpha · İstanbul',
+    cls: 'teal',
+    quote: 'Apartmanda Atmos stüdyo kurmak çıldırma derecesinde zordur — kayan kat ve modal kontrolü hiç sorunsuz teslim ettiler. Komşulardan tek bir şikâyet gelmedi, mix kararlarım artık güvenilir.',
+    portrait: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    id: 't4',
+    name: 'Ayşe Karadağ',
+    role: 'Konferans Operasyon Sorumlusu',
+    venue: 'Capital Konferans · Ankara',
+    cls: 'plum',
+    quote: 'Hibrit toplantıda uzak katılımcı memnuniyeti %62\'den %94\'e çıktı — kulağımızla duyuyoruz, mailde okuyoruz. Beamforming dizisi ve AEC zinciri farkını anında hissettirdi.',
+    portrait: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+];
+
+/* =========================================================
    Helpers
    ========================================================= */
 export const getDiscipline = (slug: string) => DISCIPLINES.find((d) => d.slug === slug) ?? null;
