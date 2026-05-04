@@ -3490,9 +3490,8 @@ a.md-row:hover .md-v { color: var(--red); }
 
   .mobile-drawer {
     position: fixed; inset: 70px 0 0 0;
-    background: rgba(250,248,244,0.98);
-    backdrop-filter: blur(16px);
-    z-index: 55;
+    background: var(--bg);
+    z-index: 75;
     padding: 32px clamp(20px, 4vw, 56px);
     overflow-y: auto;
   }
@@ -3698,8 +3697,11 @@ a.md-row:hover .md-v { color: var(--red); }
     bottom: calc(74px + env(safe-area-inset-bottom, 0)) !important;
     z-index: 59;
   }
-  /* Drawer should not extend behind the bottom nav */
-  .mobile-drawer { bottom: calc(64px + env(safe-area-inset-bottom, 0)); }
+  /* When the drawer is open, hide the bottom nav + WhatsApp so the drawer
+     covers the full viewport without anything peeking through. */
+  body[data-drawer="open"] .mobile-bottomnav,
+  body[data-drawer="open"] .whatsapp-fab,
+  body[data-drawer="open"] .cookie-banner { display: none !important; }
 
   /* Touch target hardening for dense footer rows */
   .foot-grid ul li { padding: 8px 0; }

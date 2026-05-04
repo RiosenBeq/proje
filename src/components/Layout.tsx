@@ -98,6 +98,7 @@ export default function Layout() {
   useEffect(() => {
     if (!drawer) return;
     document.body.style.overflow = 'hidden';
+    document.body.dataset.drawer = 'open';
     const previouslyFocused = document.activeElement as HTMLElement | null;
     const t = window.setTimeout(() => drawerCloseRef.current?.focus(), 80);
 
@@ -128,6 +129,7 @@ export default function Layout() {
     window.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = '';
+      delete document.body.dataset.drawer;
       window.removeEventListener('keydown', onKey);
       window.clearTimeout(t);
       previouslyFocused?.focus();
