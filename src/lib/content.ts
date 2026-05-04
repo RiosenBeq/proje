@@ -941,6 +941,327 @@ export const FAQ_GROUPS: FaqGroup[] = [
 ];
 
 /* =========================================================
+   BRANDS — Marka portföyü (text grid)
+   ========================================================= */
+export type BrandLevel = 'partner' | 'authorized' | 'premium';
+export type BrandCategory = 'ses' | 'akustik' | 'led' | 'studio' | 'konferans' | 'anons' | 'dsp' | 'mikrofon';
+
+export type Brand = {
+  id: string;
+  name: string;
+  origin: string;
+  level: BrandLevel;
+  categories: BrandCategory[];
+  description: string;
+};
+
+export const BRAND_CATEGORIES: Array<{ id: BrandCategory; name: string; cls: DisciplineCls }> = [
+  { id: 'ses',       name: 'Ses Sistemi',           cls: 'red' },
+  { id: 'akustik',   name: 'Akustik Panel & Diffüzör', cls: 'gold' },
+  { id: 'led',       name: 'LED & Görüntü',         cls: 'indigo' },
+  { id: 'studio',    name: 'Stüdyo Monitör',        cls: 'teal' },
+  { id: 'konferans', name: 'Konferans / AV',        cls: 'plum' },
+  { id: 'anons',     name: 'Voice Alarm',           cls: 'olive' },
+  { id: 'dsp',       name: 'DSP & Ağ',              cls: 'red' },
+  { id: 'mikrofon',  name: 'Mikrofon & Ölçüm',      cls: 'gold' },
+];
+
+export const BRAND_LEVELS: Record<BrandLevel, { label: string; cls: DisciplineCls }> = {
+  premium:    { label: 'PREMIUM PARTNER', cls: 'red' },
+  authorized: { label: 'YETKİLİ BAYİ',    cls: 'gold' },
+  partner:    { label: 'ÇÖZÜM ORTAĞI',    cls: 'indigo' },
+};
+
+export const BRANDS: Brand[] = [
+  // Ses Sistemi
+  { id: 'db',          name: 'd&b audiotechnik', origin: 'Almanya', level: 'premium',    categories: ['ses'],          description: 'Konser ve fixed install için referans line array + cardioid sub mimarisi.' },
+  { id: 'l-acoustics', name: 'L-Acoustics',      origin: 'Fransa',  level: 'premium',    categories: ['ses'],          description: 'K2, KS28 ve Soundvision simülasyon — büyük ölçek line array çözümleri.' },
+  { id: 'meyer',       name: 'Meyer Sound',      origin: 'ABD',     level: 'authorized', categories: ['ses'],          description: 'Tiyatro, sahne ve broadcast için MAPP simülasyonu + self-powered hoparlörler.' },
+  { id: 'bose-pro',    name: 'Bose Professional',origin: 'ABD',     level: 'authorized', categories: ['ses'],          description: 'Restoran ve kurumsal lobi için çok zonlu Dante/70V çözümleri.' },
+  { id: 'jbl-pro',     name: 'JBL Professional', origin: 'ABD',     level: 'authorized', categories: ['ses'],          description: 'Sahne, kulüp ve geniş alan için yüksek-SPL line array + sub konfigürasyonu.' },
+  { id: 'pioneer-pro', name: 'Pioneer Pro Audio',origin: 'Japonya', level: 'premium',    categories: ['ses'],          description: 'Kulüp, sahne ve performans alanları için XY serisi PA + cardioid sub array.' },
+  { id: 'eaw',         name: 'EAW',              origin: 'ABD',     level: 'authorized', categories: ['ses'],          description: 'Microwedge sahne monitör + adaptive line array çözümleri.' },
+
+  // DSP & Ağ
+  { id: 'q-sys',       name: 'Q-SYS (QSC)',      origin: 'ABD',     level: 'premium',    categories: ['dsp', 'konferans'], description: 'Network audio platform + Q-SYS Reflect uzaktan izleme + native MTR/Zoom.' },
+  { id: 'bss',         name: 'BSS Soundweb',     origin: 'İngiltere', level: 'authorized', categories: ['dsp'],        description: 'BLU-100/BLU-806 matrix DSP, Dante kart genişlemesi, fixed install referansı.' },
+  { id: 'symetrix',    name: 'Symetrix',         origin: 'ABD',     level: 'authorized', categories: ['dsp'],          description: 'Edge / Radius DSP + paging mantığı + Dante / AES67 native.' },
+  { id: 'biamp',       name: 'Biamp Tesira',     origin: 'ABD',     level: 'authorized', categories: ['dsp', 'konferans'], description: 'Tesira FORTÉ, AVB / Dante hibrit toplantı sistemleri.' },
+  { id: 'powersoft',   name: 'Powersoft',        origin: 'İtalya',  level: 'premium',    categories: ['ses', 'dsp'],   description: 'X-Series 4 / 8 kanal Class-D amfi + entegre Armonia DSP.' },
+  { id: 'lab-gruppen', name: 'Lab.gruppen',      origin: 'İsveç',   level: 'authorized', categories: ['ses'],          description: 'D-Series multi-kanal touring amfi referansı.' },
+
+  // Akustik
+  { id: 'vicoustic',   name: 'Vicoustic',        origin: 'Portekiz', level: 'authorized', categories: ['akustik'],     description: 'Hibrit polimer panel, Multifuser diffüzör, kumaş kaplı absorpsiyon kasetleri.' },
+  { id: 'gik',         name: 'GIK Acoustics',    origin: 'ABD',     level: 'authorized', categories: ['akustik'],      description: 'Modal bass trap, scatter plate diffüzör, broadband absorber.' },
+  { id: 'rpg',         name: 'RPG Diffusor Systems', origin: 'ABD', level: 'partner',    categories: ['akustik'],      description: 'Schroeder, QRD ve primitive root difüzör — yüksek frekans dağılımı.' },
+  { id: 'auralex',     name: 'Auralex',          origin: 'ABD',     level: 'authorized', categories: ['akustik'],      description: 'Studiofoam, LENRD bass trap, modüler stüdyo akustik panelleri.' },
+  { id: 'rockwool',    name: 'Rockwool',         origin: 'Danimarka', level: 'partner',  categories: ['akustik'],      description: 'Mineral yün insülasyon — duvar dolgu ve modal kontrol katmanı.' },
+
+  // Stüdyo monitör
+  { id: 'genelec',     name: 'Genelec',          origin: 'Finlandiya', level: 'premium',  categories: ['studio'],      description: '8000 ve 8300 SAM serisi referans monitör + GLM kalibrasyon.' },
+  { id: 'neumann',     name: 'Neumann',          origin: 'Almanya', level: 'premium',    categories: ['studio'],       description: 'KH 80/120/420 referans monitör, MA 1 oda kalibrasyon mikrofonu.' },
+  { id: 'focal-pro',   name: 'Focal Professional', origin: 'Fransa', level: 'authorized', categories: ['studio'],      description: 'Trio6, Solo6 ve SM9 monitör; broadcast referans portföyü.' },
+  { id: 'pmc',         name: 'PMC',              origin: 'İngiltere', level: 'authorized', categories: ['studio'],     description: 'Transmission line tasarımı ile yüksek-end mix referans monitör.' },
+
+  // LED & Görüntü
+  { id: 'absen',       name: 'Absen',            origin: 'Çin',     level: 'authorized', categories: ['led'],          description: 'PL/HC serisi LED panel — fixed install ve sahne uygulamaları.' },
+  { id: 'unilumin',    name: 'Unilumin',         origin: 'Çin',     level: 'authorized', categories: ['led'],          description: 'UpadIII ve UTV serisi P1.5–P2.6 indoor LED.' },
+  { id: 'roe-visual',  name: 'ROE Visual',       origin: 'Hollanda', level: 'authorized', categories: ['led'],         description: 'Carbon Series CB serisi — touring LED referansı.' },
+  { id: 'novastar',    name: 'Novastar',         origin: 'Çin',     level: 'authorized', categories: ['led'],          description: 'Coex Pro, MX serisi processor; HDR + genlock + frame lock.' },
+  { id: 'brompton',    name: 'Brompton Tech',    origin: 'İngiltere', level: 'premium',  categories: ['led'],          description: 'Tessera processor — sahne ve XR stüdyo referansı.' },
+
+  // Konferans / AV
+  { id: 'shure',       name: 'Shure',            origin: 'ABD',     level: 'premium',    categories: ['konferans', 'mikrofon'], description: 'MXA920 / MXA901 tavan beamforming dizi + IntelliMix DSP.' },
+  { id: 'sennheiser',  name: 'Sennheiser',       origin: 'Almanya', level: 'premium',    categories: ['konferans', 'mikrofon'], description: 'TeamConnect Ceiling 2 + EW-DX kablosuz referans.' },
+  { id: 'bosch-dicentis', name: 'Bosch DICENTIS',origin: 'Almanya', level: 'authorized', categories: ['konferans'],    description: 'Konferans, oylama ve simültane çeviri (4 dile kadar).' },
+  { id: 'crestron',    name: 'Crestron',         origin: 'ABD',     level: 'authorized', categories: ['konferans'],    description: 'Tek-dokunuş kontrol panelleri + Crestron Fusion uzaktan izleme.' },
+  { id: 'extron',      name: 'Extron',           origin: 'ABD',     level: 'authorized', categories: ['konferans'],    description: 'Sinyal yönetimi, presentation switcher ve oda kontrolörleri.' },
+  { id: 'logitech',    name: 'Logitech',         origin: 'İsviçre', level: 'authorized', categories: ['konferans'],    description: 'Rally Bar / Rally Plus — MTR ve Zoom Rooms sertifikalı.' },
+  { id: 'poly',        name: 'Poly',             origin: 'ABD',     level: 'authorized', categories: ['konferans'],    description: 'Studio X serisi all-in-one konferans video bar.' },
+  { id: 'yealink',     name: 'Yealink',          origin: 'Çin',     level: 'authorized', categories: ['konferans'],    description: 'MeetingBar A30 + RoomPanel — Teams Rooms paketleri.' },
+
+  // VA
+  { id: 'bosch-praesensa', name: 'Bosch Praesensa', origin: 'Almanya', level: 'premium', categories: ['anons'],        description: 'EN 54-16 sertifikalı Voice Alarm + paging + acil tahliye platformu.' },
+  { id: 'honeywell',   name: 'Honeywell',        origin: 'ABD',     level: 'authorized', categories: ['anons'],        description: 'INTEVIO + Variodyn D1 EN 54-16 voice alarm panel + amfi.' },
+  { id: 'toa',         name: 'TOA',              origin: 'Japonya', level: 'authorized', categories: ['anons'],        description: 'VX-3000 / VM-3000 EN 54-16 sertifikalı çağrı + anons amfi.' },
+
+  // Mikrofon & ölçüm
+  { id: 'bk',          name: 'B&K (Brüel & Kjær)',origin: 'Danimarka', level: 'partner', categories: ['mikrofon'],     description: 'Sınıf-1 ölçüm mikrofonu + saha kalibrasyon ekipmanı.' },
+  { id: 'dpa',         name: 'DPA Microphones',  origin: 'Danimarka', level: 'authorized', categories: ['mikrofon'],   description: 'd:dicate / d:vote serisi referans mikrofon — broadcast + canlı ses.' },
+];
+
+/* =========================================================
+   CERTIFICATIONS
+   ========================================================= */
+export type Certification = {
+  id: string;
+  code: string;
+  name: string;
+  body: string;
+  scope: string;
+  appliesTo: string[];
+  documentNote: string;
+};
+
+export const CERTIFICATIONS: Certification[] = [
+  {
+    id: 'en-54-16',
+    code: 'EN 54-16',
+    name: 'Voice Alarm Sistem Bileşeni',
+    body: 'CEN — Avrupa Standardizasyon Komitesi',
+    scope: 'Sesli yangın tahliye sistemleri için kontrol ve gösterge bileşenleri için zorunlu standart.',
+    appliesTo: ['AVM', 'Otel', 'Hastane', 'Okul', 'Kamu binası', '50+ kişilik toplanma alanı'],
+    documentNote: 'Sistem tasarımı + STI-PA ölçüm raporu + bileşen sertifikaları yapı denetim sürecinde paylaşılır.',
+  },
+  {
+    id: 'en-54-24',
+    code: 'EN 54-24',
+    name: 'Voice Alarm Hoparlör',
+    body: 'CEN — Avrupa Standardizasyon Komitesi',
+    scope: 'EN 54-16 sistemine bağlı hoparlör bileşenleri için zorunlu sertifika.',
+    appliesTo: ['EN 54-16 zorunlu olan tüm yapılarda', 'Yangın yönetmeliği kapsamı'],
+    documentNote: 'Hoparlör üretici sertifikaları (CE + EN 54-24) ihale dosyasıyla birlikte sunulur.',
+  },
+  {
+    id: 'iso-3382',
+    code: 'ISO 3382',
+    name: 'Mekân Akustik Ölçüm Standardı',
+    body: 'ISO — Uluslararası Standartlar Örgütü',
+    scope: 'RT60, EDT, T20/T30, C50, D50 ölçüm metodolojisi standardı; akustik ölçüm dokümantasyonunun referansı.',
+    appliesTo: ['Konser salonu', 'Stüdyo', 'Konferans odası', 'Tiyatro', 'Auditorium'],
+    documentNote: 'Ölçüm raporları ISO 3382 metodolojisine uygun, kalibre B&K sınıf-1 mikrofonla saha kayıtları içerir.',
+  },
+  {
+    id: 'iso-9001',
+    code: 'ISO 9001',
+    name: 'Kalite Yönetim Sistemi',
+    body: 'ISO — Uluslararası Standartlar Örgütü',
+    scope: 'Şirket içi süreç, müşteri ilişkileri ve sürekli iyileştirme yönetim sistemi.',
+    appliesTo: ['Tüm projeler', 'İhale ön nitelik gereksinimi'],
+    documentNote: 'Şirket sertifika belgesi talep üzerine PDF olarak iletilir.',
+  },
+  {
+    id: 'ce',
+    code: 'CE',
+    name: 'Avrupa Uygunluk İşareti',
+    body: 'AB Komisyonu',
+    scope: 'Tüm elektrikli ve elektronik bileşenler için zorunlu uygunluk işareti.',
+    appliesTo: ['Hoparlör', 'Amfi', 'DSP', 'LED panel', 'Mikrofon', 'Network ekipmanı'],
+    documentNote: 'Tüm önerilen ekipmanların CE belgesi proje dosyasında listelenir.',
+  },
+  {
+    id: 'tse',
+    code: 'TSE',
+    name: 'Türk Standartları Enstitüsü',
+    body: 'TSE — Türk Standartları Enstitüsü',
+    scope: 'Türkiye pazarı için ulusal standart uygunluk ve TSE-K hizmet yeterliliği.',
+    appliesTo: ['Kamu ihalesi', 'Yapı denetim'],
+    documentNote: 'Hizmet yeterlilik belgesi + ürün TSE belgeleri ihale dosyasıyla sunulur.',
+  },
+  {
+    id: 'cedia',
+    code: 'CEDIA',
+    name: 'Custom Electronic Design & Installation',
+    body: 'CEDIA — Custom Electronic Design and Installation Association',
+    scope: 'Profesyonel AV entegratörleri için uluslararası eğitim + sertifikasyon programı.',
+    appliesTo: ['Konferans', 'Stüdyo', 'Smart room teslimleri'],
+    documentNote: 'CEDIA EST sertifikalı ekip üyelerinin sertifika kopyaları talep üzerine iletilir.',
+  },
+  {
+    id: 'dante',
+    code: 'DANTE Lvl 2/3',
+    name: 'Audinate Dante Network Sertifikası',
+    body: 'Audinate',
+    scope: 'Dante audio network tasarım ve kurulum yetkinliği seviyeleri.',
+    appliesTo: ['Çok zonlu Dante kurulumları', 'AVB / AES67 hibrit tasarım'],
+    documentNote: 'Sertifikalı ağ tasarımcısı talimatı altında devreye alma + dokümantasyon.',
+  },
+];
+
+/* =========================================================
+   ARTICLES — Bilgi Merkezi
+   ========================================================= */
+export type Article = {
+  slug: string;
+  title: string;
+  summary: string;
+  excerpt: string;
+  publishedAt: string;
+  readMin: number;
+  category: 'Akustik' | 'Ses Sistemi' | 'Mevzuat';
+  related: { discipline?: DiscSlug; venue?: VenueSlug };
+  body: Array<
+    | { type: 'p'; text: string }
+    | { type: 'h2'; text: string }
+    | { type: 'h3'; text: string }
+    | { type: 'ul'; items: string[] }
+    | { type: 'callout'; title: string; text: string }
+    | { type: 'table'; caption?: string; headers: string[]; rows: string[][] }
+  >;
+};
+
+export const ARTICLES: Article[] = [
+  {
+    slug: 'rt60-nedir',
+    title: 'RT60 nedir, nasıl ölçülür ve neden kritik?',
+    summary: 'Akustik mühendislikte temel metrik olan RT60\'ı tanımlar, ölçüm yöntemini ve mekân tipine göre hedef değerleri açıklar.',
+    excerpt: 'Bir mekânın "akustik karakterini" tek bir sayıya indirgemek mümkün değil — ama RT60, en yakın olanı.',
+    publishedAt: '2026-04-12',
+    readMin: 6,
+    category: 'Akustik',
+    related: { discipline: 'akustik' },
+    body: [
+      { type: 'p', text: 'RT60 (Reverberation Time 60), bir ses kaynağının kapatılmasının ardından mekândaki ses basınç seviyesinin 60 dB düşmesi için geçen süredir. Birim olarak saniye (s) cinsinden ifade edilir ve bir mekânın akustik karakterini özetleyen en yaygın metriktir.' },
+      { type: 'h2', text: 'Neden 60 dB?' },
+      { type: 'p', text: '60 dB, insan kulağının "duyulabilir" eşiğin ortalama 1 milyonda biri kadar zayıf bir basınç farkına denk gelir. Pratikte ölçüm sırasında 60 dB\'lik düşüşü doğrudan kaydetmek zordur (arka plan gürültüsü engel olur), bu yüzden T20 (20 dB düşüş × 3) veya T30 (30 dB düşüş × 2) kullanılır.' },
+      { type: 'h2', text: 'Mekân tipine göre hedef değerler' },
+      { type: 'table', caption: 'Mekân tipine göre tipik RT60 hedefleri (orta band, 500 Hz – 2 kHz)', headers: ['Mekân', 'RT60 Hedef', 'Not'], rows: [
+        ['Stüdyo kontrol odası', '0.25 – 0.32 s', 'RFZ + bass trap zorunlu'],
+        ['Restoran', '0.6 – 0.9 s', 'Konuşma netliği ön planda'],
+        ['Otel ballroom', '1.1 – 1.4 s', 'Çok amaçlı, değişken akustik'],
+        ['Konferans salonu', '0.5 – 0.7 s', 'STI ≥ 0.62 hedefi ile birlikte'],
+        ['Konser sahnesi', '1.2 – 1.6 s', 'Müzik karakteri için yeterli rezonans'],
+      ] },
+      { type: 'h2', text: 'Ölçüm yöntemi' },
+      { type: 'p', text: 'ISO 3382 metodolojisine uygun ölçüm için en az 6 mikrofon noktası ve 2 kaynak konumu gerekir. Kullandığımız tipik ekipman:' },
+      { type: 'ul', items: [
+        'Sınıf 1 mikrofon: B&K 4189 (ölçüm) + 4192 (yedek)',
+        'Yazılım: SMAART v9 ya da ARTA — log-sweep ve MLS kayıt',
+        'Hoparlör: omnidirectional (DodecaSound) saha referans kaynağı',
+        'Kalibrasyon: 94 dB SPL @ 1 kHz pistonphone ile her ölçüm öncesi',
+      ] },
+      { type: 'callout', title: 'Yaygın hata', text: 'RT60\'ı tek bir noktada ölçüp tüm mekâna genellemek. Modal davranış oda boyunca değişir — kontrol odası gibi küçük mekânlarda her dinleyici pozisyonu için ayrı ölçüm gerekir.' },
+      { type: 'h2', text: 'RT60 hedefe değil ölçüme bakar' },
+      { type: 'p', text: 'Bir mekân için "1.0 s ideal" demek yanlıştır. İdeali kullanım amacı belirler. Restoran için 1.0 s konuşma anlaşılırlığını bozar; sinema için 1.0 s diyalog netliğini ortadan kaldırır; ama konser salonu için 1.0 s müziğin "ölü" hissetmesine yol açar.' },
+      { type: 'p', text: 'Doğru yaklaşım: hedef RT60\'ı kullanım profiline göre belirle, mevcut durumu ölç, fark hesabını panel + diffüzör mimarisiyle kapat.' },
+    ],
+  },
+  {
+    slug: 'restoran-ses-sistemi-rehberi',
+    title: 'Restoran ses sistemi tasarımı: 4 zonlu PA ve akustik denge',
+    summary: 'Restoran ve barlarda misafir konuşma netliği, arka plan müzik enerjisi ve canlı performans dengesi nasıl kurulur — saha deneyiminden çıkarılmış checklist.',
+    excerpt: 'Restoranlarda iyi ses sistemi konuşmayı kapatmaz, müziği bağırtmaz; ortamı taşır.',
+    publishedAt: '2026-04-25',
+    readMin: 7,
+    category: 'Ses Sistemi',
+    related: { discipline: 'ses', venue: 'restoran' },
+    body: [
+      { type: 'p', text: 'Restoran ses sistemi tasarımı, müziğin kötü olmasından çok masada konuşmanın bozulmasıyla başarısız olur. RT60 yüksekse, hangi marka hoparlör kullanırsanız kullanın, müşteriler 1 saat sonra yorgun ayrılır.' },
+      { type: 'h2', text: '1. Akustik temel önce' },
+      { type: 'p', text: 'Tavan kasetleri, duvar yüzeyleri ve döşeme malzemesi seçimi sistem mimarisinden önce gelir. Cam, beton ve sert ahşap yansıtıcıdır; kumaş, halı ve perforated tavan absorbtir. Tipik hedef: RT60 0.6 – 0.9 s, STI ≥ 0.62.' },
+      { type: 'h2', text: '2. Zon mimarisi' },
+      { type: 'p', text: 'Tek zonlu sistem restoranların başı belasıdır. Önerilen minimum yapı:' },
+      { type: 'table', caption: '180 kişilik restoran için tipik zon yapısı', headers: ['Zon', 'Hoparlör', 'Hedef SPL', 'Kaynak'], rows: [
+        ['Z1: Giriş + bekleme', '4× tavan 6.5"', '74 dB', 'Ortam müzik'],
+        ['Z2: Ana yemek alanı', '8× tavan 8" + 1 sub', '78 dB', 'Ortam müzik'],
+        ['Z3: Bar', '4× tavan + 2× yan-fill', '82 dB', 'Daha yüksek enerji'],
+        ['Z4: Teras (varsa)', '4× outdoor IP65', '80 dB', 'Ayrı kaynak'],
+      ] },
+      { type: 'h2', text: '3. DSP üzerinde adaptif kontrol' },
+      { type: 'ul', items: [
+        'Saat dilimine göre SPL profili (öğlen +0 dB, akşam +4 dB, gece +6 dB)',
+        'Zon başına ayrı EQ — bar zonunda alt-orta vurgu, yemek zonunda 3 kHz cut',
+        'Anons mantığı: çağrı butonu basıldığında müzik 12 dB kısılır',
+        'Otomatik gürültüye-uyum (ANC) ile kalabalık arttıkça SPL +2 dB',
+      ] },
+      { type: 'h2', text: '4. Marka bağımsız ürün seçimi' },
+      { type: 'p', text: 'Bizim deneyimimizde restoran segmentinde en sık kullanılan markalar Bose Pro (DesignMax), JBL Pro (Control), Tannoy ve Genelec\'tir. Karar mekân hacmine, mimariye ve bütçeye göre değişir.' },
+      { type: 'callout', title: 'Sık yapılan hata', text: 'Tavan hoparlöründen kaçınıp duvara büyük subwoofer koymak. Düşük frekans masada konuşmayı boğar; sub sayısı + konumu DSP simülasyonuyla doğrulanmadan kurulmamalı.' },
+      { type: 'h2', text: '5. Teslim sonrası ölçüm' },
+      { type: 'p', text: 'Devreye alma sonrası en az 6 farklı masa noktasında STI ölçümü zorunludur. STI 0.62 üstü "iyi", 0.75 üstü "mükemmel" anlaşılırlık demektir. Hedef tutturulmadıysa panel revizyonu veya DSP ince ayarı gerekir.' },
+    ],
+  },
+  {
+    slug: 'en-54-16-voice-alarm-rehberi',
+    title: 'EN 54-16 Voice Alarm: hangi yapılarda zorunlu ve nasıl tasarlanır?',
+    summary: 'EN 54-16 sesli tahliye sertifikasının kapsamı, hangi yapılarda yasal olarak zorunlu olduğu ve sistem tasarım adımları.',
+    excerpt: 'Sertifikasız anons sistemi sadece hukuki risk değil; can güvenliği riskidir.',
+    publishedAt: '2026-05-01',
+    readMin: 8,
+    category: 'Mevzuat',
+    related: { discipline: 'anons' },
+    body: [
+      { type: 'p', text: 'EN 54-16, Avrupa Standardizasyon Komitesi (CEN) tarafından yayınlanan yangın tahliye seri standardının "Voice Alarm Control and Indicating Equipment" bölümüdür. Türkiye\'de Yangın Yönetmeliği belirli yapı sınıflarında bu sertifikalı sistemi zorunlu kılar.' },
+      { type: 'h2', text: 'Hangi yapılarda zorunlu?' },
+      { type: 'ul', items: [
+        'Alışveriş merkezleri (AVM) — kapasite ve alan eşiği üzerinde',
+        'Otel — 50+ oda kapasitesi',
+        'Hastane — tüm yataklı tedavi alanları',
+        'Okul — orta ve yüksek öğretim binaları',
+        'Kamu binası — yapı denetim onayı gereksinimi',
+        'Yer altı toplanma alanları (metro istasyonu, otopark, sığınak)',
+        'Yüksek katlı binalar (8 kat ve üzeri)',
+      ] },
+      { type: 'h2', text: 'Sistem bileşenleri' },
+      { type: 'p', text: 'EN 54-16 sertifikalı bir sistemin temel parçaları:' },
+      { type: 'ul', items: [
+        'EN 54-16 sertifikalı kontrol paneli + amfi (Bosch Praesensa, Honeywell INTEVIO, TOA VX)',
+        'EN 54-24 sertifikalı hoparlörler (sadece o standardı taşıyan modeller)',
+        'EN 54-4 sertifikalı güç kaynağı + 24 saat batarya backup',
+        'Yangın paneli ile entegrasyon (Bosch FPA, Honeywell, Siemens Cerberus)',
+        'Çağrı mikrofonu + öncelik mantığı (zone bazlı + tüm-bina)',
+      ] },
+      { type: 'h2', text: 'Tasarım adımları' },
+      { type: 'h3', text: '1. Yapının zone planını çıkar' },
+      { type: 'p', text: 'Her bağımsız tahliye yolu (kat + blok + kullanıcı tipi kombinasyonu) ayrı bir zone\'dur. Tipik bir 6 katlı otelde: kat başına 2 zone × 6 = 12 + lobi/restoran/SPA/ballroom = 16+ zone.' },
+      { type: 'h3', text: '2. Hoparlör yerleşimi ve SPL hedefi' },
+      { type: 'p', text: 'Tüm yaşam alanlarında SPL hedefi: arka plan gürültüsünden en az 10 dB yüksek. Tipik ortalama 75 – 95 dB SPL. Hoparlör spacing CEN/TS 54-32 önerilerine göre hesaplanır.' },
+      { type: 'h3', text: '3. STI-PA ölçümü' },
+      { type: 'p', text: 'Sözel netlik ölçümü EN 54-16 zorunluluğudur. Hedef: STI-PA ≥ 0.50 (her zone için). Ölçüm raporu yapı denetim sürecinde sunulur.' },
+      { type: 'callout', title: 'Yaygın hata', text: '"EN 54 uyumlu" değil "EN 54-16 sertifikalı" sistem talep edin. "Uyumlu" terimi pazarlama dili — sertifika belge numarası ihale dosyasında olmalı.' },
+      { type: 'h2', text: 'Bakım ve test gereksinimi' },
+      { type: 'ul', items: [
+        '7 günlük: kontrol paneli görsel + sesli durum kontrolü',
+        'Aylık: amfi + batarya yedek testi',
+        '6 aylık: STI-PA spot ölçümü en az 2 zone\'da',
+        'Yıllık: tüm sistemin sertifikalı yenileme testi + dokümantasyon',
+      ] },
+      { type: 'p', text: 'Bakım kayıtları yetkili kuruluş tarafından denetlendiğinde tutulur ve genelikle 5 yıl saklama zorunluluğu vardır.' },
+    ],
+  },
+];
+
+/* =========================================================
    Helpers
    ========================================================= */
 export const getDiscipline = (slug: string) => DISCIPLINES.find((d) => d.slug === slug) ?? null;
@@ -948,3 +1269,5 @@ export const getVenue = (slug: string) => VENUES.find((v) => v.slug === slug) ??
 export const getProject = (slug: string) => PROJECTS.find((p) => p.slug === slug) ?? null;
 export const projectsByVenue = (slug: VenueSlug) => PROJECTS.filter((p) => p.venueType === slug);
 export const projectsByDiscipline = (cls: DisciplineCls) => PROJECTS.filter((p) => p.disciplines.includes(cls));
+export const getArticle = (slug: string) => ARTICLES.find((a) => a.slug === slug) ?? null;
+export const brandsByCategory = (id: BrandCategory) => BRANDS.filter((b) => b.categories.includes(id));

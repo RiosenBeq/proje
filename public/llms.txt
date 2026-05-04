@@ -9,6 +9,13 @@
 - [Projeler](https://onmuzik.com/portfolyo): 240+ projeden seçmeler + 12 görsellik kurulum galerisi
 - [Hakkımızda](https://onmuzik.com/hakkimizda): 2009'dan bugüne tarihçe, manifesto, lokasyon, ekipman lab
 - [SSS](https://onmuzik.com/sss): 4 kategori altında 18 soru-cevap (akustik, ses, süreç & garanti, KVKK & yasal)
+- [Servis & Bakım](https://onmuzik.com/servis-bakim): 3 SLA seviyesi (Standart, Premium, 7/24 Mission Critical) + WhatsApp + servis talep formu
+- [Markalar](https://onmuzik.com/markalar): 40+ profesyonel AV marka portföyü, 8 kategori filtresi, premium / yetkili / çözüm ortağı seviyeleri
+- [Sertifikalar](https://onmuzik.com/sertifikalar): EN 54-16, EN 54-24, ISO 3382, ISO 9001, CE, TSE, CEDIA, Dante Lvl 2/3 — ihale + mevzuat
+- [Bilgi Merkezi](https://onmuzik.com/bilgi-merkezi): teknik rehber blog
+  - [RT60 nedir, nasıl ölçülür ve neden kritik](https://onmuzik.com/bilgi-merkezi/rt60-nedir) (Akustik, 6 dk)
+  - [Restoran ses sistemi tasarımı: 4 zonlu PA + akustik denge](https://onmuzik.com/bilgi-merkezi/restoran-ses-sistemi-rehberi) (Ses, 7 dk)
+  - [EN 54-16 Voice Alarm: hangi yapılarda zorunlu, nasıl tasarlanır](https://onmuzik.com/bilgi-merkezi/en-54-16-voice-alarm-rehberi) (Mevzuat, 8 dk)
 - [İletişim](https://onmuzik.com/iletisim): teklif formu + saha keşfi
 - [Gizlilik Politikası](https://onmuzik.com/gizlilik-politikasi)
 - [KVKK Aydınlatma Metni](https://onmuzik.com/kvkk)

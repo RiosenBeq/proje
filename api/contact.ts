@@ -134,13 +134,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       text: buildText(body),
     });
 
-    if ((result as { error?: unknown }).error) {
-      res.status(502).json({ ok: false, error: 'Resend send failed', detail: (result as { error?: unknown }).error });
+    const errObj = (result as { error?: { name?: string; message?: string; statusCode?: number } | string | null }).error;
+    if (errObj) {
+      const message = typeof errObj === 'string'
+        ? errObj
+        : errObj.message ?? errObj.name ?? 'Bilinmeyen Resend hatası';
+      console.error('[api/contact] Resend send failed', { from, to, errObj });
+      res.status(502).json({ ok: false, error: `Resend: ${message}`, detail: errObj });
       return;
     }
 
     res.status(200).json({ ok: true });
   } catch (err) {
-    res.status(500).json({ ok: false, error: err instanceof Error ? err.message : 'Unknown error' });
+    const message = err instanceof Error ? err.message : 'Bilinmeyen sunucu hatası';
+    console.error('[api/contact] Unexpected error', err);
+    res.status(500).json({ ok: false, error: message });
   }
 }

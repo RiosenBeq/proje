@@ -9,6 +9,11 @@ import Portfolio from './pages/Portfolio';
 import ProjectDetail from './pages/ProjectDetail';
 import About from './pages/About';
 import Faq from './pages/Faq';
+import Service from './pages/Service';
+import Brands from './pages/Brands';
+import Certifications from './pages/Certifications';
+import Knowledge from './pages/Knowledge';
+import Article from './pages/Article';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Kvkk from './pages/Kvkk';
@@ -28,6 +33,11 @@ export default function App() {
           <Route path="projeler/:slug" element={<ProjectDetail />} />
           <Route path="hakkimizda" element={<About />} />
           <Route path="sss" element={<Faq />} />
+          <Route path="servis-bakim" element={<Service />} />
+          <Route path="markalar" element={<Brands />} />
+          <Route path="sertifikalar" element={<Certifications />} />
+          <Route path="bilgi-merkezi" element={<Knowledge />} />
+          <Route path="bilgi-merkezi/:slug" element={<Article />} />
           <Route path="iletisim" element={<Contact />} />
           <Route path="gizlilik-politikasi" element={<PrivacyPolicy />} />
           <Route path="kvkk" element={<Kvkk />} />
