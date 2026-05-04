@@ -3615,6 +3615,34 @@ a.md-row:hover .md-v { color: var(--red); }
   .nav-cta-compact { padding: 0 9px; height: 30px; font-size: 9.5px; letter-spacing: 0.12em; }
 }
 
+/* ============================================================ Mobile component polish */
+@media (max-width: 720px) {
+  /* Form check buttons: bigger touch target + bigger label on mobile */
+  .check { padding: 14px 16px; font-size: 14px; }
+  .field label { font-size: 11px; letter-spacing: 0.14em; }
+}
+
+@media (max-width: 600px) {
+  /* Single-column .checks on phones (was still 2-col between 540–720) */
+  .checks { grid-template-columns: 1fr !important; }
+  /* Testimonial cards: tighten padding + readable line-length */
+  .t-card { padding: 22px 20px 18px; }
+  .t-quote { font-size: 16px; line-height: 1.55; }
+}
+
+@media (max-width: 380px) {
+  /* Newsletter row stacks vertically on tiny phones so button isn't squeezed */
+  .nl-row { flex-direction: column; align-items: stretch; gap: 8px; padding: 10px; }
+  .nl-row input { padding: 10px 4px; }
+  .nl-row button { width: 100%; padding: 12px 16px; }
+}
+
+@media (max-width: 360px) {
+  /* Contact card key/value collapses to stacked on ultra-narrow phones */
+  .contact-card .ic-row { grid-template-columns: 1fr; gap: 4px; }
+  .contact-card .ic-row .k { font-size: 9.5px; }
+}
+
 /* ============================================================ Compact header CTA (mobile) */
 .nav-cta-compact {
   align-items: center;

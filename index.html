@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>On Muzik Proje — Akustik & Ses Mühendisliği</title>
-    <meta name="description" content="Restoran, otel, stüdyo, sahne ve konferans için akustik tasarım, profesyonel ses sistemleri ve LED görüntü mimarisi. Ölçüme dayalı, marka bağımsız mühendislik." />
+    <title>On Muzik Proje — Akustik Tasarım & Profesyonel Ses Sistemi · İstanbul</title>
+    <meta name="description" content="İstanbul merkezli akustik mühendisliği ve kurumsal ses sistemi tasarımı. Restoran, otel, sahne, kayıt stüdyosu ve konferans salonları için marka bağımsız, ölçüme dayalı çözümler — RT60, STI, EN 54-16 voice alarm, LED ekran, Dante ağ." />
+    <meta name="keywords" content="akustik tasarım, ses sistemi, ses mühendisliği, restoran ses sistemi, otel ses sistemi, kayıt stüdyosu akustiği, konferans ses sistemi, EN 54-16 voice alarm, LED ekran, line array, Dante ağ, DSP kalibrasyon, RT60, STI ölçümü, kurumsal AV, İstanbul ses sistemi" />
     <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0E0C09" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light" />
@@ -17,13 +18,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:site_name" content="On Muzik Proje" />
-    <meta property="og:title" content="On Muzik Proje — Akustik & Ses Mühendisliği" />
-    <meta property="og:description" content="Restoran, otel, stüdyo, sahne ve konferans için akustik tasarım, profesyonel ses sistemleri ve LED görüntü mimarisi. Ölçüme dayalı, marka bağımsız mühendislik." />
+    <meta property="og:title" content="On Muzik Proje — Akustik Tasarım & Profesyonel Ses Sistemi · İstanbul" />
+    <meta property="og:description" content="2009'dan beri İstanbul merkezli akustik mühendisliği ve kurumsal ses sistemi tasarımı. 240+ proje, 6 disiplin — restoran, otel, sahne, stüdyo, konferans için marka bağımsız mühendislik." />
     <meta property="og:image" content="https://onmuzikproje.com/assets/on-music-logo.png" />
     <meta property="og:url" content="https://onmuzikproje.com/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="On Muzik Proje — Akustik & Ses Mühendisliği" />
-    <meta name="twitter:description" content="Restoran, otel, stüdyo, sahne ve konferans için akustik tasarım, profesyonel ses sistemleri ve LED görüntü mimarisi." />
+    <meta name="twitter:title" content="On Muzik Proje — Akustik Tasarım & Ses Sistemi · İstanbul" />
+    <meta name="twitter:description" content="240+ proje. Restoran, otel, sahne, stüdyo, konferans için akustik mühendisliği ve kurumsal ses sistemi — RT60, STI, EN 54-16 voice alarm, line array, Dante." />
     <meta name="twitter:image" content="https://onmuzikproje.com/assets/on-music-logo.png" />
     <link rel="canonical" href="https://onmuzikproje.com/" />
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -75,7 +76,19 @@
             "postalCode": "34758",
             "addressCountry": "TR"
           },
-          "areaServed": { "@type": "Country", "name": "Türkiye" },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.9923,
+            "longitude": 29.1244
+          },
+          "areaServed": [
+            { "@type": "Country", "name": "Türkiye" },
+            { "@type": "City", "name": "İstanbul" },
+            { "@type": "City", "name": "Ankara" },
+            { "@type": "City", "name": "İzmir" },
+            { "@type": "City", "name": "Antalya" },
+            { "@type": "City", "name": "Bursa" }
+          ],
           "openingHoursSpecification": [{
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
@@ -109,7 +122,15 @@
           "url": "https://onmuzikproje.com/",
           "name": "On Muzik Proje",
           "publisher": { "@id": "https://onmuzikproje.com/#org" },
-          "inLanguage": "tr-TR"
+          "inLanguage": "tr-TR",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://onmuzikproje.com/bilgi-merkezi?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
         }
       ]
     }

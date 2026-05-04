@@ -13,6 +13,8 @@ export default function Article() {
     title: `${a.title} | On Muzik Proje Bilgi Merkezi`,
     description: a.summary,
     path: `/bilgi-merkezi/${a.slug}`,
+    ogType: 'article',
+    keywords: `${a.category}, ${a.title}, akustik mühendislik, ses sistemi, ${a.related.discipline ?? ''}, ${a.related.venue ?? ''}, On Muzik Proje, kurumsal AV, İstanbul`,
     jsonLd: {
       '@context': 'https://schema.org',
       '@graph': [
