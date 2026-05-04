@@ -293,39 +293,27 @@ function buildUserText(b: Body) {
   return lines.join('\n');
 }
 
-/* ============================================================ Internal notification (optional)
+/* ============================================================ Internal notification
  *
- * If CONTACT_TO_EMAIL is set, also send the form contents internally so the
- * team gets a summary in their inbox.  proje@onmuzik.com is no longer hard-
- * coded as a recipient (it's been suppressed at the Resend level), so we only
- * send if the env explicitly lists deliverable addresses.
+ * Every form submission also sends an internal notification.  proje@onmuzik.com
+ * is the canonical destination (always included) and CONTACT_TO_EMAIL can list
+ * extra recipients (comma- or semicolon-separated).
  *
- * Defensive filter: even if proje@onmuzik.com leaks into the env value (left
- * over from a previous config), we strip it so Resend never tries — and so
- * the dashboard isn't flooded with suppression errors. Override via
- * SKIP_RECIPIENTS env (comma-separated) if you need to add more.
+ * NOTE: Resend will reject the send with "recipient is on the suppression list"
+ * if proje@onmuzik.com remains suppressed.  Manage suppressions in the Resend
+ * dashboard → Suppressions panel.  We attempt the send anyway because each
+ * admin-side failure is logged but doesn't break the user's confirmation flow.
  */
-const KNOWN_SUPPRESSED = new Set<string>([
-  'proje@onmuzik.com',
-]);
+const PRIMARY_ADMIN_RECIPIENT = 'proje@onmuzik.com';
 
 function notificationRecipients(): string[] {
-  const env = (process.env.CONTACT_TO_EMAIL ?? '').trim();
-  if (!env) return [];
-  const skip = new Set<string>(KNOWN_SUPPRESSED);
-  (process.env.SKIP_RECIPIENTS ?? '')
+  const set = new Set<string>([PRIMARY_ADMIN_RECIPIENT]);
+  (process.env.CONTACT_TO_EMAIL ?? '')
     .split(/[;,]/)
-    .map((s) => s.trim().toLowerCase())
+    .map((s) => s.trim())
     .filter(Boolean)
-    .forEach((s) => skip.add(s));
-  return Array.from(
-    new Set(
-      env.split(/[;,]/)
-        .map((s) => s.trim())
-        .filter(Boolean)
-        .filter((addr) => !skip.has(addr.toLowerCase()))
-    )
-  );
+    .forEach((addr) => set.add(addr));
+  return Array.from(set);
 }
 
 function buildAdminText(b: Body) {
