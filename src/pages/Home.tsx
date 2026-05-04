@@ -2,6 +2,12 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState, type CSSProperties, type FormEvent, type ImgHTMLAttributes } from 'react';
 import { useCountUp, useMagnetic } from '../lib/hooks';
 import { useSeo } from '../lib/seo';
+import { REFERENCES, TESTIMONIALS, type DisciplineCls as ContentDiscCls } from '../lib/content';
+
+const ACCENT_BY_CLS: Record<ContentDiscCls, string> = {
+  red: 'var(--red)', gold: 'var(--gold)', indigo: 'var(--indigo)',
+  teal: 'var(--teal)', plum: 'var(--plum)', olive: 'var(--olive)',
+};
 
 function StatCount({ end, prefix = '', suffix = '' }: { end: number; prefix?: string; suffix?: string }) {
   const { ref, value } = useCountUp(end);
@@ -913,6 +919,89 @@ function FAQ() {
   );
 }
 
+/* ===== Testimonials ===== */
+function Testimonials() {
+  return (
+    <section className="section venues" id="testimonials">
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />MÜŞTERİ YORUMLARI</span>
+            <h2 className="h-section gold" style={{ marginTop: 18 }}>Mühendislik tarafı<br /><em>çalıştığında</em>.</h2>
+          </div>
+          <div className="right">
+            Tamamlanan projelerden seçilmiş yorumlar — restoran F&B direktöründen otel genel müdürüne, mix
+            mühendisinden konferans operasyon sorumlusuna. Her mekân, kendi metriğiyle teslim edildi.
+          </div>
+        </div>
+        <div className="t-grid reveal">
+          {TESTIMONIALS.map((t, i) => (
+            <article
+              key={t.id}
+              className="t-card"
+              style={{ ['--c' as any]: ACCENT_BY_CLS[t.cls], transitionDelay: `${i * 80}ms` }}
+            >
+              <span className="t-quote-mark" aria-hidden>"</span>
+              <p className="t-quote">{t.quote}</p>
+              <div className="t-meta">
+                <img src={t.portrait} alt={t.name} loading="lazy" onLoad={(e) => e.currentTarget.classList.add('loaded')} />
+                <div>
+                  <div className="t-name">{t.name}</div>
+                  <div className="t-role">{t.role}</div>
+                  <div className="t-venue">{t.venue}</div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ===== References ===== */
+function References() {
+  return (
+    <section className="section" id="referanslar">
+      <div className="container">
+        <div className="section-head reveal">
+          <div className="left">
+            <span className="eyebrow"><span className="bar" />REFERANSLAR · 240+ MEKÂN</span>
+            <h2 className="h-section indigo" style={{ marginTop: 18 }}>Bizi <em>seçen</em><br />mekânlar.</h2>
+          </div>
+          <div className="right">
+            240+ tamamlanmış projemizden seçmeler. Restoran, otel, sahne, stüdyo, konferans, AVM ve kamu
+            binaları — her sektörde derin saha tecrübesi.
+          </div>
+        </div>
+        <div className="ref-grid reveal">
+          {REFERENCES.map((r, i) => (
+            <article
+              key={r.id}
+              className="ref-card"
+              style={{ ['--c' as any]: ACCENT_BY_CLS[r.cls], transitionDelay: `${i * 30}ms` }}
+            >
+              <div className="ref-thumb">
+                <img src={r.image} alt={`${r.name} — ${r.sector}`} loading="lazy" onLoad={(e) => e.currentTarget.classList.add('loaded')} />
+                <span className="ref-tag">{r.sector.toUpperCase()}</span>
+              </div>
+              <div className="ref-info">
+                <div className="ref-name">{r.name}</div>
+                <div className="ref-meta">{r.city} · {r.year}</div>
+                <div className="ref-scope">{r.scope}</div>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <Link to="/portfolyo" className="btn btn-red">Tüm projeleri gör <span className="arrow" /></Link>
+          <Link to="/iletisim" className="btn btn-ghost">Benzer proje için teklif <span className="arrow" /></Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ===== Page ===== */
 const HOME_FAQ: Array<[string, string]> = [
   ['Akustik ölçüm yapıyor musunuz?', 'Evet. RT60, EDT, STI ve NC ölçümleri için kalibre edilmiş B&K mikrofon ve ölçüm yazılımı kullanıyoruz. Saha keşfi ücretsizdir.'],
@@ -954,6 +1043,8 @@ export default function Home() {
       <div className="wave-divider" aria-hidden />
       <Dashboard />
       <PortfolioTeaser />
+      <Testimonials />
+      <References />
       <Vision2026 />
       <SEOContent />
       <Quote />

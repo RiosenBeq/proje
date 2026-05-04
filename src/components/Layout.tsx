@@ -2,6 +2,8 @@ import { NavLink, Outlet, Link, useLocation } from 'react-router-dom';
 import { useEffect, useRef, useState, type TouchEvent as ReactTouchEvent } from 'react';
 import SectionProgress from './SectionProgress';
 import CookieBanner from './CookieBanner';
+import WhatsAppFab from './WhatsAppFab';
+import Newsletter from './Newsletter';
 import { smoothScrollToHash } from '../lib/hooks';
 
 const NAV = [
@@ -367,6 +369,7 @@ export default function Layout() {
                   </a>
                 ))}
               </div>
+              <Newsletter />
             </div>
             <div>
               <h6>DİSİPLİNLER</h6>
@@ -422,6 +425,7 @@ export default function Layout() {
         </div>
       </footer>
 
+      <WhatsAppFab />
       <ScrollTopFab />
       <CookieBanner />
     </>
