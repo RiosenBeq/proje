@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useSeo } from '../lib/seo';
 
 const KVKK = [
   { title: 'Veri Sorumlusu', body: 'On Muzik Proje, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında veri sorumlusu sıfatıyla kişisel verilerinizi mevzuata uygun şekilde işler.' },
@@ -9,9 +9,11 @@ const KVKK = [
 ];
 
 export default function Kvkk() {
-  useEffect(() => {
-    document.title = 'KVKK Aydınlatma Metni — On Muzik Proje';
-  }, []);
+  useSeo({
+    title: 'KVKK Aydınlatma Metni | On Muzik Proje',
+    description: 'KVKK kapsamında On Muzik Proje aydınlatma metni — veri sorumlusu, işlenen veri kategorileri, hukuki sebepler, aktarım ilkeleri ve ilgili kişi hakları.',
+    path: '/kvkk',
+  });
 
   return (
     <>

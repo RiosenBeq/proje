@@ -1,4 +1,5 @@
-import { useEffect, useState, type FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
+import { useSeo } from '../lib/seo';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
@@ -24,9 +25,18 @@ export default function Contact() {
     setPicked(s);
   };
 
-  useEffect(() => {
-    document.title = 'İletişim — On Muzik Proje';
-  }, []);
+  useSeo({
+    title: 'İletişim — Saha Keşfi & Teknik Teklif | On Muzik Proje',
+    description: 'Akustik ve ses sistemi projesi için ücretsiz saha keşfi ve teknik teklif. 0850 241 9515, info@onmuzik.com, Ataşehir / İstanbul. 24 saat içinde dönüş.',
+    path: '/iletisim',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      url: 'https://onmuzik.com/iletisim',
+      isPartOf: { '@id': 'https://onmuzik.com/#website' },
+      mainEntity: { '@id': 'https://onmuzik.com/#business' },
+    },
+  });
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();

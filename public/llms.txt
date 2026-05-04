@@ -1,0 +1,46 @@
+# On Muzik Proje
+
+> İstanbul merkezli, 2009'dan beri faaliyet gösteren akustik ve ses mühendisliği stüdyosu. Restoran, otel, sahne, stüdyo ve konferans için ölçüme dayalı akustik tasarım, profesyonel ses sistemi, LED görüntü mimarisi, EN 54-16 voice alarm ve konferans/AV çözümleri sunuyoruz. Marka bağımsız, mühendislik odaklı yaklaşımla 240+ proje tamamladık.
+
+## Sayfalar
+- [Anasayfa](https://onmuzik.com/): hizmet kapsamı, disiplin seçici, çözüm yolları, çalışma süreci, mekân tipleri, canlı ölçüm panosu, seçilmiş projeler, teklif formu, SSS
+- [Hizmetler](https://onmuzik.com/hizmetler): 6 disiplinde detaylı kapsam, AT-01 Akustik / PS-04 Profesyonel Ses / GU-09 Güvenlik feature kartları, ekipman envanteri, marka-bağımsız mimari listesi
+- [Projeler](https://onmuzik.com/portfolyo): Studio Alpha, Club Nexus, Grand Auditorium, Boğaz Restoran, Ballroom Otel, Konser Sahnesi case'leri + 12 görsellik kurulum galerisi
+- [İletişim](https://onmuzik.com/iletisim): teklif formu (ad, şirket, e-posta, telefon, mekân tipi, bütçe, disiplinler, proje detayı), saha keşfi, 7/24 teknik destek bilgisi
+- [Gizlilik Politikası](https://onmuzik.com/gizlilik-politikasi)
+- [KVKK Aydınlatma Metni](https://onmuzik.com/kvkk)
+
+## Disiplinler
+- **Akustik Tasarım** — RT60 0.28–1.4 s, STI ≥ 0.62, EDT, modal kontrol, hibrit polimer panel ve diffüzör mimarisi, in-situ ölçüm (B&K mikrofon, SMAART/ARTA)
+- **Profesyonel Ses Sistemi** — zonlu PA mimarisi, 82–105 dB SPL hedef, DSP ve Dante ağ kalibrasyonu, 96 kHz native işleme, marka-bağımsız (d&b, L-Acoustics, Meyer, Bose, JBL, Pioneer Pro)
+- **LED Ekran & Video** — P1.5 / P2.6 / P3.9 pixel pitch analizi, video processor, truss & rigging, AV-sync timeline
+- **Stüdyo Akustiği** — NC-18 / NC-20 hedef, RFZ kontrol odası, bass trap, kayan kat izolasyon, monitör tuning
+- **Konferans / AV** — DICENTIS, beamforming mikrofon, AEC + AGC, kamera tracking, tek dokunuş kontrol, simültane çeviri
+- **Anons & Voice Alarm** — EN 54-16 sertifikalı sistem, evakuasyon zoneları, BMS entegrasyon, merkezi anons
+
+## Mekân Tipleri
+- **Restoran & Bar** — RT60 0.6–0.9 s, 82 dB SPL, 2–4 zon, tavan + sahne hoparlörler, Dante / 70V dağıtım
+- **Otel & SPA** — RT60 0.7–1.0 s, 78 dB SPL, 6–12 zon, lobi/restoran/ballroom/SPA, EN 54-16 anons
+- **Sahne & Etkinlik** — RT60 1.2–1.6 s, 105 dB SPL, line array L/R, cardioid sub array, LED P3.9
+- **Stüdyo & Kayıt** — RT60 0.25–0.32 s, NC-20, bass trap, kayan kat izolasyon, stereo + sub monitör
+- **Toplantı & Konferans** — RT60 0.5–0.7 s, STI ≥ 0.62, beamforming mic, DICENTIS
+
+## Çalışma Süreci (5 Aşama)
+1. **Keşif & Brifing** — saha ziyareti, ücretsiz
+2. **Ölçüm & Analiz** — RT60, STI, NC, CAD overlay (5–7 gün)
+3. **Konsept Tasarım** — 3D simülasyon, ekipman seçimi
+4. **Uygulama** — montaj, devreye alma (4–8 hafta)
+5. **Kalibrasyon** — DSP tuning, final ölçüm raporu
+
+## İletişim
+- Telefon: 0850 241 9515
+- E-posta: info@onmuzik.com
+- Adres: Atatürk Mahallesi Ataşehir Bulvarı, Ertuğrul Gazi Sokak, 34758 Ataşehir / İstanbul, Türkiye
+- Çalışma Saatleri: Pazartesi–Cumartesi 09:00–19:00
+- Saha keşfi ücretsizdir; teknik teklif 5–7 gün içinde teslim edilir
+
+## Önemli Notlar
+- Marka bağımsız mühendislik — projeye en uygun ürünü seçeriz
+- 16+ yıl saha tecrübesi, 240+ tamamlanan proje, 81 il
+- 2 yıl üretici garantisi + 1 yıl yerinde servis garantisi
+- Anahtar teslim teslimat: tasarım, satın alma, montaj, devreye alma, kalibrasyon

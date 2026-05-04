@@ -27,15 +27,6 @@ function BrandLockup({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
   );
 }
 
-function NavIcon({ kind }: { kind: 'home' | 'grid' | 'star' | 'mail' | 'plus' }) {
-  const c = { width: 22, height: 22, viewBox: '0 0 24 24', fill: 'none' as const, stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
-  if (kind === 'home') return <svg {...c}><path d="M3 11 12 3l9 8" /><path d="M5 10v10h14V10" /><path d="M10 20v-6h4v6" /></svg>;
-  if (kind === 'grid') return <svg {...c}><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></svg>;
-  if (kind === 'star') return <svg {...c}><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="3" /><circle cx="12" cy="12" r="0.7" fill="currentColor" stroke="none" /></svg>;
-  if (kind === 'mail') return <svg {...c}><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>;
-  if (kind === 'plus') return <svg {...c} strokeWidth="2"><path d="M12 5v14M5 12h14" /></svg>;
-  return null;
-}
 
 function ScrollProgress() {
   const [w, setW] = useState(0);
@@ -84,38 +75,6 @@ function ScrollTopFab() {
   );
 }
 
-function haptic(ms = 8) {
-  if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
-    try { navigator.vibrate(ms); } catch { /* ignore */ }
-  }
-}
-
-function BottomNav() {
-  return (
-    <nav className="bottom-nav" aria-label="Mobil gezinti">
-      <NavLink to="/" end className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`} onClick={() => haptic()}>
-        <NavIcon kind="home" />
-        <span>Anasayfa</span>
-      </NavLink>
-      <NavLink to="/hizmetler" className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`} onClick={() => haptic()}>
-        <NavIcon kind="grid" />
-        <span>Hizmetler</span>
-      </NavLink>
-      <Link to="/iletisim" className="bn-cta" aria-label="Teklif Al" onClick={() => haptic(12)}>
-        <span className="bn-cta-inner"><NavIcon kind="plus" /></span>
-        <span className="bn-cta-lbl">Teklif</span>
-      </Link>
-      <NavLink to="/portfolyo" className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`} onClick={() => haptic()}>
-        <NavIcon kind="star" />
-        <span>Projeler</span>
-      </NavLink>
-      <NavLink to="/iletisim" className={({ isActive }) => `bn-item${isActive ? ' on' : ''}`} onClick={() => haptic()}>
-        <NavIcon kind="mail" />
-        <span>İletişim</span>
-      </NavLink>
-    </nav>
-  );
-}
 
 export default function Layout() {
   const [drawer, setDrawer] = useState(false);
@@ -195,11 +154,19 @@ export default function Layout() {
     };
   }, [location.pathname]);
 
-  // Smooth-scroll for in-page anchor links with header offset
+  // Smooth-scroll for in-page anchor links + click ripple coordinates on .btn
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       const t = e.target;
       if (!(t instanceof Element)) return;
+
+      const btn = t.closest<HTMLElement>('.btn');
+      if (btn) {
+        const r = btn.getBoundingClientRect();
+        btn.style.setProperty('--rx', `${e.clientX - r.left}px`);
+        btn.style.setProperty('--ry', `${e.clientY - r.top}px`);
+      }
+
       const a = t.closest('a[href]');
       if (!(a instanceof HTMLAnchorElement)) return;
       const href = a.getAttribute('href');
@@ -437,7 +404,6 @@ export default function Layout() {
       </footer>
 
       <ScrollTopFab />
-      <BottomNav />
       <CookieBanner />
     </>
   );
