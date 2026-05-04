@@ -324,6 +324,14 @@ export default function Layout() {
         <div className="md-foot">
           <Link to="/iletisim" className="btn btn-red">Keşif Talep Et <span className="arrow" /></Link>
           <div className="md-legal">
+            <NavLink to="/markalar" className={({ isActive }) => (isActive ? 'active' : '')}>Markalar</NavLink>
+            <span>·</span>
+            <NavLink to="/sertifikalar" className={({ isActive }) => (isActive ? 'active' : '')}>Sertifikalar</NavLink>
+            <span>·</span>
+            <NavLink to="/servis-bakim" className={({ isActive }) => (isActive ? 'active' : '')}>Servis</NavLink>
+            <span>·</span>
+            <NavLink to="/bilgi-merkezi" className={({ isActive }) => (isActive ? 'active' : '')}>Bilgi</NavLink>
+            <span>·</span>
             <NavLink to="/gizlilik-politikasi" className={({ isActive }) => (isActive ? 'active' : '')}>Gizlilik</NavLink>
             <span>·</span>
             <NavLink to="/kvkk" className={({ isActive }) => (isActive ? 'active' : '')}>KVKK</NavLink>
@@ -386,7 +394,11 @@ export default function Layout() {
               <ul>
                 <li><Link to="/hakkimizda">Hakkımızda</Link></li>
                 <li><Link to="/portfolyo">Projeler</Link></li>
+                <li><Link to="/markalar">Markalar</Link></li>
+                <li><Link to="/sertifikalar">Sertifikalar</Link></li>
+                <li><Link to="/bilgi-merkezi">Bilgi Merkezi</Link></li>
                 <li><Link to="/sss">SSS</Link></li>
+                <li><Link to="/servis-bakim">Servis & Bakım</Link></li>
                 <li><Link to="/iletisim">İletişim</Link></li>
                 <li><Link to="/gizlilik-politikasi">Gizlilik</Link></li>
                 <li><Link to="/kvkk">KVKK</Link></li>
