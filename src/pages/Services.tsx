@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useEffect, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, type CSSProperties, type ImgHTMLAttributes, type ReactNode } from 'react';
+
+function ImgFade(props: ImgHTMLAttributes<HTMLImageElement>) {
+  return <img {...props} onLoad={(e) => { e.currentTarget.classList.add('loaded'); props.onLoad?.(e); }} />;
+}
 
 type DiscCls = 'red' | 'gold' | 'indigo' | 'teal' | 'plum' | 'olive';
 
@@ -114,7 +118,7 @@ export default function Services() {
               >
                 <div className="sf-frame">
                   <span className="sf-id">ID: {f.id}</span>
-                  <img src={f.img} alt={f.alt} loading="lazy" />
+                  <ImgFade src={f.img} alt={f.alt} loading="lazy" />
                 </div>
                 <div>
                   {f.partner && (

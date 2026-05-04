@@ -1,0 +1,26 @@
+{
+  "name": "On Muzik Proje — Akustik & Ses Mühendisliği",
+  "short_name": "On Muzik Proje",
+  "description": "Restoran, otel, stüdyo, sahne ve konferans için akustik tasarım, profesyonel ses sistemleri ve LED görüntü mimarisi.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "tr",
+  "background_color": "#FAF8F4",
+  "theme_color": "#0E0C09",
+  "icons": [
+    {
+      "src": "/assets/on-music-logo.png",
+      "sizes": "500x500",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/on-music-disc.png",
+      "sizes": "86x86",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

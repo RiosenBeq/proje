@@ -1,5 +1,27 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState, type CSSProperties, type FormEvent } from 'react';
+import { useEffect, useState, type CSSProperties, type FormEvent, type ImgHTMLAttributes } from 'react';
+import { useCountUp, useMagnetic } from '../lib/hooks';
+
+function StatCount({ end, prefix = '', suffix = '' }: { end: number; prefix?: string; suffix?: string }) {
+  const { ref, value } = useCountUp(end);
+  return (
+    <span ref={ref}>
+      {prefix}{value}{suffix}
+    </span>
+  );
+}
+
+function ImgFade(props: ImgHTMLAttributes<HTMLImageElement>) {
+  return (
+    <img
+      {...props}
+      onLoad={(e) => {
+        e.currentTarget.classList.add('loaded');
+        props.onLoad?.(e);
+      }}
+    />
+  );
+}
 
 /* ===== Hero Vinyl SVG (logo style) ===== */
 function HeroVinyl() {
@@ -40,6 +62,8 @@ function HeroVinyl() {
 
 /* ===== Hero ===== */
 function Hero() {
+  const ctaPrimary = useMagnetic<HTMLAnchorElement>(0.18);
+  const ctaGhost = useMagnetic<HTMLAnchorElement>(0.14);
   return (
     <section className="hero">
       <div className="container hero-inner">
@@ -60,20 +84,20 @@ function Hero() {
             Restoran, otel, sahne, stüdyo ve konferans için <b>ölçüme dayalı akustik tasarım</b>, profesyonel ses sistemleri ve LED görüntü mimarisi. Marka bağımsız, mühendislik odaklı.
           </p>
           <div className="hero-cta">
-            <Link to="/iletisim" className="btn btn-red">Ücretsiz Keşif Talep Et <span className="arrow" /></Link>
-            <Link to="/portfolyo" className="btn btn-ghost">Projeleri İncele <span className="arrow" /></Link>
+            <Link to="/iletisim" ref={ctaPrimary} className="btn btn-red magnetic">Ücretsiz Keşif Talep Et <span className="arrow" /></Link>
+            <Link to="/portfolyo" ref={ctaGhost} className="btn btn-ghost magnetic">Projeleri İncele <span className="arrow" /></Link>
           </div>
           <div className="hero-stat-strip">
             <div className="hero-stat">
-              <div className="num">240<small>+</small></div>
+              <div className="num"><StatCount end={240} suffix="" /><small>+</small></div>
               <div className="lbl">Tamamlanan Proje</div>
             </div>
             <div className="hero-stat">
-              <div className="num"><em>16</em><small>yıl</small></div>
+              <div className="num"><em><StatCount end={16} /></em><small>yıl</small></div>
               <div className="lbl">Mühendislik Tecrübesi</div>
             </div>
             <div className="hero-stat">
-              <div className="num">RT60 <em>0.6</em><small>s</small></div>
+              <div className="num">RT60 <em>0.<StatCount end={6} /></em><small>s</small></div>
               <div className="lbl">Ortalama Hedef Süre</div>
             </div>
           </div>
@@ -169,7 +193,7 @@ function PhotoMarquee() {
         <div className="pm-track">
           {[...PHOTO_GALLERY, ...PHOTO_GALLERY].map((img, i) => (
             <div key={`${img.src}-${i}`} className="pm-cell">
-              <img src={img.src} alt={img.alt} loading="lazy" />
+              <ImgFade src={img.src} alt={img.alt} loading="lazy" />
               <span className="pm-lbl">{img.lbl}</span>
             </div>
           ))}
@@ -645,7 +669,7 @@ function PortfolioTeaser() {
           {CASES.map((c, i) => (
             <Link key={c.t} to="/portfolyo" className="case reveal" style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="frame">
-                <img src={c.img} alt={c.t} loading="lazy" />
+                <ImgFade src={c.img} alt={c.t} loading="lazy" />
                 <div className="ph">{c.t.toUpperCase()} · GÖRSEL</div>
                 <div className="stat-overlay">
                   {c.st.map(([k, v]) => <span key={k} className="mini">{k}<b>{v}</b></span>)}
