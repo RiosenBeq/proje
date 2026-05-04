@@ -293,17 +293,27 @@ function buildUserText(b: Body) {
   return lines.join('\n');
 }
 
-/* ============================================================ Internal notification (optional)
+/* ============================================================ Internal notification
  *
- * If CONTACT_TO_EMAIL is set, also send the form contents internally so the
- * team gets a summary in their inbox.  proje@onmuzik.com is no longer hard-
- * coded as a recipient (it's been suppressed at the Resend level), so we only
- * send if the env explicitly lists deliverable addresses.
+ * Every form submission also sends an internal notification.  proje@onmuzik.com
+ * is the canonical destination (always included) and CONTACT_TO_EMAIL can list
+ * extra recipients (comma- or semicolon-separated).
+ *
+ * NOTE: Resend will reject the send with "recipient is on the suppression list"
+ * if proje@onmuzik.com remains suppressed.  Manage suppressions in the Resend
+ * dashboard → Suppressions panel.  We attempt the send anyway because each
+ * admin-side failure is logged but doesn't break the user's confirmation flow.
  */
+const PRIMARY_ADMIN_RECIPIENT = 'proje@onmuzik.com';
+
 function notificationRecipients(): string[] {
-  const env = (process.env.CONTACT_TO_EMAIL ?? '').trim();
-  if (!env) return [];
-  return Array.from(new Set(env.split(/[;,]/).map((s) => s.trim()).filter(Boolean)));
+  const set = new Set<string>([PRIMARY_ADMIN_RECIPIENT]);
+  (process.env.CONTACT_TO_EMAIL ?? '')
+    .split(/[;,]/)
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .forEach((addr) => set.add(addr));
+  return Array.from(set);
 }
 
 function buildAdminText(b: Body) {
