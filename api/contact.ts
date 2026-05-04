@@ -121,7 +121,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  const to = process.env.CONTACT_TO_EMAIL ?? 'bizimfutbol9@gmail.com';
+  const to = process.env.CONTACT_TO_EMAIL ?? 'proje@onmuzik.com';
   const from = process.env.RESEND_FROM_EMAIL ?? 'On Muzik Proje <noreply@onmuzik.com>';
   const subject = body.source === 'quote'
     ? `Anasayfa Teklif · ${name}`

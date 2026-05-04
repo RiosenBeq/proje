@@ -3390,8 +3390,10 @@ a.md-row:hover .md-v { color: var(--red); }
   margin: 24px 0;
   border: 1px solid var(--line);
   border-radius: 12px;
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
+.article-table table { min-width: 480px; }
 .article-table .atc {
   font-family: var(--f-mono);
   font-size: 11px;

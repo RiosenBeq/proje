@@ -83,7 +83,7 @@ export default function ServiceDetail() {
               {d.name} disiplinin tam kapsamı — saha keşfinden devreye almaya kadar her aşama mühendislik dokümantasyonu ile.
             </div>
           </div>
-          <div className="paths reveal" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+          <div className="paths reveal" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
             {d.scope.map((s, i) => (
               <article key={s} className="path" style={{ ['--c' as any]: accent, ['--cs' as any]: `color-mix(in srgb, ${accent} 12%, transparent)`, ['--cl' as any]: `color-mix(in srgb, ${accent} 45%, transparent)`, transitionDelay: `${i * 30}ms`, padding: '20px 22px' }}>
                 <span className="p-tag">0{i + 1}</span>
@@ -135,7 +135,7 @@ export default function ServiceDetail() {
               {d.process.length} aşama — her biri net deliverable ile.
             </div>
           </div>
-          <div className="paths reveal" style={{ gridTemplateColumns: `repeat(${Math.min(d.process.length, 5)}, 1fr)` }}>
+          <div className="paths reveal" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>
             {d.process.map(([t, deliv], i) => (
               <article key={t} className="path" style={{ ['--c' as any]: accent, ['--cs' as any]: `color-mix(in srgb, ${accent} 12%, transparent)`, ['--cl' as any]: `color-mix(in srgb, ${accent} 45%, transparent)`, transitionDelay: `${i * 50}ms`, padding: '24px 22px' }}>
                 <span className="p-tag">0{i + 1}</span>

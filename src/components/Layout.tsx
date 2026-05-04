@@ -313,9 +313,9 @@ export default function Layout() {
             <span className="md-k">TEL</span>
             <span className="md-v">0850 241 9515</span>
           </a>
-          <a href="mailto:info@onmuzik.com" className="md-row">
+          <a href="mailto:proje@onmuzik.com" className="md-row">
             <span className="md-k">E-POSTA</span>
-            <span className="md-v">info@onmuzik.com</span>
+            <span className="md-v">proje@onmuzik.com</span>
           </a>
           <span className="md-row">
             <span className="md-k">ADRES</span>
@@ -419,7 +419,7 @@ export default function Layout() {
               <h6>İLETİŞİM</h6>
               <ul>
                 <li><a href="tel:+908502419515">0850 241 9515</a></li>
-                <li><a href="mailto:info@onmuzik.com">info@onmuzik.com</a></li>
+                <li><a href="mailto:proje@onmuzik.com">proje@onmuzik.com</a></li>
                 <li><span>Ataşehir, İstanbul</span></li>
               </ul>
             </div>
