@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ARTICLES } from '../lib/content';
+import { ARTICLES } from '../lib/articles';
 import { useSeo } from '../lib/seo';
 
 export default function Knowledge() {
@@ -47,9 +47,9 @@ export default function Knowledge() {
                 to={`/bilgi-merkezi/${a.slug}`}
                 className="path reveal"
                 style={{
-                  ['--c' as any]: a.category === 'Akustik' ? 'var(--gold)' : a.category === 'Ses Sistemi' ? 'var(--red)' : 'var(--olive)',
-                  ['--cs' as any]: a.category === 'Akustik' ? 'var(--gold-soft)' : a.category === 'Ses Sistemi' ? 'var(--red-soft)' : 'var(--olive-soft)',
-                  ['--cl' as any]: a.category === 'Akustik' ? 'var(--gold-line)' : a.category === 'Ses Sistemi' ? 'var(--red-line)' : 'var(--olive-line)',
+                  ['--c' as any]:  a.category === 'Akustik' ? 'var(--gold)'      : a.category === 'Ses Sistemi' ? 'var(--red)'      : a.category === 'LED' ? 'var(--indigo)'      : a.category === 'Stüdyo' ? 'var(--teal)'      : 'var(--olive)',
+                  ['--cs' as any]: a.category === 'Akustik' ? 'var(--gold-soft)' : a.category === 'Ses Sistemi' ? 'var(--red-soft)' : a.category === 'LED' ? 'var(--indigo-soft)' : a.category === 'Stüdyo' ? 'var(--teal-soft)' : 'var(--olive-soft)',
+                  ['--cl' as any]: a.category === 'Akustik' ? 'var(--gold-line)' : a.category === 'Ses Sistemi' ? 'var(--red-line)' : a.category === 'LED' ? 'var(--indigo-line)' : a.category === 'Stüdyo' ? 'var(--teal-line)' : 'var(--olive-line)',
                   transitionDelay: `${i * 60}ms`,
                 }}
               >
