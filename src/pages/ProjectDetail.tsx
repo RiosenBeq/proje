@@ -3,6 +3,7 @@ import { PROJECTS, getProject, DISC_TAG, type DisciplineCls } from '../lib/conte
 import { useSeo } from '../lib/seo';
 import CrossSell from '../components/CrossSell';
 import BeforeAfter from '../components/BeforeAfter';
+import Img from '../components/Img';
 import NotFound from './NotFound';
 
 const ACCENT_BY_CLS: Record<DisciplineCls, string> = {
@@ -71,7 +72,7 @@ export default function ProjectDetail() {
         <div className="container">
           <div className="case reveal" style={{ maxWidth: 'var(--maxw)' }}>
             <div className="frame" style={{ aspectRatio: '16 / 9' }}>
-              <img src={p.hero.image} alt={p.name} loading="eager" onLoad={(e) => e.currentTarget.classList.add('loaded')} />
+              <Img src={p.hero.image} alt={p.name} priority width={1600} height={900} />
               <span className="tonearm" aria-hidden />
               <div className="stat-overlay">
                 {p.specs.slice(0, 3).map(([k, v]) => <span key={k} className="mini">{k}<b>{v}</b></span>)}
@@ -176,7 +177,7 @@ export default function ProjectDetail() {
             <div className="gal-grid reveal">
               {p.gallery.map((src, i) => (
                 <div key={`${src}-${i}`} className={`gal-cell ${i === 0 ? 'wide' : i === 1 ? 'tall' : ''}`}>
-                  <img src={src} alt={`${p.name} galeri ${i + 1}`} loading="lazy" onLoad={(e) => e.currentTarget.classList.add('loaded')} />
+                  <Img src={src} alt={`${p.name} galeri ${i + 1}`} width={1200} height={900} />
                   <span className="badge">{p.city.toUpperCase()} · {p.year}</span>
                   <span className="lbl">{p.name}</span>
                 </div>

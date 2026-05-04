@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
-import { type ImgHTMLAttributes } from 'react';
 import { useSeo } from '../lib/seo';
+import Img from '../components/Img';
 
-function ImgFade(props: ImgHTMLAttributes<HTMLImageElement>) {
-  return <img {...props} onLoad={(e) => { e.currentTarget.classList.add('loaded'); props.onLoad?.(e); }} />;
-}
+const ImgFade = Img;
 
 type DiscCls = 'red' | 'gold' | 'indigo' | 'teal' | 'plum' | 'olive';
 type Tag = [DiscCls, string];
