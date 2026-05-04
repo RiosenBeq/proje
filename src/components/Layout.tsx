@@ -156,11 +156,11 @@ export default function Layout() {
       }, { threshold: 0.08, rootMargin: '0px 0px 10% 0px' });
       els.forEach((el) => io!.observe(el));
     }
-    // Safety net: if any .reveal element hasn't been activated within 1.4s
+    // Safety net: if any .reveal element hasn't been activated within 600ms
     // (IO never fired, JS race, etc.), force-show it so content is never invisible.
     const fallback = window.setTimeout(() => {
       document.querySelectorAll<HTMLElement>('.reveal:not(.in)').forEach((el) => el.classList.add('in'));
-    }, 1400);
+    }, 600);
     return () => {
       window.removeEventListener('scroll', onScroll);
       io?.disconnect();

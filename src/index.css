@@ -183,8 +183,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* Reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 700ms var(--ease), transform 800ms var(--ease);
+  transform: translateY(18px);
+  transition: opacity 360ms var(--ease), transform 380ms var(--ease);
 }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
@@ -2198,12 +2198,28 @@ a.md-row:hover .md-v { color: var(--red); }
 .scroll-top:hover, .scroll-top:focus-visible { background: var(--red); border-color: var(--red); outline: 0; }
 
 /* ============================================================ Page transition */
+.route-loading {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  background-size: 240px 100%;
+  background-repeat: no-repeat;
+  background-position: -240px 0;
+  z-index: 90;
+  animation: routeBar 900ms linear infinite;
+  pointer-events: none;
+}
+@keyframes routeBar {
+  0%   { background-position: -240px 0; }
+  100% { background-position: calc(100% + 240px) 0; }
+}
 .page-transition {
-  animation: pageIn 360ms var(--ease) both;
+  animation: pageIn 140ms var(--ease) both;
 }
 @keyframes pageIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* ============================================================ Touch / focus polish */
