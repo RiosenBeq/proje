@@ -17,13 +17,13 @@ const CLS_VARS: Record<DiscCls, CSSProperties> = {
   olive:  { ['--c' as any]: 'var(--olive)',  ['--cs' as any]: 'var(--olive-soft)',  ['--cl' as any]: 'var(--olive-line)' },
 };
 
-const SERVICES: Array<{ cls: DiscCls; tag: string; title: string; desc: string; bullets: string[]; metric: [string, string] }> = [
-  { cls: 'red',    tag: 'SES SİSTEMİ',     title: 'Profesyonel Ses',      desc: 'Zonlu PA mimarisi, ürün-bağımsız tasarım, DSP ve Dante ağ kalibrasyonu.',                          bullets: ['Çok zonlu hoparlör', 'DSP & matrix routing', 'EQ kalibrasyon', 'Dante / 70V dağıtım'],     metric: ['SPL HEDEF', '82–105 dB'] },
-  { cls: 'gold',   tag: 'AKUSTİK',         title: 'Akustik Mühendislik',  desc: 'RT60, STI, EDT hedefli panel mimarisi, modal kontrol ve in-situ ölçüm.',                            bullets: ['Akustik ölçüm', 'Panel & diffüzör', 'Modal analiz', 'RFZ kontrol odası'],                  metric: ['RT60 HEDEF', '0.28–1.4 s'] },
-  { cls: 'indigo', tag: 'LED & GÖRÜNTÜ',   title: 'LED Ekran Sistemi',    desc: 'Sahne, kurumsal lobi ve kontrol odaları için pixel pitch, processor ve AV-sync entegrasyonu.',     bullets: ['Pixel pitch analizi', 'Video processor', 'Truss & rigging', 'AV sync timeline'],          metric: ['PIXEL PITCH', 'P1.5 – P3.9'] },
-  { cls: 'teal',   tag: 'STÜDYO',          title: 'Stüdyo & Kayıt',       desc: 'Kontrol ve kayıt odaları için modal kontrol, izolasyon ve kalibre referans dinleme.',              bullets: ['Bass trap', 'Kayan kat', 'RFZ kontrol', 'Monitör tuning'],                                 metric: ['NC HEDEF', 'NC-18 / NC-20'] },
-  { cls: 'plum',   tag: 'KONFERANS / AV',  title: 'Toplantı & Konferans', desc: 'Beamforming mikrofon, hibrit toplantı, tek dokunuş kontrol ve simültane çeviri sistemleri.',       bullets: ['Beamforming mic', 'AEC + AGC', 'Kamera tracking', 'Tek dokunuş kontrol'],                  metric: ['STI HEDEF', '≥ 0.62'] },
-  { cls: 'olive',  tag: 'ANONS / VA',      title: 'Anons & Güvenlik',     desc: 'EN 54-16 uyumlu Voice Alarm, evakuasyon mimarisi ve merkezi anons sistemi tasarımı.',                bullets: ['EN 54-16 sertifika', 'Evakuasyon zoneları', 'BMS entegrasyon', 'Merkezi kontrol'],         metric: ['STANDART', 'EN 54-16'] },
+const SERVICES: Array<{ slug: string; cls: DiscCls; tag: string; title: string; desc: string; bullets: string[]; metric: [string, string] }> = [
+  { slug: 'ses',       cls: 'red',    tag: 'SES SİSTEMİ',     title: 'Profesyonel Ses',      desc: 'Zonlu PA mimarisi, ürün-bağımsız tasarım, DSP ve Dante ağ kalibrasyonu.',                          bullets: ['Çok zonlu hoparlör', 'DSP & matrix routing', 'EQ kalibrasyon', 'Dante / 70V dağıtım'],     metric: ['SPL HEDEF', '82–105 dB'] },
+  { slug: 'akustik',   cls: 'gold',   tag: 'AKUSTİK',         title: 'Akustik Mühendislik',  desc: 'RT60, STI, EDT hedefli panel mimarisi, modal kontrol ve in-situ ölçüm.',                            bullets: ['Akustik ölçüm', 'Panel & diffüzör', 'Modal analiz', 'RFZ kontrol odası'],                  metric: ['RT60 HEDEF', '0.28–1.4 s'] },
+  { slug: 'led',       cls: 'indigo', tag: 'LED & GÖRÜNTÜ',   title: 'LED Ekran Sistemi',    desc: 'Sahne, kurumsal lobi ve kontrol odaları için pixel pitch, processor ve AV-sync entegrasyonu.',     bullets: ['Pixel pitch analizi', 'Video processor', 'Truss & rigging', 'AV sync timeline'],          metric: ['PIXEL PITCH', 'P1.5 – P3.9'] },
+  { slug: 'studio',    cls: 'teal',   tag: 'STÜDYO',          title: 'Stüdyo & Kayıt',       desc: 'Kontrol ve kayıt odaları için modal kontrol, izolasyon ve kalibre referans dinleme.',              bullets: ['Bass trap', 'Kayan kat', 'RFZ kontrol', 'Monitör tuning'],                                 metric: ['NC HEDEF', 'NC-18 / NC-20'] },
+  { slug: 'konferans', cls: 'plum',   tag: 'KONFERANS / AV',  title: 'Toplantı & Konferans', desc: 'Beamforming mikrofon, hibrit toplantı, tek dokunuş kontrol ve simültane çeviri sistemleri.',       bullets: ['Beamforming mic', 'AEC + AGC', 'Kamera tracking', 'Tek dokunuş kontrol'],                  metric: ['STI HEDEF', '≥ 0.62'] },
+  { slug: 'anons',     cls: 'olive',  tag: 'ANONS / VA',      title: 'Anons & Güvenlik',     desc: 'EN 54-16 uyumlu Voice Alarm, evakuasyon mimarisi ve merkezi anons sistemi tasarımı.',                bullets: ['EN 54-16 sertifika', 'Evakuasyon zoneları', 'BMS entegrasyon', 'Merkezi kontrol'],         metric: ['STANDART', 'EN 54-16'] },
 ];
 
 const FEATURES: Array<{
@@ -90,7 +90,7 @@ export default function Services() {
         <div className="container">
           <div className="svc-grid">
             {SERVICES.map((s, i) => (
-              <article key={s.title} className="svc-card reveal" style={{ ...CLS_VARS[s.cls], transitionDelay: `${i * 60}ms` }}>
+              <Link key={s.title} to={`/hizmetler/${s.slug}`} className="svc-card reveal" style={{ ...CLS_VARS[s.cls], transitionDelay: `${i * 60}ms` }}>
                 <span className="sc-tag">{s.tag}</span>
                 <h3>{s.title}</h3>
                 <p className="sc-desc">{s.desc}</p>
@@ -99,9 +99,9 @@ export default function Services() {
                 </ul>
                 <div className="sc-foot">
                   <span>{s.metric[0]}</span>
-                  <span style={{ color: 'var(--ink-2)' }}>{s.metric[1]}</span>
+                  <span style={{ color: 'var(--ink-2)' }}>Detayını incele <span className="arrow" /></span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

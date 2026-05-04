@@ -7,7 +7,10 @@ import { smoothScrollToHash } from '../lib/hooks';
 const NAV = [
   { to: '/', label: 'Anasayfa', end: true },
   { to: '/hizmetler', label: 'Hizmetler' },
+  { to: '/mekanlar', label: 'Mekânlar' },
   { to: '/portfolyo', label: 'Projeler' },
+  { to: '/hakkimizda', label: 'Hakkımızda' },
+  { to: '/sss', label: 'SSS' },
   { to: '/iletisim', label: 'İletişim' },
 ];
 
@@ -360,26 +363,30 @@ export default function Layout() {
             <div>
               <h6>DİSİPLİNLER</h6>
               <ul>
-                <li><Link to="/hizmetler">Akustik Tasarım</Link></li>
-                <li><Link to="/hizmetler">Ses Sistemi</Link></li>
-                <li><Link to="/hizmetler">Stüdyo</Link></li>
-                <li><Link to="/hizmetler">LED & Video</Link></li>
+                <li><Link to="/hizmetler/akustik">Akustik Tasarım</Link></li>
+                <li><Link to="/hizmetler/ses">Ses Sistemi</Link></li>
+                <li><Link to="/hizmetler/studio">Stüdyo Akustiği</Link></li>
+                <li><Link to="/hizmetler/led">LED & Video</Link></li>
+                <li><Link to="/hizmetler/konferans">Konferans / AV</Link></li>
+                <li><Link to="/hizmetler/anons">Anons / VA</Link></li>
               </ul>
             </div>
             <div>
               <h6>MEKÂNLAR</h6>
               <ul>
-                <li><Link to="/hizmetler">Restoran</Link></li>
-                <li><Link to="/hizmetler">Otel</Link></li>
-                <li><Link to="/hizmetler">Sahne</Link></li>
-                <li><Link to="/hizmetler">Stüdyo</Link></li>
-                <li><Link to="/hizmetler">Konferans</Link></li>
+                <li><Link to="/mekanlar/restoran">Restoran</Link></li>
+                <li><Link to="/mekanlar/otel">Otel</Link></li>
+                <li><Link to="/mekanlar/sahne">Sahne</Link></li>
+                <li><Link to="/mekanlar/studio">Stüdyo</Link></li>
+                <li><Link to="/mekanlar/konferans">Konferans</Link></li>
               </ul>
             </div>
             <div>
               <h6>ŞİRKET</h6>
               <ul>
+                <li><Link to="/hakkimizda">Hakkımızda</Link></li>
                 <li><Link to="/portfolyo">Projeler</Link></li>
+                <li><Link to="/sss">SSS</Link></li>
                 <li><Link to="/iletisim">İletişim</Link></li>
                 <li><Link to="/gizlilik-politikasi">Gizlilik</Link></li>
                 <li><Link to="/kvkk">KVKK</Link></li>
