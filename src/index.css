@@ -207,6 +207,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   display: inline-block;
   width: 14px; height: 1px; background: currentColor;
   position: relative;
+  top: -1px;
   transition: width 240ms var(--ease);
 }
 .btn .arrow::after {
@@ -1545,6 +1546,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border-color: var(--red);
   background: var(--panel);
 }
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
 .field textarea { resize: vertical; min-height: 100px; }
 .checks {
   display: grid;
@@ -1554,7 +1561,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .check {
   display: flex; align-items: center; gap: 10px;
-  padding: 11px 13px;
+  padding: 12px 13px;
   border: 1px solid var(--line-2);
   border-radius: 8px;
   font-size: 13px;
@@ -1732,7 +1739,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   margin: 0 0 18px;
 }
 .foot-grid ul { list-style: none; padding: 0; margin: 0; }
-.foot-grid ul li { padding: 5px 0; }
+.foot-grid ul li { padding: 6px 0; }
 .foot-grid ul li a {
   color: rgba(245,239,224,0.7);
   font-size: 14px;
@@ -1991,27 +1998,31 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .drawer-backdrop {
   position: fixed; inset: 0;
   z-index: 65;
-  background: rgba(14,12,9,0.55);
-  backdrop-filter: blur(4px);
+  background: rgba(14,12,9,0.65);
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 240ms var(--ease);
+  transition: opacity 280ms var(--ease);
 }
 .drawer-backdrop.on { opacity: 1; pointer-events: auto; }
 
 .mobile-drawer {
   position: fixed;
   top: 0; right: 0; bottom: 0;
-  width: min(420px, 92vw);
+  width: min(440px, 94vw);
   z-index: 70;
-  background: var(--bg);
+  background:
+    linear-gradient(180deg, var(--panel) 0%, var(--bg) 38%, var(--bg) 100%);
   border-left: 1px solid var(--line);
   transform: translateX(100%);
-  transition: transform 320ms var(--ease);
+  transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
   display: flex; flex-direction: column;
   padding: clamp(20px, 4vw, 32px);
   overflow-y: auto;
-  box-shadow: -24px 0 64px rgba(20,17,12,0.18);
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: -32px 0 72px rgba(20,17,12,0.22);
   visibility: hidden;
 }
 .mobile-drawer.on {
@@ -3277,8 +3288,8 @@ a.md-row:hover .md-v { color: var(--red); }
 /* ============================================================ WhatsApp FAB */
 .whatsapp-fab {
   position: fixed;
-  right: clamp(16px, 3vw, 28px);
-  bottom: calc(72px + env(safe-area-inset-bottom, 0));
+  right: 20px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0));
   z-index: 51;
   display: inline-flex; align-items: center; gap: 10px;
   height: 52px;
@@ -3580,8 +3591,8 @@ a.md-row:hover .md-v { color: var(--red); }
   .ref-grid { grid-template-columns: 1fr; }
   .t-card { padding: 24px 22px 20px; }
   .t-quote-mark { font-size: 72px; right: 14px; top: 6px; }
-  .whatsapp-fab { padding: 0 14px 0 12px; height: 48px; font-size: 10.5px; }
-  .whatsapp-fab .wf-pulse { width: 48px; height: 48px; }
+  /* WhatsApp FAB on mobile is a circle (handled in the @max-width:720 block
+     below); leave overrides there. */
   .venue-tabs {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -3749,11 +3760,19 @@ a.md-row:hover .md-v { color: var(--red); }
   .mbn-cta:focus-visible .mbn-cta-bubble { background: var(--red-2); transform: scale(1.05); }
   .mbn-cta.active::before { display: none; }
 
-  /* Lift WhatsApp FAB above the bottom nav; hide scroll-top entirely on mobile */
+  /* On mobile: collapse the WhatsApp FAB to a clean circle pinned to the right
+     corner, hide its text label, and lift it above the bottom nav. */
   .whatsapp-fab {
-    bottom: calc(96px + env(safe-area-inset-bottom, 0));
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    justify-content: center;
+    gap: 0;
     right: 14px;
+    bottom: calc(96px + env(safe-area-inset-bottom, 0));
   }
+  .whatsapp-fab .wf-label { display: none; }
+  .whatsapp-fab .wf-pulse { left: 0; top: 0; width: 52px; height: 52px; }
   .scroll-top { display: none !important; }
 
   /* Make sure footer + fixed cookie banner clear the bottom nav */
@@ -3778,15 +3797,15 @@ a.md-row:hover .md-v { color: var(--red); }
   .mobile-bottomnav { padding-bottom: calc(6px + env(safe-area-inset-bottom, 0)); }
   .mbn-item { font-size: 9px; }
   .mbn-cta-bubble { width: 44px; height: 44px; margin-top: -20px; }
-  /* Tighten WhatsApp FAB on phones so it doesn't crowd the CTA bubble */
+  /* Tighten the circular WhatsApp FAB on phones — flush to the right edge */
   .whatsapp-fab {
-    height: 44px;
-    padding: 0 12px 0 10px;
-    font-size: 10px;
+    width: 48px;
+    height: 48px;
     right: 12px;
     bottom: calc(92px + env(safe-area-inset-bottom, 0));
   }
-  .whatsapp-fab .wf-pulse { width: 44px; height: 44px; }
+  .whatsapp-fab .wf-pulse { width: 48px; height: 48px; }
+  .whatsapp-fab svg { width: 22px; height: 22px; }
 }
 
 @media (max-width: 360px) {

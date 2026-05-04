@@ -58,30 +58,6 @@ function ScrollProgress() {
   return <div className="scroll-progress" aria-hidden><span style={{ width: `${w}%` }} /></div>;
 }
 
-function ScrollTopFab() {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setShow(window.scrollY > 720);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-  return (
-    <button
-      type="button"
-      className={`scroll-top${show ? ' show' : ''}`}
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      aria-label="Sayfanın başına dön"
-    >
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 19V5" />
-        <path d="m5 12 7-7 7 7" />
-      </svg>
-    </button>
-  );
-}
-
-
 export default function Layout() {
   const [drawer, setDrawer] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -93,6 +69,11 @@ export default function Layout() {
 
   // Close drawer on route change
   useEffect(() => { setDrawer(false); }, [location.pathname]);
+
+  // Reset drawer's internal scroll position whenever it opens/closes
+  useEffect(() => {
+    if (drawerRef.current) drawerRef.current.scrollTop = 0;
+  }, [drawer]);
 
   // Body lock + Esc to close + focus trap on drawer
   useEffect(() => {
@@ -444,7 +425,6 @@ export default function Layout() {
       </footer>
 
       <WhatsAppFab />
-      <ScrollTopFab />
       <MobileBottomNav onMenuToggle={() => setDrawer((d) => !d)} drawerOpen={drawer} />
       <CookieBanner />
     </>
