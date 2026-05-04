@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useEffect, type CSSProperties, type ImgHTMLAttributes, type ReactNode } from 'react';
+import { type CSSProperties, type ImgHTMLAttributes, type ReactNode } from 'react';
+import { useSeo } from '../lib/seo';
 
 function ImgFade(props: ImgHTMLAttributes<HTMLImageElement>) {
   return <img {...props} onLoad={(e) => { e.currentTarget.classList.add('loaded'); props.onLoad?.(e); }} />;
@@ -58,9 +59,19 @@ const FEATURES: Array<{
 ];
 
 export default function Services() {
-  useEffect(() => {
-    document.title = 'Hizmetler — On Muzik Proje';
-  }, []);
+  useSeo({
+    title: 'Hizmetler — Akustik · Ses · LED · Stüdyo · Konferans · Anons | On Muzik Proje',
+    description: 'Akustik tasarım, profesyonel ses sistemi, LED ekran, stüdyo akustiği, konferans/AV ve EN 54-16 voice alarm. Ölçüme dayalı, marka bağımsız mühendislik. RT60, STI, NC hedefli teslim.',
+    path: '/hizmetler',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Anasayfa', item: 'https://onmuzik.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Hizmetler', item: 'https://onmuzik.com/hizmetler' },
+      ],
+    },
+  });
 
   return (
     <>

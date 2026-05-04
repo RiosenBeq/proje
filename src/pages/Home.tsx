@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState, type CSSProperties, type FormEvent, type ImgHTMLAttributes } from 'react';
 import { useCountUp, useMagnetic } from '../lib/hooks';
+import { useSeo } from '../lib/seo';
 
 function StatCount({ end, prefix = '', suffix = '' }: { end: number; prefix?: string; suffix?: string }) {
   const { ref, value } = useCountUp(end);
@@ -670,6 +671,7 @@ function PortfolioTeaser() {
             <Link key={c.t} to="/portfolyo" className="case reveal" style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="frame">
                 <ImgFade src={c.img} alt={c.t} loading="lazy" />
+                <span className="tonearm" aria-hidden />
                 <div className="ph">{c.t.toUpperCase()} · GÖRSEL</div>
                 <div className="stat-overlay">
                   {c.st.map(([k, v]) => <span key={k} className="mini">{k}<b>{v}</b></span>)}
@@ -852,13 +854,7 @@ function Quote() {
 
 /* ===== FAQ ===== */
 function FAQ() {
-  const items: Array<[string, string]> = [
-    ['Akustik ölçüm yapıyor musunuz?', 'Evet. RT60, EDT, STI ve NC ölçümleri için kalibre edilmiş B&K mikrofon ve ölçüm yazılımı kullanıyoruz. Saha keşfi ücretsizdir.'],
-    ['Marka bağımsız mısınız?', 'Evet. Projeye en uygun ürünü seçeriz; d&b, L-Acoustics, Meyer Sound, Bose, JBL, Genelec, Bosch dahil pek çok marka ile çalışıyoruz.'],
-    ['Garanti süreniz nedir?', 'Tüm sistemlerde 2 yıl üretici garantisi + 1 yıl yerinde servis garantisi sunuyoruz. Yıllık bakım anlaşması opsiyoneldir.'],
-    ['Anahtar teslim mi çalışıyorsunuz?', 'Tasarım, satın alma, montaj, devreye alma ve kalibrasyon dahil anahtar teslim teslimat yapıyoruz. Yalnız tasarım veya yalnız kalibrasyon hizmeti de mümkündür.'],
-    ['EN 54-16 sertifikalı sistem kuruyor musunuz?', 'Evet. Kamu binaları, AVM, otel ve hastaneler için EN 54-16 uyumlu Voice Alarm sistemleri tasarlıyoruz.'],
-  ];
+  const items = HOME_FAQ;
   const [open, setOpen] = useState(0);
   return (
     <section className="section" id="sss">
@@ -888,26 +884,31 @@ function FAQ() {
 }
 
 /* ===== Page ===== */
+const HOME_FAQ: Array<[string, string]> = [
+  ['Akustik ölçüm yapıyor musunuz?', 'Evet. RT60, EDT, STI ve NC ölçümleri için kalibre edilmiş B&K mikrofon ve ölçüm yazılımı kullanıyoruz. Saha keşfi ücretsizdir.'],
+  ['Marka bağımsız mısınız?', 'Evet. Projeye en uygun ürünü seçeriz; d&b, L-Acoustics, Meyer Sound, Bose, JBL, Genelec, Bosch dahil pek çok marka ile çalışıyoruz.'],
+  ['Garanti süreniz nedir?', 'Tüm sistemlerde 2 yıl üretici garantisi + 1 yıl yerinde servis garantisi sunuyoruz. Yıllık bakım anlaşması opsiyoneldir.'],
+  ['Anahtar teslim mi çalışıyorsunuz?', 'Tasarım, satın alma, montaj, devreye alma ve kalibrasyon dahil anahtar teslim teslimat yapıyoruz. Yalnız tasarım veya yalnız kalibrasyon hizmeti de mümkündür.'],
+  ['EN 54-16 sertifikalı sistem kuruyor musunuz?', 'Evet. Kamu binaları, AVM, otel ve hastaneler için EN 54-16 uyumlu Voice Alarm sistemleri tasarlıyoruz.'],
+];
+
 export default function Home() {
   const [filter, setFilter] = useState<DiscKey>('all');
 
-  useEffect(() => {
-    document.title = 'On Muzik Proje — Akustik & Ses Mühendisliği';
-    const set = (name: string, content: string, isProperty = false) => {
-      const sel = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
-      let tag = document.head.querySelector(sel) as HTMLMetaElement | null;
-      if (!tag) {
-        tag = document.createElement('meta');
-        if (isProperty) tag.setAttribute('property', name); else tag.setAttribute('name', name);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute('content', content);
-    };
-    set('description', 'Restoran, otel, stüdyo, sahne ve konferans için akustik tasarım, profesyonel ses sistemleri ve LED görüntü mimarisi. Ölçüme dayalı, marka bağımsız mühendislik.');
-    set('keywords', 'akustik tasarım, ses sistemi, line array, dante, RT60, STI, LED ekran, EN 54-16, istanbul ses sistemi');
-    set('og:title', 'On Muzik Proje — Akustik & Ses Mühendisliği', true);
-    set('og:description', 'Ölçüme dayalı akustik tasarım ve marka bağımsız ses sistemi mühendisliği.', true);
-  }, []);
+  useSeo({
+    title: 'On Muzik Proje — Akustik Tasarım & Profesyonel Ses Mühendisliği | İstanbul',
+    description: 'İstanbul merkezli, 16 yıllık akustik ve ses mühendisliği stüdyosu. Restoran, otel, sahne, stüdyo ve konferans için ölçüme dayalı akustik tasarım, profesyonel ses sistemleri ve LED görüntü mimarisi.',
+    path: '/',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: HOME_FAQ.map(([q, a]) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    },
+  });
 
   return (
     <>
@@ -916,9 +917,11 @@ export default function Home() {
       <PhotoMarquee />
       <DisciplineDeck active={filter} setActive={setFilter} />
       <SolutionPathways filter={filter} />
+      <div className="wave-divider" aria-hidden />
       <Process />
       <Venues />
       <Standards />
+      <div className="wave-divider" aria-hidden />
       <Dashboard />
       <PortfolioTeaser />
       <Vision2026 />

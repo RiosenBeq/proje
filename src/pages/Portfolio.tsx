@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useEffect, type ImgHTMLAttributes } from 'react';
+import { type ImgHTMLAttributes } from 'react';
+import { useSeo } from '../lib/seo';
 
 function ImgFade(props: ImgHTMLAttributes<HTMLImageElement>) {
   return <img {...props} onLoad={(e) => { e.currentTarget.classList.add('loaded'); props.onLoad?.(e); }} />;
@@ -73,9 +74,22 @@ const GALLERY: Array<{ src: string; label: string; size: '' | 'wide' | 'tall' }>
 ];
 
 export default function Portfolio() {
-  useEffect(() => {
-    document.title = 'Projeler — On Muzik Proje';
-  }, []);
+  useSeo({
+    title: 'Projeler — 240+ Tamamlanan Akustik & Ses Sistemi Çalışması | On Muzik Proje',
+    description: 'Studio Alpha, Club Nexus, Grand Auditorium, Boğaz Restoran, Ballroom Otel, Konser Sahnesi gibi 240+ projeden seçmeler. Restoran, otel, sahne, stüdyo ve konferans çalışmalarımız.',
+    path: '/portfolyo',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Projeler — On Muzik Proje',
+      url: 'https://onmuzik.com/portfolyo',
+      isPartOf: { '@id': 'https://onmuzik.com/#website' },
+      about: {
+        '@type': 'Thing',
+        name: 'Akustik tasarım ve ses sistemi projeleri',
+      },
+    },
+  });
 
   return (
     <>
@@ -97,6 +111,7 @@ export default function Portfolio() {
               <article key={c.t} className="case reveal" style={{ transitionDelay: `${i * 60}ms` }}>
                 <div className="frame">
                   <ImgFade src={c.img} alt={c.t} loading="lazy" />
+                  <span className="tonearm" aria-hidden />
                   <div className="ph">{c.t.toUpperCase()} · GÖRSEL</div>
                   <div className="stat-overlay">
                     {c.st.map(([k, v]) => <span key={k} className="mini">{k}<b>{v}</b></span>)}

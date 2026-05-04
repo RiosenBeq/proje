@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useSeo } from '../lib/seo';
 
 const POLICY = [
   { title: 'Toplanan Veriler', body: 'Web sitemizi ziyaret ettiğinizde; ad-soyad, e-posta, telefon, proje detayı ve teknik talep bilgileri gibi formlar üzerinden paylaştığınız veriler işlenebilir. Ayrıca cihaz, tarayıcı, IP ve ziyaret süresi gibi teknik log kayıtları güvenlik ve performans amacıyla tutulabilir.' },
@@ -11,9 +11,11 @@ const POLICY = [
 ];
 
 export default function PrivacyPolicy() {
-  useEffect(() => {
-    document.title = 'Gizlilik Politikası — On Muzik Proje';
-  }, []);
+  useSeo({
+    title: 'Gizlilik Politikası | On Muzik Proje',
+    description: 'On Muzik Proje gizlilik politikası — kişisel verilerin toplanması, işlenmesi, saklanması ve korunmasına ilişkin politika metni.',
+    path: '/gizlilik-politikasi',
+  });
 
   return (
     <>
