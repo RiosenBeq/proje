@@ -234,13 +234,6 @@ export default function Layout() {
           <div className="nav-actions">
             <span className="nav-tel"><span className="pulse" />0850 241 9515</span>
             <Link to="/iletisim" className="btn btn-red nav-cta">Teklif Al <span className="arrow" /></Link>
-            <Link to="/iletisim" className="nav-cta-compact" aria-label="Teklif Al">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                <path d="M5 12h14" />
-                <path d="m13 6 6 6-6 6" />
-              </svg>
-              <span>Teklif</span>
-            </Link>
             <button
               type="button"
               className={`hamburger${drawer ? ' on' : ''}`}
@@ -251,6 +244,13 @@ export default function Layout() {
             >
               <span />
             </button>
+            <Link to="/iletisim" className="nav-cta-compact" aria-label="Teklif Al">
+              <span>Teklif</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M5 12h14" />
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+            </Link>
           </div>
         </div>
       </header>
