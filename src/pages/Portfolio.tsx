@@ -10,11 +10,13 @@ type DiscCls = 'red' | 'gold' | 'indigo' | 'teal' | 'plum' | 'olive';
 type Tag = [DiscCls, string];
 
 const CASES: Array<{
+  slug: string;
   t: string; e: string; year: string; img: string; tags: Tag[];
   st: Array<[string, string]>;
   d: string;
 }> = [
   {
+    slug: 'studio-alpha',
     t: 'Studio Alpha',     e: 'İstanbul', year: '2024',
     img: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1400&q=80',
     tags: [['teal', 'STÜDYO'], ['gold', 'AKUSTİK']],
@@ -22,6 +24,7 @@ const CASES: Array<{
     d: 'Dolby Atmos 9.1.4 miksaj stüdyosu akustik tasarımı ve ana monitör sistemi entegrasyonu. Modal kontrol için kayan kat, bass trap kasetleri ve RFZ kontrol odası tasarımı.',
   },
   {
+    slug: 'club-nexus',
     t: 'Club Nexus',       e: 'İzmir',    year: '2024',
     img: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1400',
     tags: [['red', 'SES'], ['indigo', 'LED']],
@@ -29,6 +32,7 @@ const CASES: Array<{
     d: '3000 kişilik performans mekanı için Pioneer Pro Audio XY serisi ana PA sistemi, cardioid sub array ve 64m² LED P3.9 ana sahne ekranı.',
   },
   {
+    slug: 'grand-auditorium',
     t: 'Grand Auditorium', e: 'Ankara',   year: '2023',
     img: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=1400',
     tags: [['plum', 'KONFERANS'], ['gold', 'AKUSTİK']],
@@ -36,6 +40,7 @@ const CASES: Array<{
     d: 'Çok amaçlı 420 kişilik salon — değişken akustik paneller, DICENTIS konferans, beamforming mikrofon dizisi ve dijital yönlendirilebilir line array kurulumu.',
   },
   {
+    slug: 'bogaz-restoran',
     t: 'Boğaz Restoran',   e: 'İstanbul', year: '2024',
     img: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1400',
     tags: [['red', 'SES'], ['gold', 'AKUSTİK']],
@@ -43,6 +48,7 @@ const CASES: Array<{
     d: '180 kişilik teras restoran için 4 zonlu ses sistemi ve akustik panel mimarisi. Konuşma netliği hedef üstünde teslim edildi.',
   },
   {
+    slug: 'ballroom-otel',
     t: 'Ballroom Otel',    e: 'Antalya',  year: '2024',
     img: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=1400',
     tags: [['red', 'SES'], ['olive', 'VA'], ['indigo', 'LED']],
@@ -50,6 +56,7 @@ const CASES: Array<{
     d: '800 kişilik ballroom + lobi + 24 oda zon yönetimi. EN 54-16 uyumlu voice alarm + LED P2.6 sahne ekranı.',
   },
   {
+    slug: 'konser-sahnesi',
     t: 'Konser Sahnesi',   e: 'Ankara',   year: '2023',
     img: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=1400&q=80',
     tags: [['red', 'SES'], ['indigo', 'LED']],
@@ -108,7 +115,7 @@ export default function Portfolio() {
         <div className="container">
           <div className="portfolio-grid">
             {CASES.map((c, i) => (
-              <article key={c.t} className="case reveal" style={{ transitionDelay: `${i * 60}ms` }}>
+              <Link key={c.t} to={`/projeler/${c.slug}`} className="case reveal" style={{ transitionDelay: `${i * 60}ms` }}>
                 <div className="frame">
                   <ImgFade src={c.img} alt={c.t} loading="lazy" />
                   <span className="tonearm" aria-hidden />
@@ -123,7 +130,7 @@ export default function Portfolio() {
                 <div className="case-tags">
                   {c.tags.map(([cls, n]) => <span key={n} className={`tag ${cls}`}><span className="dot" />{n}</span>)}
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

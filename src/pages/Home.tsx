@@ -317,6 +317,25 @@ function SEOContent() {
 type DiscKey = 'all' | 'ses' | 'akustik' | 'led' | 'studio' | 'konf' | 'anons';
 type DiscCls = 'red' | 'gold' | 'indigo' | 'teal' | 'plum' | 'olive';
 
+// Maps inline DiscKey → content.ts canonical slug used by /hizmetler/:slug
+const SERVICE_SLUG: Record<Exclude<DiscKey, 'all'>, string> = {
+  ses: 'ses',
+  akustik: 'akustik',
+  led: 'led',
+  studio: 'studio',
+  konf: 'konferans',
+  anons: 'anons',
+};
+
+// Maps inline venue key → /mekanlar/:slug
+const VENUE_SLUG: Record<string, string> = {
+  restoran: 'restoran',
+  otel: 'otel',
+  sahne: 'sahne',
+  studio: 'studio',
+  konferans: 'konferans',
+};
+
 const DISCIPLINES: Array<{ k: Exclude<DiscKey, 'all'>; short: string; n: string; sub: string; cls: DiscCls; hz: string; bars: number[] }> = [
   { k: 'ses',     short: 'SES',        n: 'Ses Sistemi',         sub: 'Zonlu PA · DSP · Dante',     cls: 'red',    hz: '40 Hz – 18 kHz', bars: [3, 5, 7, 8, 10, 12, 11, 9, 7, 5, 4] },
   { k: 'akustik', short: 'AKUSTİK',    n: 'Akustik Tasarım',     sub: 'RT60 · STI · Modal Kontrol', cls: 'gold',   hz: '63 Hz – 4 kHz',  bars: [10, 11, 12, 11, 9, 7, 6, 5, 4, 3, 2] },
@@ -373,6 +392,13 @@ function DisciplineDeck({ active, setActive }: { active: DiscKey; setActive: (k:
                 {active === it.k ? 'SEÇİLDİ ✓' : 'BU DİSİPLİN'}
                 <span className="dc-arrow" />
               </span>
+              <Link
+                to={`/hizmetler/${SERVICE_SLUG[it.k]}`}
+                className="dc-detail"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Detay sayfası <span className="arrow" />
+              </Link>
             </button>
           ))}
         </div>
@@ -459,7 +485,7 @@ function SolutionPathways({ filter }: { filter: DiscKey }) {
         </div>
         <div className={`paths${filtered ? ' is-filtered' : ''}`}>
           {list.map((p, i) => (
-            <Link key={p.k} to="/iletisim" className="path reveal" style={{ ...CLS_VARS[p.cls], transitionDelay: `${i * 60}ms` }}>
+            <Link key={p.k} to={`/hizmetler/${SERVICE_SLUG[p.k]}`} className="path reveal" style={{ ...CLS_VARS[p.cls], transitionDelay: `${i * 60}ms` }}>
               <span className="p-tag">{p.tag}</span>
               <div className="p-icon"><PathIcon kind={p.k} /></div>
               <h4>{p.t}</h4>
@@ -565,8 +591,8 @@ function Venues() {
               {v.goals.map(([k, val]) => <li key={k}><span className="k">{k}</span><span>{val}</span></li>)}
             </ul>
             <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <Link to="/iletisim" className="btn btn-red">Bu Mekân İçin Teklif <span className="arrow" /></Link>
-              <Link to="/portfolyo" className="btn btn-ghost">Benzer Projeler <span className="arrow" /></Link>
+              <Link to={`/mekanlar/${VENUE_SLUG[v.k] ?? v.k}`} className="btn btn-red">Mekân Detayını İncele <span className="arrow" /></Link>
+              <Link to="/iletisim" className="btn btn-ghost">Bu Mekân İçin Teklif <span className="arrow" /></Link>
             </div>
           </div>
           <div className="vd-stage">
@@ -646,11 +672,11 @@ function Dashboard() {
 }
 
 /* ===== Portfolio teaser ===== */
-const CASES: Array<{ t: string; e: string; tags: VenueTag[]; st: Array<[string, string]>; d: string; img: string }> = [
-  { t: 'Boğaz Restoran',  e: 'İstanbul', tags: [['red', 'SES'], ['gold', 'AKUSTİK']],                d: '180 kişilik teras restoran için 4 zonlu ses sistemi ve akustik panel mimarisi. Konuşma netliği hedef üstünde teslim edildi.', st: [['RT60', '0.62s'], ['SPL', '82dB']], img: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1400' },
-  { t: 'Ballroom Otel',   e: 'Antalya',  tags: [['red', 'SES'], ['olive', 'VA'], ['indigo', 'LED']], d: '800 kişilik ballroom + lobi + 24 oda zon yönetimi. EN 54-16 uyumlu voice alarm + LED P2.6 sahne ekranı.',                        st: [['RT60', '1.2s'], ['SPL', '98dB']], img: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=1400' },
-  { t: 'Konser Sahnesi',  e: 'Ankara',   tags: [['red', 'SES'], ['indigo', 'LED']],                  d: '3000 kişilik açık hava sahnesi. Cardioid sub array + line array L/R, 64m² LED ana sahne ekranı.',                                  st: [['SPL', '106dB'], ['LED', 'P3.9']], img: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1400' },
-  { t: 'Kayıt Stüdyosu',  e: 'İstanbul', tags: [['teal', 'STÜDYO'], ['gold', 'AKUSTİK']],            d: 'Mix + tracking room. Modal kontrol için kayan kat, bass trap kasetleri ve RFZ kontrol odası tasarımı.',                            st: [['NC', 'NC-18'], ['RT60', '0.28s']], img: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg?auto=compress&cs=tinysrgb&w=1400' },
+const CASES: Array<{ slug: string; t: string; e: string; tags: VenueTag[]; st: Array<[string, string]>; d: string; img: string }> = [
+  { slug: 'bogaz-restoran', t: 'Boğaz Restoran',  e: 'İstanbul', tags: [['red', 'SES'], ['gold', 'AKUSTİK']],                d: '180 kişilik teras restoran için 4 zonlu ses sistemi ve akustik panel mimarisi. Konuşma netliği hedef üstünde teslim edildi.', st: [['RT60', '0.62s'], ['SPL', '82dB']], img: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1400' },
+  { slug: 'ballroom-otel', t: 'Ballroom Otel',   e: 'Antalya',  tags: [['red', 'SES'], ['olive', 'VA'], ['indigo', 'LED']], d: '800 kişilik ballroom + lobi + 24 oda zon yönetimi. EN 54-16 uyumlu voice alarm + LED P2.6 sahne ekranı.',                        st: [['RT60', '1.2s'], ['SPL', '98dB']], img: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=1400' },
+  { slug: 'konser-sahnesi', t: 'Konser Sahnesi',  e: 'Ankara',   tags: [['red', 'SES'], ['indigo', 'LED']],                  d: '3000 kişilik açık hava sahnesi. Cardioid sub array + line array L/R, 64m² LED ana sahne ekranı.',                                  st: [['SPL', '106dB'], ['LED', 'P3.9']], img: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1400' },
+  { slug: 'studio-alpha', t: 'Kayıt Stüdyosu',  e: 'İstanbul', tags: [['teal', 'STÜDYO'], ['gold', 'AKUSTİK']],            d: 'Mix + tracking room. Modal kontrol için kayan kat, bass trap kasetleri ve RFZ kontrol odası tasarımı.',                            st: [['NC', 'NC-18'], ['RT60', '0.28s']], img: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg?auto=compress&cs=tinysrgb&w=1400' },
 ];
 
 function PortfolioTeaser() {
@@ -668,7 +694,7 @@ function PortfolioTeaser() {
         </div>
         <div className="portfolio-grid">
           {CASES.map((c, i) => (
-            <Link key={c.t} to="/portfolyo" className="case reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+            <Link key={c.t} to={`/projeler/${c.slug}`} className="case reveal" style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="frame">
                 <ImgFade src={c.img} alt={c.t} loading="lazy" />
                 <span className="tonearm" aria-hidden />
@@ -877,6 +903,10 @@ function FAQ() {
               <div className="toggle" />
             </div>
           ))}
+        </div>
+        <div className="reveal" style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <Link to="/sss" className="btn btn-ghost">Tüm soruları gör <span className="arrow" /></Link>
+          <Link to="/iletisim" className="btn btn-red">Cevabını bulamadım — yazın <span className="arrow" /></Link>
         </div>
       </div>
     </section>

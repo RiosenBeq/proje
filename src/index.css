@@ -906,6 +906,35 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .disc-card:hover .dc-arrow { width: 28px; }
 
+.dc-detail {
+  margin-top: 10px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 0;
+  border-top: 1px dashed var(--line);
+  text-decoration: none;
+  transition: color 200ms var(--ease);
+}
+.dc-detail:hover { color: var(--c); }
+.dc-detail .arrow {
+  display: inline-block;
+  width: 12px; height: 1px; background: currentColor;
+  position: relative;
+  transition: width 240ms var(--ease);
+}
+.dc-detail .arrow::after {
+  content: ""; position: absolute; right: 0; top: -3px;
+  width: 6px; height: 6px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+.dc-detail:hover .arrow { width: 18px; }
+
 /* ============================================================ Solution paths */
 .paths {
   display: grid;
@@ -2924,6 +2953,85 @@ a.md-row:hover .md-v { color: var(--red); }
   margin: 0;
   position: relative; z-index: 1;
   max-width: 40ch;
+}
+
+/* ============================================================ BeforeAfter card */
+.ba-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: clamp(20px, 2.4vw, 32px);
+  margin-top: 14px;
+}
+.ba-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  flex-wrap: wrap; gap: 14px;
+  margin-bottom: 22px;
+}
+.ba-eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ba-legend { display: inline-flex; gap: 14px; flex-wrap: wrap; }
+.ba-key {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.ba-dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.ba-before { background: var(--line-3); }
+.ba-after { background: var(--red); }
+.ba-target { background: var(--gold); }
+.ba-rows { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; }
+.ba-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: clamp(14px, 2vw, 28px);
+  align-items: center;
+}
+.ba-metric {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(14px, 1.2vw, 17px);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.ba-bars { display: grid; gap: 6px; }
+.ba-bar {
+  position: relative;
+  height: 22px;
+  background: rgba(20,17,12,0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.ba-fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  border-radius: 4px;
+  animation: baFill 720ms var(--ease) both;
+}
+@keyframes baFill { from { width: 0 !important; } }
+.ba-fill.ba-before { background: var(--line-3); }
+.ba-fill.ba-after { background: var(--red); }
+.ba-fill.ba-target { background: var(--gold); }
+.ba-val {
+  position: absolute;
+  right: 10px; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  font-weight: 600;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+}
+@media (max-width: 720px) {
+  .ba-row { grid-template-columns: 1fr; gap: 8px; }
 }
 
 /* ============================================================ Responsive */
