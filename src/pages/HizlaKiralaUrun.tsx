@@ -430,8 +430,8 @@ const Related = ({ product }: { product: ProductDetail }) => {
         </div>
         <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
           {related.map((p) => (
-            <Link key={p.slug} to={`/hizla-kirala/${p.slug}`} style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(20,20,26,0.08)', textDecoration: 'none', color: INK }}>
-              <div style={{ background: CREAM, height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+            <Link key={p.slug} to={`/hizla-kirala/${p.slug}`} style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: INK }}>
+              <div style={{ background: CREAM, height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', borderBottom: '1px solid rgba(20,20,26,0.10)' }}>
                 <img src={p.images[0]} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '78%', maxHeight: '85%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
               </div>
               <div style={{ padding: 18 }}>
