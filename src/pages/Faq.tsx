@@ -29,6 +29,11 @@ export default function Faq() {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
+      '@id': 'https://onmuzikproje.com/sss#faq',
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['.faq-row .q', '.faq-row .a', '.subhero-title', '.subhero-lead'],
+      },
       mainEntity: allItems.map(({ q, a }) => ({
         '@type': 'Question',
         name: q,

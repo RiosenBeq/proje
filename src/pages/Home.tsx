@@ -1019,6 +1019,11 @@ export default function Home() {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
+      '@id': 'https://onmuzikproje.com/#faq',
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['.faq-row .q', '.faq-row .a', 'h2', 'h1'],
+      },
       mainEntity: HOME_FAQ.map(([q, a]) => ({
         '@type': 'Question',
         name: q,

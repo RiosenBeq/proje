@@ -30,6 +30,12 @@ export default function Article() {
           publisher: { '@id': 'https://onmuzikproje.com/#org' },
           mainEntityOfPage: `https://onmuzikproje.com/bilgi-merkezi/${a.slug}`,
           wordCount: a.body.reduce((acc, b) => acc + ('text' in b ? b.text.length : 0), 0),
+          inLanguage: 'tr-TR',
+          isAccessibleForFree: true,
+          speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: ['h1', 'h2', '.article-lead', '.article-body p'],
+          },
         },
         {
           '@type': 'BreadcrumbList',
