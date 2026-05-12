@@ -9,9 +9,11 @@ const CREAM = '#f7f3eb';
 const WA = '#25d366';
 
 const PARTNER_BASE = 'https://hizlakirala.com';
-const WHATSAPP_HREF = 'https://wa.me/908502419515?text=Merhaba%2C%20kiralama%20i%C3%A7in%20yaz%C4%B1yorum.';
-const PHONE_HREF = 'tel:+908502419515';
-const PHONE_LABEL = '0850 241 9515';
+// Kiralama sayfasına özel WhatsApp + telefon hattı (Hızla Kirala ortaklığı için
+// ayrı operasyon). Site geneli numara 0850 241 9515 olmaya devam ediyor.
+const WHATSAPP_HREF = 'https://wa.me/905434123380?text=Merhaba%2C%20kiralama%20i%C3%A7in%20yaz%C4%B1yorum.';
+const PHONE_HREF = 'tel:+905434123380';
+const PHONE_LABEL = '0543 412 33 80';
 
 const Logo = ({ color = INK, discColor = RED, scale = 1 }: { color?: string; discColor?: string; scale?: number }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 10 * scale, fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, color, fontSize: 28 * scale, letterSpacing: '-0.04em', lineHeight: 1 }}>
@@ -275,12 +277,12 @@ const ProductHero = ({ product }: { product: ProductDetail }) => (
         </div>
 
         <div style={{
-          marginTop: 18, display: 'flex', alignItems: 'center', gap: 10,
+          marginTop: 18, display: 'flex', alignItems: 'center', gap: 12,
           background: 'rgba(20,20,26,0.04)', padding: '12px 16px', borderRadius: 14,
           fontSize: 13, color: 'rgba(20,20,26,0.7)',
         }}>
-          <span style={{ width: 8, height: 8, background: RED, borderRadius: 999, flexShrink: 0 }} />
-          <span><strong>on music × Hızla Kirala</strong> iş ortaklığıyla — siparişin Hızla Kirala üzerinden tamamlanır, kargosu on music tarafından koordine edilir.</span>
+          <img src="/assets/hizla-kirala/hizlakirala-logo.png" alt="Hızla Kirala logosu" width="76" height="14" loading="lazy" decoding="async" style={{ display: 'block', height: 14, width: 'auto', flexShrink: 0 }} />
+          <span><strong>on music × Hızla Kirala</strong> resmi iş ortaklığıyla — siparişin Hızla Kirala üzerinden tamamlanır, kargosu on music tarafından koordine edilir.</span>
         </div>
       </div>
     </div>
@@ -479,10 +481,10 @@ const FOOTER_COLS: Array<{ t: string; items: Array<{ label: string; href: string
     { label: 'SSS',             href: '/sss' },
   ] },
   { t: 'İletişim', items: [
-    { label: '+90 850 241 95 15', href: PHONE_HREF },
+    { label: '+90 543 412 33 80', href: PHONE_HREF },
     { label: 'WhatsApp destek',   href: WHATSAPP_HREF, external: true },
     { label: 'proje@onmuzik.com', href: 'mailto:proje@onmuzik.com' },
-    { label: '@onmuzikproje',     href: 'https://www.instagram.com/', external: true },
+    { label: '@onmuzik',          href: 'https://www.instagram.com/onmuzik', external: true },
     { label: 'onmuzikproje.com',  href: '/' },
   ] },
 ];
@@ -556,41 +558,164 @@ const RESPONSIVE_CSS = `
 }
 `;
 
+const SITE = 'https://onmuzikproje.com';
+const PARTNER_ORG_ID = `${SITE}/hizla-kirala#partnership`;
+
+// 1 yıl geçerli fiyat — strk. data takvimi için. Bugünden 365 gün sonrası.
+function priceValidUntil(): string {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() + 1);
+  return d.toISOString().split('T')[0];
+}
+
+// Detay sayfası FAQ block'u (Description tab 'sartlar' içeriği ile aynı tutulur).
+const FAQ_ITEMS: Array<[string, string]> = [
+  ['Minimum kiralama süresi nedir?', 'Uzun dönem için minimum 1 ay. Kısa dönem için minimum 3 gündür.'],
+  ['Erken iade yapabilir miyim?',    'Evet, uzun dönemde 14 günlük ihtar süresiyle erken iade mümkündür. Kalan günler iade edilir.'],
+  ['Cihaz arızalanırsa ne olur?',    "Bize WhatsApp'tan ulaş, 24 saat içinde yedek cihaz gönderilir. Servis ücretsizdir."],
+  ['Teslimat ne zaman yapılır?',     'Onaydan sonra İstanbul içi aynı gün, Türkiye geneli 24-48 saat içinde Yurtiçi Kargo ile kapına teslim.'],
+];
+
 function ProductPage({ product }: { product: ProductDetail }) {
-  useSeo({
-    title: `${product.brand} ${product.name} ${product.tagline} — Kiralık | On Music × Hızla Kirala`,
+  const url = `${SITE}/hizla-kirala/${product.slug}`;
+  const imageAbs = product.images.map((img) => `${SITE}${img}`);
+  const price = product.priceFrom.replace('.', '');
+
+  // İleri SEO: 5 ayrı JSON-LD bloku.
+  // 1. Product — full schema.org/Product + Offer + brand + category + image[] +
+  //    aggregateRating placeholder yok (sahte veri eklemiyoruz).
+  // 2. BreadcrumbList — anasayfa / kiralık ürünler / kategori / ürün
+  // 3. FAQPage — kiralama şartları sekmesi
+  // 4. WebPage (productGroup için isPartOf)
+  // 5. Organization — iş ortaklığı (parent on muzik proje'ye bağlı)
+  const productLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    '@id': `${url}#product`,
+    name: `${product.brand} ${product.name}`,
+    alternateName: `${product.brand} ${product.name} ${product.tagline}`,
     description: product.short,
-    path: `/hizla-kirala/${product.slug}`,
-    keywords: `${product.brand} ${product.name}, ${product.category} kiralama, ${product.tagline}, hızla kirala, on music`,
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Product',
-      name: `${product.brand} ${product.name} ${product.tagline}`,
-      brand: { '@type': 'Brand', name: product.brand },
-      category: product.category,
-      description: product.short,
-      offers: {
-        '@type': 'Offer',
-        priceCurrency: 'TRY',
-        price: product.priceFrom.replace('.', ''),
-        url: `https://onmuzikproje.com/hizla-kirala/${product.slug}`,
-        availability: 'https://schema.org/InStock',
-        seller: { '@type': 'Organization', name: 'On Muzik Proje × Hızla Kirala' },
+    image: imageAbs,
+    brand: { '@type': 'Brand', name: product.brand },
+    category: product.category,
+    sku: product.slug,
+    mpn: product.slug,
+    isRelatedTo: product.categoryHref,
+    additionalProperty: product.specs.map(([k, v]) => ({
+      '@type': 'PropertyValue',
+      name: k,
+      value: v,
+    })),
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'TRY',
+      price,
+      url,
+      availability: 'https://schema.org/InStock',
+      priceValidUntil: priceValidUntil(),
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: { '@id': PARTNER_ORG_ID },
+      areaServed: { '@type': 'Country', name: 'Türkiye' },
+      eligibleRegion: { '@type': 'Country', name: 'TR' },
+      deliveryLeadTime: {
+        '@type': 'QuantitativeValue',
+        minValue: 1,
+        maxValue: 2,
+        unitCode: 'DAY',
       },
+      businessFunction: 'https://purl.org/goodrelations/v1#LeaseOut',
     },
+  };
+
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Anasayfa',         item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Kiralık Ürünler',  item: `${SITE}/hizla-kirala` },
+      { '@type': 'ListItem', position: 3, name: product.category,   item: product.categoryHref },
+      { '@type': 'ListItem', position: 4, name: product.breadcrumbName, item: url },
+    ],
+  };
+
+  const faqPage = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    mainEntity: FAQ_ITEMS.map(([q, a]) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  };
+
+  const webPage = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': url,
+    name: `${product.brand} ${product.name} ${product.tagline} — Kiralık`,
+    url,
+    inLanguage: 'tr-TR',
+    isPartOf: { '@id': `${SITE}/#website` },
+    primaryImageOfPage: { '@type': 'ImageObject', url: imageAbs[0] },
+    mainEntity: { '@id': `${url}#product` },
+    breadcrumb: { '@type': 'BreadcrumbList' },
+  };
+
+  const partnership = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': PARTNER_ORG_ID,
+    name: 'On Music × Hızla Kirala',
+    parentOrganization: { '@id': `${SITE}/#org` },
+    url: `${SITE}/hizla-kirala`,
+    logo: `${SITE}/assets/hizla-kirala/hizlakirala-logo.png`,
+    sameAs: [
+      'https://www.hizlakirala.com',
+      'https://www.instagram.com/onmuzik',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      telephone: '+90-543-412-33-80',
+      email: 'proje@onmuzik.com',
+      areaServed: 'TR',
+      availableLanguage: ['Turkish'],
+    },
+  };
+
+  useSeo({
+    title: `${product.brand} ${product.name} ${product.tagline} — Aylık ${product.priceFrom} TL'den Kiralık | On Music × Hızla Kirala`,
+    description: `${product.brand} ${product.name} kiralama: ${product.short} 24 saatte kapıda teslim, iyzico ile 12 taksit, 2 yıl tam garanti. WhatsApp 0543 412 33 80.`,
+    path: `/hizla-kirala/${product.slug}`,
+    image: product.images[0],
+    ogType: 'product',
+    product: {
+      priceAmount: price,
+      priceCurrency: 'TRY',
+      availability: 'instock',
+      brand: product.brand,
+      category: product.category,
+    },
+    keywords: `${product.brand} ${product.name} kiralama, ${product.brand} kiralama, ${product.category} kiralama, ${product.tagline}, ${product.brand} ${product.name} aylık kiralama, ${product.brand} ${product.name} günlük kiralama, hızla kirala, on music, on muzik proje`,
+    jsonLd: [productLd, breadcrumb, faqPage, webPage, partnership],
   });
 
   return (
     <>
       <style>{RESPONSIVE_CSS}</style>
-      <div style={{ background: CREAM, color: INK, fontFamily: 'Inter, sans-serif' }}>
+      <div style={{ background: CREAM, color: INK, fontFamily: 'Inter, sans-serif' }} itemScope itemType="https://schema.org/Product">
         <Nav />
-        <Breadcrumb product={product} />
-        <ProductHero product={product} />
-        <Highlights product={product} />
-        <Description product={product} />
-        <Related product={product} />
-        <CTABanner />
+        <main id="main">
+          <Breadcrumb product={product} />
+          <article>
+            <ProductHero product={product} />
+            <Highlights product={product} />
+            <Description product={product} />
+          </article>
+          <Related product={product} />
+          <CTABanner />
+        </main>
         <Footer />
       </div>
     </>

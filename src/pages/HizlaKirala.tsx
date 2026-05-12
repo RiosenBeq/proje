@@ -8,9 +8,11 @@ const CREAM = '#f7f3eb';
 const WA = '#25d366';
 
 const PARTNER_BASE = 'https://hizlakirala.com';
-const WHATSAPP_HREF = 'https://wa.me/908502419515?text=Merhaba%2C%20kiralama%20i%C3%A7in%20yaz%C4%B1yorum.';
-const PHONE_HREF = 'tel:+908502419515';
-const PHONE_LABEL = '0850 241 9515';
+// Kiralama sayfasına özel WhatsApp + telefon hattı (Hızla Kirala ortaklığı için
+// ayrı operasyon). Site geneli numara 0850 241 9515 olmaya devam ediyor.
+const WHATSAPP_HREF = 'https://wa.me/905434123380?text=Merhaba%2C%20kiralama%20i%C3%A7in%20yaz%C4%B1yorum.';
+const PHONE_HREF = 'tel:+905434123380';
+const PHONE_LABEL = '0543 412 33 80';
 
 type Glyph = 'projector' | 'laptop' | 'console' | 'vacuum' | 'phone' | 'bottle' | 'wand';
 
@@ -192,12 +194,13 @@ const Hero = () => (
       <div>
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: 10,
-          background: 'rgba(20,20,26,0.06)', padding: '8px 14px', borderRadius: 999,
+          background: 'rgba(20,20,26,0.06)', padding: '8px 14px 8px 12px', borderRadius: 999,
           fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase',
           color: INK, marginBottom: 26,
         }}>
-          <span style={{ width: 8, height: 8, background: RED, borderRadius: 999 }} />
-          On Music × Hızla Kirala · resmi iş ortağı
+          <span style={{ fontWeight: 600 }}>On Music ×</span>
+          <img src="/assets/hizla-kirala/hizlakirala-logo.png" alt="Hızla Kirala" width="78" height="14" loading="eager" decoding="async" style={{ display: 'block', height: 14, width: 'auto' }} />
+          <span style={{ opacity: 0.55 }}>· resmi iş ortağı</span>
         </div>
         <h1 className="hk-hero-h1" style={{
           fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800,
@@ -523,10 +526,10 @@ const FOOTER_COLS: Array<{ t: string; items: Array<{ label: string; href: string
     { label: 'Şımart Kendini',     href: `${PARTNER_BASE}/urunler/kategori/simart-kendini`, external: true },
   ] },
   { t: 'İletişim', items: [
-    { label: '+90 850 241 95 15',   href: PHONE_HREF },
+    { label: '+90 543 412 33 80',   href: PHONE_HREF },
     { label: 'WhatsApp destek',     href: WHATSAPP_HREF, external: true },
     { label: 'proje@onmuzik.com',   href: 'mailto:proje@onmuzik.com' },
-    { label: '@onmuzikproje',       href: 'https://www.instagram.com/', external: true },
+    { label: '@onmuzik',            href: 'https://www.instagram.com/onmuzik', external: true },
     { label: 'onmuzikproje.com',    href: '/' },
   ] },
 ];
@@ -540,10 +543,21 @@ const Footer = () => (
           <p style={{ marginTop: 18, fontSize: 15, lineHeight: 1.55, color: 'rgba(245,239,226,0.65)', maxWidth: 360 }}>
             Cafe, restoran, kulüp ve oteller için anahtar teslim ses, görüntü ve akustik çözümler. Kiralık ürün ihtiyaçların için Hızla Kirala iş ortağı.
           </p>
-          <div style={{ marginTop: 22, display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(245,239,226,0.08)', padding: '8px 14px', borderRadius: 999, fontFamily: '"JetBrains Mono", monospace', fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-            <span style={{ width: 8, height: 8, background: RED, borderRadius: 999 }} />
-            Resmi iş ortağı · Hızla Kirala
-          </div>
+          <a
+            href="https://www.hizlakirala.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Hızla Kirala — resmi iş ortağı (yeni sekmede açılır)"
+            style={{
+              marginTop: 22, display: 'inline-flex', alignItems: 'center', gap: 12,
+              background: 'rgba(245,239,226,0.08)', padding: '10px 16px', borderRadius: 999,
+              fontFamily: '"JetBrains Mono", monospace', fontSize: 12, letterSpacing: '0.12em',
+              textTransform: 'uppercase', textDecoration: 'none', color: CREAM,
+            }}
+          >
+            <span style={{ opacity: 0.75 }}>Resmi iş ortağı</span>
+            <img src="/assets/hizla-kirala/hizlakirala-logo.png" alt="Hızla Kirala" width="84" height="16" loading="lazy" decoding="async" style={{ display: 'block', height: 16, width: 'auto', filter: 'brightness(1.05)' }} />
+          </a>
         </div>
         {FOOTER_COLS.map((col) => (
           <div key={col.t}>
@@ -614,43 +628,115 @@ const RESPONSIVE_CSS = `
 }
 `;
 
+const SITE = 'https://onmuzikproje.com';
+const PARTNER_ORG_ID = `${SITE}/hizla-kirala#partnership`;
+
 export default function HizlaKirala() {
+  // İleri SEO: 4 ayrı JSON-LD bloku — CollectionPage, ItemList (ürün katalog),
+  // BreadcrumbList ve resmi iş ortaklığı için Organization (partner sameAs).
+  // Arama motoru ve LLM'lere yapı + ilişki + her ürünün fiyat/kategori bilgisi.
+  const collectionPage = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${SITE}/hizla-kirala#page`,
+    name: 'Kiralık Ürünler — On Music × Hızla Kirala',
+    description:
+      'On Muzik Proje aracılığıyla Hızla Kirala portföyünden ürün kiralama. Projeksiyon, MacBook, PlayStation 5 Slim, Dyson Airwrap, Samsung Galaxy A36 ve daha fazlası — aylık ve günlük kiralama, 24 saatte kapıda teslim, 2 yıl garanti.',
+    url: `${SITE}/hizla-kirala`,
+    inLanguage: 'tr-TR',
+    isPartOf: { '@id': `${SITE}/#website` },
+    about: { '@id': PARTNER_ORG_ID },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: `${SITE}/assets/hizla-kirala/anker-nebula-apollo.png`,
+    },
+  };
+
+  const itemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${SITE}/hizla-kirala#catalog`,
+    name: 'On Music × Hızla Kirala kiralık ürün katalogu',
+    numberOfItems: PRODUCTS.length,
+    itemListOrder: 'https://schema.org/ItemListOrderManual',
+    itemListElement: PRODUCTS.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${SITE}${p.href}`,
+      item: {
+        '@type': 'Product',
+        name: `${p.brand} ${p.name}`,
+        brand: { '@type': 'Brand', name: p.brand },
+        category: p.cat,
+        image: `${SITE}${p.image}`,
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'TRY',
+          price: p.price.replace('.', ''),
+          url: `${SITE}${p.href}`,
+          availability: 'https://schema.org/InStock',
+          seller: { '@id': PARTNER_ORG_ID },
+        },
+      },
+    })),
+  };
+
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Anasayfa',         item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Kiralık Ürünler',  item: `${SITE}/hizla-kirala` },
+    ],
+  };
+
+  const partnership = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': PARTNER_ORG_ID,
+    name: 'On Music × Hızla Kirala',
+    alternateName: 'Hızla Kirala — On Music iş ortaklığı',
+    url: `${SITE}/hizla-kirala`,
+    logo: `${SITE}/assets/hizla-kirala/hizlakirala-logo.png`,
+    parentOrganization: { '@id': `${SITE}/#org` },
+    sameAs: [
+      'https://www.hizlakirala.com',
+      'https://www.instagram.com/onmuzik',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      telephone: '+90-543-412-33-80',
+      email: 'proje@onmuzik.com',
+      areaServed: 'TR',
+      availableLanguage: ['Turkish'],
+    },
+  };
+
   useSeo({
     title: 'Kiralık Ürünler — On Music × Hızla Kirala Resmi İş Ortağı | On Muzik Proje',
     description:
-      'Projeksiyon, MacBook, PS5, Meta Quest 3, iPhone 17 Pro, elektrikli scooter ve daha fazlası — On Music aracılığıyla Hızla Kirala portföyünden aylıkla kirala. 150+ ürün, 24 saatte teslim, 2 yıl cihaz garantisi.',
+      'On Muzik Proje × Hızla Kirala resmi iş ortaklığı: projeksiyon, MacBook, PlayStation 5 Slim, Dyson Airwrap, Samsung Galaxy A36 kiralama. Aylık 1.200 TL\'den, 24 saatte kapıda teslim, iyzico ile 12 taksit, 2 yıl tam garanti. WhatsApp 0543 412 33 80.',
     path: '/hizla-kirala',
-    keywords: 'kiralık ürün, projeksiyon kiralama, macbook kiralama, ps5 kiralama, meta quest 3 kiralama, iphone kiralama, scooter kiralama, dyson kiralama, hızla kirala, on music',
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: 'Kiralık Ürünler — On Music × Hızla Kirala',
-      url: 'https://onmuzikproje.com/hizla-kirala',
-      isPartOf: { '@id': 'https://onmuzikproje.com/#website' },
-      mainEntity: {
-        '@type': 'ItemList',
-        numberOfItems: PRODUCTS.length,
-        itemListElement: PRODUCTS.map((p, i) => ({
-          '@type': 'ListItem',
-          position: i + 1,
-          name: `${p.brand} — ${p.name}`,
-          url: p.href,
-        })),
-      },
-    },
+    image: '/assets/hizla-kirala/og-image.png',
+    keywords:
+      'kiralık ürün, ürün kiralama, projeksiyon kiralama, anker nebula apollo kiralama, macbook m4 kiralama, playstation 5 kiralama, ps5 slim kiralama, dyson airwrap kiralama, samsung galaxy a36 kiralama, hızla kirala, on music, on muzik proje, kiralama, aylık kiralama, günlük kiralama, iyzico taksit, 24 saat teslim',
+    jsonLd: [collectionPage, itemList, breadcrumb, partnership],
   });
 
   return (
     <>
       <style>{RESPONSIVE_CSS}</style>
-      <div style={{ background: CREAM, color: INK, fontFamily: 'Inter, sans-serif' }}>
+      <div style={{ background: CREAM, color: INK, fontFamily: 'Inter, sans-serif' }} itemScope itemType="https://schema.org/CollectionPage">
         <Nav />
-        <Hero />
-        <Benefits />
-        <Categories />
-        <Products />
-        <HowItWorks />
-        <CTABanner />
+        <main id="main">
+          <Hero />
+          <Benefits />
+          <Categories />
+          <Products />
+          <HowItWorks />
+          <CTABanner />
+        </main>
         <Footer />
       </div>
     </>
