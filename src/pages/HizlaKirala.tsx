@@ -391,11 +391,11 @@ function renderProductCard(p: Product) {
       <img src={p.image} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '88%', maxHeight: '88%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
       {p.tag && (
         <span style={{
-          position: 'absolute', top: 14, left: 14,
+          position: 'absolute', top: 12, left: 12,
           background: RED, color: CREAM,
-          fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.12em',
-          padding: '5px 10px', borderRadius: 999,
-        }}>● {p.tag}</span>
+          fontFamily: '"JetBrains Mono", monospace', fontSize: 9, fontWeight: 600, letterSpacing: '0.1em',
+          padding: '3px 8px', borderRadius: 999,
+        }}>{p.tag}</span>
       )}
     </div>
     <div style={{ padding: 20, display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
@@ -800,6 +800,63 @@ export default function HizlaKirala() {
     ],
   };
 
+  const howTo = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    '@id': `${SITE}/hizla-kirala#nasil-calisir`,
+    name: 'Hızla Kirala ürün kiralama nasıl çalışır',
+    description:
+      'On Music × Hızla Kirala üzerinden 4 adımda ürün kiralama — seç, başvur, teslim al, iade et.',
+    totalTime: 'PT24H',
+    estimatedCost: { '@type': 'MonetaryAmount', currency: 'TRY', value: '890' },
+    supply: [{ '@type': 'HowToSupply', name: 'Kimlik (TC/Pasaport)' }, { '@type': 'HowToSupply', name: 'Adres bilgisi' }],
+    tool: [{ '@type': 'HowToTool', name: 'iyzico ödeme' }],
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Seç',       text: 'Ürünü ve kiralama süresini (1, 3, 6 veya 12 ay) sayfada seç.' },
+      { '@type': 'HowToStep', position: 2, name: 'Başvur',    text: 'Kimlik bilgilerin ve adresinle 2 dakikada başvuruyu tamamla.' },
+      { '@type': 'HowToStep', position: 3, name: 'Teslim al', text: 'Onaydan sonra 24 saat içinde kargo veya kurye ile teslim.' },
+      { '@type': 'HowToStep', position: 4, name: 'İade et',   text: 'Süre bitince ücretsiz kurye iadesi. Uzatmak istersen tek tıkla.' },
+    ],
+  };
+
+  const faqPage = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${SITE}/hizla-kirala#faq`,
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Ürün kiralama nasıl çalışır?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Seç → Başvur → Teslim al → İade et. Kimlik ve adres bilgisinle 2 dakikada başvurabilir, onaydan sonra 24 saat içinde kapında olur. Süre bitince ücretsiz kurye iadesi.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Ödeme nasıl yapılır?',
+        acceptedAnswer: { '@type': 'Answer', text: 'iyzico altyapısı ile kredi kartı (Visa, Mastercard, Amex). 12 aya kadar taksit imkânı. Aylık abonelik benzeri otomatik tahsilat.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Cihaz arıza yaparsa ne olur?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Tüm cihazlar 2 yıl garantili. Arıza durumunda 24 saat içinde yedek cihaz gönderilir, arızalı cihaz ücretsiz kurye ile geri alınır.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Kiralama süresini uzatabilir miyim?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Evet, hesabınızdan tek tıkla 1, 3, 6 veya 12 ay daha uzatabilirsiniz. Uzun süreli kiralamada aylık birim ücret düşer.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Hangi şehirlere teslimat yapılıyor?',
+        acceptedAnswer: { '@type': 'Answer', text: 'İstanbul, Ankara, İzmir, Antalya, Bursa ve diğer 75 ile kargo/kurye ile teslimat. İstanbul içi aynı gün opsiyonu mevcut.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'On Music × Hızla Kirala iş ortaklığı ne demek?',
+        acceptedAnswer: { '@type': 'Answer', text: 'On Muzik Proje, Hızla Kirala\'nın resmi iş ortağıdır. Web sitemizden kiralama başlatıldığında işlem, kiralama süreci ve garanti hizlakirala.com altyapısı üzerinden ilerler.' },
+      },
+    ],
+  };
+
   const partnership = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -831,7 +888,7 @@ export default function HizlaKirala() {
     image: '/assets/hizla-kirala/og-image.png',
     keywords:
       'kiralık ürün, ürün kiralama, projeksiyon kiralama, anker nebula apollo kiralama, macbook m4 kiralama, playstation 5 kiralama, ps5 slim kiralama, dyson airwrap kiralama, samsung galaxy a36 kiralama, hızla kirala, on music, on muzik proje, kiralama, aylık kiralama, günlük kiralama, iyzico taksit, 24 saat teslim',
-    jsonLd: [collectionPage, itemList, popularList, breadcrumb, partnership],
+    jsonLd: [collectionPage, itemList, popularList, howTo, faqPage, breadcrumb, partnership],
   });
 
   return (
