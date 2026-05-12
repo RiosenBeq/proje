@@ -12,7 +12,7 @@ const WHATSAPP_HREF = 'https://wa.me/908502419515?text=Merhaba%2C%20kiralama%20i
 const PHONE_HREF = 'tel:+908502419515';
 const PHONE_LABEL = '0850 241 9515';
 
-type Glyph = 'projector' | 'laptop' | 'console' | 'vr' | 'switch' | 'scooter' | 'vacuum' | 'phone';
+type Glyph = 'projector' | 'laptop' | 'console' | 'vacuum' | 'phone' | 'bottle' | 'wand';
 
 const Logo = ({ color = INK, discColor = RED, scale = 1 }: { color?: string; discColor?: string; scale?: number }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 10 * scale, fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, color, fontSize: 28 * scale, letterSpacing: '-0.04em', lineHeight: 1 }}>
@@ -59,34 +59,26 @@ const Silhouette = ({ kind, color = INK, glow = RED }: { kind: Glyph; color?: st
       <circle cx="270" cy="140" r="6" fill={CREAM} />
     </svg>
   );
-  if (kind === 'vr') return (
+  if (kind === 'bottle') return (
+    // Bebek biberon silüeti — anne & bebek kategorisi
     <svg viewBox="0 0 320 240" style={base}>
-      <path d="M 60 90 Q 60 60 100 60 L 220 60 Q 260 60 260 90 L 260 150 Q 260 180 220 180 L 200 180 L 160 150 L 120 180 L 100 180 Q 60 180 60 150 Z" fill={color} />
-      <ellipse cx="115" cy="120" rx="22" ry="18" fill={CREAM} />
-      <ellipse cx="205" cy="120" rx="22" ry="18" fill={CREAM} />
-      <circle cx="115" cy="120" r="8" fill={glow} />
-      <circle cx="205" cy="120" r="8" fill={glow} />
+      <rect x="140" y="40" width="40" height="14" rx="3" fill={color} />
+      <rect x="135" y="54" width="50" height="10" rx="3" fill={glow} />
+      <path d="M130 64 L130 200 Q130 220 160 220 Q190 220 190 200 L190 64 Z" fill={color} />
+      <rect x="138" y="100" width="44" height="4" rx="2" fill={CREAM} opacity="0.6" />
+      <rect x="138" y="130" width="44" height="4" rx="2" fill={CREAM} opacity="0.6" />
+      <rect x="138" y="160" width="44" height="4" rx="2" fill={CREAM} opacity="0.6" />
     </svg>
   );
-  if (kind === 'switch') return (
+  if (kind === 'wand') return (
+    // Saç şekillendirici / kuru kuaför sopası — şımart kendini kategorisi
     <svg viewBox="0 0 320 240" style={base}>
-      <rect x="60" y="70" width="200" height="100" rx="12" fill={color} />
-      <rect x="100" y="78" width="120" height="84" rx="4" fill={CREAM} />
-      <circle cx="80" cy="100" r="4" fill={glow} />
-      <circle cx="80" cy="140" r="4" fill={CREAM} />
-      <rect x="232" y="92" width="14" height="14" rx="3" fill={CREAM} />
-      <rect x="232" y="118" width="14" height="14" rx="3" fill={CREAM} />
-    </svg>
-  );
-  if (kind === 'scooter') return (
-    <svg viewBox="0 0 320 240" style={base}>
-      <circle cx="80" cy="180" r="28" fill="none" stroke={color} strokeWidth="6" />
-      <circle cx="240" cy="180" r="28" fill="none" stroke={color} strokeWidth="6" />
-      <line x1="80" y1="180" x2="220" y2="180" stroke={color} strokeWidth="6" />
-      <line x1="240" y1="180" x2="240" y2="60" stroke={color} strokeWidth="6" />
-      <line x1="240" y1="60" x2="220" y2="50" stroke={color} strokeWidth="6" />
-      <line x1="240" y1="60" x2="260" y2="50" stroke={color} strokeWidth="6" />
-      <rect x="140" y="170" width="80" height="14" rx="3" fill={glow} />
+      <rect x="148" y="30" width="24" height="100" rx="6" fill={color} />
+      <ellipse cx="160" cy="30" rx="14" ry="8" fill={glow} />
+      <rect x="146" y="130" width="28" height="80" rx="6" fill={CREAM} stroke={color} strokeWidth="2" />
+      <circle cx="160" cy="155" r="3" fill={color} />
+      <circle cx="160" cy="170" r="3" fill={color} opacity="0.5" />
+      <rect x="152" y="190" width="16" height="10" rx="2" fill={color} opacity="0.3" />
     </svg>
   );
   if (kind === 'vacuum') return (
@@ -110,14 +102,12 @@ const Silhouette = ({ kind, color = INK, glow = RED }: { kind: Glyph; color?: st
 
 type Category = { name: string; count: number; glyph: Glyph; href: string };
 const CATS: Category[] = [
-  { name: 'Projeksiyon',         count: 12, glyph: 'projector', href: `${PARTNER_BASE}/kategori/projeksiyon` },
-  { name: 'Bilgisayar & Tablet', count: 18, glyph: 'laptop',    href: `${PARTNER_BASE}/kategori/bilgisayar` },
-  { name: 'Oyun & Konsol',       count: 9,  glyph: 'console',   href: `${PARTNER_BASE}/kategori/oyun-konsol` },
-  { name: 'VR & Sanal Gerçeklik',count: 4,  glyph: 'vr',        href: `${PARTNER_BASE}/kategori/vr` },
-  { name: 'Telefon',             count: 22, glyph: 'phone',     href: `${PARTNER_BASE}/kategori/telefon` },
-  { name: 'Mikro Mobilite',      count: 6,  glyph: 'scooter',   href: `${PARTNER_BASE}/kategori/mobilite` },
-  { name: 'Akıllı Ev',           count: 14, glyph: 'vacuum',    href: `${PARTNER_BASE}/kategori/akilli-ev` },
-  { name: 'Handheld Oyun',       count: 5,  glyph: 'switch',    href: `${PARTNER_BASE}/kategori/handheld` },
+  { name: 'Ev Aletleri',         count: 22, glyph: 'vacuum',    href: `${PARTNER_BASE}/urunler/kategori/ev-aletleri-kiralama` },
+  { name: 'Bilgisayar & Tablet', count: 28, glyph: 'laptop',    href: `${PARTNER_BASE}/urunler/kategori/bilgisayar-tablet-kiralama` },
+  { name: 'Oyun & Hobi',         count: 14, glyph: 'console',   href: `${PARTNER_BASE}/urunler/kategori/oyun-ve-hobi-kiralama` },
+  { name: 'Kamera & Aksesuar',   count: 18, glyph: 'projector', href: `${PARTNER_BASE}/urunler/kategori/kamera-ve-aksesuar-kiralama` },
+  { name: 'Anne & Bebek',        count: 9,  glyph: 'bottle',    href: `${PARTNER_BASE}/urunler/kategori/anne-bebek-urunleri-kiralama` },
+  { name: 'Şımart Kendini',      count: 11, glyph: 'wand',      href: `${PARTNER_BASE}/urunler/kategori/simart-kendini` },
 ];
 
 type Product = {
@@ -126,21 +116,18 @@ type Product = {
   tag: string | null;
   price: string;
   cat: string;
-  glyph: Glyph;
   spec: string;
   href: string;
-  internal?: boolean;
+  image: string;
+  internal: true;
 };
 
 const PRODUCTS: Product[] = [
-  { brand: 'Anker',    name: 'Nebula Apollo Taşınabilir Projeksiyon',          tag: 'YENİ', price: '1.850', cat: 'Projeksiyon',     glyph: 'projector', spec: '200 ANSI · Android',   href: '/hizla-kirala/anker-nebula-apollo',     internal: true },
-  { brand: 'Apple',    name: 'MacBook Neo 12" M4 · 16GB / 512GB',              tag: 'YENİ', price: '2.450', cat: 'Bilgisayar',      glyph: 'laptop',    spec: 'M4 · 16GB',            href: '/hizla-kirala/macbook-neo-m4',          internal: true },
-  { brand: 'Sony',     name: 'PlayStation 5 Slim · 1TB',                       tag: null,    price: '1.850', cat: 'Oyun & Konsol',   glyph: 'console',   spec: '4K HDR',               href: '/hizla-kirala/playstation-5-slim',     internal: true },
-  { brand: 'Meta',     name: 'Quest 3 VR Sanal Gerçeklik Gözlüğü · 128GB',     tag: 'YENİ', price: '2.300', cat: 'VR',              glyph: 'vr',        spec: 'Karma gerçeklik',      href: '/hizla-kirala/meta-quest-3',           internal: true },
-  { brand: 'Apple',    name: 'iPhone 17 Pro · 256GB · Kozmik Turuncu',         tag: 'YENİ', price: '7.500', cat: 'Telefon',         glyph: 'phone',     spec: 'A19 Pro · Ti',         href: '/hizla-kirala/iphone-17-pro',          internal: true },
-  { brand: 'Nintendo', name: 'Switch OLED Model',                              tag: null,    price: '1.030', cat: 'Handheld',        glyph: 'switch',    spec: '7" OLED',              href: '/hizla-kirala/nintendo-switch-oled',   internal: true },
-  { brand: 'Xiaomi',   name: 'Mi Pro 4 Elektrikli Scooter',                    tag: null,    price: '2.350', cat: 'Mobilite',        glyph: 'scooter',   spec: 'Şehir içi · 45 km',    href: '/hizla-kirala/xiaomi-mi-pro-4',        internal: true },
-  { brand: 'Dyson',    name: 'V15 Detect Kablosuz Süpürge',                    tag: 'YENİ', price: '1.600', cat: 'Akıllı Ev',       glyph: 'vacuum',    spec: 'Lazer · 60 dk',        href: '/hizla-kirala/dyson-v15-detect',       internal: true },
+  { brand: 'Anker',    name: 'Nebula Apollo Taşınabilir Projeksiyon', tag: 'YENİ', price: '1.850', cat: 'Kamera & Aksesuar',   spec: '200 ANSI · Android', href: '/hizla-kirala/anker-nebula-apollo', image: '/assets/hizla-kirala/anker-nebula-apollo.png', internal: true },
+  { brand: 'Apple',    name: 'MacBook Neo 12" M4 · 16GB / 512GB',     tag: 'YENİ', price: '2.450', cat: 'Bilgisayar & Tablet', spec: 'M4 · 16GB',          href: '/hizla-kirala/macbook-neo-m4',      image: '/assets/hizla-kirala/macbook-neo-m4.jpg',      internal: true },
+  { brand: 'Sony',     name: 'PlayStation 5 Slim · 1TB',              tag: null,   price: '1.850', cat: 'Oyun & Hobi',         spec: '4K HDR · 2 kontrolcü',href: '/hizla-kirala/playstation-5-slim',  image: '/assets/hizla-kirala/playstation-5-slim.png',  internal: true },
+  { brand: 'Dyson',    name: 'Airwrap ID Ceramic Pink Saç Şekillendirici', tag: 'YENİ', price: '1.600', cat: 'Şımart Kendini', spec: '6 aksesuar · Coanda', href: '/hizla-kirala/dyson-airwrap',       image: '/assets/hizla-kirala/dyson-airwrap.png',       internal: true },
+  { brand: 'Samsung',  name: 'Galaxy A36 5G · 256GB · Siyah',         tag: null,   price: '1.200', cat: 'Bilgisayar & Tablet', spec: '6.7" AMOLED · 5G',   href: '/hizla-kirala/samsung-galaxy-a36',  image: '/assets/hizla-kirala/samsung-galaxy-a36.png',  internal: true },
 ];
 
 const SITE_NAV: Array<{ label: string; to: string; external?: boolean }> = [
@@ -254,30 +241,30 @@ const Hero = () => (
       </div>
 
       <div className="hk-hero-collage" style={{ position: 'relative', height: 540 }}>
-        <div style={{ position: 'absolute', top: 0, right: 20, width: 280, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 18px 40px rgba(20,20,26,0.10)', border: '1px solid rgba(20,20,26,0.06)' }}>
-          <div style={{ background: CREAM, borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden' }}>
-            <Silhouette kind="projector" color={INK} glow={RED} />
+        <Link to="/hizla-kirala/anker-nebula-apollo" style={{ position: 'absolute', top: 0, right: 20, width: 280, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 18px 40px rgba(20,20,26,0.10)', border: '1px solid rgba(20,20,26,0.06)', textDecoration: 'none', color: 'inherit', display: 'block' }}>
+          <div style={{ background: CREAM, borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="/assets/hizla-kirala/anker-nebula-apollo.png" alt="Anker Nebula Apollo" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(20,20,26,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Anker</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.2 }}>Nebula Apollo Projeksiyon</div>
           <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 18 }}>1.850 TL <span style={{ color: 'rgba(20,20,26,0.5)', fontWeight: 500, fontSize: 13 }}>/ ay</span></div>
-        </div>
-        <div style={{ position: 'absolute', top: 220, left: 0, width: 260, background: INK, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(-3deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.25)' }}>
-          <div style={{ background: '#1f1f28', borderRadius: 14, height: 150, marginBottom: 12, overflow: 'hidden' }}>
-            <Silhouette kind="vr" color={CREAM} glow={RED} />
+        </Link>
+        <Link to="/hizla-kirala/dyson-airwrap" style={{ position: 'absolute', top: 220, left: 0, width: 260, background: INK, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(-3deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.25)', textDecoration: 'none', display: 'block' }}>
+          <div style={{ background: '#1f1f28', borderRadius: 14, height: 150, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="/assets/hizla-kirala/dyson-airwrap.png" alt="Dyson Airwrap ID Ceramic Pink" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
           </div>
-          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(245,239,226,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Meta</div>
-          <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 17, letterSpacing: '-0.02em', marginTop: 4 }}>Quest 3 VR</div>
-          <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 17 }}>2.300 TL <span style={{ color: 'rgba(245,239,226,0.5)', fontWeight: 500, fontSize: 12 }}>/ ay</span></div>
-        </div>
-        <div style={{ position: 'absolute', bottom: 0, right: 60, width: 280, background: RED, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(4deg)', boxShadow: '0 18px 40px rgba(248,56,72,0.30)' }}>
-          <div style={{ background: '#d0202f', borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden' }}>
-            <Silhouette kind="console" color={CREAM} glow={INK} />
+          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(245,239,226,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Dyson</div>
+          <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 17, letterSpacing: '-0.02em', marginTop: 4 }}>Airwrap ID</div>
+          <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 17 }}>1.600 TL <span style={{ color: 'rgba(245,239,226,0.5)', fontWeight: 500, fontSize: 12 }}>/ ay</span></div>
+        </Link>
+        <Link to="/hizla-kirala/playstation-5-slim" style={{ position: 'absolute', bottom: 0, right: 60, width: 280, background: RED, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(4deg)', boxShadow: '0 18px 40px rgba(248,56,72,0.30)', textDecoration: 'none', display: 'block' }}>
+          <div style={{ background: '#d0202f', borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="/assets/hizla-kirala/playstation-5-slim.png" alt="Sony PlayStation 5 Slim" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, opacity: 0.85, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Sony</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4 }}>PlayStation 5 Slim</div>
           <div style={{ marginTop: 10, fontWeight: 700, fontSize: 18 }}>1.850 TL <span style={{ opacity: 0.7, fontWeight: 500, fontSize: 13 }}>/ ay</span></div>
-        </div>
+        </Link>
       </div>
     </div>
   </section>
@@ -328,7 +315,7 @@ const Categories = () => (
         </div>
         <a href={PARTNER_BASE} target="_blank" rel="noopener noreferrer" style={{ color: INK, fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: `1.5px solid ${INK}`, paddingBottom: 3 }}>Tüm kategoriler →</a>
       </div>
-      <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
+      <div className="hk-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
         {CATS.map((c) => (
           <a key={c.name} href={c.href} target="_blank" rel="noopener noreferrer sponsored" style={{
             background: '#fff', borderRadius: 20, padding: '24px 22px',
@@ -358,8 +345,8 @@ function renderProductCard(p: Product) {
     border: '1px solid rgba(20,20,26,0.06)',
     display: 'flex', flexDirection: 'column', transition: 'transform .2s',
   }}>
-    <div style={{ background: CREAM, height: 220, position: 'relative', overflow: 'hidden' }}>
-      <Silhouette kind={p.glyph} color={INK} glow={RED} />
+    <div style={{ background: CREAM, height: 220, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <img src={p.image} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '88%', maxHeight: '88%', objectFit: 'contain' }} />
       {p.tag && (
         <span style={{
           position: 'absolute', top: 14, left: 14,
@@ -415,7 +402,7 @@ const Products = () => (
           <h2 className="hk-h2" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 56, lineHeight: 1, letterSpacing: '-0.04em', margin: 0 }}>En çok kiralananlar.</h2>
         </div>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {['Tümü', 'Yeni', 'Oyun', 'Bilgisayar', 'Mobilite'].map((f, i) => (
+          {['Tümü', 'Yeni', 'Oyun & Hobi', 'Bilgisayar', 'Şımart Kendini'].map((f, i) => (
             <span key={f} style={{
               background: i === 0 ? INK : 'transparent',
               color: i === 0 ? CREAM : INK,
@@ -529,11 +516,11 @@ const FOOTER_COLS: Array<{ t: string; items: Array<{ label: string; href: string
     { label: 'Hakkımızda',      href: '/hakkimizda' },
   ] },
   { t: 'Kiralama', items: [
-    { label: 'Tüm kategoriler', href: PARTNER_BASE, external: true },
-    { label: 'Yeni gelenler',   href: `${PARTNER_BASE}/yeni`, external: true },
-    { label: 'Kampanyalar',     href: `${PARTNER_BASE}/kampanyalar`, external: true },
-    { label: 'Nasıl çalışır?',  href: '#urunler' },
-    { label: 'SSS',             href: '/sss' },
+    { label: 'Ev Aletleri',        href: `${PARTNER_BASE}/urunler/kategori/ev-aletleri-kiralama`, external: true },
+    { label: 'Bilgisayar & Tablet',href: `${PARTNER_BASE}/urunler/kategori/bilgisayar-tablet-kiralama`, external: true },
+    { label: 'Oyun & Hobi',        href: `${PARTNER_BASE}/urunler/kategori/oyun-ve-hobi-kiralama`, external: true },
+    { label: 'Kamera & Aksesuar',  href: `${PARTNER_BASE}/urunler/kategori/kamera-ve-aksesuar-kiralama`, external: true },
+    { label: 'Şımart Kendini',     href: `${PARTNER_BASE}/urunler/kategori/simart-kendini`, external: true },
   ] },
   { t: 'İletişim', items: [
     { label: '+90 850 241 95 15',   href: PHONE_HREF },
@@ -608,6 +595,7 @@ const RESPONSIVE_CSS = `
   .hk-hero-stats { max-width: 100% !important; }
   .hk-section { padding-left: 22px !important; padding-right: 22px !important; padding-top: 56px !important; padding-bottom: 56px !important; }
   .hk-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .hk-grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
   .hk-h2 { font-size: 36px !important; }
   .hk-cta-inner { grid-template-columns: 1fr !important; gap: 32px !important; }
   .hk-h1-cta { font-size: 44px !important; }
@@ -616,6 +604,7 @@ const RESPONSIVE_CSS = `
 }
 @media (max-width: 560px) {
   .hk-grid-4 { grid-template-columns: 1fr !important; }
+  .hk-grid-3 { grid-template-columns: 1fr !important; }
   .hk-hero-stats { grid-template-columns: repeat(2, 1fr) !important; }
   .hk-hero-collage { height: 420px !important; }
   .hk-footer-grid { grid-template-columns: 1fr !important; }
