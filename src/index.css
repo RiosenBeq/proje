@@ -1127,7 +1127,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .step::before {
   content: "";
   position: absolute;
-  left: 0; top: 92px;
+  /* top hizalama: .process-line track y=100'de (2px). Step track y=60'tan
+     basliyor (padding 60). Nokta 18px, line center'ina hizalamak icin:
+     step y = 100 - 60 - 8 = 32 (8 = ~half dot). Eski deger (92) noktayi
+     subtitle uzerine bindiriyordu. */
+  left: 0; top: 32px;
   width: 18px; height: 18px;
   border-radius: 50%;
   background: var(--bg);
@@ -1146,7 +1150,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-size: 19px;
   letter-spacing: -0.015em;
   color: var(--ink-soft);
-  margin-top: 36px;
+  /* margin-top: nokta + cizgi blogundan sonra 8px clearance birakir
+     (nokta step y:32-50 spanini kapsiyor). */
+  margin-top: 44px;
   line-height: 1.2;
   max-width: 14ch;
 }
