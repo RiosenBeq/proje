@@ -129,10 +129,11 @@ type Product = {
   glyph: Glyph;
   spec: string;
   href: string;
+  internal?: boolean;
 };
 
 const PRODUCTS: Product[] = [
-  { brand: 'Anker',    name: 'Nebula Apollo Taşınabilir Projeksiyon',          tag: 'YENİ', price: '1.850', cat: 'Projeksiyon',     glyph: 'projector', spec: '200 ANSI · Android',   href: `${PARTNER_BASE}/urun/anker-nebula-apollo` },
+  { brand: 'Anker',    name: 'Nebula Apollo Taşınabilir Projeksiyon',          tag: 'YENİ', price: '1.850', cat: 'Projeksiyon',     glyph: 'projector', spec: '200 ANSI · Android',   href: '/hizla-kirala/anker-nebula-apollo', internal: true },
   { brand: 'Apple',    name: 'MacBook Neo 12" M4 · 16GB / 512GB',              tag: 'YENİ', price: '2.450', cat: 'Bilgisayar',      glyph: 'laptop',    spec: 'M4 · 16GB',            href: `${PARTNER_BASE}/urun/macbook-neo-m4` },
   { brand: 'Sony',     name: 'PlayStation 5 Slim · 1TB',                       tag: null,    price: '1.850', cat: 'Oyun & Konsol',   glyph: 'console',   spec: '4K HDR',               href: `${PARTNER_BASE}/urun/playstation-5-slim` },
   { brand: 'Meta',     name: 'Quest 3 VR Sanal Gerçeklik Gözlüğü · 128GB',     tag: 'YENİ', price: '2.300', cat: 'VR',              glyph: 'vr',        spec: 'Karma gerçeklik',      href: `${PARTNER_BASE}/urun/meta-quest-3` },
@@ -382,13 +383,23 @@ function renderProductCard(p: Product) {
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(20,20,26,0.5)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>'dan başlayan</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: 28, color: INK, letterSpacing: '-0.03em', lineHeight: 1 }}>{p.price} TL<span style={{ fontSize: 14, color: 'rgba(20,20,26,0.5)', fontWeight: 500 }}> /ay</span></div>
         </div>
-        <a href={p.href} target="_blank" rel="noopener noreferrer sponsored" style={{
-          background: INK, color: CREAM, padding: '11px 18px', borderRadius: 999,
-          fontWeight: 600, fontSize: 14, textDecoration: 'none',
-          display: 'inline-flex', alignItems: 'center', gap: 8,
-        }}>
-          Kirala <span style={{ color: RED }}>→</span>
-        </a>
+        {p.internal ? (
+          <Link to={p.href} style={{
+            background: INK, color: CREAM, padding: '11px 18px', borderRadius: 999,
+            fontWeight: 600, fontSize: 14, textDecoration: 'none',
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+          }}>
+            Kirala <span style={{ color: RED }}>→</span>
+          </Link>
+        ) : (
+          <a href={p.href} target="_blank" rel="noopener noreferrer sponsored" style={{
+            background: INK, color: CREAM, padding: '11px 18px', borderRadius: 999,
+            fontWeight: 600, fontSize: 14, textDecoration: 'none',
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+          }}>
+            Kirala <span style={{ color: RED }}>→</span>
+          </a>
+        )}
       </div>
     </div>
     </div>

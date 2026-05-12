@@ -23,6 +23,7 @@ const loadArticle        = () => import('./pages/Article');
 const loadPrivacyPolicy  = () => import('./pages/PrivacyPolicy');
 const loadKvkk           = () => import('./pages/Kvkk');
 const loadHizlaKirala    = () => import('./pages/HizlaKirala');
+const loadHizlaKiralaUrun = () => import('./pages/HizlaKiralaUrun');
 
 const ServiceDetail   = lazy(loadServiceDetail);
 const Venues          = lazy(loadVenues);
@@ -38,12 +39,13 @@ const Article         = lazy(loadArticle);
 const PrivacyPolicy   = lazy(loadPrivacyPolicy);
 const Kvkk            = lazy(loadKvkk);
 const HizlaKirala     = lazy(loadHizlaKirala);
+const HizlaKiralaUrun = lazy(loadHizlaKiralaUrun);
 
 const ALL_LOADERS = [
   loadServiceDetail, loadVenues, loadVenueDetail, loadProjectDetail,
   loadAbout, loadFaq, loadService, loadBrands, loadCertifications,
   loadKnowledge, loadArticle, loadPrivacyPolicy, loadKvkk,
-  loadHizlaKirala,
+  loadHizlaKirala, loadHizlaKiralaUrun,
 ];
 
 function usePrefetchRoutes() {
@@ -96,6 +98,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/hizla-kirala" element={<Suspense fallback={<PageFallback />}><HizlaKirala /></Suspense>} />
+        <Route path="/hizla-kirala/anker-nebula-apollo" element={<Suspense fallback={<PageFallback />}><HizlaKiralaUrun /></Suspense>} />
       </Routes>
     </BrowserRouter>
   );
