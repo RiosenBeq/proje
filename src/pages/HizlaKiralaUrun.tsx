@@ -31,47 +31,6 @@ const Logo = ({ color = INK, discColor = RED, scale = 1 }: { color?: string; dis
   </div>
 );
 
-const SITE_NAV: Array<{ label: string; to: string }> = [
-  { label: 'Hizmetler',       to: '/hizmetler' },
-  { label: 'Projeler',        to: '/portfolyo' },
-  { label: 'Kiralık Ürünler', to: '/hizla-kirala' },
-  { label: 'Hakkımızda',      to: '/hakkimizda' },
-  { label: 'İletişim',        to: '/iletisim' },
-];
-
-const Nav = () => (
-  <nav className="hk-nav" style={{
-    background: 'rgba(247,243,235,0.92)', backdropFilter: 'blur(10px)',
-    borderBottom: '1px solid rgba(20,20,26,0.08)',
-    position: 'sticky', top: 0, zIndex: 50, padding: '18px 64px',
-    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-  }}>
-    <Link to="/" style={{ textDecoration: 'none' }}><Logo /></Link>
-    <div className="hk-nav-links" style={{ display: 'flex', gap: 36, alignItems: 'center' }}>
-      {SITE_NAV.map((item) => {
-        const active = item.to === '/hizla-kirala';
-        const linkStyle: CSSProperties = {
-          color: active ? INK : 'rgba(20,20,26,0.6)',
-          fontWeight: active ? 600 : 500,
-          fontSize: 15, textDecoration: 'none',
-          borderBottom: active ? `2px solid ${RED}` : '2px solid transparent',
-          paddingBottom: 4,
-        };
-        return (
-          <Link key={item.to} to={item.to} style={linkStyle}>{item.label}</Link>
-        );
-      })}
-    </div>
-    <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" style={{
-      display: 'inline-flex', alignItems: 'center', gap: 8,
-      background: WA, color: '#fff', padding: '10px 18px', borderRadius: 999,
-      fontWeight: 600, fontSize: 15, textDecoration: 'none',
-    }}>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.8.1.2 1.8 2.8 4.4 3.9 2.6 1.1 2.6.7 3.1.7.5 0 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3zM12 3.5C7.3 3.5 3.5 7.3 3.5 12c0 1.5.4 2.9 1.1 4.1l-1.1 4.4 4.5-1.2c1.2.7 2.5 1 4 1 4.7 0 8.5-3.8 8.5-8.5S16.7 3.5 12 3.5z"/></svg>
-      {PHONE_LABEL}
-    </a>
-  </nav>
-);
 
 const Breadcrumb = ({ product }: { product: ProductDetail }) => (
   <div style={{ background: CREAM, padding: '24px 64px 8px' }} className="hk-breadcrumb">
@@ -122,6 +81,7 @@ function Gallery({ product }: { product: ProductDetail }) {
               onClick={() => setActive(i)}
               type="button"
               aria-label={`Görsel ${i + 1}`}
+              className="hk-thumb-btn"
               style={{
                 background: CREAM, borderRadius: 14, aspectRatio: '1/1',
                 border: `2px solid ${i === active ? INK : 'rgba(20,20,26,0.08)'}`,
@@ -206,6 +166,7 @@ function PriceCard({ product }: { product: ProductDetail }) {
           href={product.rentalUrl}
           target="_blank"
           rel="noopener noreferrer sponsored"
+          className="hk-pill"
           style={{
             flex: 2, background: INK, color: CREAM,
             border: 'none', borderRadius: 14, padding: '18px 22px', cursor: 'pointer',
@@ -328,6 +289,7 @@ function Description({ product }: { product: ProductDetail }) {
               key={k}
               type="button"
               onClick={() => setTab(k)}
+              className="hk-tab-btn"
               style={{
                 border: 'none', background: 'transparent', cursor: 'pointer',
                 padding: '14px 22px', marginBottom: -1,
@@ -401,7 +363,7 @@ function Description({ product }: { product: ProductDetail }) {
         {tab === 'sartlar' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, maxWidth: 880 }}>
             {FAQS.map(([q, a], i) => (
-              <details key={q} open={i === 0} style={{ background: '#fff', border: '1px solid rgba(20,20,26,0.08)', borderRadius: 14, padding: '16px 20px' }}>
+              <details key={q} open={i === 0} className="hk-faq" style={{ background: '#fff', border: '1px solid rgba(20,20,26,0.08)', borderRadius: 14, padding: '16px 20px' }}>
                 <summary style={{ fontWeight: 600, fontSize: 16, cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
                   {q}
                   <span style={{ color: RED }}>+</span>
@@ -430,7 +392,7 @@ const Related = ({ product }: { product: ProductDetail }) => {
         </div>
         <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
           {related.map((p) => (
-            <Link key={p.slug} to={`/hizla-kirala/${p.slug}`} style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: INK }}>
+            <Link key={p.slug} to={`/hizla-kirala/${p.slug}`} className="hk-card hk-related-card" style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: INK }}>
               <div style={{ background: CREAM, height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', borderBottom: '1px solid rgba(20,20,26,0.10)' }}>
                 <img src={p.images[0]} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '78%', maxHeight: '85%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
               </div>
@@ -506,12 +468,12 @@ const Footer = () => (
               {col.items.map((item) => {
                 const linkStyle: CSSProperties = { color: 'rgba(245,239,226,0.75)', textDecoration: 'none', fontSize: 14 };
                 if (item.external) {
-                  return <li key={item.label}><a href={item.href} target="_blank" rel="noopener noreferrer" style={linkStyle}>{item.label}</a></li>;
+                  return <li key={item.label}><a href={item.href} target="_blank" rel="noopener noreferrer" className="hk-footer-link" style={linkStyle}>{item.label}</a></li>;
                 }
                 if (item.href.startsWith('mailto:') || item.href.startsWith('tel:')) {
-                  return <li key={item.label}><a href={item.href} style={linkStyle}>{item.label}</a></li>;
+                  return <li key={item.label}><a href={item.href} className="hk-footer-link" style={linkStyle}>{item.label}</a></li>;
                 }
-                return <li key={item.label}><Link to={item.href} style={linkStyle}>{item.label}</Link></li>;
+                return <li key={item.label}><Link to={item.href} className="hk-footer-link" style={linkStyle}>{item.label}</Link></li>;
               })}
             </ul>
           </div>
@@ -526,6 +488,38 @@ const Footer = () => (
 );
 
 const RESPONSIVE_CSS = `
+/* ─── Hover & interaction effects ─── */
+.hk-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.hk-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(20,20,26,0.10); border-color: rgba(20,20,26,0.22); }
+.hk-card-dark { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.hk-card-dark:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(0,0,0,0.32); border-color: rgba(245,239,226,0.22); }
+
+.hk-related-card img { transition: transform .35s ease; }
+.hk-related-card:hover img { transform: scale(1.05); }
+
+.hk-pill { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.hk-pill:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(20,20,26,0.20); }
+.hk-pill-light { transition: transform .2s ease, background-color .2s ease, color .2s ease; }
+.hk-pill-light:hover { transform: translateY(-1px); background: #14141a; color: #f7f3eb; }
+
+.hk-chip { transition: border-color .2s ease, background-color .2s ease, color .2s ease; }
+.hk-chip:hover { border-color: rgba(20,20,26,0.45); }
+
+.hk-thumb-btn { transition: border-color .2s ease, transform .2s ease; }
+.hk-thumb-btn:hover { transform: translateY(-2px); border-color: rgba(20,20,26,0.35) !important; }
+
+.hk-faq summary { transition: color .2s ease; cursor: pointer; }
+.hk-faq summary:hover { color: #F83848; }
+
+.hk-spec-row { transition: background-color .2s ease; }
+.hk-spec-row:hover { background: rgba(20,20,26,0.04); }
+
+.hk-footer-link { transition: color .2s ease; }
+.hk-footer-link:hover { color: #f7f3eb !important; }
+
+.hk-tab-btn { transition: color .2s ease, border-color .2s ease; }
+.hk-tab-btn:hover { color: #F83848; }
+
 @media (max-width: 1100px) {
   .hk-product-h1 { font-size: 44px !important; }
   .hk-h2 { font-size: 36px !important; }
@@ -705,17 +699,14 @@ function ProductPage({ product }: { product: ProductDetail }) {
     <>
       <style>{RESPONSIVE_CSS}</style>
       <div style={{ background: CREAM, color: INK, fontFamily: 'Inter, sans-serif' }} itemScope itemType="https://schema.org/Product">
-        <Nav />
-        <main id="main">
-          <Breadcrumb product={product} />
-          <article>
-            <ProductHero product={product} />
-            <Highlights product={product} />
-            <Description product={product} />
-          </article>
-          <Related product={product} />
-          <CTABanner />
-        </main>
+        <Breadcrumb product={product} />
+        <article>
+          <ProductHero product={product} />
+          <Highlights product={product} />
+          <Description product={product} />
+        </article>
+        <Related product={product} />
+        <CTABanner />
         <Footer />
       </div>
     </>

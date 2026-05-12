@@ -145,56 +145,6 @@ const POPULAR_PRODUCTS: Product[] = PRODUCTS.filter((p) => p.popular);
 // Filter chip seçenekleri — PRODUCTS'taki tüm kategoriler + Tümü.
 const PRODUCT_FILTERS: string[] = ['Tümü', ...Array.from(new Set(PRODUCTS.map((p) => p.cat)))];
 
-const SITE_NAV: Array<{ label: string; to: string; external?: boolean }> = [
-  { label: 'Hizmetler', to: '/hizmetler' },
-  { label: 'Projeler', to: '/portfolyo' },
-  { label: 'Kiralık Ürünler', to: '/hizla-kirala' },
-  { label: 'Hakkımızda', to: '/hakkimizda' },
-  { label: 'İletişim', to: '/iletisim' },
-];
-
-const Nav = () => (
-  <nav
-    className="hk-nav"
-    style={{
-      background: 'rgba(247,243,235,0.92)', backdropFilter: 'blur(10px)',
-      borderBottom: '1px solid rgba(20,20,26,0.08)',
-      position: 'sticky', top: 0, zIndex: 50, padding: '18px 64px',
-      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-    }}
-  >
-    <Link to="/" style={{ textDecoration: 'none' }}><Logo /></Link>
-    <div className="hk-nav-links" style={{ display: 'flex', gap: 36, alignItems: 'center' }}>
-      {SITE_NAV.map((item) => {
-        const active = item.to === '/hizla-kirala';
-        const linkStyle: CSSProperties = {
-          color: active ? INK : 'rgba(20,20,26,0.6)',
-          fontWeight: active ? 600 : 500,
-          fontSize: 15, textDecoration: 'none',
-          borderBottom: active ? `2px solid ${RED}` : '2px solid transparent',
-          paddingBottom: 4,
-        };
-        return (
-          <Link key={item.to} to={item.to} className="hk-nav-link" style={linkStyle}>{item.label}</Link>
-        );
-      })}
-    </div>
-    <a
-      href={WHATSAPP_HREF}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hk-pill"
-      style={{
-        display: 'inline-flex', alignItems: 'center', gap: 8,
-        background: WA, color: '#fff', padding: '10px 18px', borderRadius: 999,
-        fontWeight: 600, fontSize: 15, textDecoration: 'none',
-      }}
-    >
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.8.1.2 1.8 2.8 4.4 3.9 2.6 1.1 2.6.7 3.1.7.5 0 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3zM12 3.5C7.3 3.5 3.5 7.3 3.5 12c0 1.5.4 2.9 1.1 4.1l-1.1 4.4 4.5-1.2c1.2.7 2.5 1 4 1 4.7 0 8.5-3.8 8.5-8.5S16.7 3.5 12 3.5z"/></svg>
-      {PHONE_LABEL}
-    </a>
-  </nav>
-);
 
 const Hero = () => (
   <section className="hk-hero" style={{ background: CREAM, padding: '88px 64px 96px', position: 'relative', overflow: 'hidden' }}>
@@ -270,7 +220,7 @@ const Hero = () => (
 
         {/* Anker — odak noktası (rotation yok, en üstte) */}
         <Link to="/hizla-kirala/anker-nebula-apollo" className="hk-hero-anker" style={{ position: 'absolute', top: 8, right: 0, width: 308, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 22px 48px rgba(20,20,26,0.14)', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: 'inherit', display: 'block', zIndex: 3 }}>
-          <span style={{ position: 'absolute', top: 14, left: 14, background: RED, color: CREAM, fontFamily: '"JetBrains Mono", monospace', fontSize: 9, fontWeight: 600, letterSpacing: '0.1em', padding: '3px 8px', borderRadius: 999, zIndex: 2 }}>ÇOK SATAN</span>
+          <span style={{ position: 'absolute', top: 14, left: 14, background: RED, color: CREAM, fontFamily: '"JetBrains Mono", monospace', fontSize: 9, fontWeight: 600, letterSpacing: '0.1em', padding: '3px 8px', borderRadius: 999, zIndex: 2 }}>ÇOK KİRALANAN</span>
           <div style={{ background: CREAM, borderRadius: 14, height: 210, marginBottom: 14, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg" alt="Anker Nebula Apollo Taşınabilir Projeksiyon Cihazı" loading="lazy" decoding="async" style={{ maxWidth: '92%', maxHeight: '92%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
@@ -473,6 +423,28 @@ function renderProductCard(p: Product) {
     </div>
   );
 }
+
+// Resmi distribütör markalar — kataloğumuzdaki üreticiler. SEO için brand
+// keyword density + kullanıcı güveni için visual trust strip.
+const BRAND_LIST = [
+  'Apple', 'Sony', 'Dyson', 'Nintendo', 'Meta', 'Anker', 'Xiaomi',
+  'DJI', 'Karaca', 'Kärcher', 'Cybex', 'Dreame', 'FOREO', 'Philips',
+];
+
+const BrandStrip = () => (
+  <section className="hk-section" style={{ background: '#fff', padding: '40px 64px', borderTop: '1px solid rgba(20,20,26,0.06)', borderBottom: '1px solid rgba(20,20,26,0.06)' }} aria-label="Kataloğumuzdaki markalar">
+    <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 28 }}>
+      <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: 'rgba(20,20,26,0.55)', letterSpacing: '0.14em', textTransform: 'uppercase', flexShrink: 0 }}>
+        / Kataloğumuzdaki <strong style={{ color: INK, fontWeight: 700 }}>markalar</strong>
+      </div>
+      <div style={{ display: 'flex', gap: '28px 32px', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'flex-end' }}>
+        {BRAND_LIST.map((b) => (
+          <span key={b} style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 17, color: 'rgba(20,20,26,0.68)', letterSpacing: '-0.025em' }}>{b}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 const EnCokKiralananlar = () => (
   <section id="en-cok-kiralananlar" className="hk-section" style={{ background: '#fff', padding: '80px 64px' }}>
@@ -900,6 +872,10 @@ export default function HizlaKirala() {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     '@id': `${SITE}/hizla-kirala#faq`,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.hk-h2', '.hk-faq-q', '.hk-faq-a'],
+    },
     mainEntity: [
       {
         '@type': 'Question',
@@ -972,16 +948,14 @@ export default function HizlaKirala() {
     <>
       <style>{RESPONSIVE_CSS}</style>
       <div style={{ background: CREAM, color: INK, fontFamily: 'Inter, sans-serif' }} itemScope itemType="https://schema.org/CollectionPage">
-        <Nav />
-        <main id="main">
-          <Hero />
-          <Benefits />
-          <Categories />
-          <EnCokKiralananlar />
-          <Products />
-          <HowItWorks />
-          <CTABanner />
-        </main>
+        <Hero />
+        <Benefits />
+        <Categories />
+        <BrandStrip />
+        <EnCokKiralananlar />
+        <Products />
+        <HowItWorks />
+        <CTABanner />
         <Footer />
       </div>
     </>
