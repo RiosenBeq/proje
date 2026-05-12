@@ -79,7 +79,13 @@ function HizlaKiralaNav({ onMenuToggle, drawerOpen }: Props) {
         </svg>
         <span>Kategori</span>
       </a>
-      <Link to="/hizla-kirala" className="mbn-item mbn-cta mbn-cta-hk" aria-label="Hızla Kirala — Ana">
+      <a
+        href="https://hizlakirala.com"
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        className="mbn-item mbn-cta mbn-cta-hk"
+        aria-label="Hızla Kirala'da kirala"
+      >
         <span className="mbn-cta-bubble mbn-cta-bubble-hk">
           <img
             src="/assets/hizla-kirala/hizla-kirala-icon.png"
@@ -91,8 +97,8 @@ function HizlaKiralaNav({ onMenuToggle, drawerOpen }: Props) {
             aria-hidden
           />
         </span>
-        <span>Hızla</span>
-      </Link>
+        <span>Kirala</span>
+      </a>
       <a href="/hizla-kirala#en-cok-kiralananlar" className="mbn-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <path d="M12 2v6" />
