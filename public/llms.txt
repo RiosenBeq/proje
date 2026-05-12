@@ -10,6 +10,7 @@
 - [Hakkımızda](https://onmuzikproje.com/hakkimizda): 2009'dan bugüne tarihçe, manifesto, lokasyon, ekipman lab
 - [SSS](https://onmuzikproje.com/sss): 4 kategori altında 18 soru-cevap (akustik, ses, süreç & garanti, KVKK & yasal)
 - [Servis & Bakım](https://onmuzikproje.com/servis-bakim): 3 SLA seviyesi (Standart, Premium, 7/24 Mission Critical) + WhatsApp + servis talep formu
+- [Kiralık Ürünler](https://onmuzikproje.com/hizla-kirala): On Music × Hızla Kirala resmi iş ortaklığı kataloğu — projeksiyon, MacBook M4, PlayStation 5 Slim, Dyson Airwrap, Samsung Galaxy A36 aylık / günlük kiralama, 24 saatte teslim, iyzico ile 12 taksit. Kiralama hattı: 0543 412 33 80
 - [Markalar](https://onmuzikproje.com/markalar): 40+ profesyonel AV marka portföyü, 8 kategori filtresi, premium / yetkili / çözüm ortağı seviyeleri
 - [Sertifikalar](https://onmuzikproje.com/sertifikalar): EN 54-16, EN 54-24, ISO 3382, ISO 9001, CE, TSE, CEDIA, Dante Lvl 2/3 — ihale + mevzuat
 - [Bilgi Merkezi](https://onmuzikproje.com/bilgi-merkezi): teknik rehber blog
@@ -50,6 +51,13 @@
 - [Kurumsal Lobi — İstanbul, 2025](https://onmuzikproje.com/projeler/kurumsal-lobi) — Plaza ana lobi, 3 zon, 24 tavan hoparlör
 - [Konferans Merkezi — İzmir, 2023](https://onmuzikproje.com/projeler/konferans-merkezi) — 6 huddle + boardroom + audi, MTR sertifikalı
 
+## Kiralık ürün detay sayfaları (On Music × Hızla Kirala)
+- [Anker Nebula Apollo Taşınabilir Projeksiyon](https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo) — 200 ANSI lümen, Android TV, 4 saat pil, aylık 1.850 TL'den
+- [Apple MacBook Neo 12" M4](https://onmuzikproje.com/hizla-kirala/macbook-neo-m4) — M4 çip, 16GB RAM, 512GB SSD, 18 saat pil, aylık 2.450 TL'den
+- [Sony PlayStation 5 Slim 1TB](https://onmuzikproje.com/hizla-kirala/playstation-5-slim) — 4K 120 FPS, 2 DualSense, aylık 1.850 TL'den
+- [Dyson Airwrap ID Ceramic Pink](https://onmuzikproje.com/hizla-kirala/dyson-airwrap) — Coanda hava akımı, 6 aksesuar, aylık 1.600 TL'den
+- [Samsung Galaxy A36 5G 256GB](https://onmuzikproje.com/hizla-kirala/samsung-galaxy-a36) — 6.7" AMOLED, 5G, 5000 mAh, aylık 1.200 TL'den
+
 ## Çalışma Süreci (5 Aşama)
 1. **Keşif & Brifing** — saha ziyareti, ücretsiz
 2. **Ölçüm & Analiz** — RT60, STI, NC, CAD overlay (5–7 gün)
@@ -58,8 +66,10 @@
 5. **Kalibrasyon** — DSP tuning, final ölçüm raporu
 
 ## İletişim
-- Telefon: 0850 241 9515
+- Genel hat (akustik, ses, AV projeler): 0850 241 9515
+- Kiralama hattı (On Music × Hızla Kirala): 0543 412 33 80 — WhatsApp ve sesli destek
 - E-posta: proje@onmuzik.com
+- Instagram: @onmuzik (instagram.com/onmuzik)
 - Adres: Atatürk Mahallesi Ataşehir Bulvarı, Ertuğrul Gazi Sokak, 34758 Ataşehir / İstanbul, Türkiye
 - Çalışma Saatleri: Pazartesi–Cumartesi 09:00–19:00
 - Saha keşfi ücretsizdir; teknik teklif 5–7 gün içinde teslim edilir

@@ -166,3 +166,74 @@ await sharp(resolve(ROOT, 'public/assets/on-music-disc.png'))
   .png()
   .toFile(resolve(ROOT, 'public/assets/on-music-disc-192.png'));
 console.log(`✓ disc-192  (192×192)        → public/assets/on-music-disc-192.png`);
+
+/* ─────────── Hızla Kirala iş ortaklığı için ayrı OG image ─────────── */
+// /hizla-kirala sayfasının paylaşım kartı: krem zemin, marka çiftliği rozeti,
+// "Kiralık ürünler" başlığı, küçük partnership pill.
+const RED   = '#F83848';
+const INK   = '#14141a';
+const CREAM = '#f7f3eb';
+const hkSvg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="hkGlow" cx="0.85" cy="0.2" r="0.55">
+      <stop offset="0" stop-color="${RED}" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="${RED}" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="${CREAM}"/>
+  <rect width="1200" height="630" fill="url(#hkGlow)"/>
+
+  <!-- right disc (smaller, top-right) -->
+  <g transform="translate(1010 200)">
+    <circle cx="0" cy="0" r="140" fill="${INK}"/>
+    <circle cx="0" cy="0" r="140" fill="none" stroke="${RED}" stroke-width="2" opacity="0.18"/>
+    <circle cx="0" cy="0" r="60" fill="${RED}"/>
+    <circle cx="0" cy="0" r="10" fill="${CREAM}"/>
+  </g>
+
+  <!-- Bricolage-style brand pair -->
+  <g transform="translate(80 90)" font-family="Bricolage Grotesque, Inter, sans-serif" fill="${INK}">
+    <text x="0" y="0" font-size="22" font-weight="600" letter-spacing="4" fill="rgba(20,20,26,0.6)">
+      ON MUSIC × HIZLA KIRALA · RESMÎ İŞ ORTAĞI
+    </text>
+    <text x="0" y="130" font-size="104" font-weight="800" letter-spacing="-5">Almak yerine,</text>
+    <text x="0" y="240" font-size="104" font-weight="800" letter-spacing="-5" fill="${RED}">kirala.</text>
+  </g>
+
+  <!-- partner caption -->
+  <text x="80" y="430" font-family="Bricolage Grotesque" font-size="18" font-weight="600" letter-spacing="4" fill="${INK}" opacity="0.55">
+    HIZLAKIRALA İŞ ORTAKLIĞIYLA
+  </text>
+
+  <!-- key stats strip -->
+  <g transform="translate(80 480)" font-family="JetBrains Mono, monospace" fill="${INK}">
+    <g>
+      <text x="0" y="0" font-size="14" letter-spacing="4" fill="rgba(20,20,26,0.6)">URUN</text>
+      <text x="0" y="36" font-size="32" font-weight="700">150+</text>
+    </g>
+    <g transform="translate(180 0)">
+      <text x="0" y="0" font-size="14" letter-spacing="4" fill="rgba(20,20,26,0.6)">TESLIM</text>
+      <text x="0" y="36" font-size="32" font-weight="700">24 saat</text>
+    </g>
+    <g transform="translate(380 0)">
+      <text x="0" y="0" font-size="14" letter-spacing="4" fill="rgba(20,20,26,0.6)">GARANTI</text>
+      <text x="0" y="36" font-size="32" font-weight="700">2 yil</text>
+    </g>
+    <g transform="translate(580 0)">
+      <text x="0" y="0" font-size="14" letter-spacing="4" fill="rgba(20,20,26,0.6)">TAKSIT</text>
+      <text x="0" y="36" font-size="32" font-weight="700">iyzico 12</text>
+    </g>
+  </g>
+
+  <!-- bottom-right URL -->
+  <text x="1120" y="595" text-anchor="end" font-family="JetBrains Mono" font-size="14" letter-spacing="4" fill="${INK}" opacity="0.55">
+    onmuzikproje.com/hizla-kirala
+  </text>
+</svg>`;
+
+await sharp(Buffer.from(hkSvg))
+  .resize(1200, 630, { fit: 'cover' })
+  .png({ compressionLevel: 9 })
+  .toFile(resolve(ROOT, 'public/assets/hizla-kirala/og-image.png'));
+console.log(`✓ hizla-kirala og-image (1200x630) → public/assets/hizla-kirala/og-image.png`);
