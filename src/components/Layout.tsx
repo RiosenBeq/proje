@@ -20,7 +20,7 @@ const NAV = [
 
 const SOCIALS: Array<{ href: string; label: string; svg: string }> = [
   { href: 'https://www.instagram.com/onmuzik', label: 'Instagram · @onmuzik', svg: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>' },
-  { href: 'https://www.linkedin.com/',  label: 'LinkedIn',  svg: '<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="17"/><circle cx="8" cy="7.5" r="0.9" fill="currentColor" stroke="none"/><path d="M12 17v-4a2 2 0 0 1 4 0v4"/><line x1="12" y1="11" x2="12" y2="17"/>' },
+  { href: 'https://www.linkedin.com/company/onmuzikproje', label: 'LinkedIn · On Muzik Proje', svg: '<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="17"/><circle cx="8" cy="7.5" r="0.9" fill="currentColor" stroke="none"/><path d="M12 17v-4a2 2 0 0 1 4 0v4"/><line x1="12" y1="11" x2="12" y2="17"/>' },
   { href: 'https://www.youtube.com/',   label: 'YouTube',   svg: '<rect x="3" y="6" width="18" height="12" rx="3"/><path d="M11 9.5v5l4-2.5z" fill="currentColor" stroke="none"/>' },
 ];
 
