@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import type { CSSProperties } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { useSeo } from '../lib/seo';
 import { PRODUCTS as PRODUCTS_FULL } from '../lib/hizla-kirala-products';
 
@@ -142,6 +142,8 @@ const PRODUCTS: Product[] = PRODUCTS_FULL.map((p) => ({
   slug: p.slug,
 }));
 const POPULAR_PRODUCTS: Product[] = PRODUCTS.filter((p) => p.popular);
+// Filter chip seçenekleri — PRODUCTS'taki tüm kategoriler + Tümü.
+const PRODUCT_FILTERS: string[] = ['Tümü', ...Array.from(new Set(PRODUCTS.map((p) => p.cat)))];
 
 const SITE_NAV: Array<{ label: string; to: string; external?: boolean }> = [
   { label: 'Hizmetler', to: '/hizmetler' },
@@ -256,31 +258,74 @@ const Hero = () => (
         </div>
       </div>
 
-      <div className="hk-hero-collage" style={{ position: 'relative', height: 540 }}>
-        <Link to="/hizla-kirala/anker-nebula-apollo" className="hk-hero-anker" style={{ position: 'absolute', top: 0, right: 20, width: 280, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 18px 40px rgba(20,20,26,0.10)', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: 'inherit', display: 'block' }}>
-          <div style={{ background: CREAM, borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg" alt="Anker Nebula Apollo Taşınabilir Projeksiyon Cihazı" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+      <div className="hk-hero-collage" style={{ position: 'relative', height: 600 }}>
+        {/* Dekoratif arka plan — küçük renkli noktalar + bağlantı çizgisi */}
+        <svg viewBox="0 0 580 600" preserveAspectRatio="none" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }} aria-hidden>
+          <circle cx="540" cy="320" r="5" fill={RED} opacity="0.55" />
+          <circle cx="40" cy="220" r="4" fill={INK} opacity="0.35" />
+          <circle cx="320" cy="560" r="6" fill={RED} opacity="0.40" />
+          <circle cx="80" cy="100" r="3" fill={INK} opacity="0.30" />
+          <path d="M 260 220 Q 310 200 360 220" stroke={INK} strokeOpacity="0.22" strokeWidth="1.5" strokeDasharray="5 5" fill="none" />
+        </svg>
+
+        {/* Anker — odak noktası (rotation yok, en üstte) */}
+        <Link to="/hizla-kirala/anker-nebula-apollo" className="hk-hero-anker" style={{ position: 'absolute', top: 8, right: 0, width: 308, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 22px 48px rgba(20,20,26,0.14)', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: 'inherit', display: 'block', zIndex: 3 }}>
+          <span style={{ position: 'absolute', top: 14, left: 14, background: RED, color: CREAM, fontFamily: '"JetBrains Mono", monospace', fontSize: 9, fontWeight: 600, letterSpacing: '0.1em', padding: '3px 8px', borderRadius: 999, zIndex: 2 }}>ÇOK SATAN</span>
+          <div style={{ background: CREAM, borderRadius: 14, height: 210, marginBottom: 14, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg" alt="Anker Nebula Apollo Taşınabilir Projeksiyon Cihazı" loading="lazy" decoding="async" style={{ maxWidth: '92%', maxHeight: '92%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(20,20,26,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Anker</div>
-          <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.2 }}>Nebula Apollo Projeksiyon</div>
-          <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 18 }}>1.850 TL <span style={{ color: 'rgba(20,20,26,0.5)', fontWeight: 500, fontSize: 13 }}>/ ay</span></div>
+          <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 19, letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.2 }}>Nebula Apollo Projeksiyon</div>
+          <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 19 }}>1.850 TL <span style={{ color: 'rgba(20,20,26,0.5)', fontWeight: 500, fontSize: 13 }}>/ ay</span></div>
         </Link>
-        <Link to="/hizla-kirala/dyson-airwrap" className="hk-hero-dyson" style={{ position: 'absolute', top: 220, left: 0, width: 260, background: INK, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(-3deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.25)', textDecoration: 'none', display: 'block' }}>
-          <div style={{ background: CREAM, borderRadius: 14, height: 150, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+
+        {/* Dyson — sol-orta, hafif sola eğik */}
+        <Link to="/hizla-kirala/dyson-airwrap" className="hk-hero-dyson" style={{ position: 'absolute', top: 290, left: 0, width: 232, background: INK, color: CREAM, borderRadius: 22, padding: 16, transform: 'rotate(-4deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.28)', textDecoration: 'none', display: 'block', zIndex: 1 }}>
+          <div style={{ background: CREAM, borderRadius: 12, height: 132, marginBottom: 10, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp" alt="Dyson Airwrap ID Ceramic Pink Saç Şekillendirici" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
-          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(245,239,226,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Dyson</div>
-          <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 17, letterSpacing: '-0.02em', marginTop: 4 }}>Airwrap ID</div>
-          <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 17 }}>1.600 TL <span style={{ color: 'rgba(245,239,226,0.5)', fontWeight: 500, fontSize: 12 }}>/ ay</span></div>
+          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 10, color: 'rgba(245,239,226,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Dyson</div>
+          <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 16, letterSpacing: '-0.02em', marginTop: 4 }}>Airwrap ID</div>
+          <div style={{ marginTop: 8, color: RED, fontWeight: 700, fontSize: 16 }}>1.600 TL <span style={{ color: 'rgba(245,239,226,0.5)', fontWeight: 500, fontSize: 11 }}>/ ay</span></div>
         </Link>
-        <Link to="/hizla-kirala/playstation-5-slim" className="hk-hero-ps5" style={{ position: 'absolute', bottom: 0, right: 60, width: 280, background: RED, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(4deg)', boxShadow: '0 18px 40px rgba(248,56,72,0.30)', textDecoration: 'none', display: 'block' }}>
-          <div style={{ background: CREAM, borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+
+        {/* PS5 — sağ-alt, hafif sağa eğik */}
+        <Link to="/hizla-kirala/playstation-5-slim" className="hk-hero-ps5" style={{ position: 'absolute', bottom: 0, right: 90, width: 240, background: RED, color: CREAM, borderRadius: 22, padding: 16, transform: 'rotate(5deg)', boxShadow: '0 22px 44px rgba(248,56,72,0.34)', textDecoration: 'none', display: 'block', zIndex: 2 }}>
+          <div style={{ background: CREAM, borderRadius: 12, height: 144, marginBottom: 10, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img src="https://api.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp" alt="Sony PlayStation 5 Slim 1TB Oyun Konsolu" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
-          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, opacity: 0.85, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Sony</div>
-          <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4 }}>PlayStation 5 Slim</div>
-          <div style={{ marginTop: 10, fontWeight: 700, fontSize: 18 }}>1.850 TL <span style={{ opacity: 0.7, fontWeight: 500, fontSize: 13 }}>/ ay</span></div>
+          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 10, opacity: 0.85, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Sony</div>
+          <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 16, letterSpacing: '-0.02em', marginTop: 4 }}>PlayStation 5 Slim</div>
+          <div style={{ marginTop: 8, fontWeight: 700, fontSize: 16 }}>1.850 TL <span style={{ opacity: 0.7, fontWeight: 500, fontSize: 11 }}>/ ay</span></div>
         </Link>
+
+        {/* Floating "AYLIK KİRALA" disc — sol üst köşede, hafif eğik */}
+        <div className="hk-hero-disc" style={{
+          position: 'absolute', top: 56, left: 30,
+          width: 92, height: 92, borderRadius: 999,
+          background: INK, color: CREAM,
+          display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center',
+          fontFamily: '"JetBrains Mono", monospace', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', lineHeight: 1.2,
+          boxShadow: '0 14px 30px rgba(20,20,26,0.22)',
+          transform: 'rotate(-12deg)', zIndex: 4,
+          textTransform: 'uppercase',
+        }} aria-hidden>
+          AYLIK<br />KİRALA<span style={{ color: RED }}>→</span>
+        </div>
+
+        {/* Floating count chip — sağ alt, arka planda */}
+        <div style={{
+          position: 'absolute', top: 230, right: 8,
+          background: CREAM, color: INK,
+          fontFamily: '"JetBrains Mono", monospace', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em',
+          padding: '6px 12px', borderRadius: 999,
+          boxShadow: '0 8px 20px rgba(20,20,26,0.10)',
+          border: `1.5px solid rgba(20,20,26,0.14)`,
+          transform: 'rotate(8deg)', zIndex: 4,
+          textTransform: 'uppercase',
+        }} aria-hidden>
+          +150 ürün
+        </div>
       </div>
     </div>
   </section>
@@ -437,7 +482,7 @@ const EnCokKiralananlar = () => (
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: RED, marginBottom: 10 }}>/ En Çok Kiralananlar</div>
           <h2 className="hk-h2" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 56, lineHeight: 1, letterSpacing: '-0.04em', margin: 0 }}>Kullanıcıların ilk tercihi.</h2>
         </div>
-        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, color: 'rgba(20,20,26,0.5)', letterSpacing: '0.08em' }}>{POPULAR_PRODUCTS.length} ÜRÜN · GERÇEK ZAMANLI</div>
+        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, color: 'rgba(20,20,26,0.5)', letterSpacing: '0.08em' }}>{POPULAR_PRODUCTS.length} ÜRÜN</div>
       </div>
       <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
         {POPULAR_PRODUCTS.map(renderProductCard)}
@@ -446,40 +491,64 @@ const EnCokKiralananlar = () => (
   </section>
 );
 
-const Products = () => (
-  <section id="urunler" className="hk-section" style={{ background: CREAM, padding: '80px 64px', borderTop: '1px solid rgba(20,20,26,0.06)' }}>
-    <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-      <div className="hk-section-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 36, gap: 20, flexWrap: 'wrap' }}>
-        <div>
-          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: RED, marginBottom: 10 }}>/ Tüm katalog</div>
-          <h2 className="hk-h2" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 56, lineHeight: 1, letterSpacing: '-0.04em', margin: 0 }}>Tüm kiralık ürünler.</h2>
+const Products = () => {
+  const [activeFilter, setActiveFilter] = useState<string>('Tümü');
+  const visibleProducts = activeFilter === 'Tümü'
+    ? PRODUCTS
+    : PRODUCTS.filter((p) => p.cat === activeFilter);
+  return (
+    <section id="urunler" className="hk-section" style={{ background: CREAM, padding: '80px 64px', borderTop: '1px solid rgba(20,20,26,0.06)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <div className="hk-section-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 36, gap: 20, flexWrap: 'wrap' }}>
+          <div>
+            <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: RED, marginBottom: 10 }}>/ Tüm katalog</div>
+            <h2 className="hk-h2" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 56, lineHeight: 1, letterSpacing: '-0.04em', margin: 0 }}>Tüm kiralık ürünler.</h2>
+          </div>
+          <div role="tablist" aria-label="Kategori filtresi" style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            {PRODUCT_FILTERS.map((f) => {
+              const active = f === activeFilter;
+              return (
+                <button
+                  key={f}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setActiveFilter(f)}
+                  className="hk-chip"
+                  style={{
+                    background: active ? INK : 'transparent',
+                    color: active ? CREAM : INK,
+                    border: active ? '1px solid transparent' : '1px solid rgba(20,20,26,0.15)',
+                    padding: '8px 14px', borderRadius: 999,
+                    fontFamily: '"JetBrains Mono", monospace', fontSize: 12, letterSpacing: '0.08em', textTransform: 'uppercase',
+                    cursor: 'pointer', fontWeight: 500,
+                  }}
+                >{f}</button>
+              );
+            })}
+          </div>
         </div>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {['Tümü', 'Şımart Kendini', 'Ev Aletleri', 'Oyun & Hobi', 'Telefon'].map((f, i) => (
-            <span key={f} className="hk-chip" style={{
-              background: i === 0 ? INK : 'transparent',
-              color: i === 0 ? CREAM : INK,
-              border: i === 0 ? 'none' : '1px solid rgba(20,20,26,0.15)',
-              padding: '8px 14px', borderRadius: 999,
-              fontFamily: '"JetBrains Mono", monospace', fontSize: 12, letterSpacing: '0.08em', textTransform: 'uppercase',
-              cursor: 'pointer',
-            }}>{f}</span>
-          ))}
+        {visibleProducts.length > 0 ? (
+          <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+            {visibleProducts.map(renderProductCard)}
+          </div>
+        ) : (
+          <div style={{ background: '#fff', borderRadius: 22, border: '1.5px solid rgba(20,20,26,0.14)', padding: '48px 24px', textAlign: 'center' }}>
+            <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 22, marginBottom: 8 }}>Bu kategoride henüz ürün yok</div>
+            <div style={{ fontSize: 15, color: 'rgba(20,20,26,0.6)' }}>Tüm kataloğu görmek için filtreyi temizleyin.</div>
+          </div>
+        )}
+        <div style={{ textAlign: 'center', marginTop: 40 }}>
+          <a href={PARTNER_BASE} target="_blank" rel="noopener noreferrer sponsored" className="hk-pill-light" style={{
+            display: 'inline-flex', alignItems: 'center', gap: 10,
+            border: `1.5px solid ${INK}`, color: INK, padding: '14px 26px', borderRadius: 999,
+            fontWeight: 600, fontSize: 16, textDecoration: 'none',
+          }}>Tüm ürünleri gör (150+) →</a>
         </div>
       </div>
-      <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
-        {PRODUCTS.map(renderProductCard)}
-      </div>
-      <div style={{ textAlign: 'center', marginTop: 40 }}>
-        <a href={PARTNER_BASE} target="_blank" rel="noopener noreferrer sponsored" className="hk-pill-light" style={{
-          display: 'inline-flex', alignItems: 'center', gap: 10,
-          border: `1.5px solid ${INK}`, color: INK, padding: '14px 26px', borderRadius: 999,
-          fontWeight: 600, fontSize: 16, textDecoration: 'none',
-        }}>Tüm ürünleri gör (150+) →</a>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const HowItWorks = () => (
   <section className="hk-section" style={{ background: INK, color: CREAM, padding: '80px 64px' }}>
@@ -687,6 +756,14 @@ const RESPONSIVE_CSS = `
 .hk-tag-link { transition: opacity .2s ease, transform .2s ease; }
 .hk-tag-link:hover { opacity: 0.78; transform: translateY(-1px); }
 
+/* Hero disc subtle float animation — kullanıcı dikkatini çekmek için */
+@keyframes hkDiscFloat {
+  0%, 100% { transform: rotate(-12deg) translateY(0); }
+  50% { transform: rotate(-12deg) translateY(-6px); }
+}
+.hk-hero-disc { animation: hkDiscFloat 3.4s ease-in-out infinite; }
+.hk-hero-disc:hover { animation-play-state: paused; transform: rotate(-12deg) scale(1.06); }
+
 @media (max-width: 1100px) {
   .hk-hero-h1 { font-size: 72px !important; }
   .hk-h2 { font-size: 44px !important; }
@@ -698,7 +775,7 @@ const RESPONSIVE_CSS = `
   .hk-hero { padding: 56px 22px 64px !important; }
   .hk-hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
   .hk-hero-h1 { font-size: 56px !important; }
-  .hk-hero-collage { height: 460px !important; }
+  .hk-hero-collage { height: 520px !important; }
   .hk-hero-stats { max-width: 100% !important; }
   .hk-section { padding-left: 22px !important; padding-right: 22px !important; padding-top: 56px !important; padding-bottom: 56px !important; }
   .hk-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
@@ -713,7 +790,7 @@ const RESPONSIVE_CSS = `
   .hk-grid-4 { grid-template-columns: 1fr !important; }
   .hk-grid-3 { grid-template-columns: 1fr !important; }
   .hk-hero-stats { grid-template-columns: repeat(2, 1fr) !important; }
-  .hk-hero-collage { height: 420px !important; }
+  .hk-hero-collage { height: 460px !important; }
   .hk-footer-grid { grid-template-columns: 1fr !important; }
   .hk-hero-h1 { font-size: 44px !important; }
   .hk-h2 { font-size: 30px !important; }
