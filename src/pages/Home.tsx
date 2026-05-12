@@ -359,7 +359,7 @@ function DisciplineDeck({ active, setActive }: { active: DiscKey; setActive: (k:
           <span className="eyebrow"><span className="dot" />DİSİPLİN SEÇİCİ · 01</span>
           <div className="dd-q">
             Hangi <em>frekansta</em> çalışıyorsunuz?
-            <small className="dd-hint">İhtiyacınızı seçin — sistem kendini ona göre kalibre eder.</small>
+            <small className="dd-hint">İhtiyacınızı seçin - sistem kendini ona göre kalibre eder.</small>
           </div>
           <div className="dd-meter">
             <span>−12</span><span>−6</span><span className="zero">0</span><span className="peak">+3 dB</span>
@@ -572,7 +572,7 @@ function Venues() {
             <h2 className="h-section indigo" style={{ marginTop: 18 }}>Her mekânın<br /><em>kendi sesi</em> var.</h2>
           </div>
           <div className="right">
-            Mekân tipinizi seçin — o tipoloji için tipik akustik hedefler, ses basıncı ve sistem mimarisi anında görünür.
+            Mekân tipinizi seçin - o tipoloji için tipik akustik hedefler, ses basıncı ve sistem mimarisi anında görünür.
           </div>
         </div>
         <div className="venue-tabs reveal">
@@ -863,7 +863,7 @@ function Quote() {
             )}
             {status === 'error' && (
               <div className="form-msg form-msg-err" role="alert">
-                Talebiniz gönderilemedi: {errorMsg} — lütfen tekrar deneyin veya doğrudan{' '}
+                Talebiniz gönderilemedi: {errorMsg} - lütfen tekrar deneyin veya doğrudan{' '}
                 <a href="mailto:proje@onmuzik.com">proje@onmuzik.com</a> adresine yazın.
               </div>
             )}
@@ -892,7 +892,7 @@ function FAQ() {
             <span className="eyebrow"><span className="bar" />08 · SIK SORULAN</span>
             <h2 className="h-section" style={{ marginTop: 18 }}>Önce<br /><em>cevaplar</em>.</h2>
           </div>
-          <div className="right">Daha fazla sorunuz varsa formu doldurun ya da doğrudan arayın — 16 yıllık mühendislik birikimimizle dönelim.</div>
+          <div className="right">Daha fazla sorunuz varsa formu doldurun ya da doğrudan arayın - 16 yıllık mühendislik birikimimizle dönelim.</div>
         </div>
         <div className="reveal">
           {items.map(([q, a], i) => (
@@ -908,7 +908,7 @@ function FAQ() {
         </div>
         <div className="reveal" style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
           <Link to="/sss" className="btn btn-ghost">Tüm soruları gör <span className="arrow" /></Link>
-          <Link to="/iletisim" className="btn btn-red">Cevabını bulamadım — yazın <span className="arrow" /></Link>
+          <Link to="/iletisim" className="btn btn-red">Cevabını bulamadım - yazın <span className="arrow" /></Link>
         </div>
       </div>
     </section>
@@ -926,7 +926,7 @@ function Testimonials() {
             <h2 className="h-section gold" style={{ marginTop: 18 }}>Mühendislik tarafı<br /><em>çalıştığında</em>.</h2>
           </div>
           <div className="right">
-            Tamamlanan projelerden seçilmiş yorumlar — restoran F&B direktöründen otel genel müdürüne, mix
+            Tamamlanan projelerden seçilmiş yorumlar - restoran F&B direktöründen otel genel müdürüne, mix
             mühendisinden konferans operasyon sorumlusuna. Her mekân, kendi metriğiyle teslim edildi.
           </div>
         </div>
@@ -940,7 +940,7 @@ function Testimonials() {
               <span className="t-quote-mark" aria-hidden>"</span>
               <p className="t-quote">{t.quote}</p>
               <div className="t-meta">
-                <Img src={t.portrait} alt={`${t.name} — ${t.role}`} width={56} height={56} sizes="56px" />
+                <Img src={t.portrait} alt={`${t.name} - ${t.role}`} width={56} height={56} sizes="56px" />
                 <div>
                   <div className="t-name">{t.name}</div>
                   <div className="t-role">{t.role}</div>
@@ -967,7 +967,7 @@ function References() {
           </div>
           <div className="right">
             240+ tamamlanmış projemizden seçmeler. Restoran, otel, sahne, stüdyo, konferans, AVM ve kamu
-            binaları — her sektörde derin saha tecrübesi.
+            binaları - her sektörde derin saha tecrübesi.
           </div>
         </div>
         <div className="ref-grid reveal">
@@ -978,7 +978,7 @@ function References() {
               style={{ ['--c' as any]: ACCENT_BY_CLS[r.cls], transitionDelay: `${i * 30}ms` }}
             >
               <div className="ref-thumb">
-                <Img src={r.image} alt={`${r.name} — ${r.sector}`} width={900} height={675} sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw" />
+                <Img src={r.image} alt={`${r.name} - ${r.sector}`} width={900} height={675} sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 25vw" />
                 <span className="ref-tag">{r.sector.toUpperCase()}</span>
               </div>
               <div className="ref-info">
@@ -1011,8 +1011,8 @@ export default function Home() {
   const [filter, setFilter] = useState<DiscKey>('all');
 
   useSeo({
-    title: 'On Muzik Proje — Akustik Tasarım & Profesyonel Ses Sistemi · İstanbul',
-    description: '2009\'dan beri İstanbul merkezli akustik mühendisliği ve kurumsal ses sistemi tasarımı. Restoran, otel, sahne, kayıt stüdyosu ve konferans için RT60/STI ölçümlü, marka bağımsız çözüm. 240+ proje, 6 disiplin — EN 54-16, line array, Dante, LED.',
+    title: 'On Muzik Proje - Akustik Tasarım & Profesyonel Ses Sistemi · İstanbul',
+    description: '2009\'dan beri İstanbul merkezli akustik mühendisliği ve kurumsal ses sistemi tasarımı. Restoran, otel, sahne, kayıt stüdyosu ve konferans için RT60/STI ölçümlü, marka bağımsız çözüm. 240+ proje, 6 disiplin - EN 54-16, line array, Dante, LED.',
     path: '/',
     keywords: 'akustik tasarım, ses sistemi, ses mühendisliği, restoran ses sistemi, otel ses sistemi, kayıt stüdyosu akustiği, konferans ses sistemi, EN 54-16 voice alarm, LED ekran, line array, Dante ağ, DSP kalibrasyon, RT60, STI ölçümü, kurumsal AV, İstanbul ses sistemi, akustik mühendis İstanbul',
     jsonLd: {

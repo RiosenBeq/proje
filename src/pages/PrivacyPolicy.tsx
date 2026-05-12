@@ -13,7 +13,7 @@ const POLICY = [
 export default function PrivacyPolicy() {
   useSeo({
     title: 'Gizlilik Politikası | On Muzik Proje',
-    description: 'On Muzik Proje gizlilik politikası — kişisel verilerin toplanması, işlenmesi, saklanması ve korunmasına ilişkin politika metni.',
+    description: 'On Muzik Proje gizlilik politikası - kişisel verilerin toplanması, işlenmesi, saklanması ve korunmasına ilişkin politika metni.',
     path: '/gizlilik-politikasi',
   });
 

@@ -16,7 +16,7 @@ export default function ServiceDetail() {
   const [openFaq, setOpenFaq] = useState(0);
 
   useSeo(d ? {
-    title: `${d.name} — ${d.sub} | On Muzik Proje`,
+    title: `${d.name} - ${d.sub} | On Muzik Proje`,
     description: `${d.hero.lead} Marka bağımsız mühendislik, ölçüme dayalı teslim. ${d.hz} bandı.`,
     path: `/hizmetler/${d.slug}`,
     jsonLd: {
@@ -80,7 +80,7 @@ export default function ServiceDetail() {
               <h2 className="h-section" style={{ marginTop: 18 }}>Neler <em>teslim</em> ederiz?</h2>
             </div>
             <div className="right">
-              {d.name} disiplinin tam kapsamı — saha keşfinden devreye almaya kadar her aşama mühendislik dokümantasyonu ile.
+              {d.name} disiplinin tam kapsamı - saha keşfinden devreye almaya kadar her aşama mühendislik dokümantasyonu ile.
             </div>
           </div>
           <div className="paths reveal" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
@@ -132,7 +132,7 @@ export default function ServiceDetail() {
               <h2 className="h-section" style={{ marginTop: 18 }}>Saha <em>akışı</em>.</h2>
             </div>
             <div className="right">
-              {d.process.length} aşama — her biri net deliverable ile.
+              {d.process.length} aşama - her biri net deliverable ile.
             </div>
           </div>
           <div className="paths reveal" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>

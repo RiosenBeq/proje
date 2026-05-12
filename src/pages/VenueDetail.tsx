@@ -25,7 +25,7 @@ export default function VenueDetail() {
   const [openFaq, setOpenFaq] = useState(0);
 
   useSeo(v ? {
-    title: `${v.name} — Akustik & Ses Sistemi | On Muzik Proje`,
+    title: `${v.name} - Akustik & Ses Sistemi | On Muzik Proje`,
     description: `${v.hero.lead} Mekân tipinize özel çözüm.`,
     path: `/mekanlar/${v.slug}`,
     jsonLd: {
@@ -135,7 +135,7 @@ export default function VenueDetail() {
               <h2 className="h-section" style={{ marginTop: 18 }}>Tipik <em>kurulum</em>.</h2>
             </div>
             <div className="right">
-              {v.name} için en sık kurduğumuz sistem konfigürasyonu — her bileşen ölçüm sonrası özelleşir.
+              {v.name} için en sık kurduğumuz sistem konfigürasyonu - her bileşen ölçüm sonrası özelleşir.
             </div>
           </div>
           <div className="dashboard reveal">

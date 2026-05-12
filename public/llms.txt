@@ -10,9 +10,9 @@
 - [Hakkımızda](https://onmuzikproje.com/hakkimizda): 2009'dan bugüne tarihçe, manifesto, lokasyon, ekipman lab
 - [SSS](https://onmuzikproje.com/sss): 4 kategori altında 18 soru-cevap (akustik, ses, süreç & garanti, KVKK & yasal)
 - [Servis & Bakım](https://onmuzikproje.com/servis-bakim): 3 SLA seviyesi (Standart, Premium, 7/24 Mission Critical) + WhatsApp + servis talep formu
-- [Kiralık Ürünler](https://onmuzikproje.com/hizla-kirala): On Music × Hızla Kirala resmi iş ortaklığı kataloğu — 20 ürün: Anker Nebula projeksiyon, Apple MacBook M4, Sony PlayStation 5 Slim, Dyson Airwrap & V15 Detect & Airstrait & Purifier Cool, FOREO FAQ 202 LED maske, Dreame AirStyle & PM10, Cybex Anoris T bebek oto koltuğu, iPhone 17 Pro, Meta Quest 3 VR, Nintendo Switch OLED, DJI Osmo Pocket 3, Kärcher SC 3, Xiaomi Mi Pro 4 scooter, Karaca Robotea, Vahaa Akıllı Bahçe, Philips buharlı düzleştirici. Aylık 890 TL'den, 24 saatte teslim, iyzico ile 12 taksit. Kiralama hattı: 0543 412 33 80
+- [Kiralık Ürünler](https://onmuzikproje.com/hizla-kirala): On Music × Hızla Kirala resmi iş ortaklığı kataloğu - 20 ürün: Anker Nebula projeksiyon, Apple MacBook M4, Sony PlayStation 5 Slim, Dyson Airwrap & V15 Detect & Airstrait & Purifier Cool, FOREO FAQ 202 LED maske, Dreame AirStyle & PM10, Cybex Anoris T bebek oto koltuğu, iPhone 17 Pro, Meta Quest 3 VR, Nintendo Switch OLED, DJI Osmo Pocket 3, Kärcher SC 3, Xiaomi Mi Pro 4 scooter, Karaca Robotea, Vahaa Akıllı Bahçe, Philips buharlı düzleştirici. Aylık 890 TL'den, 24 saatte teslim, %70 sigorta dahil (%100'e tamamlama opsiyonel). Kiralama hattı: 0543 412 33 80
 - [Markalar](https://onmuzikproje.com/markalar): 40+ profesyonel AV marka portföyü, 8 kategori filtresi, premium / yetkili / çözüm ortağı seviyeleri
-- [Sertifikalar](https://onmuzikproje.com/sertifikalar): EN 54-16, EN 54-24, ISO 3382, ISO 9001, CE, TSE, CEDIA, Dante Lvl 2/3 — ihale + mevzuat
+- [Sertifikalar](https://onmuzikproje.com/sertifikalar): EN 54-16, EN 54-24, ISO 3382, ISO 9001, CE, TSE, CEDIA, Dante Lvl 2/3 - ihale + mevzuat
 - [Bilgi Merkezi](https://onmuzikproje.com/bilgi-merkezi): teknik rehber blog
   - [RT60 nedir, nasıl ölçülür ve neden kritik](https://onmuzikproje.com/bilgi-merkezi/rt60-nedir) (Akustik, 6 dk)
   - [Restoran ses sistemi tasarımı: 4 zonlu PA + akustik denge](https://onmuzikproje.com/bilgi-merkezi/restoran-ses-sistemi-rehberi) (Ses, 7 dk)
@@ -27,89 +27,89 @@
 - [KVKK Aydınlatma Metni](https://onmuzikproje.com/kvkk)
 
 ## Hizmet detay sayfaları
-- [Ses Sistemi](https://onmuzikproje.com/hizmetler/ses) — Zonlu PA, DSP, Dante; SPL 82–105 dB; line array / point source / cardioid sub
-- [Akustik Tasarım](https://onmuzikproje.com/hizmetler/akustik) — RT60 0.28–1.4 s, STI ≥ 0.62, modal kontrol, RFZ, in-situ ölçüm
-- [LED Ekran & Video](https://onmuzikproje.com/hizmetler/led) — P1.5–P3.9 pixel pitch, processor, AV-sync, truss & rigging
-- [Stüdyo Akustiği](https://onmuzikproje.com/hizmetler/studio) — NC-15/NC-20, RFZ, bass trap, kayan kat izolasyon, monitör tuning
-- [Toplantı / AV](https://onmuzikproje.com/hizmetler/konferans) — Beamforming, AEC + AGC, DICENTIS, Teams Rooms / Zoom Rooms
-- [Anons & Voice Alarm](https://onmuzikproje.com/hizmetler/anons) — EN 54-16, evakuasyon zoneları, BMS entegrasyon, STI-PA
+- [Ses Sistemi](https://onmuzikproje.com/hizmetler/ses) - Zonlu PA, DSP, Dante; SPL 82–105 dB; line array / point source / cardioid sub
+- [Akustik Tasarım](https://onmuzikproje.com/hizmetler/akustik) - RT60 0.28–1.4 s, STI ≥ 0.62, modal kontrol, RFZ, in-situ ölçüm
+- [LED Ekran & Video](https://onmuzikproje.com/hizmetler/led) - P1.5–P3.9 pixel pitch, processor, AV-sync, truss & rigging
+- [Stüdyo Akustiği](https://onmuzikproje.com/hizmetler/studio) - NC-15/NC-20, RFZ, bass trap, kayan kat izolasyon, monitör tuning
+- [Toplantı / AV](https://onmuzikproje.com/hizmetler/konferans) - Beamforming, AEC + AGC, DICENTIS, Teams Rooms / Zoom Rooms
+- [Anons & Voice Alarm](https://onmuzikproje.com/hizmetler/anons) - EN 54-16, evakuasyon zoneları, BMS entegrasyon, STI-PA
 
 ## Mekân tipi sayfaları
-- [Restoran & Bar](https://onmuzikproje.com/mekanlar/restoran) — RT60 0.6–0.9 s, 2–4 zon, tavan + sahne hoparlör, Dante / 70V
-- [Otel & SPA](https://onmuzikproje.com/mekanlar/otel) — 6–24 zon, ballroom + lobi + oda yönetimi, EN 54-16 anons, LED P2.6
-- [Sahne & Etkinlik](https://onmuzikproje.com/mekanlar/sahne) — RT60 1.2–1.6 s, 100–110 dB SPL, line array + cardioid sub, LED P3.9
-- [Stüdyo & Kayıt](https://onmuzikproje.com/mekanlar/studio) — NC-15/NC-20, RT60 0.25–0.32 s, kayan kat, bass trap
-- [Toplantı & Konferans](https://onmuzikproje.com/mekanlar/konferans) — RT60 0.5–0.7 s, STI ≥ 0.62, beamforming + DICENTIS
+- [Restoran & Bar](https://onmuzikproje.com/mekanlar/restoran) - RT60 0.6–0.9 s, 2–4 zon, tavan + sahne hoparlör, Dante / 70V
+- [Otel & SPA](https://onmuzikproje.com/mekanlar/otel) - 6–24 zon, ballroom + lobi + oda yönetimi, EN 54-16 anons, LED P2.6
+- [Sahne & Etkinlik](https://onmuzikproje.com/mekanlar/sahne) - RT60 1.2–1.6 s, 100–110 dB SPL, line array + cardioid sub, LED P3.9
+- [Stüdyo & Kayıt](https://onmuzikproje.com/mekanlar/studio) - NC-15/NC-20, RT60 0.25–0.32 s, kayan kat, bass trap
+- [Toplantı & Konferans](https://onmuzikproje.com/mekanlar/konferans) - RT60 0.5–0.7 s, STI ≥ 0.62, beamforming + DICENTIS
 
 ## Proje detay sayfaları (önce/sonra ölçüm + hikâye + galeri + spec)
-- [Studio Alpha — İstanbul, 2024](https://onmuzikproje.com/projeler/studio-alpha) — Dolby Atmos 9.1.4 stüdyo, NC-18, RT60 0.28 s
-- [Club Nexus — İzmir, 2024](https://onmuzikproje.com/projeler/club-nexus) — 3.000 kişilik mekân, Pioneer Pro XY, 64 m² LED P3.9
-- [Grand Auditorium — Ankara, 2023](https://onmuzikproje.com/projeler/grand-auditorium) — 420 kişilik salon, DICENTIS, beamforming 32-ch
-- [Boğaz Restoran — İstanbul, 2024](https://onmuzikproje.com/projeler/bogaz-restoran) — 180 kişilik teras, 4 zonlu Dante, RT60 0.62 s
-- [Ballroom Otel — Antalya, 2024](https://onmuzikproje.com/projeler/ballroom-otel) — 800 kişilik ballroom + 24 zon + EN 54-16 + LED P2.6
-- [Konser Sahnesi — Ankara, 2023](https://onmuzikproje.com/projeler/konser-sahnesi) — Açık hava, L-Acoustics K2, cardioid sub, delay tower
-- [Kurumsal Lobi — İstanbul, 2025](https://onmuzikproje.com/projeler/kurumsal-lobi) — Plaza ana lobi, 3 zon, 24 tavan hoparlör
-- [Konferans Merkezi — İzmir, 2023](https://onmuzikproje.com/projeler/konferans-merkezi) — 6 huddle + boardroom + audi, MTR sertifikalı
+- [Studio Alpha - İstanbul, 2024](https://onmuzikproje.com/projeler/studio-alpha) - Dolby Atmos 9.1.4 stüdyo, NC-18, RT60 0.28 s
+- [Club Nexus - İzmir, 2024](https://onmuzikproje.com/projeler/club-nexus) - 3.000 kişilik mekân, Pioneer Pro XY, 64 m² LED P3.9
+- [Grand Auditorium - Ankara, 2023](https://onmuzikproje.com/projeler/grand-auditorium) - 420 kişilik salon, DICENTIS, beamforming 32-ch
+- [Boğaz Restoran - İstanbul, 2024](https://onmuzikproje.com/projeler/bogaz-restoran) - 180 kişilik teras, 4 zonlu Dante, RT60 0.62 s
+- [Ballroom Otel - Antalya, 2024](https://onmuzikproje.com/projeler/ballroom-otel) - 800 kişilik ballroom + 24 zon + EN 54-16 + LED P2.6
+- [Konser Sahnesi - Ankara, 2023](https://onmuzikproje.com/projeler/konser-sahnesi) - Açık hava, L-Acoustics K2, cardioid sub, delay tower
+- [Kurumsal Lobi - İstanbul, 2025](https://onmuzikproje.com/projeler/kurumsal-lobi) - Plaza ana lobi, 3 zon, 24 tavan hoparlör
+- [Konferans Merkezi - İzmir, 2023](https://onmuzikproje.com/projeler/konferans-merkezi) - 6 huddle + boardroom + audi, MTR sertifikalı
 
 ## Kiralık ürün detay sayfaları (On Music × Hızla Kirala)
 
 ### En Çok Kiralananlar (popüler sıralama)
-1. [FOREO FAQ 202 LED Yüz Maskesi](https://onmuzikproje.com/hizla-kirala/foreo-faq-202) — aylık 3.750 TL'den
-2. [Dyson Airwrap i.d. Saç Şekillendirici](https://onmuzikproje.com/hizla-kirala/dyson-airwrap) — aylık 1.450 TL'den
-3. [Apple MacBook Neo 12" M4](https://onmuzikproje.com/hizla-kirala/macbook-neo-m4) — aylık 2.450 TL'den
-4. [Apple iPhone 17 Pro 256GB](https://onmuzikproje.com/hizla-kirala/iphone-17-pro) — aylık 7.500 TL'den
-5. [Dyson V15 Detect Süpürge](https://onmuzikproje.com/hizla-kirala/dyson-v15-detect) — aylık 1.600 TL'den
-6. [Anker Nebula Apollo Projeksiyon](https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo) — aylık 1.850 TL'den
-7. [Kärcher SC 3 EasyFix Buharlı Temizleyici](https://onmuzikproje.com/hizla-kirala/karcher-sc3-easyfix) — aylık 1.980 TL'den
-8. [Xiaomi Mi Pro 4 Elektrikli Scooter](https://onmuzikproje.com/hizla-kirala/xiaomi-mi-pro-4) — aylık 2.350 TL'den
-9. [Dyson Airstrait Saç Düzleştirici](https://onmuzikproje.com/hizla-kirala/dyson-airstrait) — aylık 1.400 TL'den
-10. [Nintendo Switch OLED](https://onmuzikproje.com/hizla-kirala/nintendo-switch-oled) — aylık 1.030 TL'den
-11. [Meta Quest 3 VR 128GB](https://onmuzikproje.com/hizla-kirala/meta-quest-3) — aylık 2.300 TL'den
+1. [FOREO FAQ 202 LED Yüz Maskesi](https://onmuzikproje.com/hizla-kirala/foreo-faq-202) - aylık 3.750 TL'den
+2. [Dyson Airwrap i.d. Saç Şekillendirici](https://onmuzikproje.com/hizla-kirala/dyson-airwrap) - aylık 1.450 TL'den
+3. [Apple MacBook Neo 12" M4](https://onmuzikproje.com/hizla-kirala/macbook-neo-m4) - aylık 2.450 TL'den
+4. [Apple iPhone 17 Pro 256GB](https://onmuzikproje.com/hizla-kirala/iphone-17-pro) - aylık 7.500 TL'den
+5. [Dyson V15 Detect Süpürge](https://onmuzikproje.com/hizla-kirala/dyson-v15-detect) - aylık 1.600 TL'den
+6. [Anker Nebula Apollo Projeksiyon](https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo) - aylık 1.850 TL'den
+7. [Kärcher SC 3 EasyFix Buharlı Temizleyici](https://onmuzikproje.com/hizla-kirala/karcher-sc3-easyfix) - aylık 1.980 TL'den
+8. [Xiaomi Mi Pro 4 Elektrikli Scooter](https://onmuzikproje.com/hizla-kirala/xiaomi-mi-pro-4) - aylık 2.350 TL'den
+9. [Dyson Airstrait Saç Düzleştirici](https://onmuzikproje.com/hizla-kirala/dyson-airstrait) - aylık 1.400 TL'den
+10. [Nintendo Switch OLED](https://onmuzikproje.com/hizla-kirala/nintendo-switch-oled) - aylık 1.030 TL'den
+11. [Meta Quest 3 VR 128GB](https://onmuzikproje.com/hizla-kirala/meta-quest-3) - aylık 2.300 TL'den
 
 ### Şımart Kendini
-- [Dyson Airwrap ID Saç Şekillendirici (Ceramic Pink)](https://onmuzikproje.com/hizla-kirala/dyson-airwrap) — Coanda hava akımı, 6 aksesuar, aylık 1.450 TL'den
-- [Dreame AirStyle Pro 7-in-1 Saç Şekillendirici](https://onmuzikproje.com/hizla-kirala/dreame-airstyle-pro) — 7 aksesuar, negatif iyon, aylık 1.250 TL'den
-- [Dyson Airstrait Islak/Kuru Saç Düzleştirici (Prusya Mavisi)](https://onmuzikproje.com/hizla-kirala/dyson-airstrait) — plakasız, ıslak+kuru kullanım, aylık 1.400 TL'den
-- [FOREO FAQ 202 LED Yüz Maskesi](https://onmuzikproje.com/hizla-kirala/foreo-faq-202) — 8 LED dalga + NIR, klinik anti-aging, aylık 3.750 TL'den
-- [Xiaomi Mi Pro 4 Elektrikli Scooter](https://onmuzikproje.com/hizla-kirala/xiaomi-mi-pro-4) — 45 km menzil, 25 km/h, aylık 2.350 TL'den
-- [Philips GC810/20 El Tipi Buharlı Düzleştirici](https://onmuzikproje.com/hizla-kirala/philips-gc810-20) — 30 sn ısınma, dikey ütü, aylık 500 TL'den
+- [Dyson Airwrap ID Saç Şekillendirici (Ceramic Pink)](https://onmuzikproje.com/hizla-kirala/dyson-airwrap) - Coanda hava akımı, 6 aksesuar, aylık 1.450 TL'den
+- [Dreame AirStyle Pro 7-in-1 Saç Şekillendirici](https://onmuzikproje.com/hizla-kirala/dreame-airstyle-pro) - 7 aksesuar, negatif iyon, aylık 1.250 TL'den
+- [Dyson Airstrait Islak/Kuru Saç Düzleştirici (Prusya Mavisi)](https://onmuzikproje.com/hizla-kirala/dyson-airstrait) - plakasız, ıslak+kuru kullanım, aylık 1.400 TL'den
+- [FOREO FAQ 202 LED Yüz Maskesi](https://onmuzikproje.com/hizla-kirala/foreo-faq-202) - 8 LED dalga + NIR, klinik anti-aging, aylık 3.750 TL'den
+- [Xiaomi Mi Pro 4 Elektrikli Scooter](https://onmuzikproje.com/hizla-kirala/xiaomi-mi-pro-4) - 45 km menzil, 25 km/h, aylık 2.350 TL'den
+- [Philips GC810/20 El Tipi Buharlı Düzleştirici](https://onmuzikproje.com/hizla-kirala/philips-gc810-20) - 30 sn ısınma, dikey ütü, aylık 500 TL'den
 
 ### Ev Aletleri
-- [Vahaa Akıllı Bahçe Topraksız Tarım Cihazı](https://onmuzikproje.com/hizla-kirala/vahaa-akilli-bahce) — 6 kapsül, IoT, WiFi, aylık 890 TL'den
-- [Anker Nebula Apollo Taşınabilir Projeksiyon](https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo) — 200 ANSI lümen, Android TV, 4 saat pil, aylık 1.850 TL'den
-- [Dreame PM10 Akıllı Hava Temizleyici + Fan](https://onmuzikproje.com/hizla-kirala/dreame-pm10) — HEPA H13, 60 m² kapsama, aylık 1.700 TL'den
-- [Dyson Purifier Cool Hava Temizleyici](https://onmuzikproje.com/hizla-kirala/dyson-purifier-cool) — HEPA H13, 350° osilasyon, aylık 2.500 TL'den
-- [Karaca Robotea Pro 4-in-1 Çay Makinesi](https://onmuzikproje.com/hizla-kirala/karaca-robotea-pro) — sesli asistan, 2.5 L, aylık 1.350 TL'den
-- [Kärcher SC 3 EasyFix Buharlı Temizlik](https://onmuzikproje.com/hizla-kirala/karcher-sc3-easyfix) — 3.5 bar buhar, kimyasalsız, aylık 1.980 TL'den
-- [Dyson V15 Detect Kablosuz Süpürge](https://onmuzikproje.com/hizla-kirala/dyson-v15-detect) — lazer toz detection, HEPA, aylık 1.600 TL'den
+- [Vahaa Akıllı Bahçe Topraksız Tarım Cihazı](https://onmuzikproje.com/hizla-kirala/vahaa-akilli-bahce) - 6 kapsül, IoT, WiFi, aylık 890 TL'den
+- [Anker Nebula Apollo Taşınabilir Projeksiyon](https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo) - 200 ANSI lümen, Android TV, 4 saat pil, aylık 1.850 TL'den
+- [Dreame PM10 Akıllı Hava Temizleyici + Fan](https://onmuzikproje.com/hizla-kirala/dreame-pm10) - HEPA H13, 60 m² kapsama, aylık 1.700 TL'den
+- [Dyson Purifier Cool Hava Temizleyici](https://onmuzikproje.com/hizla-kirala/dyson-purifier-cool) - HEPA H13, 350° osilasyon, aylık 2.500 TL'den
+- [Karaca Robotea Pro 4-in-1 Çay Makinesi](https://onmuzikproje.com/hizla-kirala/karaca-robotea-pro) - sesli asistan, 2.5 L, aylık 1.350 TL'den
+- [Kärcher SC 3 EasyFix Buharlı Temizlik](https://onmuzikproje.com/hizla-kirala/karcher-sc3-easyfix) - 3.5 bar buhar, kimyasalsız, aylık 1.980 TL'den
+- [Dyson V15 Detect Kablosuz Süpürge](https://onmuzikproje.com/hizla-kirala/dyson-v15-detect) - lazer toz detection, HEPA, aylık 1.600 TL'den
 
 ### Anne & Bebek
-- [Cybex Anoris T i-Size Hava Yastıklı Oto Koltuğu](https://onmuzikproje.com/hizla-kirala/cybex-anoris-t) — dünyada ilk tam vücut hava yastığı, aylık 1.450 TL'den
+- [Cybex Anoris T i-Size Hava Yastıklı Oto Koltuğu](https://onmuzikproje.com/hizla-kirala/cybex-anoris-t) - dünyada ilk tam vücut hava yastığı, aylık 1.450 TL'den
 
 ### Oyun & Hobi
-- [Sony PlayStation 5 Slim 1TB Oyun Konsolu](https://onmuzikproje.com/hizla-kirala/playstation-5-slim) — 4K 120 FPS, 2 DualSense, aylık 1.850 TL'den
-- [Meta Quest 3 VR 128GB](https://onmuzikproje.com/hizla-kirala/meta-quest-3) — karma gerçeklik, 4K LCD, aylık 2.300 TL'den
-- [Nintendo Switch OLED 64GB](https://onmuzikproje.com/hizla-kirala/nintendo-switch-oled) — 7" OLED, TV + handheld, aylık 1.030 TL'den
+- [Sony PlayStation 5 Slim 1TB Oyun Konsolu](https://onmuzikproje.com/hizla-kirala/playstation-5-slim) - 4K 120 FPS, 2 DualSense, aylık 1.850 TL'den
+- [Meta Quest 3 VR 128GB](https://onmuzikproje.com/hizla-kirala/meta-quest-3) - karma gerçeklik, 4K LCD, aylık 2.300 TL'den
+- [Nintendo Switch OLED 64GB](https://onmuzikproje.com/hizla-kirala/nintendo-switch-oled) - 7" OLED, TV + handheld, aylık 1.030 TL'den
 
 ### Kamera & Aksesuar
-- [DJI Osmo Pocket 3 Creator Combo](https://onmuzikproje.com/hizla-kirala/dji-osmo-pocket-3) — 1" sensör, 4K 120 FPS gimbal, aylık 2.450 TL'den
+- [DJI Osmo Pocket 3 Creator Combo](https://onmuzikproje.com/hizla-kirala/dji-osmo-pocket-3) - 1" sensör, 4K 120 FPS gimbal, aylık 2.450 TL'den
 
 ### Telefon
-- [Apple iPhone 17 Pro 256GB Kozmik Turuncu](https://onmuzikproje.com/hizla-kirala/iphone-17-pro) — A19 Pro, 48MP triple kamera, aylık 7.500 TL'den
+- [Apple iPhone 17 Pro 256GB Kozmik Turuncu](https://onmuzikproje.com/hizla-kirala/iphone-17-pro) - A19 Pro, 48MP triple kamera, aylık 7.500 TL'den
 
 ### Bilgisayar & Tablet
-- [Apple MacBook Neo 12" M4](https://onmuzikproje.com/hizla-kirala/macbook-neo-m4) — M4 çip, 16GB RAM, 512GB SSD, 18 saat pil, aylık 2.450 TL'den
+- [Apple MacBook Neo 12" M4](https://onmuzikproje.com/hizla-kirala/macbook-neo-m4) - M4 çip, 16GB RAM, 512GB SSD, 18 saat pil, aylık 2.450 TL'den
 
 ## Çalışma Süreci (5 Aşama)
-1. **Keşif & Brifing** — saha ziyareti, ücretsiz
-2. **Ölçüm & Analiz** — RT60, STI, NC, CAD overlay (5–7 gün)
-3. **Konsept Tasarım** — 3D simülasyon, ekipman seçimi
-4. **Uygulama** — montaj, devreye alma (4–8 hafta)
-5. **Kalibrasyon** — DSP tuning, final ölçüm raporu
+1. **Keşif & Brifing** - saha ziyareti, ücretsiz
+2. **Ölçüm & Analiz** - RT60, STI, NC, CAD overlay (5–7 gün)
+3. **Konsept Tasarım** - 3D simülasyon, ekipman seçimi
+4. **Uygulama** - montaj, devreye alma (4–8 hafta)
+5. **Kalibrasyon** - DSP tuning, final ölçüm raporu
 
 ## İletişim
 - Genel hat (akustik, ses, AV projeler): 0850 241 9515
-- Kiralama hattı (On Music × Hızla Kirala): 0543 412 33 80 — WhatsApp ve sesli destek
+- Kiralama hattı (On Music × Hızla Kirala): 0543 412 33 80 - WhatsApp ve sesli destek
 - E-posta: proje@onmuzik.com
 - Instagram: @onmuzik (instagram.com/onmuzik)
 - Adres: Atatürk Mahallesi Ataşehir Bulvarı, Ertuğrul Gazi Sokak, 34758 Ataşehir / İstanbul, Türkiye
@@ -117,7 +117,7 @@
 - Saha keşfi ücretsizdir; teknik teklif 5–7 gün içinde teslim edilir
 
 ## Önemli Notlar
-- Marka bağımsız mühendislik — projeye en uygun ürünü seçeriz; çalıştığımız markalar: d&b audiotechnik, L-Acoustics, Meyer Sound, Bose Pro, JBL Pro, Pioneer Pro Audio, Genelec, Neumann, Focal, Bosch, Honeywell, TOA
+- Marka bağımsız mühendislik - projeye en uygun ürünü seçeriz; çalıştığımız markalar: d&b audiotechnik, L-Acoustics, Meyer Sound, Bose Pro, JBL Pro, Pioneer Pro Audio, Genelec, Neumann, Focal, Bosch, Honeywell, TOA
 - 16+ yıl saha tecrübesi, 240+ tamamlanan proje, 81 il
 - 2 yıl üretici garantisi + 1 yıl yerinde servis garantisi
 - Anahtar teslim teslimat: tasarım, satın alma, montaj, devreye alma, kalibrasyon

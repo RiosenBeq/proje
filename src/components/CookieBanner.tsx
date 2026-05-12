@@ -20,7 +20,7 @@ export default function CookieBanner() {
     try {
       window.localStorage.setItem(KEY, JSON.stringify({ value, at: Date.now() }));
     } catch {
-      /* localStorage may be disabled — ignore */
+      /* localStorage may be disabled - ignore */
     }
     setShow(false);
   }

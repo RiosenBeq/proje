@@ -23,7 +23,7 @@ export default function Faq() {
   }, [query, activeGroup, allItems]);
 
   useSeo({
-    title: 'Sık Sorulan Sorular — Akustik · Ses · Süreç · KVKK | On Muzik Proje',
+    title: 'Sık Sorulan Sorular - Akustik · Ses · Süreç · KVKK | On Muzik Proje',
     description: '4 kategori altında 18 soru-cevap. Akustik ölçüm, ses sistemi, süreç & garanti, mevzuat ve KVKK ile ilgili tüm sorular.',
     path: '/sss',
     jsonLd: {
@@ -60,7 +60,7 @@ export default function Faq() {
               <label style={{ flex: '0 0 auto' }}>ARA</label>
               <input
                 type="search"
-                placeholder="Soru veya anahtar kelime — örn: RT60, Dante, EN 54-16..."
+                placeholder="Soru veya anahtar kelime - örn: RT60, Dante, EN 54-16..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
@@ -108,7 +108,7 @@ export default function Faq() {
           </div>
 
           <div style={{ marginTop: 36, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <Link to="/iletisim" className="btn btn-red">Cevabını bulamadım — yazın <span className="arrow" /></Link>
+            <Link to="/iletisim" className="btn btn-red">Cevabını bulamadım - yazın <span className="arrow" /></Link>
             <a href="tel:+908502419515" className="btn btn-ghost">0850 241 9515 <span className="arrow" /></a>
           </div>
         </div>

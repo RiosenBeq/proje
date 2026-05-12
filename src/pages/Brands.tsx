@@ -9,13 +9,13 @@ export default function Brands() {
   const [filter, setFilter] = useState<BrandCategory | 'all'>('all');
 
   useSeo({
-    title: 'Markalar — d&b · L-Acoustics · Bose Pro · Pioneer Pro · Genelec · Bosch | On Muzik Proje',
+    title: 'Markalar - d&b · L-Acoustics · Bose Pro · Pioneer Pro · Genelec · Bosch | On Muzik Proje',
     description: '40+ profesyonel AV markasıyla yetkili bayi, premium partner ve çözüm ortağı seviyelerinde çalışıyoruz. Marka bağımsız mühendislik prensibiyle projeye en uygun olanı seçeriz.',
     path: '/markalar',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: 'Markalar — On Muzik Proje',
+      name: 'Markalar - On Muzik Proje',
       url: 'https://onmuzikproje.com/markalar',
       isPartOf: { '@id': 'https://onmuzikproje.com/#website' },
     },
@@ -110,17 +110,17 @@ export default function Brands() {
             <div className="standard">
               <div className="s-num">01</div>
               <h4>Premium partner</h4>
-              <p>{levelCounts.premium} marka — saha eğitimi, demo ekipman erişimi ve doğrudan üretici teknik destek hattımız var.</p>
+              <p>{levelCounts.premium} marka - saha eğitimi, demo ekipman erişimi ve doğrudan üretici teknik destek hattımız var.</p>
             </div>
             <div className="standard">
               <div className="s-num">02</div>
               <h4>Yetkili bayi</h4>
-              <p>{levelCounts.authorized} marka — distribütör onayı, 2 yıl üretici garantisi + 1 yıl yerinde servis garantisi.</p>
+              <p>{levelCounts.authorized} marka - distribütör onayı, 2 yıl üretici garantisi + 1 yıl yerinde servis garantisi.</p>
             </div>
             <div className="standard">
               <div className="s-num">03</div>
               <h4>Çözüm ortağı</h4>
-              <p>{levelCounts.partner} marka — proje bazlı tedarik, ölçüm metodolojisi referansları (Rockwool, RPG, B&K).</p>
+              <p>{levelCounts.partner} marka - proje bazlı tedarik, ölçüm metodolojisi referansları (Rockwool, RPG, B&K).</p>
             </div>
           </div>
           <div style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap' }}>

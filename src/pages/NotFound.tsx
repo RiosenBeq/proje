@@ -21,7 +21,7 @@ export default function NotFound() {
 
   return (
     <section className="nf-stage" aria-labelledby="nf-title">
-      {/* Audio motifs — purely decorative */}
+      {/* Audio motifs - purely decorative */}
       <svg className="nf-wave" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden>
         <path className="nf-wave-line nf-wave-back" d="M0 120 Q 75 60 150 120 T 300 120 T 450 120 T 600 120 T 750 120 T 900 120 T 1050 120 T 1200 120" />
         {/* Signal "drops out" past the midpoint to imply lost transmission */}

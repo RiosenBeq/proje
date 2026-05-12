@@ -4,7 +4,7 @@ Allow: /assets/
 Allow: /gallery/
 Disallow: /api/
 
-# Modern crawlers can follow our prefetch + ESM module imports — be explicit.
+# Modern crawlers can follow our prefetch + ESM module imports - be explicit.
 Allow: /*.js$
 Allow: /*.css$
 Allow: /*.svg$
@@ -12,7 +12,7 @@ Allow: /*.webp$
 Allow: /*.png$
 Allow: /*.jpg$
 
-# AI / generative crawlers — same allow policy (public marketing content)
+# AI / generative crawlers - same allow policy (public marketing content)
 User-agent: GPTBot
 Allow: /
 

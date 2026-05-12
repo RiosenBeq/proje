@@ -26,7 +26,7 @@ export default function Contact() {
   };
 
   useSeo({
-    title: 'İletişim — Saha Keşfi & Teknik Teklif | On Muzik Proje',
+    title: 'İletişim - Saha Keşfi & Teknik Teklif | On Muzik Proje',
     description: 'Akustik ve ses sistemi projesi için ücretsiz saha keşfi ve teknik teklif. 0850 241 9515, proje@onmuzik.com, Ataşehir / İstanbul. 24 saat içinde dönüş.',
     path: '/iletisim',
     jsonLd: {
@@ -152,7 +152,7 @@ export default function Contact() {
               )}
               {status === 'error' && (
                 <div className="form-msg form-msg-err" role="alert">
-                  Talebiniz gönderilemedi: {errorMsg} — lütfen tekrar deneyin veya doğrudan{' '}
+                  Talebiniz gönderilemedi: {errorMsg} - lütfen tekrar deneyin veya doğrudan{' '}
                   <a href="mailto:proje@onmuzik.com">proje@onmuzik.com</a> adresine yazın.
                 </div>
               )}

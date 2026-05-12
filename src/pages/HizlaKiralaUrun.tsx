@@ -156,7 +156,7 @@ function PriceCard({ product }: { product: ProductDetail }) {
             {price} <span style={{ color: RED }}>TL</span>
           </div>
           <div style={{ fontSize: 13, color: 'rgba(20,20,26,0.55)', marginTop: 6 }}>
-            {type === 'uzun' ? `Toplam ${totalLabel} TL · iyzico ile 12 taksit` : 'KDV dahil · ücretsiz kurye'}
+            {type === 'uzun' ? `Toplam ${totalLabel} TL · KDV dahil` : 'KDV dahil · ücretsiz kurye'}
           </div>
         </div>
       </div>
@@ -168,7 +168,7 @@ function PriceCard({ product }: { product: ProductDetail }) {
           rel="noopener noreferrer sponsored"
           className="hk-pill"
           style={{
-            flex: 2, background: INK, color: CREAM,
+            flex: 1, background: INK, color: CREAM,
             border: 'none', borderRadius: 14, padding: '18px 22px', cursor: 'pointer',
             fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 19, letterSpacing: '-0.02em',
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, textDecoration: 'none',
@@ -177,23 +177,14 @@ function PriceCard({ product }: { product: ProductDetail }) {
           Hemen kirala
           <span style={{ width: 28, height: 28, borderRadius: 999, background: RED, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>→</span>
         </a>
-        <button
-          type="button"
-          aria-label="Favorilere ekle"
-          style={{
-            background: 'transparent', color: INK,
-            border: `1.5px solid ${INK}`, borderRadius: 14, padding: '18px 18px', cursor: 'pointer',
-            fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 600, fontSize: 16,
-          }}
-        >♡</button>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 10, marginTop: 18 }}>
         {([
           ['🚚', '24 saatte kapıda'],
-          ['🛡️', '2 yıl tam garanti'],
-          ['↺',  '7 gün iade hakkı'],
-          ['🔒', 'iyzico güvencesi'],
+          ['🛟', '%70 sigorta dahil'],
+          ['⬆️', "%100'e tamamlama opsiyonel"],
+          ['💬', 'WhatsApp destek 0543'],
         ] as const).map(([icon, label]) => (
           <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'rgba(20,20,26,0.7)' }}>
             <span style={{ width: 28, height: 28, borderRadius: 8, background: CREAM, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>{icon}</span>
@@ -243,7 +234,7 @@ const ProductHero = ({ product }: { product: ProductDetail }) => (
           fontSize: 13, color: 'rgba(20,20,26,0.7)',
         }}>
           <img src="/assets/hizla-kirala/hizlakirala-logo.png" alt="Hızla Kirala logosu" width="76" height="14" loading="lazy" decoding="async" style={{ display: 'block', height: 14, width: 'auto', flexShrink: 0 }} />
-          <span><strong>on music × Hızla Kirala</strong> resmi iş ortaklığıyla — siparişin Hızla Kirala üzerinden tamamlanır, kargosu on music tarafından koordine edilir.</span>
+          <span><strong>on music × Hızla Kirala</strong> resmi iş ortaklığıyla - siparişin Hızla Kirala üzerinden tamamlanır, kargosu on music tarafından koordine edilir.</span>
         </div>
       </div>
     </div>
@@ -555,7 +546,7 @@ const RESPONSIVE_CSS = `
 const SITE = 'https://onmuzikproje.com';
 const PARTNER_ORG_ID = `${SITE}/hizla-kirala#partnership`;
 
-// 1 yıl geçerli fiyat — strk. data takvimi için. Bugünden 365 gün sonrası.
+// 1 yıl geçerli fiyat - strk. data takvimi için. Bugünden 365 gün sonrası.
 function priceValidUntil(): string {
   const d = new Date();
   d.setFullYear(d.getFullYear() + 1);
@@ -576,12 +567,12 @@ function ProductPage({ product }: { product: ProductDetail }) {
   const price = product.priceFrom.replace('.', '');
 
   // İleri SEO: 5 ayrı JSON-LD bloku.
-  // 1. Product — full schema.org/Product + Offer + brand + category + image[] +
+  // 1. Product - full schema.org/Product + Offer + brand + category + image[] +
   //    aggregateRating placeholder yok (sahte veri eklemiyoruz).
-  // 2. BreadcrumbList — anasayfa / kiralık ürünler / kategori / ürün
-  // 3. FAQPage — kiralama şartları sekmesi
+  // 2. BreadcrumbList - anasayfa / kiralık ürünler / kategori / ürün
+  // 3. FAQPage - kiralama şartları sekmesi
   // 4. WebPage (productGroup için isPartOf)
-  // 5. Organization — iş ortaklığı (parent on muzik proje'ye bağlı)
+  // 5. Organization - iş ortaklığı (parent on muzik proje'ye bağlı)
   const productLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -647,7 +638,7 @@ function ProductPage({ product }: { product: ProductDetail }) {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': url,
-    name: `${product.brand} ${product.name} ${product.tagline} — Kiralık`,
+    name: `${product.brand} ${product.name} ${product.tagline} - Kiralık`,
     url,
     inLanguage: 'tr-TR',
     isPartOf: { '@id': `${SITE}/#website` },
@@ -679,8 +670,8 @@ function ProductPage({ product }: { product: ProductDetail }) {
   };
 
   useSeo({
-    title: `${product.brand} ${product.name} ${product.tagline} — Aylık ${product.priceFrom} TL'den Kiralık | On Music × Hızla Kirala`,
-    description: `${product.brand} ${product.name} kiralama: ${product.short} 24 saatte kapıda teslim, iyzico ile 12 taksit, 2 yıl tam garanti. WhatsApp 0543 412 33 80.`,
+    title: `${product.brand} ${product.name} ${product.tagline} - Aylık ${product.priceFrom} TL'den Kiralık | On Music × Hızla Kirala`,
+    description: `${product.brand} ${product.name} kiralama: ${product.short} 24 saatte kapıda teslim, %70 sigorta dahil, isteyen %100'e tamamlayabilir. WhatsApp 0543 412 33 80.`,
     path: `/hizla-kirala/${product.slug}`,
     image: product.images[0],
     ogType: 'product',

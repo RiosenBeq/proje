@@ -4,13 +4,13 @@ import { useSeo } from '../lib/seo';
 
 export default function Knowledge() {
   useSeo({
-    title: 'Bilgi Merkezi — RT60, Restoran Ses Sistemi, EN 54-16 Rehberleri | On Muzik Proje',
+    title: 'Bilgi Merkezi - RT60, Restoran Ses Sistemi, EN 54-16 Rehberleri | On Muzik Proje',
     description: 'Akustik mühendisliği, ses sistemi tasarımı ve EN 54-16 voice alarm mevzuatı üzerine derinlemesine teknik makaleler. Saha deneyiminden çıkarılmış rehberler.',
     path: '/bilgi-merkezi',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Blog',
-      name: 'Bilgi Merkezi — On Muzik Proje',
+      name: 'Bilgi Merkezi - On Muzik Proje',
       url: 'https://onmuzikproje.com/bilgi-merkezi',
       blogPost: ARTICLES.map((a) => ({
         '@type': 'BlogPosting',
@@ -33,7 +33,7 @@ export default function Knowledge() {
           </h1>
           <p className="subhero-lead">
             240+ proje teslim ettiğimiz disiplinlerden çıkardığımız teknik rehberler. Akustik mühendisliği,
-            ses sistemi tasarımı ve mevzuat üzerine derinlemesine — pazarlama dili yok, ölçülmüş veri var.
+            ses sistemi tasarımı ve mevzuat üzerine derinlemesine - pazarlama dili yok, ölçülmüş veri var.
           </p>
         </div>
       </section>
