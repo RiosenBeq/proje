@@ -3760,6 +3760,24 @@ a.md-row:hover .md-v { color: var(--red); }
   .mbn-cta:focus-visible .mbn-cta-bubble { background: var(--red-2); transform: scale(1.05); }
   .mbn-cta.active::before { display: none; }
 
+  /* Hızla Kirala bağlamı için özel CTA bubble — beyaz arka plan + turuncu
+     ring + brand iconu. Hover'da turuncu ring kalınlaşıp hafif büyür. */
+  .mobile-bottomnav.is-hizla-kirala .mbn-cta-hk { color: #FF8A1E; }
+  .mbn-cta-bubble-hk {
+    background: #fff !important;
+    border: 2.5px solid #FF8A1E;
+    box-shadow: 0 10px 22px rgba(255,138,30,0.36), 0 2px 6px rgba(20,17,12,0.10) !important;
+    overflow: hidden;
+    padding: 4px;
+  }
+  .mbn-cta-bubble-hk img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .mbn-cta-hk:hover .mbn-cta-bubble-hk,
+  .mbn-cta-hk:focus-visible .mbn-cta-bubble-hk {
+    background: #fff !important;
+    transform: scale(1.06);
+    border-color: #FF6A00;
+  }
+
   /* On mobile: collapse the WhatsApp FAB to a clean circle pinned to the right
      corner, hide its text label, and lift it above the bottom nav. */
   .whatsapp-fab {

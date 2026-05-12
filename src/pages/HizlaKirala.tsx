@@ -317,7 +317,7 @@ const Benefits = () => (
 );
 
 const Categories = () => (
-  <section className="hk-section" style={{ background: CREAM, padding: '80px 64px' }}>
+  <section id="kategoriler" className="hk-section" style={{ background: CREAM, padding: '80px 64px' }}>
     <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <div className="hk-section-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 36, gap: 20, flexWrap: 'wrap' }}>
         <div>
@@ -747,7 +747,11 @@ const RESPONSIVE_CSS = `
   .hk-hero { padding: 56px 22px 64px !important; }
   .hk-hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
   .hk-hero-h1 { font-size: 56px !important; }
-  .hk-hero-collage { height: 520px !important; }
+  .hk-hero-collage { height: 540px !important; max-width: 100%; }
+  .hk-hero-anker { width: min(290px, 88%) !important; right: 0 !important; }
+  .hk-hero-dyson { width: min(220px, 70%) !important; }
+  .hk-hero-ps5 { width: min(232px, 76%) !important; right: 8% !important; }
+  .hk-hero-disc { left: 12px !important; top: 32px !important; width: 78px !important; height: 78px !important; font-size: 9.5px !important; }
   .hk-hero-stats { max-width: 100% !important; }
   .hk-section { padding-left: 22px !important; padding-right: 22px !important; padding-top: 56px !important; padding-bottom: 56px !important; }
   .hk-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
@@ -762,11 +766,20 @@ const RESPONSIVE_CSS = `
   .hk-grid-4 { grid-template-columns: 1fr !important; }
   .hk-grid-3 { grid-template-columns: 1fr !important; }
   .hk-hero-stats { grid-template-columns: repeat(2, 1fr) !important; }
-  .hk-hero-collage { height: 460px !important; }
+  .hk-hero-collage { height: 500px !important; }
+  .hk-hero-anker { width: min(260px, 84%) !important; padding: 14px !important; }
+  .hk-hero-anker > div:first-of-type + div { height: 170px !important; }
+  .hk-hero-dyson { width: min(190px, 64%) !important; top: 250px !important; padding: 12px !important; }
+  .hk-hero-ps5 { width: min(200px, 68%) !important; right: 4% !important; padding: 12px !important; }
+  .hk-hero-disc { top: 18px !important; left: 8px !important; width: 64px !important; height: 64px !important; font-size: 8.5px !important; }
   .hk-footer-grid { grid-template-columns: 1fr !important; }
   .hk-hero-h1 { font-size: 44px !important; }
   .hk-h2 { font-size: 30px !important; }
   .hk-h1-cta { font-size: 36px !important; }
+}
+@media (max-width: 380px) {
+  /* Çok küçük telefonlarda dekoratif "+150 ÜRÜN" chip'i gizle */
+  .hk-hero-collage > div:last-of-type { display: none; }
 }
 `;
 
