@@ -104,7 +104,7 @@ function Gallery({ product }: { product: ProductDetail }) {
         />
         <div style={{ position: 'absolute', top: 18, left: 18, display: 'flex', flexDirection: 'column', gap: 6 }}>
           {product.tag && (
-            <span style={{ background: RED, color: CREAM, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.12em', padding: '5px 10px', borderRadius: 999 }}>● {product.tag}</span>
+            <span style={{ background: RED, color: CREAM, fontFamily: '"JetBrains Mono", monospace', fontSize: 9, fontWeight: 600, letterSpacing: '0.1em', padding: '3px 8px', borderRadius: 999 }}>{product.tag}</span>
           )}
           <span style={{ background: 'rgba(255,255,255,0.92)', color: INK, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.08em', padding: '5px 10px', borderRadius: 999, textTransform: 'uppercase' }}>STOKTA · 24S KARGO</span>
         </div>

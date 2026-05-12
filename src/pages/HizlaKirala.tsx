@@ -173,7 +173,7 @@ const Nav = () => (
           paddingBottom: 4,
         };
         return (
-          <Link key={item.to} to={item.to} style={linkStyle}>{item.label}</Link>
+          <Link key={item.to} to={item.to} className="hk-nav-link" style={linkStyle}>{item.label}</Link>
         );
       })}
     </div>
@@ -181,6 +181,7 @@ const Nav = () => (
       href={WHATSAPP_HREF}
       target="_blank"
       rel="noopener noreferrer"
+      className="hk-pill"
       style={{
         display: 'inline-flex', alignItems: 'center', gap: 8,
         background: WA, color: '#fff', padding: '10px 18px', borderRadius: 999,
@@ -256,7 +257,7 @@ const Hero = () => (
       </div>
 
       <div className="hk-hero-collage" style={{ position: 'relative', height: 540 }}>
-        <Link to="/hizla-kirala/anker-nebula-apollo" style={{ position: 'absolute', top: 0, right: 20, width: 280, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 18px 40px rgba(20,20,26,0.10)', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: 'inherit', display: 'block' }}>
+        <Link to="/hizla-kirala/anker-nebula-apollo" className="hk-hero-anker" style={{ position: 'absolute', top: 0, right: 20, width: 280, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 18px 40px rgba(20,20,26,0.10)', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: 'inherit', display: 'block' }}>
           <div style={{ background: CREAM, borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg" alt="Anker Nebula Apollo Taşınabilir Projeksiyon Cihazı" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
@@ -264,7 +265,7 @@ const Hero = () => (
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.2 }}>Nebula Apollo Projeksiyon</div>
           <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 18 }}>1.850 TL <span style={{ color: 'rgba(20,20,26,0.5)', fontWeight: 500, fontSize: 13 }}>/ ay</span></div>
         </Link>
-        <Link to="/hizla-kirala/dyson-airwrap" style={{ position: 'absolute', top: 220, left: 0, width: 260, background: INK, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(-3deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.25)', textDecoration: 'none', display: 'block' }}>
+        <Link to="/hizla-kirala/dyson-airwrap" className="hk-hero-dyson" style={{ position: 'absolute', top: 220, left: 0, width: 260, background: INK, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(-3deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.25)', textDecoration: 'none', display: 'block' }}>
           <div style={{ background: CREAM, borderRadius: 14, height: 150, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp" alt="Dyson Airwrap ID Ceramic Pink Saç Şekillendirici" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
@@ -272,7 +273,7 @@ const Hero = () => (
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 17, letterSpacing: '-0.02em', marginTop: 4 }}>Airwrap ID</div>
           <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 17 }}>1.600 TL <span style={{ color: 'rgba(245,239,226,0.5)', fontWeight: 500, fontSize: 12 }}>/ ay</span></div>
         </Link>
-        <Link to="/hizla-kirala/playstation-5-slim" style={{ position: 'absolute', bottom: 0, right: 60, width: 280, background: RED, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(4deg)', boxShadow: '0 18px 40px rgba(248,56,72,0.30)', textDecoration: 'none', display: 'block' }}>
+        <Link to="/hizla-kirala/playstation-5-slim" className="hk-hero-ps5" style={{ position: 'absolute', bottom: 0, right: 60, width: 280, background: RED, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(4deg)', boxShadow: '0 18px 40px rgba(248,56,72,0.30)', textDecoration: 'none', display: 'block' }}>
           <div style={{ background: CREAM, borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img src="https://api.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp" alt="Sony PlayStation 5 Slim 1TB Oyun Konsolu" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
@@ -305,7 +306,7 @@ const Benefits = () => (
           { n: '03', t: 'Garanti ve servis',          d: 'Tüm cihazlar 2 yıl garantili. Arıza durumunda 24 saatte yedek cihaz.' },
           { n: '04', t: 'Anlık ihtiyaca cevap',       d: 'Etkinlik, geçici ofis, lansman — kısa süreli kullanım için anında çözüm.' },
         ].map((b) => (
-          <div key={b.n} style={{
+          <div key={b.n} className="hk-card" style={{
             background: CREAM, borderRadius: 20, padding: 26,
             border: '1.5px solid rgba(20,20,26,0.14)',
             display: 'flex', flexDirection: 'column', gap: 14, minHeight: 240,
@@ -332,12 +333,12 @@ const Categories = () => (
       </div>
       <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
         {CATS.map((c) => (
-          <a key={c.name} href={c.href} target="_blank" rel="noopener noreferrer sponsored" style={{
+          <a key={c.name} href={c.href} target="_blank" rel="noopener noreferrer sponsored" className="hk-card" style={{
             background: '#fff', borderRadius: 20, padding: '24px 22px',
             border: '1.5px solid rgba(20,20,26,0.14)',
             textDecoration: 'none', color: INK,
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-            minHeight: 230, transition: 'all .2s',
+            minHeight: 230,
           }}>
             <div style={{ height: 96, marginBottom: 4 }}>
               <Silhouette kind={c.glyph} color={INK} glow={RED} />
@@ -349,12 +350,12 @@ const Categories = () => (
             </div>
           </a>
         ))}
-        <a href={PARTNER_BASE} target="_blank" rel="noopener noreferrer sponsored" style={{
+        <a href={PARTNER_BASE} target="_blank" rel="noopener noreferrer sponsored" className="hk-card-dark" style={{
           background: INK, color: CREAM, borderRadius: 20, padding: '24px 22px',
           border: '1.5px solid rgba(245,239,226,0.14)',
           textDecoration: 'none',
           display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-          minHeight: 230, transition: 'all .2s', position: 'relative', overflow: 'hidden',
+          minHeight: 230, position: 'relative', overflow: 'hidden',
         }}>
           <svg viewBox="0 0 240 240" style={{ position: 'absolute', right: -40, top: -40, width: 200, height: 200, opacity: 0.18 }} aria-hidden>
             {Array.from({ length: 8 }).map((_, i) => (
@@ -362,7 +363,7 @@ const Categories = () => (
             ))}
           </svg>
           <div style={{ height: 96, marginBottom: 4, display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
-            <span style={{
+            <span className="hk-card-cta-arrow" style={{
               width: 56, height: 56, borderRadius: 999, background: RED,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: 28, color: CREAM,
@@ -381,20 +382,20 @@ const Categories = () => (
 
 function renderProductCard(p: Product) {
   return (
-    <div key={p.name} style={{
+    <div key={p.name} className="hk-card hk-product-card" style={{
     background: '#fff', borderRadius: 22, overflow: 'hidden',
     border: '1.5px solid rgba(20,20,26,0.14)',
-    display: 'flex', flexDirection: 'column', transition: 'transform .2s',
+    display: 'flex', flexDirection: 'column',
   }}>
     <div style={{ background: CREAM, height: 220, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid rgba(20,20,26,0.10)' }}>
       <img src={p.image} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '88%', maxHeight: '88%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
       {p.tag && (
         <span style={{
-          position: 'absolute', top: 14, left: 14,
+          position: 'absolute', top: 12, left: 12,
           background: RED, color: CREAM,
-          fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.12em',
-          padding: '5px 10px', borderRadius: 999,
-        }}>● {p.tag}</span>
+          fontFamily: '"JetBrains Mono", monospace', fontSize: 9, fontWeight: 600, letterSpacing: '0.1em',
+          padding: '3px 8px', borderRadius: 999,
+        }}>{p.tag}</span>
       )}
     </div>
     <div style={{ padding: 20, display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
@@ -406,7 +407,7 @@ function renderProductCard(p: Product) {
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: 28, color: INK, letterSpacing: '-0.03em', lineHeight: 1 }}>{p.price} TL<span style={{ fontSize: 14, color: 'rgba(20,20,26,0.5)', fontWeight: 500 }}> /ay</span></div>
         </div>
         {p.internal ? (
-          <Link to={p.href} style={{
+          <Link to={p.href} className="hk-pill" style={{
             background: INK, color: CREAM, padding: '11px 18px', borderRadius: 999,
             fontWeight: 600, fontSize: 14, textDecoration: 'none',
             display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -414,7 +415,7 @@ function renderProductCard(p: Product) {
             Kirala <span style={{ color: RED }}>→</span>
           </Link>
         ) : (
-          <a href={p.href} target="_blank" rel="noopener noreferrer sponsored" style={{
+          <a href={p.href} target="_blank" rel="noopener noreferrer sponsored" className="hk-pill" style={{
             background: INK, color: CREAM, padding: '11px 18px', borderRadius: 999,
             fontWeight: 600, fontSize: 14, textDecoration: 'none',
             display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -455,7 +456,7 @@ const Products = () => (
         </div>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {['Tümü', 'Şımart Kendini', 'Ev Aletleri', 'Oyun & Hobi', 'Telefon'].map((f, i) => (
-            <span key={f} style={{
+            <span key={f} className="hk-chip" style={{
               background: i === 0 ? INK : 'transparent',
               color: i === 0 ? CREAM : INK,
               border: i === 0 ? 'none' : '1px solid rgba(20,20,26,0.15)',
@@ -470,7 +471,7 @@ const Products = () => (
         {PRODUCTS.map(renderProductCard)}
       </div>
       <div style={{ textAlign: 'center', marginTop: 40 }}>
-        <a href={PARTNER_BASE} target="_blank" rel="noopener noreferrer sponsored" style={{
+        <a href={PARTNER_BASE} target="_blank" rel="noopener noreferrer sponsored" className="hk-pill-light" style={{
           display: 'inline-flex', alignItems: 'center', gap: 10,
           border: `1.5px solid ${INK}`, color: INK, padding: '14px 26px', borderRadius: 999,
           fontWeight: 600, fontSize: 16, textDecoration: 'none',
@@ -498,7 +499,7 @@ const HowItWorks = () => (
           { n: '03', t: 'Teslim al', d: 'Onaydan sonra 24 saat içinde kargo veya kurye ile teslim.' },
           { n: '04', t: 'İade et',   d: 'Süre bitince ücretsiz kurye iadesi. Uzatmak istersen tek tıkla.' },
         ].map((s, i) => (
-          <div key={s.n} style={{
+          <div key={s.n} className="hk-card-dark" style={{
             background: '#1d1d24', border: '1.5px solid rgba(245,239,226,0.14)', borderRadius: 20,
             padding: 26, position: 'relative',
           }}>
@@ -512,7 +513,7 @@ const HowItWorks = () => (
         ))}
       </div>
       <div style={{ textAlign: 'center', marginTop: 40 }}>
-        <a href={`${PARTNER_BASE}/nasil-calisir`} target="_blank" rel="noopener noreferrer sponsored" style={{
+        <a href={`${PARTNER_BASE}/nasil-calisir`} target="_blank" rel="noopener noreferrer sponsored" className="hk-pill" style={{
           display: 'inline-flex', alignItems: 'center', gap: 10,
           background: CREAM, color: INK, padding: '14px 26px', borderRadius: 999,
           fontWeight: 600, fontSize: 16, textDecoration: 'none',
@@ -624,17 +625,17 @@ const Footer = () => (
                 if (item.external) {
                   return (
                     <li key={item.label}>
-                      <a href={item.href} target="_blank" rel="noopener noreferrer" style={linkStyle}>{item.label}</a>
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="hk-footer-link" style={linkStyle}>{item.label}</a>
                     </li>
                   );
                 }
                 if (item.href.startsWith('#') || item.href.startsWith('mailto:') || item.href.startsWith('tel:')) {
                   return (
-                    <li key={item.label}><a href={item.href} style={linkStyle}>{item.label}</a></li>
+                    <li key={item.label}><a href={item.href} className="hk-footer-link" style={linkStyle}>{item.label}</a></li>
                   );
                 }
                 return (
-                  <li key={item.label}><Link to={item.href} style={linkStyle}>{item.label}</Link></li>
+                  <li key={item.label}><Link to={item.href} className="hk-footer-link" style={linkStyle}>{item.label}</Link></li>
                 );
               })}
             </ul>
@@ -650,6 +651,42 @@ const Footer = () => (
 );
 
 const RESPONSIVE_CSS = `
+/* ─── Hover & interaction effects ─── */
+.hk-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.hk-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(20,20,26,0.10); border-color: rgba(20,20,26,0.22); }
+.hk-card-dark { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.hk-card-dark:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(0,0,0,0.32); border-color: rgba(245,239,226,0.22); }
+
+.hk-product-card img { transition: transform .35s ease; }
+.hk-product-card:hover img { transform: scale(1.04); }
+
+.hk-hero-anker { transition: transform .3s ease, box-shadow .3s ease; }
+.hk-hero-anker:hover { transform: translateY(-6px); box-shadow: 0 26px 52px rgba(20,20,26,0.16); }
+.hk-hero-dyson { transition: transform .3s ease, box-shadow .3s ease; }
+.hk-hero-dyson:hover { transform: rotate(-3deg) translateY(-6px); box-shadow: 0 26px 52px rgba(20,20,26,0.36); }
+.hk-hero-ps5 { transition: transform .3s ease, box-shadow .3s ease; }
+.hk-hero-ps5:hover { transform: rotate(4deg) translateY(-6px); box-shadow: 0 26px 52px rgba(248,56,72,0.40); }
+
+.hk-pill { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.hk-pill:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(20,20,26,0.20); }
+.hk-pill-light { transition: transform .2s ease, background-color .2s ease, color .2s ease; }
+.hk-pill-light:hover { transform: translateY(-1px); background: #14141a; color: #f7f3eb; }
+
+.hk-chip { transition: border-color .2s ease, background-color .2s ease, color .2s ease; }
+.hk-chip:hover { border-color: rgba(20,20,26,0.45); }
+
+.hk-nav-link { transition: color .2s ease; }
+.hk-nav-link:hover { color: #14141a !important; }
+
+.hk-footer-link { transition: color .2s ease; }
+.hk-footer-link:hover { color: #f7f3eb !important; }
+
+.hk-card-cta-arrow { transition: transform .25s ease; }
+.hk-card-dark:hover .hk-card-cta-arrow { transform: translateX(6px); }
+
+.hk-tag-link { transition: opacity .2s ease, transform .2s ease; }
+.hk-tag-link:hover { opacity: 0.78; transform: translateY(-1px); }
+
 @media (max-width: 1100px) {
   .hk-hero-h1 { font-size: 72px !important; }
   .hk-h2 { font-size: 44px !important; }
@@ -763,6 +800,63 @@ export default function HizlaKirala() {
     ],
   };
 
+  const howTo = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    '@id': `${SITE}/hizla-kirala#nasil-calisir`,
+    name: 'Hızla Kirala ürün kiralama nasıl çalışır',
+    description:
+      'On Music × Hızla Kirala üzerinden 4 adımda ürün kiralama — seç, başvur, teslim al, iade et.',
+    totalTime: 'PT24H',
+    estimatedCost: { '@type': 'MonetaryAmount', currency: 'TRY', value: '890' },
+    supply: [{ '@type': 'HowToSupply', name: 'Kimlik (TC/Pasaport)' }, { '@type': 'HowToSupply', name: 'Adres bilgisi' }],
+    tool: [{ '@type': 'HowToTool', name: 'iyzico ödeme' }],
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Seç',       text: 'Ürünü ve kiralama süresini (1, 3, 6 veya 12 ay) sayfada seç.' },
+      { '@type': 'HowToStep', position: 2, name: 'Başvur',    text: 'Kimlik bilgilerin ve adresinle 2 dakikada başvuruyu tamamla.' },
+      { '@type': 'HowToStep', position: 3, name: 'Teslim al', text: 'Onaydan sonra 24 saat içinde kargo veya kurye ile teslim.' },
+      { '@type': 'HowToStep', position: 4, name: 'İade et',   text: 'Süre bitince ücretsiz kurye iadesi. Uzatmak istersen tek tıkla.' },
+    ],
+  };
+
+  const faqPage = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${SITE}/hizla-kirala#faq`,
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Ürün kiralama nasıl çalışır?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Seç → Başvur → Teslim al → İade et. Kimlik ve adres bilgisinle 2 dakikada başvurabilir, onaydan sonra 24 saat içinde kapında olur. Süre bitince ücretsiz kurye iadesi.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Ödeme nasıl yapılır?',
+        acceptedAnswer: { '@type': 'Answer', text: 'iyzico altyapısı ile kredi kartı (Visa, Mastercard, Amex). 12 aya kadar taksit imkânı. Aylık abonelik benzeri otomatik tahsilat.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Cihaz arıza yaparsa ne olur?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Tüm cihazlar 2 yıl garantili. Arıza durumunda 24 saat içinde yedek cihaz gönderilir, arızalı cihaz ücretsiz kurye ile geri alınır.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Kiralama süresini uzatabilir miyim?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Evet, hesabınızdan tek tıkla 1, 3, 6 veya 12 ay daha uzatabilirsiniz. Uzun süreli kiralamada aylık birim ücret düşer.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Hangi şehirlere teslimat yapılıyor?',
+        acceptedAnswer: { '@type': 'Answer', text: 'İstanbul, Ankara, İzmir, Antalya, Bursa ve diğer 75 ile kargo/kurye ile teslimat. İstanbul içi aynı gün opsiyonu mevcut.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'On Music × Hızla Kirala iş ortaklığı ne demek?',
+        acceptedAnswer: { '@type': 'Answer', text: 'On Muzik Proje, Hızla Kirala\'nın resmi iş ortağıdır. Web sitemizden kiralama başlatıldığında işlem, kiralama süreci ve garanti hizlakirala.com altyapısı üzerinden ilerler.' },
+      },
+    ],
+  };
+
   const partnership = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -794,7 +888,7 @@ export default function HizlaKirala() {
     image: '/assets/hizla-kirala/og-image.png',
     keywords:
       'kiralık ürün, ürün kiralama, projeksiyon kiralama, anker nebula apollo kiralama, macbook m4 kiralama, playstation 5 kiralama, ps5 slim kiralama, dyson airwrap kiralama, samsung galaxy a36 kiralama, hızla kirala, on music, on muzik proje, kiralama, aylık kiralama, günlük kiralama, iyzico taksit, 24 saat teslim',
-    jsonLd: [collectionPage, itemList, popularList, breadcrumb, partnership],
+    jsonLd: [collectionPage, itemList, popularList, howTo, faqPage, breadcrumb, partnership],
   });
 
   return (
