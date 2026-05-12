@@ -1,7 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { useState, type CSSProperties, type ReactNode } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { useSeo } from '../lib/seo';
-import { getProduct, getRelated, PRODUCTS, type Glyph, type ProductDetail } from '../lib/hizla-kirala-products';
+import { getProduct, getRelated, type ProductDetail } from '../lib/hizla-kirala-products';
 
 const RED = '#F83848';
 const INK = '#14141a';
@@ -85,196 +85,50 @@ const Breadcrumb = ({ product }: { product: ProductDetail }) => (
   </div>
 );
 
-/* ─────────── Anker projector — 4-açılı detaylı galeri ─────────── */
-
-const ProjectorArt = ({ brand = false }: { brand?: boolean }) => (
-  <svg viewBox="0 0 600 600" style={{ width: '100%', height: '100%', display: 'block' }}>
-    <defs>
-      <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0.5">
-        <stop offset="0" stopColor={RED} stopOpacity="0.55" />
-        <stop offset="1" stopColor={RED} stopOpacity="0" />
-      </linearGradient>
-    </defs>
-    <g transform="translate(300,300) rotate(0) scale(1) translate(-300,-300)">
-      <path d="M 420 240 L 600 140 L 600 460 L 420 360 Z" fill="url(#beam)" />
-      <rect x="120" y="220" width="320" height="170" rx="22" fill={INK} />
-      <rect x="120" y="220" width="320" height="170" rx="22" fill="none" stroke="rgba(245,239,226,0.08)" strokeWidth="1" />
-      {[0, 1, 2, 3, 4].map((i) => (
-        <rect key={i} x={150 + i * 40} y="240" width="22" height="3" rx="1.5" fill="rgba(245,239,226,0.18)" />
-      ))}
-      <circle cx="380" cy="305" r="58" fill={CREAM} />
-      <circle cx="380" cy="305" r="46" fill={INK} />
-      <circle cx="380" cy="305" r="34" fill={RED} />
-      <circle cx="380" cy="305" r="18" fill={INK} />
-      <circle cx="372" cy="297" r="6" fill="rgba(245,239,226,0.7)" />
-      <circle cx="160" cy="270" r="5" fill={RED} />
-      <circle cx="160" cy="290" r="5" fill="rgba(245,239,226,0.3)" />
-      {brand && <text x="180" y="370" fontFamily="Bricolage Grotesque" fontSize="14" fill="rgba(245,239,226,0.5)" letterSpacing="0.2em">ANKER · NEBULA</text>}
-      <ellipse cx="280" cy="410" rx="170" ry="10" fill={INK} opacity="0.18" />
-    </g>
-  </svg>
-);
-
-const ProjectorTop = () => (
-  <svg viewBox="0 0 600 600" style={{ width: '100%', height: '100%', display: 'block' }}>
-    <ellipse cx="300" cy="300" rx="200" ry="110" fill={INK} />
-    <ellipse cx="300" cy="300" rx="200" ry="110" fill="none" stroke="rgba(245,239,226,0.1)" strokeWidth="1" />
-    {[0, 1, 2, 3, 4, 5, 6].map((i) => (
-      <line key={i} x1={170 + i * 30} y1="240" x2={170 + i * 30} y2="360" stroke="rgba(245,239,226,0.18)" strokeWidth="3" strokeLinecap="round" />
-    ))}
-    <circle cx="300" cy="300" r="14" fill={RED} />
-  </svg>
-);
-
-const ProjectorPorts = () => (
-  <svg viewBox="0 0 600 600" style={{ width: '100%', height: '100%', display: 'block' }}>
-    <rect x="100" y="240" width="400" height="120" rx="14" fill={INK} />
-    <rect x="130" y="280" width="34" height="40" rx="4" fill={CREAM} />
-    <rect x="180" y="290" width="40" height="20" rx="3" fill={CREAM} />
-    <rect x="240" y="290" width="40" height="20" rx="3" fill={CREAM} />
-    <circle cx="320" cy="300" r="14" fill={CREAM} />
-    <rect x="360" y="294" width="60" height="12" rx="2" fill={CREAM} />
-    <rect x="440" y="290" width="40" height="20" rx="3" fill={RED} />
-  </svg>
-);
-
-const ProjectorScene = () => (
-  <svg viewBox="0 0 600 600" style={{ width: '100%', height: '100%', display: 'block' }}>
-    <rect x="50" y="80" width="500" height="320" rx="8" fill={INK} />
-    <rect x="62" y="92" width="476" height="296" rx="4" fill="#1a1a22" />
-    {[0, 1, 2, 3, 4, 5].map((i) => (
-      <rect key={i} x="62" y={92 + i * 50} width="476" height="20" fill={RED} opacity={0.05 + i * 0.04} />
-    ))}
-    <circle cx="180" cy="200" r="34" fill={RED} opacity="0.5" />
-    <rect x="240" y="220" width="200" height="8" rx="2" fill={CREAM} opacity="0.3" />
-    <rect x="240" y="240" width="160" height="8" rx="2" fill={CREAM} opacity="0.2" />
-    <rect x="240" y="260" width="180" height="8" rx="2" fill={CREAM} opacity="0.15" />
-    <rect x="260" y="450" width="80" height="36" rx="6" fill={INK} />
-    <circle cx="318" cy="468" r="10" fill={RED} />
-    <path d="M 318 450 L 300 400 L 540 90 L 300 400 Z" fill={RED} opacity="0.1" />
-  </svg>
-);
-
-/* ─────────── Generic silhouette — tüm glyph'ler için tek görsel ─────────── */
-
-function GlyphHero({ kind }: { kind: Glyph }) {
-  // 600×600 viewBox içinde merkezlenmiş bir 320×240 silüet — kiralık sayfası
-  // ile aynı çizimleri kullanır, sadece daha büyük gösterir.
-  const inner = (() => {
-    if (kind === 'laptop') return (
-      <>
-        <rect x="60" y="50" width="200" height="130" rx="8" fill={INK} />
-        <rect x="70" y="60" width="180" height="110" fill={CREAM} />
-        <rect x="40" y="180" width="240" height="14" rx="3" fill={INK} />
-        <rect x="140" y="180" width="40" height="6" rx="2" fill={INK} opacity="0.4" />
-      </>
-    );
-    if (kind === 'console') return (
-      <>
-        <rect x="120" y="30" width="80" height="180" rx="10" fill={INK} />
-        <rect x="120" y="30" width="80" height="180" rx="10" fill="none" stroke={CREAM} strokeWidth="2" />
-        <circle cx="160" cy="190" r="5" fill={RED} />
-        <rect x="220" y="120" width="70" height="40" rx="8" fill={INK} opacity="0.7" />
-        <circle cx="240" cy="140" r="6" fill={CREAM} />
-        <circle cx="270" cy="140" r="6" fill={CREAM} />
-      </>
-    );
-    if (kind === 'vr') return (
-      <>
-        <path d="M 60 90 Q 60 60 100 60 L 220 60 Q 260 60 260 90 L 260 150 Q 260 180 220 180 L 200 180 L 160 150 L 120 180 L 100 180 Q 60 180 60 150 Z" fill={INK} />
-        <ellipse cx="115" cy="120" rx="22" ry="18" fill={CREAM} />
-        <ellipse cx="205" cy="120" rx="22" ry="18" fill={CREAM} />
-        <circle cx="115" cy="120" r="8" fill={RED} />
-        <circle cx="205" cy="120" r="8" fill={RED} />
-      </>
-    );
-    if (kind === 'switch') return (
-      <>
-        <rect x="60" y="70" width="200" height="100" rx="12" fill={INK} />
-        <rect x="100" y="78" width="120" height="84" rx="4" fill={CREAM} />
-        <circle cx="80" cy="100" r="4" fill={RED} />
-        <circle cx="80" cy="140" r="4" fill={CREAM} />
-        <rect x="232" y="92" width="14" height="14" rx="3" fill={CREAM} />
-        <rect x="232" y="118" width="14" height="14" rx="3" fill={CREAM} />
-      </>
-    );
-    if (kind === 'scooter') return (
-      <>
-        <circle cx="80" cy="180" r="28" fill="none" stroke={INK} strokeWidth="6" />
-        <circle cx="240" cy="180" r="28" fill="none" stroke={INK} strokeWidth="6" />
-        <line x1="80" y1="180" x2="220" y2="180" stroke={INK} strokeWidth="6" />
-        <line x1="240" y1="180" x2="240" y2="60" stroke={INK} strokeWidth="6" />
-        <line x1="240" y1="60" x2="220" y2="50" stroke={INK} strokeWidth="6" />
-        <line x1="240" y1="60" x2="260" y2="50" stroke={INK} strokeWidth="6" />
-        <rect x="140" y="170" width="80" height="14" rx="3" fill={RED} />
-      </>
-    );
-    if (kind === 'vacuum') return (
-      <>
-        <rect x="148" y="40" width="24" height="120" rx="6" fill={INK} />
-        <rect x="120" y="160" width="80" height="50" rx="8" fill={INK} />
-        <circle cx="160" cy="55" r="14" fill={RED} />
-        <rect x="130" y="200" width="60" height="14" rx="3" fill={INK} opacity="0.5" />
-      </>
-    );
-    if (kind === 'phone') return (
-      <>
-        <rect x="120" y="20" width="80" height="200" rx="14" fill={INK} />
-        <rect x="128" y="32" width="64" height="176" rx="6" fill={CREAM} />
-        <rect x="150" y="40" width="20" height="6" rx="3" fill={INK} />
-        <circle cx="160" cy="200" r="6" fill={INK} opacity="0.4" />
-      </>
-    );
-    return null;
-  })();
-
-  return (
-    <svg viewBox="0 0 600 600" style={{ width: '100%', height: '100%', display: 'block' }}>
-      <g transform="translate(140 180) scale(1.0)">
-        {inner}
-      </g>
-    </svg>
-  );
-}
-
-type Shot = { key: string; el: ReactNode };
-
 function Gallery({ product }: { product: ProductDetail }) {
   const [active, setActive] = useState(0);
-
-  const shots: Shot[] = product.hasDetailedGallery
-    ? [
-        { key: 'main',  el: <ProjectorArt brand /> },
-        { key: 'top',   el: <ProjectorTop /> },
-        { key: 'port',  el: <ProjectorPorts /> },
-        { key: 'scene', el: <ProjectorScene /> },
-      ]
-    : [{ key: 'main', el: <GlyphHero kind={product.glyph} /> }];
+  const images = product.images.length ? product.images : ['/assets/hizla-kirala/placeholder.png'];
+  const alt = `${product.brand} ${product.name}`;
 
   return (
     <div style={{ display: 'flex', gap: 16, flexDirection: 'column' }}>
-      <div style={{ background: CREAM, borderRadius: 24, aspectRatio: '1 / 1', overflow: 'hidden', position: 'relative', border: '1px solid rgba(20,20,26,0.06)' }}>
-        {shots[active].el}
+      <div style={{ background: CREAM, borderRadius: 24, aspectRatio: '1 / 1', overflow: 'hidden', position: 'relative', border: '1px solid rgba(20,20,26,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <img
+          src={images[active]}
+          alt={alt}
+          loading="eager"
+          decoding="async"
+          style={{ maxWidth: '88%', maxHeight: '88%', objectFit: 'contain' }}
+        />
         <div style={{ position: 'absolute', top: 18, left: 18, display: 'flex', flexDirection: 'column', gap: 6 }}>
           {product.tag && (
             <span style={{ background: RED, color: CREAM, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.12em', padding: '5px 10px', borderRadius: 999 }}>● {product.tag}</span>
           )}
           <span style={{ background: 'rgba(255,255,255,0.92)', color: INK, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.08em', padding: '5px 10px', borderRadius: 999, textTransform: 'uppercase' }}>STOKTA · 24S KARGO</span>
         </div>
-        {shots.length > 1 && (
+        {images.length > 1 && (
           <div style={{ position: 'absolute', bottom: 18, right: 18, background: 'rgba(20,20,26,0.85)', color: CREAM, padding: '6px 12px', borderRadius: 999, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-            {active + 1} / {shots.length}
+            {active + 1} / {images.length}
           </div>
         )}
       </div>
-      {shots.length > 1 && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 10 }}>
-          {shots.map((s, i) => (
-            <button key={s.key} onClick={() => setActive(i)} type="button" aria-label={`Görsel ${i + 1}`} style={{
-              background: CREAM, borderRadius: 14, aspectRatio: '1/1',
-              border: `2px solid ${i === active ? INK : 'rgba(20,20,26,0.08)'}`,
-              cursor: 'pointer', padding: 6, overflow: 'hidden',
-            }}>{s.el}</button>
+      {images.length > 1 && (
+        <div style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min(images.length, 4)},1fr)`, gap: 10 }}>
+          {images.map((src, i) => (
+            <button
+              key={src}
+              onClick={() => setActive(i)}
+              type="button"
+              aria-label={`Görsel ${i + 1}`}
+              style={{
+                background: CREAM, borderRadius: 14, aspectRatio: '1/1',
+                border: `2px solid ${i === active ? INK : 'rgba(20,20,26,0.08)'}`,
+                cursor: 'pointer', padding: 6, overflow: 'hidden',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}
+            >
+              <img src={src} alt={`${alt} ${i + 1}`} loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+            </button>
           ))}
         </div>
       )}
@@ -560,69 +414,6 @@ function Description({ product }: { product: ProductDetail }) {
   );
 }
 
-function RelatedThumb({ kind }: { kind: Glyph }) {
-  if (kind === 'laptop') return (
-    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
-      <rect x="60" y="50" width="200" height="130" rx="8" fill={INK} />
-      <rect x="70" y="60" width="180" height="110" fill={CREAM} />
-      <rect x="40" y="180" width="240" height="14" rx="3" fill={INK} />
-    </svg>
-  );
-  if (kind === 'console') return (
-    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
-      <rect x="120" y="30" width="80" height="180" rx="10" fill={INK} />
-      <circle cx="160" cy="190" r="5" fill={RED} />
-      <rect x="220" y="120" width="70" height="40" rx="8" fill={INK} opacity="0.7" />
-    </svg>
-  );
-  if (kind === 'vr') return (
-    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
-      <path d="M 60 90 Q 60 60 100 60 L 220 60 Q 260 60 260 90 L 260 150 Q 260 180 220 180 L 200 180 L 160 150 L 120 180 L 100 180 Q 60 180 60 150 Z" fill={INK} />
-      <ellipse cx="115" cy="120" rx="22" ry="18" fill={CREAM} />
-      <ellipse cx="205" cy="120" rx="22" ry="18" fill={CREAM} />
-      <circle cx="115" cy="120" r="8" fill={RED} />
-      <circle cx="205" cy="120" r="8" fill={RED} />
-    </svg>
-  );
-  if (kind === 'switch') return (
-    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
-      <rect x="60" y="70" width="200" height="100" rx="12" fill={INK} />
-      <rect x="100" y="78" width="120" height="84" rx="4" fill={CREAM} />
-      <circle cx="80" cy="100" r="4" fill={RED} />
-    </svg>
-  );
-  if (kind === 'projector') return (
-    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
-      <rect x="50" y="80" width="200" height="100" rx="14" fill={INK} />
-      <circle cx="220" cy="130" r="32" fill={CREAM} />
-      <circle cx="220" cy="130" r="20" fill={RED} />
-    </svg>
-  );
-  if (kind === 'scooter') return (
-    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
-      <circle cx="80" cy="180" r="28" fill="none" stroke={INK} strokeWidth="6" />
-      <circle cx="240" cy="180" r="28" fill="none" stroke={INK} strokeWidth="6" />
-      <line x1="80" y1="180" x2="220" y2="180" stroke={INK} strokeWidth="6" />
-      <line x1="240" y1="180" x2="240" y2="60" stroke={INK} strokeWidth="6" />
-      <rect x="140" y="170" width="80" height="14" rx="3" fill={RED} />
-    </svg>
-  );
-  if (kind === 'vacuum') return (
-    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
-      <rect x="148" y="40" width="24" height="120" rx="6" fill={INK} />
-      <rect x="120" y="160" width="80" height="50" rx="8" fill={INK} />
-      <circle cx="160" cy="55" r="14" fill={RED} />
-    </svg>
-  );
-  if (kind === 'phone') return (
-    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
-      <rect x="120" y="20" width="80" height="200" rx="14" fill={INK} />
-      <rect x="128" y="32" width="64" height="176" rx="6" fill={CREAM} />
-    </svg>
-  );
-  return null;
-}
-
 const Related = ({ product }: { product: ProductDetail }) => {
   const related = getRelated(product.slug, 4);
   return (
@@ -638,7 +429,9 @@ const Related = ({ product }: { product: ProductDetail }) => {
         <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
           {related.map((p) => (
             <Link key={p.slug} to={`/hizla-kirala/${p.slug}`} style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(20,20,26,0.08)', textDecoration: 'none', color: INK }}>
-              <div style={{ background: CREAM, height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><RelatedThumb kind={p.glyph} /></div>
+              <div style={{ background: CREAM, height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                <img src={p.images[0]} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '78%', maxHeight: '85%', objectFit: 'contain' }} />
+              </div>
               <div style={{ padding: 18 }}>
                 <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.12em', color: 'rgba(20,20,26,0.5)', textTransform: 'uppercase' }}>{p.brand}</div>
                 <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.2 }}>{p.name}</div>
@@ -822,5 +615,3 @@ export default function HizlaKiralaUrun() {
   );
 }
 
-// PRODUCTS yan etkisiz import için (typecheck'in unused warning vermemesi)
-export { PRODUCTS };
