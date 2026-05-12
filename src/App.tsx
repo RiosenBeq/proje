@@ -95,10 +95,10 @@ export default function App() {
           <Route path="iletisim" element={<Contact />} />
           <Route path="gizlilik-politikasi" element={<Suspense fallback={<PageFallback />}><PrivacyPolicy /></Suspense>} />
           <Route path="kvkk" element={<Suspense fallback={<PageFallback />}><Kvkk /></Suspense>} />
+          <Route path="hizla-kirala" element={<Suspense fallback={<PageFallback />}><HizlaKirala /></Suspense>} />
+          <Route path="hizla-kirala/:slug" element={<Suspense fallback={<PageFallback />}><HizlaKiralaUrun /></Suspense>} />
           <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="/hizla-kirala" element={<Suspense fallback={<PageFallback />}><HizlaKirala /></Suspense>} />
-        <Route path="/hizla-kirala/:slug" element={<Suspense fallback={<PageFallback />}><HizlaKiralaUrun /></Suspense>} />
       </Routes>
     </BrowserRouter>
   );

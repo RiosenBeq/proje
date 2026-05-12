@@ -347,7 +347,7 @@ export default function Layout() {
 
       {location.pathname === '/' && <SectionProgress />}
 
-      <footer className="footer">
+      {!location.pathname.startsWith('/hizla-kirala') && <footer className="footer">
         <div className="container">
           <div className="foot-cta">
             <div>
@@ -424,7 +424,7 @@ export default function Layout() {
             </span>
           </div>
         </div>
-      </footer>
+      </footer>}
 
       <WhatsAppFab />
       <MobileBottomNav onMenuToggle={() => setDrawer((d) => !d)} drawerOpen={drawer} />
