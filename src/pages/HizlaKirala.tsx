@@ -120,7 +120,6 @@ type Product = {
   tag: string | null;
   price: string;
   cat: string;
-  spec: string;
   href: string;
   image: string;
   internal: true;
@@ -136,7 +135,6 @@ const PRODUCTS: Product[] = PRODUCTS_FULL.map((p) => ({
   tag: p.tag,
   price: p.priceFrom,
   cat: p.category,
-  spec: p.chips.slice(0, 2).join(' · '),
   href: `/hizla-kirala/${p.slug}`,
   image: p.images[0],
   internal: true,
@@ -266,16 +264,16 @@ const Hero = () => (
           <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 18 }}>1.850 TL <span style={{ color: 'rgba(20,20,26,0.5)', fontWeight: 500, fontSize: 13 }}>/ ay</span></div>
         </Link>
         <Link to="/hizla-kirala/dyson-airwrap" style={{ position: 'absolute', top: 220, left: 0, width: 260, background: INK, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(-3deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.25)', textDecoration: 'none', display: 'block' }}>
-          <div style={{ background: '#1f1f28', borderRadius: 14, height: 150, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp" alt="Dyson Airwrap ID Ceramic Pink Saç Şekillendirici" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'screen' }} />
+          <div style={{ background: CREAM, borderRadius: 14, height: 150, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp" alt="Dyson Airwrap ID Ceramic Pink Saç Şekillendirici" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(245,239,226,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Dyson</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 17, letterSpacing: '-0.02em', marginTop: 4 }}>Airwrap ID</div>
           <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 17 }}>1.600 TL <span style={{ color: 'rgba(245,239,226,0.5)', fontWeight: 500, fontSize: 12 }}>/ ay</span></div>
         </Link>
         <Link to="/hizla-kirala/playstation-5-slim" style={{ position: 'absolute', bottom: 0, right: 60, width: 280, background: RED, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(4deg)', boxShadow: '0 18px 40px rgba(248,56,72,0.30)', textDecoration: 'none', display: 'block' }}>
-          <div style={{ background: '#d0202f', borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="https://api.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp" alt="Sony PlayStation 5 Slim 1TB Oyun Konsolu" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'screen' }} />
+          <div style={{ background: CREAM, borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="https://api.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp" alt="Sony PlayStation 5 Slim 1TB Oyun Konsolu" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, opacity: 0.85, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Sony</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4 }}>PlayStation 5 Slim</div>
@@ -331,16 +329,16 @@ const Categories = () => (
         </div>
         <a href={PARTNER_BASE} target="_blank" rel="noopener noreferrer" style={{ color: INK, fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: `1.5px solid ${INK}`, paddingBottom: 3 }}>Tüm kategoriler →</a>
       </div>
-      <div className="hk-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
+      <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
         {CATS.map((c) => (
           <a key={c.name} href={c.href} target="_blank" rel="noopener noreferrer sponsored" style={{
             background: '#fff', borderRadius: 20, padding: '24px 22px',
             border: '1px solid rgba(20,20,26,0.06)',
             textDecoration: 'none', color: INK,
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-            minHeight: 220, transition: 'all .2s',
+            minHeight: 230, transition: 'all .2s',
           }}>
-            <div style={{ height: 110, marginBottom: 4 }}>
+            <div style={{ height: 96, marginBottom: 4 }}>
               <Silhouette kind={c.glyph} color={INK} glow={RED} />
             </div>
             <div>
@@ -350,6 +348,31 @@ const Categories = () => (
             </div>
           </a>
         ))}
+        <a href={PARTNER_BASE} target="_blank" rel="noopener noreferrer sponsored" style={{
+          background: INK, color: CREAM, borderRadius: 20, padding: '24px 22px',
+          border: '1px solid rgba(20,20,26,0.06)',
+          textDecoration: 'none',
+          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+          minHeight: 230, transition: 'all .2s', position: 'relative', overflow: 'hidden',
+        }}>
+          <svg viewBox="0 0 240 240" style={{ position: 'absolute', right: -40, top: -40, width: 200, height: 200, opacity: 0.18 }} aria-hidden>
+            {Array.from({ length: 8 }).map((_, i) => (
+              <circle key={i} cx="120" cy="120" r={20 + i * 14} fill="none" stroke={CREAM} strokeWidth="1" />
+            ))}
+          </svg>
+          <div style={{ height: 96, marginBottom: 4, display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+            <span style={{
+              width: 56, height: 56, borderRadius: 999, background: RED,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: 28, color: CREAM,
+            }}>→</span>
+          </div>
+          <div style={{ position: 'relative' }}>
+            <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', lineHeight: 1.15 }}>Tümünü gör</div>
+            <div style={{ fontFamily: '"Inter", sans-serif', fontSize: 13, color: 'rgba(245,239,226,0.65)', marginTop: 6, lineHeight: 1.35 }}>150+ ürün · 30+ alt kategori</div>
+            <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: RED, letterSpacing: '0.08em', marginTop: 8 }}>HIZLAKIRALA.COM →</div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -372,12 +395,6 @@ function renderProductCard(p: Product) {
           padding: '5px 10px', borderRadius: 999,
         }}>● {p.tag}</span>
       )}
-      <span style={{
-        position: 'absolute', top: 14, right: 14,
-        background: 'rgba(255,255,255,0.9)', color: INK,
-        fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.08em',
-        padding: '5px 10px', borderRadius: 999, textTransform: 'uppercase',
-      }}>{p.spec}</span>
     </div>
     <div style={{ padding: 20, display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
       <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.14em', color: 'rgba(20,20,26,0.5)', textTransform: 'uppercase' }}>{p.brand}</div>
