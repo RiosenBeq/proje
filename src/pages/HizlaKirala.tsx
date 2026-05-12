@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { CSSProperties } from 'react';
 import { useSeo } from '../lib/seo';
+import { PRODUCTS as PRODUCTS_FULL } from '../lib/hizla-kirala-products';
 
 const RED = '#F83848';
 const INK = '#14141a';
@@ -124,13 +125,19 @@ type Product = {
   internal: true;
 };
 
-const PRODUCTS: Product[] = [
-  { brand: 'Anker',    name: 'Nebula Apollo Taşınabilir Projeksiyon', tag: 'YENİ', price: '1.850', cat: 'Kamera & Aksesuar',   spec: '200 ANSI · Android', href: '/hizla-kirala/anker-nebula-apollo', image: '/assets/hizla-kirala/anker-nebula-apollo.png', internal: true },
-  { brand: 'Apple',    name: 'MacBook Neo 12" M4 · 16GB / 512GB',     tag: 'YENİ', price: '2.450', cat: 'Bilgisayar & Tablet', spec: 'M4 · 16GB',          href: '/hizla-kirala/macbook-neo-m4',      image: '/assets/hizla-kirala/macbook-neo-m4.jpg',      internal: true },
-  { brand: 'Sony',     name: 'PlayStation 5 Slim · 1TB',              tag: null,   price: '1.850', cat: 'Oyun & Hobi',         spec: '4K HDR · 2 kontrolcü',href: '/hizla-kirala/playstation-5-slim',  image: '/assets/hizla-kirala/playstation-5-slim.png',  internal: true },
-  { brand: 'Dyson',    name: 'Airwrap ID Ceramic Pink Saç Şekillendirici', tag: 'YENİ', price: '1.600', cat: 'Şımart Kendini', spec: '6 aksesuar · Coanda', href: '/hizla-kirala/dyson-airwrap',       image: '/assets/hizla-kirala/dyson-airwrap.png',       internal: true },
-  { brand: 'Samsung',  name: 'Galaxy A36 5G · 256GB · Siyah',         tag: null,   price: '1.200', cat: 'Bilgisayar & Tablet', spec: '6.7" AMOLED · 5G',   href: '/hizla-kirala/samsung-galaxy-a36',  image: '/assets/hizla-kirala/samsung-galaxy-a36.png',  internal: true },
-];
+// Tüm 20 ürünü tek bir kaynaktan (hizla-kirala-products.ts) çekiyoruz.
+// Burada katalog kartı için sadeleştirilmiş Product type'ına projeksiyon yapıyoruz.
+const PRODUCTS: Product[] = PRODUCTS_FULL.map((p) => ({
+  brand: p.brand,
+  name: p.name,
+  tag: p.tag,
+  price: p.priceFrom,
+  cat: p.category,
+  spec: p.chips.slice(0, 2).join(' · '),
+  href: `/hizla-kirala/${p.slug}`,
+  image: p.images[0],
+  internal: true,
+}));
 
 const SITE_NAV: Array<{ label: string; to: string; external?: boolean }> = [
   { label: 'Hizmetler', to: '/hizmetler' },
@@ -246,7 +253,7 @@ const Hero = () => (
       <div className="hk-hero-collage" style={{ position: 'relative', height: 540 }}>
         <Link to="/hizla-kirala/anker-nebula-apollo" style={{ position: 'absolute', top: 0, right: 20, width: 280, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 18px 40px rgba(20,20,26,0.10)', border: '1px solid rgba(20,20,26,0.06)', textDecoration: 'none', color: 'inherit', display: 'block' }}>
           <div style={{ background: CREAM, borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/assets/hizla-kirala/anker-nebula-apollo.png" alt="Anker Nebula Apollo" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+            <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg" alt="Anker Nebula Apollo Taşınabilir Projeksiyon Cihazı" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(20,20,26,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Anker</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.2 }}>Nebula Apollo Projeksiyon</div>
@@ -254,7 +261,7 @@ const Hero = () => (
         </Link>
         <Link to="/hizla-kirala/dyson-airwrap" style={{ position: 'absolute', top: 220, left: 0, width: 260, background: INK, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(-3deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.25)', textDecoration: 'none', display: 'block' }}>
           <div style={{ background: '#1f1f28', borderRadius: 14, height: 150, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/assets/hizla-kirala/dyson-airwrap.png" alt="Dyson Airwrap ID Ceramic Pink" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+            <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp" alt="Dyson Airwrap ID Ceramic Pink Saç Şekillendirici" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(245,239,226,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Dyson</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 17, letterSpacing: '-0.02em', marginTop: 4 }}>Airwrap ID</div>
@@ -262,7 +269,7 @@ const Hero = () => (
         </Link>
         <Link to="/hizla-kirala/playstation-5-slim" style={{ position: 'absolute', bottom: 0, right: 60, width: 280, background: RED, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(4deg)', boxShadow: '0 18px 40px rgba(248,56,72,0.30)', textDecoration: 'none', display: 'block' }}>
           <div style={{ background: '#d0202f', borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/assets/hizla-kirala/playstation-5-slim.png" alt="Sony PlayStation 5 Slim" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+            <img src="https://api.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp" alt="Sony PlayStation 5 Slim 1TB Oyun Konsolu" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, opacity: 0.85, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Sony</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4 }}>PlayStation 5 Slim</div>
@@ -641,7 +648,7 @@ export default function HizlaKirala() {
     '@id': `${SITE}/hizla-kirala#page`,
     name: 'Kiralık Ürünler — On Music × Hızla Kirala',
     description:
-      'On Muzik Proje aracılığıyla Hızla Kirala portföyünden ürün kiralama. Projeksiyon, MacBook, PlayStation 5 Slim, Dyson Airwrap, Samsung Galaxy A36 ve daha fazlası — aylık ve günlük kiralama, 24 saatte kapıda teslim, 2 yıl garanti.',
+      'On Muzik Proje aracılığıyla Hızla Kirala portföyünden 20+ ürün kiralama: projeksiyon, MacBook M4, PlayStation 5 Slim, Dyson Airwrap & V15 Detect, iPhone 17 Pro, Meta Quest 3 VR, Nintendo Switch OLED, DJI Osmo Pocket 3, Kärcher buharlı temizlik, Cybex bebek oto koltuğu, Dreame hava temizleyici ve daha fazlası — aylık 890 TL\'den, 24 saatte kapıda teslim, iyzico ile 12 taksit, 2 yıl garanti.',
     url: `${SITE}/hizla-kirala`,
     inLanguage: 'tr-TR',
     isPartOf: { '@id': `${SITE}/#website` },
@@ -716,7 +723,7 @@ export default function HizlaKirala() {
   useSeo({
     title: 'Kiralık Ürünler — On Music × Hızla Kirala Resmi İş Ortağı | On Muzik Proje',
     description:
-      'On Muzik Proje × Hızla Kirala resmi iş ortaklığı: projeksiyon, MacBook, PlayStation 5 Slim, Dyson Airwrap, Samsung Galaxy A36 kiralama. Aylık 1.200 TL\'den, 24 saatte kapıda teslim, iyzico ile 12 taksit, 2 yıl tam garanti. WhatsApp 0543 412 33 80.',
+      'On Muzik Proje × Hızla Kirala resmi iş ortaklığı: Anker Nebula projeksiyon, Apple MacBook M4, Sony PlayStation 5 Slim, Dyson Airwrap & V15 Detect, iPhone 17 Pro, Meta Quest 3 VR, Nintendo Switch OLED, DJI Pocket 3, Kärcher buharlı temizlik, Cybex bebek oto koltuğu, Xiaomi Mi Pro 4 scooter, FOREO LED maske, Karaca akıllı çay makinesi ve daha fazlası — aylık 890 TL\'den, 24 saatte kapıda teslim, iyzico ile 12 taksit, 2 yıl tam garanti. WhatsApp 0543 412 33 80.',
     path: '/hizla-kirala',
     image: '/assets/hizla-kirala/og-image.png',
     keywords:

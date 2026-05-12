@@ -10,7 +10,7 @@
 - [Hakkımızda](https://onmuzikproje.com/hakkimizda): 2009'dan bugüne tarihçe, manifesto, lokasyon, ekipman lab
 - [SSS](https://onmuzikproje.com/sss): 4 kategori altında 18 soru-cevap (akustik, ses, süreç & garanti, KVKK & yasal)
 - [Servis & Bakım](https://onmuzikproje.com/servis-bakim): 3 SLA seviyesi (Standart, Premium, 7/24 Mission Critical) + WhatsApp + servis talep formu
-- [Kiralık Ürünler](https://onmuzikproje.com/hizla-kirala): On Music × Hızla Kirala resmi iş ortaklığı kataloğu — projeksiyon, MacBook M4, PlayStation 5 Slim, Dyson Airwrap, Samsung Galaxy A36 aylık / günlük kiralama, 24 saatte teslim, iyzico ile 12 taksit. Kiralama hattı: 0543 412 33 80
+- [Kiralık Ürünler](https://onmuzikproje.com/hizla-kirala): On Music × Hızla Kirala resmi iş ortaklığı kataloğu — 20 ürün: Anker Nebula projeksiyon, Apple MacBook M4, Sony PlayStation 5 Slim, Dyson Airwrap & V15 Detect & Airstrait & Purifier Cool, FOREO FAQ 202 LED maske, Dreame AirStyle & PM10, Cybex Anoris T bebek oto koltuğu, iPhone 17 Pro, Meta Quest 3 VR, Nintendo Switch OLED, DJI Osmo Pocket 3, Kärcher SC 3, Xiaomi Mi Pro 4 scooter, Karaca Robotea, Vahaa Akıllı Bahçe, Philips buharlı düzleştirici. Aylık 890 TL'den, 24 saatte teslim, iyzico ile 12 taksit. Kiralama hattı: 0543 412 33 80
 - [Markalar](https://onmuzikproje.com/markalar): 40+ profesyonel AV marka portföyü, 8 kategori filtresi, premium / yetkili / çözüm ortağı seviyeleri
 - [Sertifikalar](https://onmuzikproje.com/sertifikalar): EN 54-16, EN 54-24, ISO 3382, ISO 9001, CE, TSE, CEDIA, Dante Lvl 2/3 — ihale + mevzuat
 - [Bilgi Merkezi](https://onmuzikproje.com/bilgi-merkezi): teknik rehber blog
@@ -52,11 +52,40 @@
 - [Konferans Merkezi — İzmir, 2023](https://onmuzikproje.com/projeler/konferans-merkezi) — 6 huddle + boardroom + audi, MTR sertifikalı
 
 ## Kiralık ürün detay sayfaları (On Music × Hızla Kirala)
+
+### Şımart Kendini
+- [Dyson Airwrap ID Saç Şekillendirici (Ceramic Pink)](https://onmuzikproje.com/hizla-kirala/dyson-airwrap) — Coanda hava akımı, 6 aksesuar, aylık 1.450 TL'den
+- [Dreame AirStyle Pro 7-in-1 Saç Şekillendirici](https://onmuzikproje.com/hizla-kirala/dreame-airstyle-pro) — 7 aksesuar, negatif iyon, aylık 1.250 TL'den
+- [Dyson Airstrait Islak/Kuru Saç Düzleştirici (Prusya Mavisi)](https://onmuzikproje.com/hizla-kirala/dyson-airstrait) — plakasız, ıslak+kuru kullanım, aylık 1.400 TL'den
+- [FOREO FAQ 202 LED Yüz Maskesi](https://onmuzikproje.com/hizla-kirala/foreo-faq-202) — 8 LED dalga + NIR, klinik anti-aging, aylık 3.750 TL'den
+- [Xiaomi Mi Pro 4 Elektrikli Scooter](https://onmuzikproje.com/hizla-kirala/xiaomi-mi-pro-4) — 45 km menzil, 25 km/h, aylık 2.350 TL'den
+- [Philips GC810/20 El Tipi Buharlı Düzleştirici](https://onmuzikproje.com/hizla-kirala/philips-gc810-20) — 30 sn ısınma, dikey ütü, aylık 500 TL'den
+
+### Ev Aletleri
+- [Vahaa Akıllı Bahçe Topraksız Tarım Cihazı](https://onmuzikproje.com/hizla-kirala/vahaa-akilli-bahce) — 6 kapsül, IoT, WiFi, aylık 890 TL'den
 - [Anker Nebula Apollo Taşınabilir Projeksiyon](https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo) — 200 ANSI lümen, Android TV, 4 saat pil, aylık 1.850 TL'den
+- [Dreame PM10 Akıllı Hava Temizleyici + Fan](https://onmuzikproje.com/hizla-kirala/dreame-pm10) — HEPA H13, 60 m² kapsama, aylık 1.700 TL'den
+- [Dyson Purifier Cool Hava Temizleyici](https://onmuzikproje.com/hizla-kirala/dyson-purifier-cool) — HEPA H13, 350° osilasyon, aylık 2.500 TL'den
+- [Karaca Robotea Pro 4-in-1 Çay Makinesi](https://onmuzikproje.com/hizla-kirala/karaca-robotea-pro) — sesli asistan, 2.5 L, aylık 1.350 TL'den
+- [Kärcher SC 3 EasyFix Buharlı Temizlik](https://onmuzikproje.com/hizla-kirala/karcher-sc3-easyfix) — 3.5 bar buhar, kimyasalsız, aylık 1.980 TL'den
+- [Dyson V15 Detect Kablosuz Süpürge](https://onmuzikproje.com/hizla-kirala/dyson-v15-detect) — lazer toz detection, HEPA, aylık 1.600 TL'den
+
+### Anne & Bebek
+- [Cybex Anoris T i-Size Hava Yastıklı Oto Koltuğu](https://onmuzikproje.com/hizla-kirala/cybex-anoris-t) — dünyada ilk tam vücut hava yastığı, aylık 1.450 TL'den
+
+### Oyun & Hobi
+- [Sony PlayStation 5 Slim 1TB Oyun Konsolu](https://onmuzikproje.com/hizla-kirala/playstation-5-slim) — 4K 120 FPS, 2 DualSense, aylık 1.850 TL'den
+- [Meta Quest 3 VR 128GB](https://onmuzikproje.com/hizla-kirala/meta-quest-3) — karma gerçeklik, 4K LCD, aylık 2.300 TL'den
+- [Nintendo Switch OLED 64GB](https://onmuzikproje.com/hizla-kirala/nintendo-switch-oled) — 7" OLED, TV + handheld, aylık 1.030 TL'den
+
+### Kamera & Aksesuar
+- [DJI Osmo Pocket 3 Creator Combo](https://onmuzikproje.com/hizla-kirala/dji-osmo-pocket-3) — 1" sensör, 4K 120 FPS gimbal, aylık 2.450 TL'den
+
+### Telefon
+- [Apple iPhone 17 Pro 256GB Kozmik Turuncu](https://onmuzikproje.com/hizla-kirala/iphone-17-pro) — A19 Pro, 48MP triple kamera, aylık 7.500 TL'den
+
+### Bilgisayar & Tablet
 - [Apple MacBook Neo 12" M4](https://onmuzikproje.com/hizla-kirala/macbook-neo-m4) — M4 çip, 16GB RAM, 512GB SSD, 18 saat pil, aylık 2.450 TL'den
-- [Sony PlayStation 5 Slim 1TB](https://onmuzikproje.com/hizla-kirala/playstation-5-slim) — 4K 120 FPS, 2 DualSense, aylık 1.850 TL'den
-- [Dyson Airwrap ID Ceramic Pink](https://onmuzikproje.com/hizla-kirala/dyson-airwrap) — Coanda hava akımı, 6 aksesuar, aylık 1.600 TL'den
-- [Samsung Galaxy A36 5G 256GB](https://onmuzikproje.com/hizla-kirala/samsung-galaxy-a36) — 6.7" AMOLED, 5G, 5000 mAh, aylık 1.200 TL'den
 
 ## Çalışma Süreci (5 Aşama)
 1. **Keşif & Brifing** — saha ziyareti, ücretsiz
