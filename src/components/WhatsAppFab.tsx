@@ -16,7 +16,7 @@ export default function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       className={`whatsapp-fab${show ? ' show' : ''}`}
-      aria-label="WhatsApp ile yazın — 0850 241 9515"
+      aria-label="WhatsApp ile yazın - 0850 241 9515"
       title="WhatsApp ile yazın"
     >
       <span className="wf-pulse" aria-hidden />

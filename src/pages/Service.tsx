@@ -60,7 +60,7 @@ export default function Service() {
   const [errorMsg, setErrorMsg] = useState('');
 
   useSeo({
-    title: 'Servis & Bakım — SLA, 7/24 Destek, WhatsApp Hattı | On Muzik Proje',
+    title: 'Servis & Bakım - SLA, 7/24 Destek, WhatsApp Hattı | On Muzik Proje',
     description: 'Standart, Premium ve 7/24 Mission Critical SLA seviyeleri. Uzaktan izleme, EN 54-16 sertifika yenileme, on-site spare ekipman. 0850 241 9515 ve WhatsApp hattı.',
     path: '/servis-bakim',
     jsonLd: {
@@ -74,7 +74,7 @@ export default function Service() {
       offers: SLA_TIERS.map((t) => ({
         '@type': 'Offer',
         name: `${t.name} SLA`,
-        description: `${t.price} — ${t.response}`,
+        description: `${t.price} - ${t.response}`,
       })),
     },
   });
@@ -227,17 +227,17 @@ export default function Service() {
               </div>
               {status === 'success' && (
                 <div className="form-msg form-msg-ok" role="status">
-                  Servis talebiniz iletildi. SLA seviyenize göre yanıt vereceğiz — 7/24 müşteri olduğunuzu belirtirseniz acil müdahale önceliği uygulanır.
+                  Servis talebiniz iletildi. SLA seviyenize göre yanıt vereceğiz - 7/24 müşteri olduğunuzu belirtirseniz acil müdahale önceliği uygulanır.
                 </div>
               )}
               {status === 'error' && (
                 <div className="form-msg form-msg-err" role="alert">
-                  Talep gönderilemedi: {errorMsg} — lütfen tekrar deneyin veya doğrudan{' '}
+                  Talep gönderilemedi: {errorMsg} - lütfen tekrar deneyin veya doğrudan{' '}
                   <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">WhatsApp</a> üzerinden yazın.
                 </div>
               )}
               <div className="form-foot">
-                <p className="micro">7/24 müşteri iseniz SLA dosyanızdaki numaradan arayın — yanıt 2 saat.</p>
+                <p className="micro">7/24 müşteri iseniz SLA dosyanızdaki numaradan arayın - yanıt 2 saat.</p>
                 <button type="submit" className="btn btn-red" disabled={status === 'sending'}>
                   {status === 'sending' ? 'Gönderiliyor…' : 'Servis Talep Et'} <span className="arrow" />
                 </button>
@@ -248,7 +248,7 @@ export default function Service() {
               <div className="contact-card" style={{ background: 'var(--ink)', color: 'var(--stage-fg)', borderColor: 'var(--ink)' }}>
                 <h3 style={{ color: 'var(--stage-fg)' }}>WhatsApp Hattı</h3>
                 <p style={{ color: 'rgba(245,239,224,0.78)', fontSize: 14, lineHeight: 1.65, margin: '0 0 18px' }}>
-                  Saha mühendisimize doğrudan ulaşın — fotoğraf, ses kaydı veya video paylaşabilirsiniz. Mevcut sistem audit'i için en hızlı kanal.
+                  Saha mühendisimize doğrudan ulaşın - fotoğraf, ses kaydı veya video paylaşabilirsiniz. Mevcut sistem audit'i için en hızlı kanal.
                 </p>
                 <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="btn btn-on-stage">Sohbeti Aç <span className="arrow" /></a>
               </div>

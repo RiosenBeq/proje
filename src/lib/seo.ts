@@ -29,7 +29,7 @@ export type SeoOptions = {
   };
   /** Comma-separated keywords (legacy SEO; modern engines yine de tüketir). */
   keywords?: string;
-  /** Tek bir JSON-LD blok veya birden fazla — script tag'i sayısı buna göre değişir. */
+  /** Tek bir JSON-LD blok veya birden fazla - script tag'i sayısı buna göre değişir. */
   jsonLd?: JsonLd;
   noIndex?: boolean;
   /** article:author / article:published_time gibi article özelinde alanlar. */

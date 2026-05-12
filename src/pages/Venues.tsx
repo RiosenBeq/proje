@@ -14,14 +14,14 @@ const CLS_VARS: Record<DisciplineCls, CSSProperties> = {
 
 export default function Venues() {
   useSeo({
-    title: 'Mekân Tipleri — Restoran · Otel · Sahne · Kayıt Stüdyosu · Konferans Salonu | On Muzik Proje',
-    description: 'Restoran ses sistemi, otel akustiği, sahne ses çözümü, kayıt stüdyosu tasarımı ve konferans salonu AV — her mekân tipi için tipik akustik hedef, sistem mimarisi ve marka bağımsız kurumsal teslim. RT60, STI, EN 54-16 dahil.',
+    title: 'Mekân Tipleri - Restoran · Otel · Sahne · Kayıt Stüdyosu · Konferans Salonu | On Muzik Proje',
+    description: 'Restoran ses sistemi, otel akustiği, sahne ses çözümü, kayıt stüdyosu tasarımı ve konferans salonu AV - her mekân tipi için tipik akustik hedef, sistem mimarisi ve marka bağımsız kurumsal teslim. RT60, STI, EN 54-16 dahil.',
     path: '/mekanlar',
     keywords: 'restoran ses sistemi, otel ses sistemi, sahne ses sistemi, kayıt stüdyosu akustiği, konferans salonu ses sistemi, mekân akustiği, kurumsal ses çözümü, RT60 hedef, STI ölçüm, ses mühendisliği',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: 'Mekân Tipleri — On Muzik Proje',
+      name: 'Mekân Tipleri - On Muzik Proje',
       url: 'https://onmuzikproje.com/mekanlar',
       isPartOf: { '@id': 'https://onmuzikproje.com/#website' },
     },
@@ -34,7 +34,7 @@ export default function Venues() {
           <span className="eyebrow"><span className="bar" />MEKÂN TİPLERİ · {VENUES.length}</span>
           <h1 className="subhero-title">Her mekânın<br /><em>kendi sesi</em> var.</h1>
           <p className="subhero-lead">
-            Restoran ve otelden konser sahnesine, kayıt stüdyosundan konferans merkezine — her mekân
+            Restoran ve otelden konser sahnesine, kayıt stüdyosundan konferans merkezine - her mekân
             tipi kendi akustik hedeflerine, sistem mimarisine ve mevzuat zorunluluklarına sahiptir.
             Kurumsal projeler için marka bağımsız, ölçüme dayalı tasarım yapıyoruz.
           </p>
@@ -105,10 +105,10 @@ export default function Venues() {
                 </thead>
                 <tbody>
                   {VENUES.map((v) => {
-                    const rt = v.goals.find((g) => g[0].toLowerCase().includes('rt60'))?.[1] ?? '—';
-                    const spl = v.goals.find((g) => g[0].toLowerCase().includes('basınc') || g[0].toLowerCase().includes('spl'))?.[1] ?? '—';
-                    const zone = v.goals.find((g) => g[0].toLowerCase().includes('zon'))?.[1] ?? '—';
-                    const sys = v.systemSpec.find((s) => s[0].toLowerCase().includes('hoparlör'))?.[1] ?? v.systemSpec[0]?.[1] ?? '—';
+                    const rt = v.goals.find((g) => g[0].toLowerCase().includes('rt60'))?.[1] ?? '-';
+                    const spl = v.goals.find((g) => g[0].toLowerCase().includes('basınc') || g[0].toLowerCase().includes('spl'))?.[1] ?? '-';
+                    const zone = v.goals.find((g) => g[0].toLowerCase().includes('zon'))?.[1] ?? '-';
+                    const sys = v.systemSpec.find((s) => s[0].toLowerCase().includes('hoparlör'))?.[1] ?? v.systemSpec[0]?.[1] ?? '-';
                     return (
                       <tr key={v.slug}>
                         <td><strong>{v.name}</strong></td>
@@ -135,7 +135,7 @@ export default function Venues() {
               <h2 className="h-section gold" style={{ marginTop: 18 }}>Tek mekân değil,<br /><em>zincir</em> ölçeği.</h2>
             </div>
             <div className="right">
-              Tek şube açılışından 24 odalı otel zincirine — proje yönetimi, satın alma, kurulum ve
+              Tek şube açılışından 24 odalı otel zincirine - proje yönetimi, satın alma, kurulum ve
               servis bakımını tek elden yürütüyoruz. Saha keşfi, şartname uyumu ve ihale dosyası dahil.
             </div>
           </div>

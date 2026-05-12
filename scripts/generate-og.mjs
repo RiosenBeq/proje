@@ -145,7 +145,7 @@ for (const size of [16, 32, 48, 192]) {
   console.log(`✓ favicon-${size}  → ${out.replace(ROOT + '/', '')}`);
 }
 
-// Apple touch icon (180×180) — rendered from the brand favicon SVG so the badge
+// Apple touch icon (180×180) - rendered from the brand favicon SVG so the badge
 // stays sharp on iOS home screens.
 await sharp(faviconSvg)
   .resize(180, 180, { fit: 'contain', background: { r: 20, g: 17, b: 12, alpha: 1 } })

@@ -81,11 +81,11 @@ export const DISCIPLINES: Discipline[] = [
     },
     scope: [
       'Çok zonlu hoparlör mimarisi (tavan + duvar + sahne)',
-      'DSP & matrix routing — Q-SYS, BSS Soundweb, Symetrix',
+      'DSP & matrix routing - Q-SYS, BSS Soundweb, Symetrix',
       'EQ + crossover + delay kalibrasyonu, in-situ ölçüm',
       'Dante / AES67 / AVB ağı, 70V/100V hat dağıtımı',
       'Class-D çok kanallı amfi zinciri (Powersoft, Lab.gruppen, Crown)',
-      'Cardioid sub array konfigürasyonu — sahne arkası kontrolü',
+      'Cardioid sub array konfigürasyonu - sahne arkası kontrolü',
       'Line array tasarımı, MAPP/Soundvision simülasyonu',
       'Çok zonlu kontrol paneli ve kullanıcı arayüzü',
       'Mevcut sistem audit + retrofit + DSP yenileme',
@@ -131,10 +131,10 @@ export const DISCIPLINES: Discipline[] = [
       lead: 'RT60, STI, EDT hedefli panel ve diffüzör mimarisi. Modal kontrol, in-situ ölçüm, hibrit polimer panel sistemleri ve RFZ kontrol odası tasarımı. Kalibre B&K mikrofonla saha doğrulaması.',
     },
     scope: [
-      'Akustik ölçüm — RT60, EDT, STI, NC, C50, D50',
+      'Akustik ölçüm - RT60, EDT, STI, NC, C50, D50',
       'Modal analiz ve düşük frekans kontrolü (bass trap)',
       'Diffüzör yerleşimi (Schroeder, QRD, primitive root)',
-      'Akustik panel tasarımı — hibrit polimer, mineral yün, perforated',
+      'Akustik panel tasarımı - hibrit polimer, mineral yün, perforated',
       'Tavan ve duvar absorpsiyon mimarisi',
       'Kayan kat (floating floor) izolasyon sistemi',
       'RFZ (Reflection Free Zone) kontrol odası tasarımı',
@@ -160,7 +160,7 @@ export const DISCIPLINES: Discipline[] = [
     brands: ['Vicoustic', 'GIK Acoustics', 'RPG Diffusor Systems', 'Auralex', 'Primacoustic', 'Knauf', 'Rockwool', 'Owens Corning'],
     faq: [
       ['Akustik panel görsel olarak nasıl görünür?', 'Kumaş kaplama, ahşap kafes, perforated metal veya boyanabilir yüzeyle mimariye entegre edilir; hangi varyantın gerektiği projeye özeldir.'],
-      ['RT60 ne kadar düşük olmalı?', 'Kullanım amacına bağlı — restoran 0.6–0.9 s, stüdyo 0.25–0.35 s, konferans 0.5–0.7 s arası tipiktir.'],
+      ['RT60 ne kadar düşük olmalı?', 'Kullanım amacına bağlı - restoran 0.6–0.9 s, stüdyo 0.25–0.35 s, konferans 0.5–0.7 s arası tipiktir.'],
       ['Akustik ölçüm ne kadar sürer?', 'Orta ölçekli mekân için 4–6 saat saha çalışması + 2–3 gün analiz.'],
       ['İnşaat aşamasında mı sonradan mı yapılmalı?', 'İnşaat aşamasında entegre etmek hem maliyeti düşürür hem performansı yükseltir; tamamlanmış mekânlar için retrofit çözümlerimiz var.'],
     ],
@@ -182,7 +182,7 @@ export const DISCIPLINES: Discipline[] = [
       lead: 'Sahne, kurumsal lobi ve kontrol odaları için pixel pitch analizi, processor seçimi, AV-sync timeline ve truss/rigging entegrasyonu. P1.5\'tan P3.9\'a kadar kapalı/yarı-açık alan.',
     },
     scope: [
-      'Pixel pitch analizi — izleme mesafesine göre P1.5 / P2.6 / P3.9',
+      'Pixel pitch analizi - izleme mesafesine göre P1.5 / P2.6 / P3.9',
       'Video processor seçimi (Novastar, Brompton, Megapixel)',
       'Truss & rigging tasarımı, statik hesap',
       'AV-sync timeline (genlock, frame-accurate)',
@@ -213,7 +213,7 @@ export const DISCIPLINES: Discipline[] = [
       ['Pixel pitch nasıl seçilir?', 'İzleme mesafesi (m) ≈ pixel pitch (mm) × 1.0–1.5 formülü temel referanstır; yakın izlemede P1.5–P2.6, geniş sahnede P3.9 önerilir.'],
       ['LED ekran ne kadar dayanıklı?', 'IP rating ve kabin tasarımına göre 80.000–100.000 saat ortalama ömür; yıllık bakım ile beklenen servis 8–10 yıldır.'],
       ['Mevcut HDMI/SDI kaynaklarımı kullanabilir miyim?', 'Evet, processor giriş esnekliği yüksektir; kaynaklarınızı analiz edip uygun signal flow kurguluyoruz.'],
-      ['Outdoor LED de yapıyor musunuz?', 'Evet — IP65/IP68 sertifikalı kabinlerle dış mekân kurulumu yapıyoruz.'],
+      ['Outdoor LED de yapıyor musunuz?', 'Evet - IP65/IP68 sertifikalı kabinlerle dış mekân kurulumu yapıyoruz.'],
     ],
     related: ['ses', 'konferans', 'studio'],
   },
@@ -234,13 +234,13 @@ export const DISCIPLINES: Discipline[] = [
     },
     scope: [
       'RFZ (Reflection Free Zone) kontrol odası tasarımı',
-      'Bass trap kasetleri — 30–250 Hz modal kontrol',
-      'Kayan kat (floating floor) izolasyon — −55 dB STC',
-      'Çok katmanlı duvar — drywall + mineral yün + air gap',
+      'Bass trap kasetleri - 30–250 Hz modal kontrol',
+      'Kayan kat (floating floor) izolasyon - −55 dB STC',
+      'Çok katmanlı duvar - drywall + mineral yün + air gap',
       'Tavan absorpsiyon + bulut diffüzör',
       'Penceresiz kapı + ses kilitli giriş',
       'HVAC sessiz hava akışı (NC-20 hedef)',
-      'Monitör tuning — Genelec / Neumann / Focal',
+      'Monitör tuning - Genelec / Neumann / Focal',
       'Dolby Atmos 9.1.4 / 7.1.4 immersive setup',
       'Tracking room akustik karakterleri (live/dead)',
     ],
@@ -261,9 +261,9 @@ export const DISCIPLINES: Discipline[] = [
     ],
     brands: ['Genelec', 'Neumann', 'Focal Pro', 'PMC', 'ATC', 'Auralex', 'GIK Acoustics', 'Vicoustic'],
     faq: [
-      ['Apartmanda stüdyo yapılabilir mi?', 'Evet — kayan kat + dual-leaf duvar mimarisi ile komşu izolasyonu sağlanabilir; kontrat öncesi ön audit gerekir.'],
+      ['Apartmanda stüdyo yapılabilir mi?', 'Evet - kayan kat + dual-leaf duvar mimarisi ile komşu izolasyonu sağlanabilir; kontrat öncesi ön audit gerekir.'],
       ['Dolby Atmos sertifikası alabilir miyim?', 'Tasarım Atmos hedeflerine uygun yapılır; sertifikasyon başvurusu için Dolby tarafından kontrol süreci gerekir, biz teknik dokümantasyon ile destek veririz.'],
-      ['Mevcut odaya retrofit yapabilir misiniz?', 'Çoğunlukla evet — tavan + duvar + zemin kombinasyonuyla %70+ iyileştirme tipik. Ölçüm sonrası kapsamı netleştiriyoruz.'],
+      ['Mevcut odaya retrofit yapabilir misiniz?', 'Çoğunlukla evet - tavan + duvar + zemin kombinasyonuyla %70+ iyileştirme tipik. Ölçüm sonrası kapsamı netleştiriyoruz.'],
       ['Monitör hangisi önerilir?', 'Oda hacmine ve hedef kullanıma göre Genelec 8330/8351, Neumann KH 80/120 veya Focal Trio6 öneriyoruz.'],
     ],
     related: ['akustik', 'ses', 'konferans'],
@@ -290,7 +290,7 @@ export const DISCIPLINES: Discipline[] = [
       'DICENTIS konferans / oylama / simültane çeviri',
       'Tek dokunuş kontrol paneli (Crestron, Extron, Q-SYS)',
       'MS Teams Rooms / Zoom Rooms native entegrasyonu',
-      'Akustik konfor — RT60 0.5–0.7 s + STI ≥ 0.62',
+      'Akustik konfor - RT60 0.5–0.7 s + STI ≥ 0.62',
       'LED veya proj. ekran + içerik paylaşımı',
       'Kapsül oda (huddle room) standart paketleri',
       'Boardroom + auditorium scale dağılımı',
@@ -312,7 +312,7 @@ export const DISCIPLINES: Discipline[] = [
     ],
     brands: ['Sennheiser', 'Shure', 'Bosch DICENTIS', 'Crestron', 'Extron', 'Q-SYS', 'Logitech', 'Poly', 'Yealink'],
     faq: [
-      ['Microsoft Teams Rooms sertifikalı kuruyor musunuz?', 'Evet — Logitech, Poly ve Yealink ile MTR sertifikalı odalar kuruyoruz.'],
+      ['Microsoft Teams Rooms sertifikalı kuruyor musunuz?', 'Evet - Logitech, Poly ve Yealink ile MTR sertifikalı odalar kuruyoruz.'],
       ['Beamforming mikrofon kaç kişiye yeter?', 'Tavan dizisi ortalama 6–12 kişilik masayı kapsar; daha büyük odalarda dual array veya delegate mikrofon önerilir.'],
       ['Simültane çeviri kabini de yapıyor musunuz?', 'Evet, ISO 4043 uyumlu çeviri kabini ve DICENTIS dağıtım sistemi kuruyoruz.'],
       ['Mevcut Zoom/Teams ekipmanımı yükseltebilir miyim?', 'Çoğu mevcut sistem upgrade edilebilir; ölçüm sonrası hangi bileşenlerin değişmesi gerektiğini raporluyoruz.'],
@@ -363,9 +363,9 @@ export const DISCIPLINES: Discipline[] = [
     ],
     brands: ['Bosch Praesensa', 'Honeywell', 'TOA', 'Penton', 'Baldwin Boxall', 'AtlasIED'],
     faq: [
-      ['EN 54-16 zorunlu mu?', 'AVM, otel, hastane, okul gibi belirli yapı sınıflarında zorunludur — yapı denetim onayı için sertifikalı sistem gerekir.'],
+      ['EN 54-16 zorunlu mu?', 'AVM, otel, hastane, okul gibi belirli yapı sınıflarında zorunludur - yapı denetim onayı için sertifikalı sistem gerekir.'],
       ['Mevcut anons sistemim EN 54 uyumlu değil, ne yapmalıyım?', 'Mevcut sistem audit\'i sonrası hangi bileşenlerin değişmesi gerektiğini raporluyoruz; tipik olarak amfi + DSP merkezi yenilenir, hoparlörler EN 54-24 ise korunur.'],
-      ['STI-PA ölçümü nedir?', 'Sözel netlik metriğidir — EN 54-16 uyumu için 0.50 üzeri her zon\'da ölçüm dokümantasyonu zorunludur.'],
+      ['STI-PA ölçümü nedir?', 'Sözel netlik metriğidir - EN 54-16 uyumu için 0.50 üzeri her zon\'da ölçüm dokümantasyonu zorunludur.'],
       ['Yangın paneliyle nasıl entegre olur?', 'Yangın panelinin alarm çıkışı VA panelinin tetikleyicisine bağlanır; öncelik mantığı sistem tasarımında tanımlanır.'],
     ],
     related: ['ses', 'konferans', 'akustik'],
@@ -385,7 +385,7 @@ export const VENUES: Venue[] = [
       title: 'Restoran & bar',
       titleEm: 'akustiği',
       titleTail: '.',
-      lead: 'Müşteri konuşma netliği ön planda — arka plan müziği ve canlı performans dengesi için 4 zonlu sistem mimarisi, RT60 0.6–0.9 s hedef ve akustik panel entegrasyonu.',
+      lead: 'Müşteri konuşma netliği ön planda - arka plan müziği ve canlı performans dengesi için 4 zonlu sistem mimarisi, RT60 0.6–0.9 s hedef ve akustik panel entegrasyonu.',
     },
     problems: [
       ['Konuşma anlaşılmıyor', 'Yüksek RT60 ve yansımalar masada konuşmayı boğar; STI 0.45 altına düşer.'],
@@ -410,9 +410,9 @@ export const VENUES: Venue[] = [
     ],
     sampleProjects: ['bogaz-restoran', 'kurumsal-lobi'],
     faq: [
-      ['Açık teras için ayrı sistem mi gerekir?', 'Evet — outdoor IP65 hoparlör + ayrı amfi zonu önerilir; iç mekânla aynı DSP üzerinden yönetilir.'],
-      ['Akustik panel görsel olarak rahatsız mı?', 'Hayır — kumaş, ahşap kafes veya boyanabilir variant ile mimariye entegre olur.'],
-      ['Canlı sahne ile arka plan müziğini birlikte yönetebilir miyim?', 'Evet — DSP üzerinde ayrı zon + ayrı kaynak mantığı kuruyoruz; canlı sahnede arka plan otomatik kısılır.'],
+      ['Açık teras için ayrı sistem mi gerekir?', 'Evet - outdoor IP65 hoparlör + ayrı amfi zonu önerilir; iç mekânla aynı DSP üzerinden yönetilir.'],
+      ['Akustik panel görsel olarak rahatsız mı?', 'Hayır - kumaş, ahşap kafes veya boyanabilir variant ile mimariye entegre olur.'],
+      ['Canlı sahne ile arka plan müziğini birlikte yönetebilir miyim?', 'Evet - DSP üzerinde ayrı zon + ayrı kaynak mantığı kuruyoruz; canlı sahnede arka plan otomatik kısılır.'],
     ],
     related: { disciplines: ['ses', 'akustik'], venues: ['otel', 'sahne'] },
   },
@@ -451,7 +451,7 @@ export const VENUES: Venue[] = [
     sampleProjects: ['ballroom-otel', 'kurumsal-lobi'],
     faq: [
       ['Misafir odasına da ses sistemi yerleştirilir mi?', 'Genellikle BMS üzerinden anons sistemine bağlanır; isteğe göre oda içi spa/yatak başı paneli de eklenebilir.'],
-      ['Mevcut otelde retrofit mümkün mü?', 'Evet — kablolama mevcut yapıdan çekilir, kayıp minimize edilir; tipik proje 3–6 hafta arası teslim.'],
+      ['Mevcut otelde retrofit mümkün mü?', 'Evet - kablolama mevcut yapıdan çekilir, kayıp minimize edilir; tipik proje 3–6 hafta arası teslim.'],
       ['EN 54-16 sertifikası nasıl alınır?', 'Sistem EN 54 sertifikalı bileşenlerle kurulur; STI-PA ölçüm raporu ile yapı denetim onayı alınır.'],
     ],
     related: { disciplines: ['ses', 'anons', 'led'], venues: ['konferans', 'restoran'] },
@@ -490,7 +490,7 @@ export const VENUES: Venue[] = [
     ],
     sampleProjects: ['konser-sahnesi', 'club-nexus'],
     faq: [
-      ['Outdoor festival için kurulum yapıyor musunuz?', 'Evet — IP54+ ürünler ve mobil rigging ile outdoor proje teslimi yapıyoruz.'],
+      ['Outdoor festival için kurulum yapıyor musunuz?', 'Evet - IP54+ ürünler ve mobil rigging ile outdoor proje teslimi yapıyoruz.'],
       ['Mevcut backline / FOH konsolumu kullanabilir misiniz?', 'Evet, mevcut ekipmana sistem mimarisi entegre edilir; ihtiyaç durumunda upgrade önerisi sunuyoruz.'],
       ['Cardioid sub array farkı nedir?', 'Sahne arkasındaki ses basıncını 12–18 dB azaltır; performans monitörlüğünü ve mikrofon feedback\'ini iyileştirir.'],
     ],
@@ -530,9 +530,9 @@ export const VENUES: Venue[] = [
     ],
     sampleProjects: ['studio-alpha'],
     faq: [
-      ['Apartmanda stüdyo mümkün mü?', 'Evet — kayan kat + dual-leaf duvar ile komşu izolasyonu sağlanır; ön ölçüm zorunludur.'],
+      ['Apartmanda stüdyo mümkün mü?', 'Evet - kayan kat + dual-leaf duvar ile komşu izolasyonu sağlanır; ön ölçüm zorunludur.'],
       ['Atmos sertifikalı oda nasıl yapılır?', 'Atmos referans tablosu hedeflerine göre tasarım yaparız; sertifika için Dolby kontrol süreci ayrıdır.'],
-      ['Mevcut stüdyoyu yenilemek mümkün mü?', 'Evet — modal kontrol kasetleri + monitör kalibrasyonu ile %70+ iyileştirme tipik.'],
+      ['Mevcut stüdyoyu yenilemek mümkün mü?', 'Evet - modal kontrol kasetleri + monitör kalibrasyonu ile %70+ iyileştirme tipik.'],
     ],
     related: { disciplines: ['studio', 'akustik'], venues: ['konferans'] },
   },
@@ -570,7 +570,7 @@ export const VENUES: Venue[] = [
     ],
     sampleProjects: ['grand-auditorium', 'konferans-merkezi'],
     faq: [
-      ['Microsoft Teams Rooms sertifikalı kuruyor musunuz?', 'Evet — Logitech, Poly ve Yealink ile MTR sertifikalı odalar kuruyoruz.'],
+      ['Microsoft Teams Rooms sertifikalı kuruyor musunuz?', 'Evet - Logitech, Poly ve Yealink ile MTR sertifikalı odalar kuruyoruz.'],
       ['Simültane çeviri kabini de yapıyor musunuz?', 'Evet, ISO 4043 uyumlu çeviri kabini ve DICENTIS dağıtım sistemi kuruyoruz.'],
       ['Mevcut Zoom/Teams ekipmanımı yükseltebilir misiniz?', 'Çoğu mevcut sistem upgrade edilebilir; ölçüm sonrası hangi bileşenlerin değişmesi gerektiğini raporluyoruz.'],
     ],
@@ -592,7 +592,7 @@ export const PROJECTS: Project[] = [
     hero: {
       image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1600&q=80',
       eyebrow: 'STÜDYO · İSTANBUL · 2024',
-      lead: 'Dolby Atmos 9.1.4 miksaj stüdyosu — modal kontrol için kayan kat, RFZ kontrol odası ve bass trap kasetleriyle NC-20 hedefli teslim.',
+      lead: 'Dolby Atmos 9.1.4 miksaj stüdyosu - modal kontrol için kayan kat, RFZ kontrol odası ve bass trap kasetleriyle NC-20 hedefli teslim.',
     },
     gallery: [
       'https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=80',
@@ -655,7 +655,7 @@ export const PROJECTS: Project[] = [
     story: {
       problem: 'Mevcut PA cardioid değildi; sahne arkasında ses basıncı performansı bozuyordu. LED ekran ana PA ile sync sorunluydu, frame drift gözle görülüyordu.',
       approach: 'Pioneer XY-218 line array L/R + 8 sub cardioid array konfigürasyonu. LED P3.9 panel, Brompton Tessera processor üzerinden genlock. Avid S6L FOH konsoluna Dante üzerinden bağlanan tek kaynak mantığı.',
-      outcome: 'FOH 108 dB SPL, sahne arkası 88 dB — cardioid kontrol +14 dB izolasyon sağladı. LED frame drift sıfırlandı. Açılışta 4 ardı ardına etkinlik sorunsuz teslim edildi.',
+      outcome: 'FOH 108 dB SPL, sahne arkası 88 dB - cardioid kontrol +14 dB izolasyon sağladı. LED frame drift sıfırlandı. Açılışta 4 ardı ardına etkinlik sorunsuz teslim edildi.',
     },
     brandsUsed: ['Pioneer Pro Audio', 'Powersoft', 'Brompton', 'Avid'],
     related: ['konser-sahnesi', 'studio-alpha', 'ballroom-otel'],
@@ -670,7 +670,7 @@ export const PROJECTS: Project[] = [
     hero: {
       image: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=1600',
       eyebrow: 'KONFERANS · ANKARA · 2023',
-      lead: '420 kişilik çok amaçlı salon — değişken akustik paneller, DICENTIS konferans sistemi, 32 kanal beamforming mikrofon dizisi ve dijital yönlendirilebilir line array.',
+      lead: '420 kişilik çok amaçlı salon - değişken akustik paneller, DICENTIS konferans sistemi, 32 kanal beamforming mikrofon dizisi ve dijital yönlendirilebilir line array.',
     },
     gallery: [
       'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -758,7 +758,7 @@ export const PROJECTS: Project[] = [
       ['Ballroom Kapasitesi', '800 kişi'],
       ['Toplam Zon', '24'],
       ['VA Standart', 'EN 54-16'],
-      ['LED', 'P2.6 — 36 m²'],
+      ['LED', 'P2.6 - 36 m²'],
       ['SPL Ballroom', '98 dB'],
       ['Yönetim', 'Q-SYS Reflect uzaktan'],
     ],
@@ -770,7 +770,7 @@ export const PROJECTS: Project[] = [
     story: {
       problem: 'Mevcut tek-zonlu sistem ballroom dışında çalışmıyordu. EN 54-16 uyumlu VA yoktu. LED ekran sahnesi sync ve renk tutarsızlığı yapıyordu.',
       approach: 'Bosch Praesensa EN 54-16 sertifikalı VA panel + redundant amfi. Q-SYS Reflect üzerinden 24 zon merkezi yönetim. LED P2.6 panel + Brompton Tessera processor + HDR kalibrasyon.',
-      outcome: 'EN 54-16 sertifikalı sistem yapı denetim onayını aldı. Ballroom RT60 1.2 s, lobi STI 0.66. Anons STI-PA 0.58 — hedef üstünde. 6+ ay sorunsuz operasyon.',
+      outcome: 'EN 54-16 sertifikalı sistem yapı denetim onayını aldı. Ballroom RT60 1.2 s, lobi STI 0.66. Anons STI-PA 0.58 - hedef üstünde. 6+ ay sorunsuz operasyon.',
     },
     brandsUsed: ['Bosch Praesensa', 'Q-SYS', 'Brompton', 'L-Acoustics'],
     related: ['konferans-merkezi', 'kurumsal-lobi', 'club-nexus'],
@@ -901,9 +901,9 @@ export const FAQ_GROUPS: FaqGroup[] = [
     items: [
       ['Akustik ölçüm yapıyor musunuz?', 'Evet. RT60, EDT, STI, NC, C50, D50 için kalibre edilmiş B&K mikrofon ve SMAART/ARTA yazılımı kullanıyoruz. Saha keşfi ücretsizdir.'],
       ['RT60 ne kadar düşük olmalı?', 'Kullanım amacına bağlı: restoran 0.6–0.9 s, stüdyo 0.25–0.35 s, konferans 0.5–0.7 s, ballroom 1.1–1.4 s tipiktir.'],
-      ['Akustik panel görsel olarak rahatsız mı?', 'Hayır — kumaş kaplama, ahşap kafes, perforated metal veya boyanabilir varyantlarla mimariye gizli entegre olur.'],
+      ['Akustik panel görsel olarak rahatsız mı?', 'Hayır - kumaş kaplama, ahşap kafes, perforated metal veya boyanabilir varyantlarla mimariye gizli entegre olur.'],
       ['İnşaat aşamasında mı sonradan mı yapılmalı?', 'İnşaat aşamasında entegre etmek hem maliyeti düşürür hem performansı yükseltir. Tamamlanmış mekânlar için retrofit çözümlerimiz var.'],
-      ['Apartmanda stüdyo yapılabilir mi?', 'Evet — kayan kat (floating floor) + dual-leaf duvar mimarisi ile komşu izolasyonu sağlanır. Ön ölçüm zorunludur.'],
+      ['Apartmanda stüdyo yapılabilir mi?', 'Evet - kayan kat (floating floor) + dual-leaf duvar mimarisi ile komşu izolasyonu sağlanır. Ön ölçüm zorunludur.'],
     ],
   },
   {
@@ -922,10 +922,10 @@ export const FAQ_GROUPS: FaqGroup[] = [
     name: 'Süreç & Garanti',
     items: [
       ['Anahtar teslim mi çalışıyorsunuz?', 'Tasarım, satın alma, montaj, devreye alma ve kalibrasyon dahil anahtar teslim teslimat yapıyoruz. Yalnız tasarım veya yalnız kalibrasyon hizmeti de mümkündür.'],
-      ['Proje süresi ne kadar?', 'Saha keşfi ücretsiz (1–2 gün), ölçüm raporu (5–7 gün), uygulama (4–8 hafta) — toplam 6–10 hafta arası.'],
+      ['Proje süresi ne kadar?', 'Saha keşfi ücretsiz (1–2 gün), ölçüm raporu (5–7 gün), uygulama (4–8 hafta) - toplam 6–10 hafta arası.'],
       ['Garanti süreniz nedir?', 'Tüm sistemlerde 2 yıl üretici garantisi + 1 yıl yerinde servis garantisi sunuyoruz. Yıllık bakım anlaşması opsiyoneldir.'],
-      ['Saha keşfi gerçekten ücretsiz mi?', 'Evet — İstanbul içi tüm saha keşifleri ücretsizdir. İl dışı projeler için ulaşım masrafı kontrat üzerinden değerlendirilir.'],
-      ['Türkiye geneline hizmet veriyor musunuz?', 'Evet — 81 ilde proje teslim etmiş bir ekibiz. İstanbul merkezli operasyon, ulusal lojistik ağı.'],
+      ['Saha keşfi gerçekten ücretsiz mi?', 'Evet - İstanbul içi tüm saha keşifleri ücretsizdir. İl dışı projeler için ulaşım masrafı kontrat üzerinden değerlendirilir.'],
+      ['Türkiye geneline hizmet veriyor musunuz?', 'Evet - 81 ilde proje teslim etmiş bir ekibiz. İstanbul merkezli operasyon, ulusal lojistik ağı.'],
     ],
   },
   {
@@ -934,14 +934,14 @@ export const FAQ_GROUPS: FaqGroup[] = [
     items: [
       ['EN 54-16 sertifikalı sistem kuruyor musunuz?', 'Evet. AVM, otel, hastane, okul ve kamu binaları için EN 54-16 uyumlu Voice Alarm sistemleri tasarlıyoruz. STI-PA ölçüm raporu dokümante edilir.'],
       ['Kişisel verilerim nasıl saklanıyor?', 'Form üzerinden ilettiğiniz veriler KVKK kapsamında saklanır, üçüncü taraflarla ticari amaçlı paylaşılmaz. Detaylar Gizlilik Politikası ve KVKK Aydınlatma Metni\'nde.'],
-      ['Yapı denetim onayı için doküman sağlıyor musunuz?', 'Evet — STI-PA ölçüm raporu, EN 54 sertifika dokümanları, sistem mimari şeması yapı denetim sürecinde kullanılabilir.'],
-      ['İhale şartnameleri için teknik destek var mı?', 'Evet — kamu ve özel sektör ihalelerinde teknik şartname yorumu, ürün uygunluk dokümantasyonu ve fiyat teklifi desteği veriyoruz.'],
+      ['Yapı denetim onayı için doküman sağlıyor musunuz?', 'Evet - STI-PA ölçüm raporu, EN 54 sertifika dokümanları, sistem mimari şeması yapı denetim sürecinde kullanılabilir.'],
+      ['İhale şartnameleri için teknik destek var mı?', 'Evet - kamu ve özel sektör ihalelerinde teknik şartname yorumu, ürün uygunluk dokümantasyonu ve fiyat teklifi desteği veriyoruz.'],
     ],
   },
 ];
 
 /* =========================================================
-   BRANDS — Marka portföyü (text grid)
+   BRANDS - Marka portföyü (text grid)
    ========================================================= */
 export type BrandLevel = 'partner' | 'authorized' | 'premium';
 export type BrandCategory = 'ses' | 'akustik' | 'led' | 'studio' | 'konferans' | 'anons' | 'dsp' | 'mikrofon';
@@ -975,7 +975,7 @@ export const BRAND_LEVELS: Record<BrandLevel, { label: string; cls: DisciplineCl
 export const BRANDS: Brand[] = [
   // Ses Sistemi
   { id: 'db',          name: 'd&b audiotechnik', origin: 'Almanya', level: 'premium',    categories: ['ses'],          description: 'Konser ve fixed install için referans line array + cardioid sub mimarisi.' },
-  { id: 'l-acoustics', name: 'L-Acoustics',      origin: 'Fransa',  level: 'premium',    categories: ['ses'],          description: 'K2, KS28 ve Soundvision simülasyon — büyük ölçek line array çözümleri.' },
+  { id: 'l-acoustics', name: 'L-Acoustics',      origin: 'Fransa',  level: 'premium',    categories: ['ses'],          description: 'K2, KS28 ve Soundvision simülasyon - büyük ölçek line array çözümleri.' },
   { id: 'meyer',       name: 'Meyer Sound',      origin: 'ABD',     level: 'authorized', categories: ['ses'],          description: 'Tiyatro, sahne ve broadcast için MAPP simülasyonu + self-powered hoparlörler.' },
   { id: 'bose-pro',    name: 'Bose Professional',origin: 'ABD',     level: 'authorized', categories: ['ses'],          description: 'Restoran ve kurumsal lobi için çok zonlu Dante/70V çözümleri.' },
   { id: 'jbl-pro',     name: 'JBL Professional', origin: 'ABD',     level: 'authorized', categories: ['ses'],          description: 'Sahne, kulüp ve geniş alan için yüksek-SPL line array + sub konfigürasyonu.' },
@@ -993,9 +993,9 @@ export const BRANDS: Brand[] = [
   // Akustik
   { id: 'vicoustic',   name: 'Vicoustic',        origin: 'Portekiz', level: 'authorized', categories: ['akustik'],     description: 'Hibrit polimer panel, Multifuser diffüzör, kumaş kaplı absorpsiyon kasetleri.' },
   { id: 'gik',         name: 'GIK Acoustics',    origin: 'ABD',     level: 'authorized', categories: ['akustik'],      description: 'Modal bass trap, scatter plate diffüzör, broadband absorber.' },
-  { id: 'rpg',         name: 'RPG Diffusor Systems', origin: 'ABD', level: 'partner',    categories: ['akustik'],      description: 'Schroeder, QRD ve primitive root difüzör — yüksek frekans dağılımı.' },
+  { id: 'rpg',         name: 'RPG Diffusor Systems', origin: 'ABD', level: 'partner',    categories: ['akustik'],      description: 'Schroeder, QRD ve primitive root difüzör - yüksek frekans dağılımı.' },
   { id: 'auralex',     name: 'Auralex',          origin: 'ABD',     level: 'authorized', categories: ['akustik'],      description: 'Studiofoam, LENRD bass trap, modüler stüdyo akustik panelleri.' },
-  { id: 'rockwool',    name: 'Rockwool',         origin: 'Danimarka', level: 'partner',  categories: ['akustik'],      description: 'Mineral yün insülasyon — duvar dolgu ve modal kontrol katmanı.' },
+  { id: 'rockwool',    name: 'Rockwool',         origin: 'Danimarka', level: 'partner',  categories: ['akustik'],      description: 'Mineral yün insülasyon - duvar dolgu ve modal kontrol katmanı.' },
 
   // Stüdyo monitör
   { id: 'genelec',     name: 'Genelec',          origin: 'Finlandiya', level: 'premium',  categories: ['studio'],      description: '8000 ve 8300 SAM serisi referans monitör + GLM kalibrasyon.' },
@@ -1004,11 +1004,11 @@ export const BRANDS: Brand[] = [
   { id: 'pmc',         name: 'PMC',              origin: 'İngiltere', level: 'authorized', categories: ['studio'],     description: 'Transmission line tasarımı ile yüksek-end mix referans monitör.' },
 
   // LED & Görüntü
-  { id: 'absen',       name: 'Absen',            origin: 'Çin',     level: 'authorized', categories: ['led'],          description: 'PL/HC serisi LED panel — fixed install ve sahne uygulamaları.' },
+  { id: 'absen',       name: 'Absen',            origin: 'Çin',     level: 'authorized', categories: ['led'],          description: 'PL/HC serisi LED panel - fixed install ve sahne uygulamaları.' },
   { id: 'unilumin',    name: 'Unilumin',         origin: 'Çin',     level: 'authorized', categories: ['led'],          description: 'UpadIII ve UTV serisi P1.5–P2.6 indoor LED.' },
-  { id: 'roe-visual',  name: 'ROE Visual',       origin: 'Hollanda', level: 'authorized', categories: ['led'],         description: 'Carbon Series CB serisi — touring LED referansı.' },
+  { id: 'roe-visual',  name: 'ROE Visual',       origin: 'Hollanda', level: 'authorized', categories: ['led'],         description: 'Carbon Series CB serisi - touring LED referansı.' },
   { id: 'novastar',    name: 'Novastar',         origin: 'Çin',     level: 'authorized', categories: ['led'],          description: 'Coex Pro, MX serisi processor; HDR + genlock + frame lock.' },
-  { id: 'brompton',    name: 'Brompton Tech',    origin: 'İngiltere', level: 'premium',  categories: ['led'],          description: 'Tessera processor — sahne ve XR stüdyo referansı.' },
+  { id: 'brompton',    name: 'Brompton Tech',    origin: 'İngiltere', level: 'premium',  categories: ['led'],          description: 'Tessera processor - sahne ve XR stüdyo referansı.' },
 
   // Konferans / AV
   { id: 'shure',       name: 'Shure',            origin: 'ABD',     level: 'premium',    categories: ['konferans', 'mikrofon'], description: 'MXA920 / MXA901 tavan beamforming dizi + IntelliMix DSP.' },
@@ -1016,9 +1016,9 @@ export const BRANDS: Brand[] = [
   { id: 'bosch-dicentis', name: 'Bosch DICENTIS',origin: 'Almanya', level: 'authorized', categories: ['konferans'],    description: 'Konferans, oylama ve simültane çeviri (4 dile kadar).' },
   { id: 'crestron',    name: 'Crestron',         origin: 'ABD',     level: 'authorized', categories: ['konferans'],    description: 'Tek-dokunuş kontrol panelleri + Crestron Fusion uzaktan izleme.' },
   { id: 'extron',      name: 'Extron',           origin: 'ABD',     level: 'authorized', categories: ['konferans'],    description: 'Sinyal yönetimi, presentation switcher ve oda kontrolörleri.' },
-  { id: 'logitech',    name: 'Logitech',         origin: 'İsviçre', level: 'authorized', categories: ['konferans'],    description: 'Rally Bar / Rally Plus — MTR ve Zoom Rooms sertifikalı.' },
+  { id: 'logitech',    name: 'Logitech',         origin: 'İsviçre', level: 'authorized', categories: ['konferans'],    description: 'Rally Bar / Rally Plus - MTR ve Zoom Rooms sertifikalı.' },
   { id: 'poly',        name: 'Poly',             origin: 'ABD',     level: 'authorized', categories: ['konferans'],    description: 'Studio X serisi all-in-one konferans video bar.' },
-  { id: 'yealink',     name: 'Yealink',          origin: 'Çin',     level: 'authorized', categories: ['konferans'],    description: 'MeetingBar A30 + RoomPanel — Teams Rooms paketleri.' },
+  { id: 'yealink',     name: 'Yealink',          origin: 'Çin',     level: 'authorized', categories: ['konferans'],    description: 'MeetingBar A30 + RoomPanel - Teams Rooms paketleri.' },
 
   // VA
   { id: 'bosch-praesensa', name: 'Bosch Praesensa', origin: 'Almanya', level: 'premium', categories: ['anons'],        description: 'EN 54-16 sertifikalı Voice Alarm + paging + acil tahliye platformu.' },
@@ -1027,7 +1027,7 @@ export const BRANDS: Brand[] = [
 
   // Mikrofon & ölçüm
   { id: 'bk',          name: 'B&K (Brüel & Kjær)',origin: 'Danimarka', level: 'partner', categories: ['mikrofon'],     description: 'Sınıf-1 ölçüm mikrofonu + saha kalibrasyon ekipmanı.' },
-  { id: 'dpa',         name: 'DPA Microphones',  origin: 'Danimarka', level: 'authorized', categories: ['mikrofon'],   description: 'd:dicate / d:vote serisi referans mikrofon — broadcast + canlı ses.' },
+  { id: 'dpa',         name: 'DPA Microphones',  origin: 'Danimarka', level: 'authorized', categories: ['mikrofon'],   description: 'd:dicate / d:vote serisi referans mikrofon - broadcast + canlı ses.' },
 ];
 
 /* =========================================================
@@ -1048,7 +1048,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: 'en-54-16',
     code: 'EN 54-16',
     name: 'Voice Alarm Sistem Bileşeni',
-    body: 'CEN — Avrupa Standardizasyon Komitesi',
+    body: 'CEN - Avrupa Standardizasyon Komitesi',
     scope: 'Sesli yangın tahliye sistemleri için kontrol ve gösterge bileşenleri için zorunlu standart.',
     appliesTo: ['AVM', 'Otel', 'Hastane', 'Okul', 'Kamu binası', '50+ kişilik toplanma alanı'],
     documentNote: 'Sistem tasarımı + STI-PA ölçüm raporu + bileşen sertifikaları yapı denetim sürecinde paylaşılır.',
@@ -1057,7 +1057,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: 'en-54-24',
     code: 'EN 54-24',
     name: 'Voice Alarm Hoparlör',
-    body: 'CEN — Avrupa Standardizasyon Komitesi',
+    body: 'CEN - Avrupa Standardizasyon Komitesi',
     scope: 'EN 54-16 sistemine bağlı hoparlör bileşenleri için zorunlu sertifika.',
     appliesTo: ['EN 54-16 zorunlu olan tüm yapılarda', 'Yangın yönetmeliği kapsamı'],
     documentNote: 'Hoparlör üretici sertifikaları (CE + EN 54-24) ihale dosyasıyla birlikte sunulur.',
@@ -1066,7 +1066,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: 'iso-3382',
     code: 'ISO 3382',
     name: 'Mekân Akustik Ölçüm Standardı',
-    body: 'ISO — Uluslararası Standartlar Örgütü',
+    body: 'ISO - Uluslararası Standartlar Örgütü',
     scope: 'RT60, EDT, T20/T30, C50, D50 ölçüm metodolojisi standardı; akustik ölçüm dokümantasyonunun referansı.',
     appliesTo: ['Konser salonu', 'Stüdyo', 'Konferans odası', 'Tiyatro', 'Auditorium'],
     documentNote: 'Ölçüm raporları ISO 3382 metodolojisine uygun, kalibre B&K sınıf-1 mikrofonla saha kayıtları içerir.',
@@ -1075,7 +1075,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: 'iso-9001',
     code: 'ISO 9001',
     name: 'Kalite Yönetim Sistemi',
-    body: 'ISO — Uluslararası Standartlar Örgütü',
+    body: 'ISO - Uluslararası Standartlar Örgütü',
     scope: 'Şirket içi süreç, müşteri ilişkileri ve sürekli iyileştirme yönetim sistemi.',
     appliesTo: ['Tüm projeler', 'İhale ön nitelik gereksinimi'],
     documentNote: 'Şirket sertifika belgesi talep üzerine PDF olarak iletilir.',
@@ -1093,7 +1093,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: 'tse',
     code: 'TSE',
     name: 'Türk Standartları Enstitüsü',
-    body: 'TSE — Türk Standartları Enstitüsü',
+    body: 'TSE - Türk Standartları Enstitüsü',
     scope: 'Türkiye pazarı için ulusal standart uygunluk ve TSE-K hizmet yeterliliği.',
     appliesTo: ['Kamu ihalesi', 'Yapı denetim'],
     documentNote: 'Hizmet yeterlilik belgesi + ürün TSE belgeleri ihale dosyasıyla sunulur.',
@@ -1102,7 +1102,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: 'cedia',
     code: 'CEDIA',
     name: 'Custom Electronic Design & Installation',
-    body: 'CEDIA — Custom Electronic Design and Installation Association',
+    body: 'CEDIA - Custom Electronic Design and Installation Association',
     scope: 'Profesyonel AV entegratörleri için uluslararası eğitim + sertifikasyon programı.',
     appliesTo: ['Konferans', 'Stüdyo', 'Smart room teslimleri'],
     documentNote: 'CEDIA EST sertifikalı ekip üyelerinin sertifika kopyaları talep üzerine iletilir.',
@@ -1120,8 +1120,8 @@ export const CERTIFICATIONS: Certification[] = [
 
 
 /* =========================================================
-   REFERENCES — Bizi seçen mekânlar
-   (placeholder isimler + sektörel etiketler — gerçek müşteri
+   REFERENCES - Bizi seçen mekânlar
+   (placeholder isimler + sektörel etiketler - gerçek müşteri
     referanslarınızla değiştirin)
    ========================================================= */
 export type Reference = {
@@ -1151,8 +1151,8 @@ export const REFERENCES: Reference[] = [
 ];
 
 /* =========================================================
-   TESTIMONIALS — Müşteri yorumları
-   (placeholder Türkçe yorumlar — gerçek müşteri izniyle
+   TESTIMONIALS - Müşteri yorumları
+   (placeholder Türkçe yorumlar - gerçek müşteri izniyle
     güncellenmesi tavsiye edilir)
    ========================================================= */
 export type Testimonial = {
@@ -1172,7 +1172,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'F&B Direktörü',
     venue: 'Bosphorus Bistro · İstanbul',
     cls: 'red',
-    quote: 'Ölçüm raporuna kadar her şeyi şeffaf paylaştılar. Açılıştan sonra masada konuşma şikâyeti gerçekten sıfıra indi — daha önceki sistemde her gece duyuyorduk.',
+    quote: 'Ölçüm raporuna kadar her şeyi şeffaf paylaştılar. Açılıştan sonra masada konuşma şikâyeti gerçekten sıfıra indi - daha önceki sistemde her gece duyuyorduk.',
     portrait: 'https://images.pexels.com/photos/3771807/pexels-photo-3771807.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
@@ -1190,7 +1190,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Mix Mühendisi',
     venue: 'Studio Alpha · İstanbul',
     cls: 'teal',
-    quote: 'Apartmanda Atmos stüdyo kurmak çıldırma derecesinde zordur — kayan kat ve modal kontrolü hiç sorunsuz teslim ettiler. Komşulardan tek bir şikâyet gelmedi, mix kararlarım artık güvenilir.',
+    quote: 'Apartmanda Atmos stüdyo kurmak çıldırma derecesinde zordur - kayan kat ve modal kontrolü hiç sorunsuz teslim ettiler. Komşulardan tek bir şikâyet gelmedi, mix kararlarım artık güvenilir.',
     portrait: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
@@ -1199,7 +1199,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Konferans Operasyon Sorumlusu',
     venue: 'Capital Konferans · Ankara',
     cls: 'plum',
-    quote: 'Hibrit toplantıda uzak katılımcı memnuniyeti %62\'den %94\'e çıktı — kulağımızla duyuyoruz, mailde okuyoruz. Beamforming dizisi ve AEC zinciri farkını anında hissettirdi.',
+    quote: 'Hibrit toplantıda uzak katılımcı memnuniyeti %62\'den %94\'e çıktı - kulağımızla duyuyoruz, mailde okuyoruz. Beamforming dizisi ve AEC zinciri farkını anında hissettirdi.',
     portrait: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
 ];

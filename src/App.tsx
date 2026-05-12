@@ -66,7 +66,7 @@ function usePrefetchRoutes() {
 }
 
 function PageFallback() {
-  // Slim top-of-page loading bar only — no 60vh placeholder to avoid layout
+  // Slim top-of-page loading bar only - no 60vh placeholder to avoid layout
   // shift / flash. With prefetched chunks (see usePrefetchRoutes), this
   // fallback should rarely render.
   return <div className="route-loading" aria-busy="true" aria-label="Yükleniyor" />;

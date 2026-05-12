@@ -25,9 +25,9 @@ export type Glyph =
 export type ProductDetail = {
   slug: string;
   brand: string;
-  /** h1 first line — örn. "Anker Nebula Apollo Projeksiyon" */
+  /** h1 first line - örn. "Anker Nebula Apollo Projeksiyon" */
   name: string;
-  /** h1 second line (kırmızı) — kısa SEO açıklaması */
+  /** h1 second line (kırmızı) - kısa SEO açıklaması */
   tagline: string;
   /** breadcrumb display */
   breadcrumbName: string;
@@ -41,9 +41,9 @@ export type ProductDetail = {
   short: string;
   /** spec chip'leri (~6) */
   chips: string[];
-  /** Uzun dönem aylık fiyatlar — index 0..3 → 1/3/6/12 ay */
+  /** Uzun dönem aylık fiyatlar - index 0..3 → 1/3/6/12 ay */
   monthly: [string, string, string, string];
-  /** Kısa dönem günlük fiyatlar — index 0..3 → 3/7/14/30 gün */
+  /** Kısa dönem günlük fiyatlar - index 0..3 → 3/7/14/30 gün */
   daily: [string, string, string, string];
   /** "Hemen kirala" tuşunun gittiği Hızla Kirala URL */
   rentalUrl: string;
@@ -57,7 +57,7 @@ export type ProductDetail = {
   };
   /** "Bir bakışta" madde listesi (8 madde) */
   glance: string[];
-  /** Teknik özellikler — 12 K-V (çift sayı, grid 2 sütun için) */
+  /** Teknik özellikler - 12 K-V (çift sayı, grid 2 sütun için) */
   specs: Array<[label: string, value: string]>;
   /** Kutu içeriği listesi */
   box: string[];
@@ -95,7 +95,7 @@ const CAT = {
 export const PRODUCTS: ProductDetail[] = [
   /* ─────────── Şımart Kendini ─────────── */
 
-  // 1 — Dyson Airwrap ID Ceramic Pink (saç şekillendirici)
+  // 1 - Dyson Airwrap ID Ceramic Pink (saç şekillendirici)
   {
     slug: 'dyson-airwrap',
     brand: 'Dyson',
@@ -105,7 +105,7 @@ export const PRODUCTS: ProductDetail[] = [
     category: CAT.simart.name,
     categoryHref: `${PARTNER_BASE}/urunler/kategori/sac-sakal-bakim-urunleri-kiralama`,
     series: 'Saç şekillendirici · Dyson Airwrap serisi',
-    short: 'Dyson Coanda hava akımı teknolojisiyle saçı aşırı ısıdan korur. Bukle, dalga, düzleştirme ve hacim — 6 aksesuar ile tek cihazda profesyonel kuaför sonucu. Düğün, davet ve özel etkinlik için aylık kiralama 1.450 TL\'den.',
+    short: 'Dyson Coanda hava akımı teknolojisiyle saçı aşırı ısıdan korur. Bukle, dalga, düzleştirme ve hacim - 6 aksesuar ile tek cihazda profesyonel kuaför sonucu. Düğün, davet ve özel etkinlik için aylık kiralama 1.450 TL\'den.',
     chips: ['Coanda hava akımı', '6 aksesuar', '4 ısı kademesi', 'Bluetooth', 'MyDyson app', 'Ceramic Pink'],
     monthly: ['1.950', '1.850', '1.600', '1.450'],
     daily:   ['1.550', '1.800', '1.800', '1.800'],
@@ -163,7 +163,7 @@ export const PRODUCTS: ProductDetail[] = [
     popular: true,
   },
 
-  // 2 — Dreame AirStyle Pro saç şekillendirici
+  // 2 - Dreame AirStyle Pro saç şekillendirici
   {
     slug: 'dreame-airstyle-pro',
     brand: 'Dreame',
@@ -187,7 +187,7 @@ export const PRODUCTS: ProductDetail[] = [
     description: {
       headline: 'Tek cihazla salon kalitesinde saç şekillendirme.',
       paragraphs: [
-        'Dreame AirStyle Pro\'nun 110.000 RPM dijital motoru, ısıyı 150°C ile sınırlayarak saç kütikülünü korur. Negatif iyon yayılımı statik elektriği önler, parlaklığı artırır. 7 aksesuar ile bukle (3 kademe), dalga, hacim, ön kurutma ve düzleştirme — her stil için ayrı bir cihaz almak yerine tek kiralama.',
+        'Dreame AirStyle Pro\'nun 110.000 RPM dijital motoru, ısıyı 150°C ile sınırlayarak saç kütikülünü korur. Negatif iyon yayılımı statik elektriği önler, parlaklığı artırır. 7 aksesuar ile bukle (3 kademe), dalga, hacim, ön kurutma ve düzleştirme - her stil için ayrı bir cihaz almak yerine tek kiralama.',
         'Dijital ekrandan ısı ve hız ayarı, akıllı sıcaklık sensörü ile saçın aşırı ısınması engellenir. Davet, etkinlik, fotoğraf çekimi öncesi kuaförden çok daha uygun fiyatlı premium alternatif.',
       ],
       useCases: [
@@ -229,7 +229,7 @@ export const PRODUCTS: ProductDetail[] = [
     priceFrom: '1.250',
   },
 
-  // 3 — Dyson Airstrait Prusya Mavisi (ıslak/kuru düzleştirici)
+  // 3 - Dyson Airstrait Prusya Mavisi (ıslak/kuru düzleştirici)
   {
     slug: 'dyson-airstrait',
     brand: 'Dyson',
@@ -239,7 +239,7 @@ export const PRODUCTS: ProductDetail[] = [
     category: CAT.simart.name,
     categoryHref: `${PARTNER_BASE}/urunler/kategori/sac-sakal-bakim-urunleri-kiralama`,
     series: 'Saç düzleştirici · Dyson Airstrait serisi',
-    short: 'Dyson Airstrait, ısıtmalı plaka yerine yüksek basınçlı hava akımıyla saçı düzleştirir — saç kütikülüne minimum hasar. Islak veya kuru saçta tek dokunuşta düzleştirme, aylık 1.400 TL\'den kiralık premium cihaz.',
+    short: 'Dyson Airstrait, ısıtmalı plaka yerine yüksek basınçlı hava akımıyla saçı düzleştirir - saç kütikülüne minimum hasar. Islak veya kuru saçta tek dokunuşta düzleştirme, aylık 1.400 TL\'den kiralık premium cihaz.',
     chips: ['Islak + kuru', 'Plakasız', 'Hava akımı', '140°C max', 'Prusya Mavisi', 'Cool shot'],
     monthly: ['2.450', '2.050', '1.700', '1.400'],
     daily:   ['1.600', '1.950', '1.950', '1.950'],
@@ -253,7 +253,7 @@ export const PRODUCTS: ProductDetail[] = [
     description: {
       headline: 'Saç kütikülünü yormadan düz, parlak saç.',
       paragraphs: [
-        'Dyson Airstrait, geleneksel düzleştiricilerin aksine ısıtmalı plaka kullanmaz. Yüksek basınçlı hava akımıyla saç ipliklerini hizalar; 140°C\'lik düşük ısı sayesinde kütikül hasarı minimum. Saçı yıkadıktan sonra ıslakken veya kuruykennanan kullanabilirsiniz — kurutma + düzleştirme tek adımda.',
+        'Dyson Airstrait, geleneksel düzleştiricilerin aksine ısıtmalı plaka kullanmaz. Yüksek basınçlı hava akımıyla saç ipliklerini hizalar; 140°C\'lik düşük ısı sayesinde kütikül hasarı minimum. Saçı yıkadıktan sonra ıslakken veya kuruykennanan kullanabilirsiniz - kurutma + düzleştirme tek adımda.',
         'Cool shot soğutma fonksiyonu ile düzleştirme sonrası saçı sabitler. Akıllı ısı kontrolü, ısının saç boyunca eşit dağılmasını sağlar. Düğün, davet veya günlük şekillendirme için aylık kiralama 1.400 TL\'den.',
       ],
       useCases: [
@@ -294,7 +294,7 @@ export const PRODUCTS: ProductDetail[] = [
     popular: true,
   },
 
-  // 4 — FOREO FAQ 202 LED Yüz Maskesi
+  // 4 - FOREO FAQ 202 LED Yüz Maskesi
   {
     slug: 'foreo-faq-202',
     brand: 'Foreo',
@@ -304,7 +304,7 @@ export const PRODUCTS: ProductDetail[] = [
     category: CAT.simart.name,
     categoryHref: `${PARTNER_BASE}/urunler/kategori/cilt-bakimi-cihazlari-kiralama`,
     series: 'Cilt bakım cihazı · FOREO FAQ serisi',
-    short: 'FOREO FAQ 202 LED yüz maskesi, 8 farklı LED ışık dalgası ve NIR (Yakın Kızılötesi) teknolojisi ile cilt yenilenmesi sağlar. Kırışıklık, sivilce ve cilt tonu eşitsizliğine karşı klinik kanıtlanmış cilt bakım cihazı — aylık 3.750 TL\'den.',
+    short: 'FOREO FAQ 202 LED yüz maskesi, 8 farklı LED ışık dalgası ve NIR (Yakın Kızılötesi) teknolojisi ile cilt yenilenmesi sağlar. Kırışıklık, sivilce ve cilt tonu eşitsizliğine karşı klinik kanıtlanmış cilt bakım cihazı - aylık 3.750 TL\'den.',
     chips: ['8 LED dalga', 'NIR teknolojisi', 'Silikon malzeme', 'Şarjlı', 'FDA onaylı', 'App kontrol'],
     monthly: ['4.950', '4.500', '4.000', '3.750'],
     daily:   ['3.750', '4.000', '4.000', '4.000'],
@@ -360,7 +360,7 @@ export const PRODUCTS: ProductDetail[] = [
     popular: true,
   },
 
-  // 5 — Xiaomi Mi Pro 4 Scooter
+  // 5 - Xiaomi Mi Pro 4 Scooter
   {
     slug: 'xiaomi-mi-pro-4',
     brand: 'Xiaomi',
@@ -385,7 +385,7 @@ export const PRODUCTS: ProductDetail[] = [
       headline: 'Şehirde günlük ulaşım için elektrikli özgürlük.',
       paragraphs: [
         'Xiaomi Mi Pro 4, 350W motoru ve 474Wh lityum-iyon bataryası ile 45 km menzil sağlar. Üç sürüş modu (eco / standart / sport) bataryayı planlamanıza izin verir, %20\'ye varan eğimlerde tutunma sağlar.',
-        'Disk fren + ABS rejeneratif fren ile güvenli durma, 10" şişme tubeless lastik konforlu sürüş. IP54 sertifikası ile hafif yağmurda da kullanılır, saniyeler içinde katlanır — BTS metroya alır, otomobil bagajına koyabilirsiniz.',
+        'Disk fren + ABS rejeneratif fren ile güvenli durma, 10" şişme tubeless lastik konforlu sürüş. IP54 sertifikası ile hafif yağmurda da kullanılır, saniyeler içinde katlanır - BTS metroya alır, otomobil bagajına koyabilirsiniz.',
       ],
       useCases: [
         ['Şehir içi ulaşım', '🏙️'],
@@ -425,12 +425,12 @@ export const PRODUCTS: ProductDetail[] = [
     popular: true,
   },
 
-  // 6 — Philips GC810/20 Buharlı Düzleştirici
+  // 6 - Philips GC810/20 Buharlı Düzleştirici
   {
     slug: 'philips-gc810-20',
     brand: 'Philips',
     name: 'Philips GC810/20 El Tipi Buharlı Düzleştirici',
-    tagline: 'Kıyafetlerde anında buhar — taşınabilir ütü',
+    tagline: 'Kıyafetlerde anında buhar - taşınabilir ütü',
     breadcrumbName: 'Philips GC810/20 Buharlı Düzleştirici',
     category: CAT.simart.name,
     categoryHref: `${PARTNER_BASE}/urunler/kategori/kisisel-bakim-urunleri-kiralama`,
@@ -449,8 +449,8 @@ export const PRODUCTS: ProductDetail[] = [
     description: {
       headline: 'Yolda bile her zaman ütülü kıyafet.',
       paragraphs: [
-        'Philips GC810/20, asılı kıyafette dikey ütüleme yapar — askılığa as, üzerinden geçir, buruşukluk gider. 30 saniyede hazır, 1300W güçlü buhar; pamuklu, polyester, ipek dahil çoğu kumaşta güvenli kullanım.',
-        '70 ml su tankı tek dolumda 8 dakika sürekli buhar verir — bir takım veya 2-3 gömlek için yeterli. Kompakt gövdesi (45 cm) ile valize sığar, otel odasında, AirBnB konaklamada veya geçici ofiste pratik çözüm.',
+        'Philips GC810/20, asılı kıyafette dikey ütüleme yapar - askılığa as, üzerinden geçir, buruşukluk gider. 30 saniyede hazır, 1300W güçlü buhar; pamuklu, polyester, ipek dahil çoğu kumaşta güvenli kullanım.',
+        '70 ml su tankı tek dolumda 8 dakika sürekli buhar verir - bir takım veya 2-3 gömlek için yeterli. Kompakt gövdesi (45 cm) ile valize sığar, otel odasında, AirBnB konaklamada veya geçici ofiste pratik çözüm.',
       ],
       useCases: [
         ['Otel / AirBnB konaklama', '🏨'],
@@ -491,7 +491,7 @@ export const PRODUCTS: ProductDetail[] = [
 
   /* ─────────── Ev Aletleri ─────────── */
 
-  // 7 — Vahaa Akıllı Bahçe
+  // 7 - Vahaa Akıllı Bahçe
   {
     slug: 'vahaa-akilli-bahce',
     brand: 'Vahaa',
@@ -515,7 +515,7 @@ export const PRODUCTS: ProductDetail[] = [
     description: {
       headline: 'Mutfağında taze ot ve sebze yetiştirme.',
       paragraphs: [
-        'Vahaa Akıllı Bahçe, hidroponik (topraksız) tarım teknolojisi ile 6 farklı bitkiyi aynı anda yetiştirmenizi sağlar. Fesleğen, kekik, maydanoz, marul, çilek, çeri domates — hepsi mutfak tezgâhınızda.',
+        'Vahaa Akıllı Bahçe, hidroponik (topraksız) tarım teknolojisi ile 6 farklı bitkiyi aynı anda yetiştirmenizi sağlar. Fesleğen, kekik, maydanoz, marul, çilek, çeri domates - hepsi mutfak tezgâhınızda.',
         'IoT modülü su seviyesini, LED grow ışıklarının zamanını ve sıcaklığı otomatik yönetir. WiFi + app ile bitkilerinizi telefondan takip edersiniz. Çocuklu aile, glütensiz beslenen, organik yiyen profil için aylık 890 TL\'den kiralık.',
       ],
       useCases: [
@@ -556,7 +556,7 @@ export const PRODUCTS: ProductDetail[] = [
     priceFrom: '890',
   },
 
-  // 8 — Anker Nebula Apollo
+  // 8 - Anker Nebula Apollo
   {
     slug: 'anker-nebula-apollo',
     brand: 'Anker',
@@ -581,7 +581,7 @@ export const PRODUCTS: ProductDetail[] = [
       headline: 'Mekanını sinemaya, sahneye, sunum salonuna çevir.',
       paragraphs: [
         'Nebula Apollo, 200 ANSI lümen parlaklığı ve 4 saat batarya ömrüyle kafe duvarına maç gösteriminden, kurumsal lansman geceleri için dış mekan projeksiyonuna kadar her senaryoya uyum sağlar. Android TV arayüzü sayesinde Netflix, YouTube, Spotify ve binlerce uygulamayı doğrudan üzerinden çalıştırır.',
-        'Dahili 8W hoparlörü Bluetooth modunda taşınabilir hoparlör olarak da çalışır — tek cihazla iki ihtiyaç. Kalibrasyon, kurulum ve teslim sonrası destek on music ekibi tarafından sağlanır.',
+        'Dahili 8W hoparlörü Bluetooth modunda taşınabilir hoparlör olarak da çalışır - tek cihazla iki ihtiyaç. Kalibrasyon, kurulum ve teslim sonrası destek on music ekibi tarafından sağlanır.',
       ],
       useCases: [
         ['Dış mekan etkinliği', '🌙'],
@@ -624,7 +624,7 @@ export const PRODUCTS: ProductDetail[] = [
     popular: true,
   },
 
-  // 9 — Dreame PM10 Hava Temizleyici
+  // 9 - Dreame PM10 Hava Temizleyici
   {
     slug: 'dreame-pm10',
     brand: 'Dreame',
@@ -649,7 +649,7 @@ export const PRODUCTS: ProductDetail[] = [
       headline: 'Tüm yıl temiz ve serin ev havası.',
       paragraphs: [
         'Dreame PM10, HEPA H13 filtre + UV-C ışın + aktif karbon üçlü filtrasyon ile PM2.5 partikül, polen, evcil hayvan tüyü, koku ve bakterileri yakalar. PM2.5 sensörü hava kalitesini canlı izler, otomatik mod ile temizleme yoğunluğunu ayarlar.',
-        '360° fan modu yaz aylarında oda fanı olarak kullanılır — tek cihazla iki fonksiyon. Sessiz gece modu (< 30 dB) yatak odasında uykuyu bölmez. WiFi + Dreamehome app ile uzaktan kontrol. 60 m²\'ye kadar alan için aylık 1.700 TL\'den.',
+        '360° fan modu yaz aylarında oda fanı olarak kullanılır - tek cihazla iki fonksiyon. Sessiz gece modu (< 30 dB) yatak odasında uykuyu bölmez. WiFi + Dreamehome app ile uzaktan kontrol. 60 m²\'ye kadar alan için aylık 1.700 TL\'den.',
       ],
       useCases: [
         ['Alerjik kullanım', '🌸'],
@@ -689,7 +689,7 @@ export const PRODUCTS: ProductDetail[] = [
     priceFrom: '1.700',
   },
 
-  // 10 — Dyson Purifier Cool Hava Temizleyici
+  // 10 - Dyson Purifier Cool Hava Temizleyici
   {
     slug: 'dyson-purifier-cool',
     brand: 'Dyson',
@@ -713,8 +713,8 @@ export const PRODUCTS: ProductDetail[] = [
     description: {
       headline: 'Görünmeyen havayı görünür kılar.',
       paragraphs: [
-        'Dyson Purifier Cool, HEPA H13 + aktif karbon ikili filtrasyon ile 0.1 mikrona kadar partikülleri (PM0.1) %99.95 oranında yakalar. Air Multiplier teknolojisi havayı saniyede 290 m³ debide odaya yayar — 350° osilasyon ile geniş kapsama.',
-        'Dahili sensör hava kalitesini canlı LCD ekranda gösterir; otomatik mod gerektiğinde devreye girer. Yaz aylarında oda fanı olarak kullanılır — bıçaksız, çocuk güvenli tasarım. Dyson Link app ile uzaktan kontrol, gece modu sessiz.',
+        'Dyson Purifier Cool, HEPA H13 + aktif karbon ikili filtrasyon ile 0.1 mikrona kadar partikülleri (PM0.1) %99.95 oranında yakalar. Air Multiplier teknolojisi havayı saniyede 290 m³ debide odaya yayar - 350° osilasyon ile geniş kapsama.',
+        'Dahili sensör hava kalitesini canlı LCD ekranda gösterir; otomatik mod gerektiğinde devreye girer. Yaz aylarında oda fanı olarak kullanılır - bıçaksız, çocuk güvenli tasarım. Dyson Link app ile uzaktan kontrol, gece modu sessiz.',
       ],
       useCases: [
         ['Alerji + astım', '🌬️'],
@@ -753,7 +753,7 @@ export const PRODUCTS: ProductDetail[] = [
     priceFrom: '2.500',
   },
 
-  // 11 — Karaca Robotea Pro 4-in-1 Çay Makinesi
+  // 11 - Karaca Robotea Pro 4-in-1 Çay Makinesi
   {
     slug: 'karaca-robotea-pro',
     brand: 'Karaca',
@@ -778,7 +778,7 @@ export const PRODUCTS: ProductDetail[] = [
       headline: 'Mutfak asistanın: çay hazır olunca sana söyler.',
       paragraphs: [
         'Karaca Robotea Pro, 4 farklı sıcak içecek modunda çalışır: Türk çayı demleme, kahve ısıtma, su kaynatma ve bebek sütü hazırlama. Akıllı sıcaklık kontrolü ile her içeceğe özel ideal ısı, otomatik tutma fonksiyonu.',
-        'Türkçe sesli asistan, çayınızın hazır olduğunu, su seviyesinin düştüğünü veya bakım gerektiğini söyler — mutfaktan ayrılsanız bile fark edersiniz. 2.5 L kapasite çay demliği, geniş aile veya misafir kullanımı için. Aylık 1.350 TL\'den kiralık.',
+        'Türkçe sesli asistan, çayınızın hazır olduğunu, su seviyesinin düştüğünü veya bakım gerektiğini söyler - mutfaktan ayrılsanız bile fark edersiniz. 2.5 L kapasite çay demliği, geniş aile veya misafir kullanımı için. Aylık 1.350 TL\'den kiralık.',
       ],
       useCases: [
         ['Geniş aile', '👨‍👩‍👧‍👦'],
@@ -817,7 +817,7 @@ export const PRODUCTS: ProductDetail[] = [
     priceFrom: '1.350',
   },
 
-  // 12 — Karcher SC 3 EasyFix Buharlı Temizlik
+  // 12 - Karcher SC 3 EasyFix Buharlı Temizlik
   {
     slug: 'karcher-sc3-easyfix',
     brand: 'Kärcher',
@@ -842,7 +842,7 @@ export const PRODUCTS: ProductDetail[] = [
       headline: 'Kimyasalsız derin temizlik, %99.99 bakteriyel arınma.',
       paragraphs: [
         'Kärcher SC 3 EasyFix, 3.5 bar basınçlı buhar ile zemin, fayans, mutfak yüzeyi, banyo, halı ve perdeyi kimyasalsız temizler. 30 saniyede ısınır, kireçten arındırma kartuşu ile uzun ömürlü.',
-        'EasyFix paspas başlığı zemini hızlı kuruturken, 8 aksesuar (fırça, nozul, kenar başlığı, halı pedi) ile mutfak süzgecinden cam yüzeye kadar her noktayı temizler. Buhar 100°C üstüne çıkar — %99.99 bakteri ve virüsü öldürür. Yeni eve taşınma, derin bahar temizliği, AirBnB yenileme için ideal.',
+        'EasyFix paspas başlığı zemini hızlı kuruturken, 8 aksesuar (fırça, nozul, kenar başlığı, halı pedi) ile mutfak süzgecinden cam yüzeye kadar her noktayı temizler. Buhar 100°C üstüne çıkar - %99.99 bakteri ve virüsü öldürür. Yeni eve taşınma, derin bahar temizliği, AirBnB yenileme için ideal.',
       ],
       useCases: [
         ['Eve taşınma temizliği', '🏠'],
@@ -883,7 +883,7 @@ export const PRODUCTS: ProductDetail[] = [
     popular: true,
   },
 
-  // 13 — Dyson V15 Detect Süpürge
+  // 13 - Dyson V15 Detect Süpürge
   {
     slug: 'dyson-v15-detect',
     brand: 'Dyson',
@@ -907,7 +907,7 @@ export const PRODUCTS: ProductDetail[] = [
     description: {
       headline: 'Gözle görmediğin tozu lazerle yakalar.',
       paragraphs: [
-        'Yer başlığındaki yeşil lazer ışın, zemine gizlenmiş mikro tozu görünür kılar. LCD ekranda parçacık sayımı canlı gösterilir — temizlediğin ile temizlenmesi gerekenin farkını görürsün.',
+        'Yer başlığındaki yeşil lazer ışın, zemine gizlenmiş mikro tozu görünür kılar. LCD ekranda parçacık sayımı canlı gösterilir - temizlediğin ile temizlenmesi gerekenin farkını görürsün.',
         'Hyperdymium dijital motor 125.000 RPM hıza çıkar; HEPA filtre 0.3 mikrona kadar parçacıkları yakalar. Boost modunda kalın halıyı, eco modunda 60 dakika geniş alanı temizler. Cordless tasarım merdivenden balkona her noktada kullanılır.',
       ],
       useCases: [
@@ -953,7 +953,7 @@ export const PRODUCTS: ProductDetail[] = [
 
   /* ─────────── Anne & Bebek ─────────── */
 
-  // 14 — Cybex Anoris T i-Size Bebek Oto Koltuğu
+  // 14 - Cybex Anoris T i-Size Bebek Oto Koltuğu
   {
     slug: 'cybex-anoris-t',
     brand: 'Cybex',
@@ -963,7 +963,7 @@ export const PRODUCTS: ProductDetail[] = [
     category: CAT.anne.name,
     categoryHref: `${PARTNER_BASE}/urunler/kategori/anne-bebek-urunleri-kiralama`,
     series: 'Anne & bebek · Cybex Premium serisi',
-    short: 'Cybex Anoris T, dünyada ilk tam vücut hava yastıklı bebek oto koltuğu — yan çarpışmada %50 daha az darbe. i-Size sertifikalı, 76-115 cm çocuk için 15 ay - 6 yaş arası. Aylık 3.350 TL\'den kiralık premium güvenlik.',
+    short: 'Cybex Anoris T, dünyada ilk tam vücut hava yastıklı bebek oto koltuğu - yan çarpışmada %50 daha az darbe. i-Size sertifikalı, 76-115 cm çocuk için 15 ay - 6 yaş arası. Aylık 3.350 TL\'den kiralık premium güvenlik.',
     chips: ['Tam vücut hava yastığı', 'i-Size sertifika', '76-115 cm', '%50 darbe azaltma', 'ISOFIX', 'L.S.P. yan koruma'],
     monthly: ['4.250', '3.900', '3.650', '3.350'],
     daily:   ['1.450', '2.050', '2.950', '2.950'],
@@ -1020,7 +1020,7 @@ export const PRODUCTS: ProductDetail[] = [
 
   /* ─────────── Oyun & Hobi ─────────── */
 
-  // 15 — Sony PlayStation 5 Slim
+  // 15 - Sony PlayStation 5 Slim
   {
     slug: 'playstation-5-slim',
     brand: 'Sony',
@@ -1030,7 +1030,7 @@ export const PRODUCTS: ProductDetail[] = [
     category: CAT.oyun.name,
     categoryHref: `${PARTNER_BASE}/urunler/kategori/oyun-konsolu-ve-cihazlari-kiralama`,
     series: 'Oyun konsolu · PlayStation 5 serisi',
-    short: 'Sony PS5 Slim 1TB, 4K 120 FPS ray tracing destekli yeni nesil oyun konsolu. 2 DualSense kontrolcü dahil — LAN parti, etkinlik aktivasyonu veya salon kullanımı için aylık 1.850 TL\'den kiralık.',
+    short: 'Sony PS5 Slim 1TB, 4K 120 FPS ray tracing destekli yeni nesil oyun konsolu. 2 DualSense kontrolcü dahil - LAN parti, etkinlik aktivasyonu veya salon kullanımı için aylık 1.850 TL\'den kiralık.',
     chips: ['1TB SSD', '4K 120Hz', 'Ray tracing', 'Tempest 3D', '2× DualSense', '8K Ready'],
     monthly: ['3.450', '3.050', '2.650', '2.050'],
     daily:   ['1.850', '2.250', '3.050', '3.050'],
@@ -1045,7 +1045,7 @@ export const PRODUCTS: ProductDetail[] = [
       headline: 'Salonunda sinema kalitesinde oyun deneyimi.',
       paragraphs: [
         'PS5 Slim, yeni nesil oyunları 4K çözünürlükte 120 FPS\'ye kadar koşturur. Özel NVMe SSD\'si yükleme ekranlarını saniyelere indirir; oyun değişiklikleri bir tetikleme uzaklığında.',
-        'Kiralama paketinde 2 adet DualSense kontrolcü dahil — uyarlanabilir tetikleyici ve haptik geri bildirim ile her sahneyi parmak uçlarınla hissetmeni sağlar. Tempest 3D ses motoru ile 360° mekansal ses — kulaklıkla bile odanı saran bir deneyim.',
+        'Kiralama paketinde 2 adet DualSense kontrolcü dahil - uyarlanabilir tetikleyici ve haptik geri bildirim ile her sahneyi parmak uçlarınla hissetmeni sağlar. Tempest 3D ses motoru ile 360° mekansal ses - kulaklıkla bile odanı saran bir deneyim.',
       ],
       useCases: [
         ['Etkinlik & lansman', '🎮'],
@@ -1085,7 +1085,7 @@ export const PRODUCTS: ProductDetail[] = [
     priceFrom: '1.850',
   },
 
-  // 16 — Meta Quest 3 VR
+  // 16 - Meta Quest 3 VR
   {
     slug: 'meta-quest-3',
     brand: 'Meta',
@@ -1109,7 +1109,7 @@ export const PRODUCTS: ProductDetail[] = [
     description: {
       headline: 'Lansman demosundan eğitim simülasyonuna VR.',
       paragraphs: [
-        'Quest 3, Snapdragon XR2 Gen 2 işlemcisi ve panel başına 4K LCD ekran ile önceki nesle göre çift kat daha güçlü. Renkli passthrough kameralarıyla karma gerçeklik içerikleri sunabilir — sanal nesneleri gerçek dünyana yerleştirebilirsin.',
+        'Quest 3, Snapdragon XR2 Gen 2 işlemcisi ve panel başına 4K LCD ekran ile önceki nesle göre çift kat daha güçlü. Renkli passthrough kameralarıyla karma gerçeklik içerikleri sunabilir - sanal nesneleri gerçek dünyana yerleştirebilirsin.',
         'Touch Plus kontrolcüleri ring-less tasarımı ile doğal el hareketleri sağlar. Eğitim, ürün lansmanı, gayrimenkul turu ve gaming için kurulumu 2 dakika.',
       ],
       useCases: [
@@ -1152,7 +1152,7 @@ export const PRODUCTS: ProductDetail[] = [
     popular: true,
   },
 
-  // 17 — Nintendo Switch OLED
+  // 17 - Nintendo Switch OLED
   {
     slug: 'nintendo-switch-oled',
     brand: 'Nintendo',
@@ -1222,7 +1222,7 @@ export const PRODUCTS: ProductDetail[] = [
 
   /* ─────────── Kamera & Aksesuar ─────────── */
 
-  // 18 — DJI Osmo Pocket 3 Creator Combo
+  // 18 - DJI Osmo Pocket 3 Creator Combo
   {
     slug: 'dji-osmo-pocket-3',
     brand: 'DJI',
@@ -1247,7 +1247,7 @@ export const PRODUCTS: ProductDetail[] = [
       headline: 'Cebine sığan profesyonel video kamera.',
       paragraphs: [
         'DJI Osmo Pocket 3, 1 inç CMOS sensör + 3 eksen mekanik gimbal kombinasyonu ile cep telefonundan kat kat üstün video kalitesi sunar. 4K 120 FPS, 10-bit D-Log M renk profili, ActiveTrack 6.0 otomatik konu takibi.',
-        '2 inç döner OLED ekran ile vlogger için ideal — yatay/dikey çekim arası saniyede geçiş. Creator Combo kiralama paketinde dış mikrofon (DJI Mic 2), uzaktan kumanda, yedek pil ve ND filtre seti dahil. Lansman çekimi, sosyal medya içerik üretimi, etkinlik kayıt için aylık 2.450 TL.',
+        '2 inç döner OLED ekran ile vlogger için ideal - yatay/dikey çekim arası saniyede geçiş. Creator Combo kiralama paketinde dış mikrofon (DJI Mic 2), uzaktan kumanda, yedek pil ve ND filtre seti dahil. Lansman çekimi, sosyal medya içerik üretimi, etkinlik kayıt için aylık 2.450 TL.',
       ],
       useCases: [
         ['Vlog & sosyal medya', '🎥'],
@@ -1291,7 +1291,7 @@ export const PRODUCTS: ProductDetail[] = [
 
   /* ─────────── Telefon ─────────── */
 
-  // 19 — Apple iPhone 17 Pro
+  // 19 - Apple iPhone 17 Pro
   {
     slug: 'iphone-17-pro',
     brand: 'Apple',
@@ -1315,7 +1315,7 @@ export const PRODUCTS: ProductDetail[] = [
     description: {
       headline: 'Lansman fotoğrafından kurumsal vloga, profesyonel ekipman.',
       paragraphs: [
-        'A19 Pro çipinin 6-core neural engine\'i Final Cut Pro Camera, LumaFusion ve DaVinci ile cep boyutunda profesyonel video kayıt akışı kurar. ProRes 4K 60FPS video, 48MP RAW fotoğraf ve 5× optik zoom — telefon değil, ekipman.',
+        'A19 Pro çipinin 6-core neural engine\'i Final Cut Pro Camera, LumaFusion ve DaVinci ile cep boyutunda profesyonel video kayıt akışı kurar. ProRes 4K 60FPS video, 48MP RAW fotoğraf ve 5× optik zoom - telefon değil, ekipman.',
         'Titanium çerçeve ve seramik shield ekran, sahada darbeye dayanıklılık sağlar. iOS 19\'un Apple Intelligence özelliklerini tam kullanır.',
       ],
       useCases: [
@@ -1359,7 +1359,7 @@ export const PRODUCTS: ProductDetail[] = [
 
   /* ─────────── Bilgisayar & Tablet ─────────── */
 
-  // 20 — Apple MacBook Neo 12" M4
+  // 20 - Apple MacBook Neo 12" M4
   {
     slug: 'macbook-neo-m4',
     brand: 'Apple',

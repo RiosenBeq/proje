@@ -3,7 +3,7 @@ import { useSeo } from '../lib/seo';
 
 const TIMELINE: Array<[year: string, title: string, body: string]> = [
   ['2009', 'Kuruluş', 'On Muzik Proje, İstanbul\'da küçük restoran ses sistemi entegrasyonlarıyla yola çıktı. Marka bağımsız mühendislik ilkesi ilk günden temel ilke oldu.'],
-  ['2014', 'İlk büyük otel projesi', 'Antalya\'da 800 kişilik ballroom + lobi + 24 oda zon yönetimi teslimi — şirketin EN 54-16 voice alarm portföyü bu projeyle başladı.'],
+  ['2014', 'İlk büyük otel projesi', 'Antalya\'da 800 kişilik ballroom + lobi + 24 oda zon yönetimi teslimi - şirketin EN 54-16 voice alarm portföyü bu projeyle başladı.'],
   ['2018', 'LED entegrasyonu', 'Pixel pitch + processor + AV-sync mimarisi ana hizmet portföyüne eklendi. Kontrol odaları ve sahne ekranları için P1.5–P3.9 spektrumu kapsandı.'],
   ['2022', '100. proje teslimi', 'Türkiye genelinde 81 ilde proje teslim eden ekip, 100. anahtar teslim teslimini gerçekleştirdi.'],
   ['2026', 'Bugün', '240+ tamamlanmış proje, 6 disiplinde aktif teslim, Dolby Atmos sertifikalı stüdyo entegrasyonları, AI destekli akustik analiz araştırma altyapısı.'],
@@ -24,7 +24,7 @@ const VALUES: Array<[string, string]> = [
 
 export default function About() {
   useSeo({
-    title: 'Hakkımızda — 2009\'dan beri Akustik & Ses Mühendisliği | On Muzik Proje',
+    title: 'Hakkımızda - 2009\'dan beri Akustik & Ses Mühendisliği | On Muzik Proje',
     description: '2009\'dan beri İstanbul merkezli akustik ve ses mühendisliği. 240+ proje, 81 il, 6 disiplin. Marka bağımsız, ölçüme dayalı, şeffaf mühendislik.',
     path: '/hakkimizda',
     jsonLd: {
@@ -77,7 +77,7 @@ export default function About() {
             </div>
             <div className="right">
               Her projeye yaklaşımımız üç temel ilkeye dayanıyor: marka bağımsız ürün seçimi, kalibre ölçüme
-              dayalı teslim ve şeffaf süreç yönetimi. Bunlar pazarlama sloganları değil — operasyonel kurallar.
+              dayalı teslim ve şeffaf süreç yönetimi. Bunlar pazarlama sloganları değil - operasyonel kurallar.
             </div>
           </div>
           <div className="standards-grid reveal">
@@ -101,7 +101,7 @@ export default function About() {
               <h2 className="h-section gold" style={{ marginTop: 18 }}>16 yıllık<br /><em>saha defteri</em>.</h2>
             </div>
             <div className="right">
-              Kuruluştan bugüne dönüm noktaları — her satır bir mühendislik kararının izi.
+              Kuruluştan bugüne dönüm noktaları - her satır bir mühendislik kararının izi.
             </div>
           </div>
           <div className="reveal">

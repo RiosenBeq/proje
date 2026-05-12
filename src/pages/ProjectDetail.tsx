@@ -16,7 +16,7 @@ export default function ProjectDetail() {
   const p = getProject(slug);
 
   useSeo(p ? {
-    title: `${p.name} — ${p.city} ${p.year} | On Muzik Proje`,
+    title: `${p.name} - ${p.city} ${p.year} | On Muzik Proje`,
     description: `${p.hero.lead} ${p.specs.slice(0, 2).map(([k, v]) => `${k}: ${v}`).join(' · ')}.`,
     path: `/projeler/${p.slug}`,
     image: p.hero.image,

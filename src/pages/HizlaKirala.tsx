@@ -63,7 +63,7 @@ const Silhouette = ({ kind, color = INK, glow = RED }: { kind: Glyph; color?: st
     </svg>
   );
   if (kind === 'bottle') return (
-    // Bebek biberon silüeti — anne & bebek kategorisi
+    // Bebek biberon silüeti - anne & bebek kategorisi
     <svg viewBox="0 0 320 240" style={base}>
       <rect x="140" y="40" width="40" height="14" rx="3" fill={color} />
       <rect x="135" y="54" width="50" height="10" rx="3" fill={glow} />
@@ -74,7 +74,7 @@ const Silhouette = ({ kind, color = INK, glow = RED }: { kind: Glyph; color?: st
     </svg>
   );
   if (kind === 'wand') return (
-    // Saç şekillendirici / kuru kuaför sopası — şımart kendini kategorisi
+    // Saç şekillendirici / kuru kuaför sopası - şımart kendini kategorisi
     <svg viewBox="0 0 320 240" style={base}>
       <rect x="148" y="30" width="24" height="100" rx="6" fill={color} />
       <ellipse cx="160" cy="30" rx="14" ry="8" fill={glow} />
@@ -142,7 +142,7 @@ const PRODUCTS: Product[] = PRODUCTS_FULL.map((p) => ({
   slug: p.slug,
 }));
 const POPULAR_PRODUCTS: Product[] = PRODUCTS.filter((p) => p.popular);
-// Filter chip seçenekleri — PRODUCTS'taki tüm kategoriler + Tümü.
+// Filter chip seçenekleri - PRODUCTS'taki tüm kategoriler + Tümü.
 const PRODUCT_FILTERS: string[] = ['Tümü', ...Array.from(new Set(PRODUCTS.map((p) => p.cat)))];
 
 
@@ -175,7 +175,7 @@ const Hero = () => (
           Almak<br />yerine, <span style={{ color: RED }}>kirala.</span>
         </h1>
         <p style={{ marginTop: 28, fontSize: 22, lineHeight: 1.4, color: 'rgba(20,20,26,0.7)', maxWidth: 540 }}>
-          Projeksiyondan oyun konsoluna, MacBook'tan elektrikli scooter'a — On Music aracılığıyla kurduğumuz Hızla Kirala portföyünden ihtiyacın olanı aylıkla kullan.
+          Projeksiyondan oyun konsoluna, MacBook'tan elektrikli scooter'a - On Music aracılığıyla kurduğumuz Hızla Kirala portföyünden ihtiyacın olanı aylıkla kullan.
         </p>
         <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
           <a href="#urunler" style={{
@@ -209,7 +209,7 @@ const Hero = () => (
       </div>
 
       <div className="hk-hero-collage" style={{ position: 'relative', height: 600 }}>
-        {/* Dekoratif arka plan — küçük renkli noktalar + bağlantı çizgisi */}
+        {/* Dekoratif arka plan - küçük renkli noktalar + bağlantı çizgisi */}
         <svg viewBox="0 0 580 600" preserveAspectRatio="none" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }} aria-hidden>
           <circle cx="540" cy="320" r="5" fill={RED} opacity="0.55" />
           <circle cx="40" cy="220" r="4" fill={INK} opacity="0.35" />
@@ -218,7 +218,7 @@ const Hero = () => (
           <path d="M 260 220 Q 310 200 360 220" stroke={INK} strokeOpacity="0.22" strokeWidth="1.5" strokeDasharray="5 5" fill="none" />
         </svg>
 
-        {/* Anker — odak noktası (rotation yok, en üstte) */}
+        {/* Anker - odak noktası (rotation yok, en üstte) */}
         <Link to="/hizla-kirala/anker-nebula-apollo" className="hk-hero-anker" style={{ position: 'absolute', top: 8, right: 0, width: 308, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 22px 48px rgba(20,20,26,0.14)', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: 'inherit', display: 'block', zIndex: 3 }}>
           <span style={{ position: 'absolute', top: 14, left: 14, background: RED, color: CREAM, fontFamily: '"JetBrains Mono", monospace', fontSize: 9, fontWeight: 600, letterSpacing: '0.1em', padding: '3px 8px', borderRadius: 999, zIndex: 2 }}>ÇOK KİRALANAN</span>
           <div style={{ background: CREAM, borderRadius: 14, height: 210, marginBottom: 14, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -229,7 +229,7 @@ const Hero = () => (
           <div style={{ marginTop: 10, color: RED, fontWeight: 700, fontSize: 19 }}>1.850 TL <span style={{ color: 'rgba(20,20,26,0.5)', fontWeight: 500, fontSize: 13 }}>/ ay</span></div>
         </Link>
 
-        {/* Dyson — sol-orta, hafif sola eğik */}
+        {/* Dyson - sol-orta, hafif sola eğik */}
         <Link to="/hizla-kirala/dyson-airwrap" className="hk-hero-dyson" style={{ position: 'absolute', top: 290, left: 0, width: 232, background: INK, color: CREAM, borderRadius: 22, padding: 16, transform: 'rotate(-4deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.28)', textDecoration: 'none', display: 'block', zIndex: 1 }}>
           <div style={{ background: CREAM, borderRadius: 12, height: 132, marginBottom: 10, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp" alt="Dyson Airwrap ID Ceramic Pink Saç Şekillendirici" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
@@ -239,7 +239,7 @@ const Hero = () => (
           <div style={{ marginTop: 8, color: RED, fontWeight: 700, fontSize: 16 }}>1.600 TL <span style={{ color: 'rgba(245,239,226,0.5)', fontWeight: 500, fontSize: 11 }}>/ ay</span></div>
         </Link>
 
-        {/* PS5 — sağ-alt, hafif sağa eğik */}
+        {/* PS5 - sağ-alt, hafif sağa eğik */}
         <Link to="/hizla-kirala/playstation-5-slim" className="hk-hero-ps5" style={{ position: 'absolute', bottom: 0, right: 90, width: 240, background: RED, color: CREAM, borderRadius: 22, padding: 16, transform: 'rotate(5deg)', boxShadow: '0 22px 44px rgba(248,56,72,0.34)', textDecoration: 'none', display: 'block', zIndex: 2 }}>
           <div style={{ background: CREAM, borderRadius: 12, height: 144, marginBottom: 10, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img src="https://api.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp" alt="Sony PlayStation 5 Slim 1TB Oyun Konsolu" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
@@ -249,7 +249,7 @@ const Hero = () => (
           <div style={{ marginTop: 8, fontWeight: 700, fontSize: 16 }}>1.850 TL <span style={{ opacity: 0.7, fontWeight: 500, fontSize: 11 }}>/ ay</span></div>
         </Link>
 
-        {/* Floating "AYLIK KİRALA" disc — sol üst köşede, hafif eğik */}
+        {/* Floating "AYLIK KİRALA" disc - sol üst köşede, hafif eğik */}
         <div className="hk-hero-disc" style={{
           position: 'absolute', top: 56, left: 30,
           width: 92, height: 92, borderRadius: 999,
@@ -263,7 +263,7 @@ const Hero = () => (
           AYLIK<br />KİRALA<span style={{ color: RED }}>→</span>
         </div>
 
-        {/* Floating count chip — sağ alt, arka planda */}
+        {/* Floating count chip - sağ alt, arka planda */}
         <div style={{
           position: 'absolute', top: 230, right: 8,
           background: CREAM, color: INK,
@@ -299,7 +299,7 @@ const Benefits = () => (
           { n: '01', t: 'Yüksek nakit yükü yok',     d: 'Tek seferde büyük bütçe çıkarmadan ihtiyacını karşıla. Aylık sabit ödeme, planlanabilir gider.' },
           { n: '02', t: 'Önce dene, sonra karar ver', d: 'Cihazı mekanında veya evinde gerçek koşullarda test et. Beğenmezsen iade kolay.' },
           { n: '03', t: 'Garanti ve servis',          d: 'Tüm cihazlar 2 yıl garantili. Arıza durumunda 24 saatte yedek cihaz.' },
-          { n: '04', t: 'Anlık ihtiyaca cevap',       d: 'Etkinlik, geçici ofis, lansman — kısa süreli kullanım için anında çözüm.' },
+          { n: '04', t: 'Anlık ihtiyaca cevap',       d: 'Etkinlik, geçici ofis, lansman - kısa süreli kullanım için anında çözüm.' },
         ].map((b) => (
           <div key={b.n} className="hk-card" style={{
             background: CREAM, borderRadius: 20, padding: 26,
@@ -424,7 +424,7 @@ function renderProductCard(p: Product) {
   );
 }
 
-// Resmi distribütör markalar — kataloğumuzdaki üreticiler. SEO için brand
+// Resmi distribütör markalar - kataloğumuzdaki üreticiler. SEO için brand
 // keyword density + kullanıcı güveni için visual trust strip.
 const BRAND_LIST = [
   'Apple', 'Sony', 'Dyson', 'Nintendo', 'Meta', 'Anker', 'Xiaomi',
@@ -601,7 +601,7 @@ const CTABanner = () => (
           <span style={{ color: RED }}>→</span>
         </a>
         <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: 'rgba(245,239,226,0.55)', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: 4 }}>
-          ● Hafta içi 09:00 — 19:00 canlı destek
+          ● Hafta içi 09:00 - 19:00 canlı destek
         </div>
       </div>
     </div>
@@ -645,7 +645,7 @@ const Footer = () => (
             href="https://www.hizlakirala.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Hızla Kirala — resmi iş ortağı (yeni sekmede açılır)"
+            aria-label="Hızla Kirala - resmi iş ortağı (yeni sekmede açılır)"
             style={{
               marginTop: 22, display: 'inline-flex', alignItems: 'center', gap: 12,
               background: 'rgba(245,239,226,0.08)', padding: '10px 16px', borderRadius: 999,
@@ -701,7 +701,7 @@ const RESPONSIVE_CSS = `
 .hk-product-card img { transition: transform .35s ease; }
 .hk-product-card:hover img { transform: scale(1.04); }
 
-/* Hero cards — premium hover: lift + scale + colored glow + image zoom + shine sweep.
+/* Hero cards - premium hover: lift + scale + colored glow + image zoom + shine sweep.
    !important gerekli çünkü inline style attribute'i transform/boxShadow taşıyor. */
 .hk-hero-anker, .hk-hero-dyson, .hk-hero-ps5 {
   transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
@@ -722,7 +722,7 @@ const RESPONSIVE_CSS = `
   box-shadow: 0 32px 62px rgba(248,56,72,0.52), 0 0 0 1.5px rgba(248,56,72,0.55) !important;
 }
 
-/* Hero card image zoom — applied to the product image inside each card */
+/* Hero card image zoom - applied to the product image inside each card */
 .hk-hero-anker img, .hk-hero-dyson img, .hk-hero-ps5 img {
   transition: transform .55s cubic-bezier(.2,.7,.2,1);
 }
@@ -730,7 +730,7 @@ const RESPONSIVE_CSS = `
   transform: scale(1.06);
 }
 
-/* Premium shine sweep on hover — subtle diagonal gradient passes across the card */
+/* Premium shine sweep on hover - subtle diagonal gradient passes across the card */
 .hk-hero-anker::after, .hk-hero-dyson::after, .hk-hero-ps5::after {
   content: "";
   position: absolute;
@@ -767,7 +767,7 @@ const RESPONSIVE_CSS = `
 .hk-tag-link { transition: opacity .2s ease, transform .2s ease; }
 .hk-tag-link:hover { opacity: 0.78; transform: translateY(-1px); }
 
-/* Hero disc subtle float animation — kullanıcı dikkatini çekmek için */
+/* Hero disc subtle float animation - kullanıcı dikkatini çekmek için */
 @keyframes hkDiscFloat {
   0%, 100% { transform: rotate(-12deg) translateY(0); }
   50% { transform: rotate(-12deg) translateY(-6px); }
@@ -834,16 +834,16 @@ const SITE = 'https://onmuzikproje.com';
 const PARTNER_ORG_ID = `${SITE}/hizla-kirala#partnership`;
 
 export default function HizlaKirala() {
-  // İleri SEO: 4 ayrı JSON-LD bloku — CollectionPage, ItemList (ürün katalog),
+  // İleri SEO: 4 ayrı JSON-LD bloku - CollectionPage, ItemList (ürün katalog),
   // BreadcrumbList ve resmi iş ortaklığı için Organization (partner sameAs).
   // Arama motoru ve LLM'lere yapı + ilişki + her ürünün fiyat/kategori bilgisi.
   const collectionPage = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     '@id': `${SITE}/hizla-kirala#page`,
-    name: 'Kiralık Ürünler — On Music × Hızla Kirala',
+    name: 'Kiralık Ürünler - On Music × Hızla Kirala',
     description:
-      'On Muzik Proje aracılığıyla Hızla Kirala portföyünden 20+ ürün kiralama: projeksiyon, MacBook M4, PlayStation 5 Slim, Dyson Airwrap & V15 Detect, iPhone 17 Pro, Meta Quest 3 VR, Nintendo Switch OLED, DJI Osmo Pocket 3, Kärcher buharlı temizlik, Cybex bebek oto koltuğu, Dreame hava temizleyici ve daha fazlası — aylık 890 TL\'den, 24 saatte kapıda teslim, iyzico ile 12 taksit, 2 yıl garanti.',
+      'On Muzik Proje aracılığıyla Hızla Kirala portföyünden 20+ ürün kiralama: projeksiyon, MacBook M4, PlayStation 5 Slim, Dyson Airwrap & V15 Detect, iPhone 17 Pro, Meta Quest 3 VR, Nintendo Switch OLED, DJI Osmo Pocket 3, Kärcher buharlı temizlik, Cybex bebek oto koltuğu, Dreame hava temizleyici ve daha fazlası - aylık 890 TL\'den, 24 saatte kapıda teslim, %70 sigorta dahil.',
     url: `${SITE}/hizla-kirala`,
     inLanguage: 'tr-TR',
     isPartOf: { '@id': `${SITE}/#website` },
@@ -887,9 +887,9 @@ export default function HizlaKirala() {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     '@id': `${SITE}/hizla-kirala#en-cok-kiralananlar`,
-    name: 'En Çok Kiralananlar — On Music × Hızla Kirala',
+    name: 'En Çok Kiralananlar - On Music × Hızla Kirala',
     description:
-      'Hızla Kirala kataloğunda en çok kiralanan 11 ürün — FOREO FAQ 202, Dyson Airwrap, MacBook Neo M4, iPhone 17 Pro, Dyson V15 Detect, Anker Nebula Apollo, Kärcher SC 3 EasyFix, Xiaomi Mi Pro 4, Dyson Airstrait, Nintendo Switch OLED, Meta Quest 3.',
+      'Hızla Kirala kataloğunda en çok kiralanan 11 ürün - FOREO FAQ 202, Dyson Airwrap, MacBook Neo M4, iPhone 17 Pro, Dyson V15 Detect, Anker Nebula Apollo, Kärcher SC 3 EasyFix, Xiaomi Mi Pro 4, Dyson Airstrait, Nintendo Switch OLED, Meta Quest 3.',
     numberOfItems: POPULAR_PRODUCTS.length,
     itemListOrder: 'https://schema.org/ItemListOrderDescending',
     itemListElement: POPULAR_PRODUCTS.map((p, i) => ({
@@ -915,11 +915,11 @@ export default function HizlaKirala() {
     '@id': `${SITE}/hizla-kirala#nasil-calisir`,
     name: 'Hızla Kirala ürün kiralama nasıl çalışır',
     description:
-      'On Music × Hızla Kirala üzerinden 4 adımda ürün kiralama — seç, başvur, teslim al, iade et.',
+      'On Music × Hızla Kirala üzerinden 4 adımda ürün kiralama - seç, başvur, teslim al, iade et.',
     totalTime: 'PT24H',
     estimatedCost: { '@type': 'MonetaryAmount', currency: 'TRY', value: '890' },
     supply: [{ '@type': 'HowToSupply', name: 'Kimlik (TC/Pasaport)' }, { '@type': 'HowToSupply', name: 'Adres bilgisi' }],
-    tool: [{ '@type': 'HowToTool', name: 'iyzico ödeme' }],
+    tool: [{ '@type': 'HowToTool', name: 'Kredi kartı ödeme' }],
     step: [
       { '@type': 'HowToStep', position: 1, name: 'Seç',       text: 'Ürünü ve kiralama süresini (1, 3, 6 veya 12 ay) sayfada seç.' },
       { '@type': 'HowToStep', position: 2, name: 'Başvur',    text: 'Kimlik bilgilerin ve adresinle 2 dakikada başvuruyu tamamla.' },
@@ -945,7 +945,7 @@ export default function HizlaKirala() {
       {
         '@type': 'Question',
         name: 'Ödeme nasıl yapılır?',
-        acceptedAnswer: { '@type': 'Answer', text: 'iyzico altyapısı ile kredi kartı (Visa, Mastercard, Amex). 12 aya kadar taksit imkânı. Aylık abonelik benzeri otomatik tahsilat.' },
+        acceptedAnswer: { '@type': 'Answer', text: 'Kredi kartı (Visa, Mastercard, Amex). Aylık abonelik benzeri otomatik tahsilat. Detaylar hizlakirala.com ödeme adımında.' },
       },
       {
         '@type': 'Question',
@@ -975,7 +975,7 @@ export default function HizlaKirala() {
     '@type': 'Organization',
     '@id': PARTNER_ORG_ID,
     name: 'On Music × Hızla Kirala',
-    alternateName: 'Hızla Kirala — On Music iş ortaklığı',
+    alternateName: 'Hızla Kirala - On Music iş ortaklığı',
     url: `${SITE}/hizla-kirala`,
     logo: `${SITE}/assets/hizla-kirala/hizlakirala-logo.png`,
     parentOrganization: { '@id': `${SITE}/#org` },
@@ -994,13 +994,13 @@ export default function HizlaKirala() {
   };
 
   useSeo({
-    title: 'Kiralık Ürünler — On Music × Hızla Kirala Resmi İş Ortağı | On Muzik Proje',
+    title: 'Kiralık Ürünler - On Music × Hızla Kirala Resmi İş Ortağı | On Muzik Proje',
     description:
-      'On Muzik Proje × Hızla Kirala resmi iş ortaklığı: Anker Nebula projeksiyon, Apple MacBook M4, Sony PlayStation 5 Slim, Dyson Airwrap & V15 Detect, iPhone 17 Pro, Meta Quest 3 VR, Nintendo Switch OLED, DJI Pocket 3, Kärcher buharlı temizlik, Cybex bebek oto koltuğu, Xiaomi Mi Pro 4 scooter, FOREO LED maske, Karaca akıllı çay makinesi ve daha fazlası — aylık 890 TL\'den, 24 saatte kapıda teslim, iyzico ile 12 taksit, 2 yıl tam garanti. WhatsApp 0543 412 33 80.',
+      'On Muzik Proje × Hızla Kirala resmi iş ortaklığı: Anker Nebula projeksiyon, Apple MacBook M4, Sony PlayStation 5 Slim, Dyson Airwrap & V15 Detect, iPhone 17 Pro, Meta Quest 3 VR, Nintendo Switch OLED, DJI Pocket 3, Kärcher buharlı temizlik, Cybex bebek oto koltuğu, Xiaomi Mi Pro 4 scooter, FOREO LED maske, Karaca akıllı çay makinesi ve daha fazlası - aylık 890 TL\'den, 24 saatte kapıda teslim, %70 sigorta dahil (%100\'e tamamlama opsiyonel). WhatsApp 0543 412 33 80.',
     path: '/hizla-kirala',
     image: '/assets/hizla-kirala/og-image.png',
     keywords:
-      'kiralık ürün, ürün kiralama, projeksiyon kiralama, anker nebula apollo kiralama, macbook m4 kiralama, playstation 5 kiralama, ps5 slim kiralama, dyson airwrap kiralama, samsung galaxy a36 kiralama, hızla kirala, on music, on muzik proje, kiralama, aylık kiralama, günlük kiralama, iyzico taksit, 24 saat teslim',
+      'kiralık ürün, ürün kiralama, projeksiyon kiralama, anker nebula apollo kiralama, macbook m4 kiralama, playstation 5 kiralama, ps5 slim kiralama, dyson airwrap kiralama, samsung galaxy a36 kiralama, hızla kirala, on music, on muzik proje, kiralama, aylık kiralama, günlük kiralama, 24 saat teslim, sigorta dahil kiralama',
     jsonLd: [collectionPage, itemList, popularList, howTo, faqPage, breadcrumb, partnership],
   });
 

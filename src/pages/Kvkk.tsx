@@ -11,7 +11,7 @@ const KVKK = [
 export default function Kvkk() {
   useSeo({
     title: 'KVKK Aydınlatma Metni | On Muzik Proje',
-    description: 'KVKK kapsamında On Muzik Proje aydınlatma metni — veri sorumlusu, işlenen veri kategorileri, hukuki sebepler, aktarım ilkeleri ve ilgili kişi hakları.',
+    description: 'KVKK kapsamında On Muzik Proje aydınlatma metni - veri sorumlusu, işlenen veri kategorileri, hukuki sebepler, aktarım ilkeleri ve ilgili kişi hakları.',
     path: '/kvkk',
   });
 

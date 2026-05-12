@@ -1608,7 +1608,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   line-height: 1.5;
 }
 
-/* Magnetic CTA button — subtle cursor-follow */
+/* Magnetic CTA button - subtle cursor-follow */
 .btn.magnetic { transition: transform 200ms var(--ease), background 220ms var(--ease), border-color 220ms var(--ease), color 220ms var(--ease); }
 
 /* Form status messages */
@@ -2269,7 +2269,7 @@ a.md-row:hover .md-v { color: var(--red); }
 
 /* ============================================================ Music-themed micro-motion */
 
-/* Wave divider — used between major sections (SVG-as-bg) */
+/* Wave divider - used between major sections (SVG-as-bg) */
 .wave-divider {
   position: relative;
   height: 64px;
@@ -2326,7 +2326,7 @@ a.md-row:hover .md-v { color: var(--red); }
   100% { left: calc(100% - 2px); opacity: 0; }
 }
 
-/* Click ripple — emits a faint sound-wave radial pulse from the click point on .btn */
+/* Click ripple - emits a faint sound-wave radial pulse from the click point on .btn */
 .btn { position: relative; overflow: hidden; isolation: isolate; }
 .btn::before {
   content: "";
@@ -2349,7 +2349,7 @@ a.md-row:hover .md-v { color: var(--red); }
 }
 .btn > * { position: relative; z-index: 1; }
 
-/* Hero vinyl breath — gentle scale pulse on top of spin */
+/* Hero vinyl breath - gentle scale pulse on top of spin */
 .hv-vinyl { animation: vinylBreath 6s ease-in-out infinite; transform-origin: center; }
 @keyframes vinylBreath {
   0%, 100% { filter: drop-shadow(0 24px 40px rgba(232,65,43,0.18)) drop-shadow(0 6px 12px rgba(20,17,12,0.10)); }
@@ -2364,13 +2364,13 @@ a.md-row:hover .md-v { color: var(--red); }
   background-blend-mode: multiply;
 }
 
-/* Synced beat — every .live, .pulse, .dot pulses at the same 96 BPM tempo */
+/* Synced beat - every .live, .pulse, .dot pulses at the same 96 BPM tempo */
 .dot, .pulse, .live::before, .eyebrow .dot, .nav-tel .pulse, .dash-meta .dot, .hv-bpm .dot, .hero-mark .live::before {
   animation-duration: 0.625s !important; /* 96 BPM */
   animation-timing-function: ease-in-out;
 }
 
-/* Italic-as-waveform — italic .em words get a subtle dotted-wave underline */
+/* Italic-as-waveform - italic .em words get a subtle dotted-wave underline */
 .h-section em, .hero-h1 em, .subhero-title em, .vb-content h2 em, .md-intro em, .case h4 em, .venue-detail h3 em {
   position: relative;
 }
@@ -2389,7 +2389,7 @@ a.md-row:hover .md-v { color: var(--red); }
 }
 .h-section.indigo em::after { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 4' preserveAspectRatio='none'><path d='M0 2 Q 4 0 8 2 T 16 2 T 24 2 T 32 2' stroke='%232845C2' stroke-width='0.8' fill='none' opacity='0.55'/></svg>"); }
 
-/* Beat-stripe in section heads — left of left-column eyebrow gets a tiny pulsing stripe */
+/* Beat-stripe in section heads - left of left-column eyebrow gets a tiny pulsing stripe */
 .section-head .left .eyebrow .bar {
   position: relative;
   overflow: hidden;
@@ -3760,7 +3760,7 @@ a.md-row:hover .md-v { color: var(--red); }
   .mbn-cta:focus-visible .mbn-cta-bubble { background: var(--red-2); transform: scale(1.05); }
   .mbn-cta.active::before { display: none; }
 
-  /* Hızla Kirala bağlamı için özel CTA bubble — beyaz arka plan + turuncu
+  /* Hızla Kirala bağlamı için özel CTA bubble - beyaz arka plan + turuncu
      ring + brand iconu. Hover'da turuncu ring kalınlaşıp hafif büyür. */
   .mobile-bottomnav.is-hizla-kirala .mbn-cta-hk { color: #FF8A1E; }
   .mbn-cta-bubble-hk {
@@ -3815,7 +3815,7 @@ a.md-row:hover .md-v { color: var(--red); }
   .mobile-bottomnav { padding-bottom: calc(6px + env(safe-area-inset-bottom, 0)); }
   .mbn-item { font-size: 9px; }
   .mbn-cta-bubble { width: 44px; height: 44px; margin-top: -20px; }
-  /* Tighten the circular WhatsApp FAB on phones — flush to the right edge */
+  /* Tighten the circular WhatsApp FAB on phones - flush to the right edge */
   .whatsapp-fab {
     width: 48px;
     height: 48px;
@@ -3830,7 +3830,7 @@ a.md-row:hover .md-v { color: var(--red); }
   .article-table table { min-width: 360px; }
 }
 
-/* ============================================================ 404 — Sinyal kaybı */
+/* ============================================================ 404 - Sinyal kaybı */
 .nf-stage {
   position: relative;
   min-height: calc(100vh - 70px);

@@ -35,7 +35,7 @@ const CASES: Array<{
     img: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=1400',
     tags: [['plum', 'KONFERANS'], ['gold', 'AKUSTİK']],
     st: [['STI', '0.71'], ['MIC', '32 ch']],
-    d: 'Çok amaçlı 420 kişilik salon — değişken akustik paneller, DICENTIS konferans, beamforming mikrofon dizisi ve dijital yönlendirilebilir line array kurulumu.',
+    d: 'Çok amaçlı 420 kişilik salon - değişken akustik paneller, DICENTIS konferans, beamforming mikrofon dizisi ve dijital yönlendirilebilir line array kurulumu.',
   },
   {
     slug: 'bogaz-restoran',
@@ -64,29 +64,29 @@ const CASES: Array<{
 ];
 
 const GALLERY: Array<{ src: string; label: string; size: '' | 'wide' | 'tall' }> = [
-  { src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80', label: 'Restoran — Ses Sistemi',         size: 'wide' },
+  { src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80', label: 'Restoran - Ses Sistemi',         size: 'wide' },
   { src: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=900&q=80',  label: 'Vinil Duvar Sistemi',            size: 'tall' },
-  { src: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80',  label: 'VOID — Tavan Kurulum',           size: '' },
-  { src: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80',  label: 'Kafe — Ses Tasarımı',            size: '' },
-  { src: 'https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?auto=format&fit=crop&w=900&q=80',  label: 'Pioneer — Duvar Montajı',        size: '' },
-  { src: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=900', label: 'DJ Booth — Ses Kurulumu',     size: '' },
-  { src: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=1600&q=80', label: 'Rooftop — Mekan Ses Sistemi',     size: 'wide' },
-  { src: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1600', label: 'Restoran — Kolon Hoparlör',   size: '' },
-  { src: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=900', label: 'Pioneer — Gece Ambiyansı',    size: '' },
+  { src: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80',  label: 'VOID - Tavan Kurulum',           size: '' },
+  { src: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80',  label: 'Kafe - Ses Tasarımı',            size: '' },
+  { src: 'https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?auto=format&fit=crop&w=900&q=80',  label: 'Pioneer - Duvar Montajı',        size: '' },
+  { src: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=900', label: 'DJ Booth - Ses Kurulumu',     size: '' },
+  { src: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=1600&q=80', label: 'Rooftop - Mekan Ses Sistemi',     size: 'wide' },
+  { src: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1600', label: 'Restoran - Kolon Hoparlör',   size: '' },
+  { src: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=900', label: 'Pioneer - Gece Ambiyansı',    size: '' },
   { src: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg?auto=compress&cs=tinysrgb&w=900', label: 'Vinyl + Speaker Wall',       size: 'tall' },
-  { src: 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=900',  label: 'Tavan — Beyaz Hoparlör',      size: '' },
-  { src: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=900', label: 'Neytin — Konsept Duvar',      size: '' },
+  { src: 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=900',  label: 'Tavan - Beyaz Hoparlör',      size: '' },
+  { src: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=900', label: 'Neytin - Konsept Duvar',      size: '' },
 ];
 
 export default function Portfolio() {
   useSeo({
-    title: 'Projeler — 240+ Tamamlanan Akustik & Ses Sistemi Çalışması | On Muzik Proje',
+    title: 'Projeler - 240+ Tamamlanan Akustik & Ses Sistemi Çalışması | On Muzik Proje',
     description: 'Studio Alpha, Club Nexus, Grand Auditorium, Boğaz Restoran, Ballroom Otel, Konser Sahnesi gibi 240+ projeden seçmeler. Restoran, otel, sahne, stüdyo ve konferans çalışmalarımız.',
     path: '/portfolyo',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: 'Projeler — On Muzik Proje',
+      name: 'Projeler - On Muzik Proje',
       url: 'https://onmuzikproje.com/portfolyo',
       isPartOf: { '@id': 'https://onmuzikproje.com/#website' },
       about: {
@@ -104,7 +104,7 @@ export default function Portfolio() {
           <h1 className="subhero-title">Sahaya teslim<br />edilmiş <em>mühendislik</em>.</h1>
           <p className="subhero-lead">
             Türkiye'nin en prestijli mekânları için tasarladığımız 240+ akustik ve ses sistemi çözümünden seçmeler.
-            Stüdyodan konser sahnesine, restoran ve kurumsal lobiye — her proje için ölçüm raporu mevcut.
+            Stüdyodan konser sahnesine, restoran ve kurumsal lobiye - her proje için ölçüm raporu mevcut.
           </p>
         </div>
       </section>

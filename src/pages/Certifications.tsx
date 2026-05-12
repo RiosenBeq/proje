@@ -4,13 +4,13 @@ import { useSeo } from '../lib/seo';
 
 export default function Certifications() {
   useSeo({
-    title: 'Sertifikalar — EN 54-16 · ISO 3382 · ISO 9001 · CE · TSE · CEDIA · Dante | On Muzik Proje',
+    title: 'Sertifikalar - EN 54-16 · ISO 3382 · ISO 9001 · CE · TSE · CEDIA · Dante | On Muzik Proje',
     description: 'AVM, otel, hastane ve kamu binası ihaleleri için EN 54-16 voice alarm, ISO 3382 akustik ölçüm, ISO 9001 kalite yönetimi, CE, TSE ve CEDIA sertifikaları.',
     path: '/sertifikalar',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: 'Sertifikalar — On Muzik Proje',
+      name: 'Sertifikalar - On Muzik Proje',
       url: 'https://onmuzikproje.com/sertifikalar',
       isPartOf: { '@id': 'https://onmuzikproje.com/#website' },
     },
@@ -59,7 +59,7 @@ export default function Certifications() {
                 </div>
                 <div className="p-foot">
                   <span className="p-link" style={{ fontSize: 12 }}>Belge talebi <span className="arrow" /></span>
-                  <span className="p-price" style={{ fontSize: 9.5 }}>{c.documentNote.split('—')[0].slice(0, 28).trim()}…</span>
+                  <span className="p-price" style={{ fontSize: 9.5 }}>{c.documentNote.split('-')[0].slice(0, 28).trim()}…</span>
                 </div>
               </article>
             ))}

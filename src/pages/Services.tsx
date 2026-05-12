@@ -35,7 +35,7 @@ const FEATURES: Array<{
     title: <>Akustik <em>tasarım</em>.</>,
     desc: 'İzolasyon ve diffüzyon stratejileriyle, mekânın sonik karakterini yeniden tanımlıyoruz. Her yüzey, ses dalgalarını kontrol etmek için hibrit polimer panel ve modal kontrol kasetleriyle optimize edilir.',
     img: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=900&q=80',
-    alt: 'Akustik tasarım — vinyl ve hoparlör duvarı',
+    alt: 'Akustik tasarım - vinyl ve hoparlör duvarı',
     stats: [['RT60 HEDEFİ', '0.45 – 0.60 s'], ['FREKANS', '20Hz – 22kHz'], ['MATERYAL', 'Hibrit Polimer'], ['İZOLASYON', '−55 dB STC']],
   },
   {
@@ -43,14 +43,14 @@ const FEATURES: Array<{
     title: <>Profesyonel <em>ses</em>.</>,
     desc: 'Pioneer Pro Audio iş ortaklığımız ile konser salonlarından butik stüdyolara kadar en yüksek sadakatli ses sistemlerini kuruyoruz. Class-D amfi zinciri, 96kHz DSP ve cardioid sub array tasarımı.',
     img: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=900',
-    alt: 'Profesyonel ses sistemi — gece ambiyansında hoparlör',
+    alt: 'Profesyonel ses sistemi - gece ambiyansında hoparlör',
     flip: true,
     stats: [['MAX SPL', '136 dB Peak'], ['DİSPERSİYON', '110° × 10°'], ['İŞLEME', '96 kHz DSP'], ['AMFİ', 'Class-D Peak']],
   },
   {
     id: 'GU-09', cls: 'plum',
     title: <>Güvenlik & <em>kontrol</em>.</>,
-    desc: 'Entegre bina otomasyonu ve üst düzey güvenlik sistemleri. Akustik konforunuzu teknik güvenlik ile mühürlüyoruz — yapay zeka destekli takip, biyometrik erişim ve DALI-2 aydınlatma entegrasyonu.',
+    desc: 'Entegre bina otomasyonu ve üst düzey güvenlik sistemleri. Akustik konforunuzu teknik güvenlik ile mühürlüyoruz - yapay zeka destekli takip, biyometrik erişim ve DALI-2 aydınlatma entegrasyonu.',
     img: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80',
     alt: 'Güvenlik kontrol odası ve hoparlör tavan kurulumu',
     stats: [['AI TAKİP', 'Aktif'], ['BİYOMETRİK', 'L5 Secure'], ['AYDINLATMA', 'DALI-2'], ['UZAK İZLEME', 'Mobil / Web']],
@@ -59,8 +59,8 @@ const FEATURES: Array<{
 
 export default function Services() {
   useSeo({
-    title: 'Hizmetler — Akustik · Ses Sistemi · LED · Stüdyo · Konferans · Voice Alarm | On Muzik Proje',
-    description: 'Profesyonel ses sistemi tasarımı, akustik mühendisliği, LED ekran, kayıt stüdyosu akustiği, konferans/AV ve EN 54-16 voice alarm — kurumsal projeler için ölçüme dayalı, marka bağımsız çözüm. RT60, STI, NC hedefli teslim.',
+    title: 'Hizmetler - Akustik · Ses Sistemi · LED · Stüdyo · Konferans · Voice Alarm | On Muzik Proje',
+    description: 'Profesyonel ses sistemi tasarımı, akustik mühendisliği, LED ekran, kayıt stüdyosu akustiği, konferans/AV ve EN 54-16 voice alarm - kurumsal projeler için ölçüme dayalı, marka bağımsız çözüm. RT60, STI, NC hedefli teslim.',
     path: '/hizmetler',
     keywords: 'akustik tasarım, profesyonel ses sistemi, LED ekran kurulum, stüdyo akustiği, konferans AV, EN 54-16 voice alarm, RT60 ölçüm, STI hesaplama, line array, Dante ağ, DSP kalibrasyon, ses mühendisliği İstanbul',
     jsonLd: {
@@ -80,7 +80,7 @@ export default function Services() {
           <span className="eyebrow"><span className="bar" />HİZMET ARŞİVİ · 01</span>
           <h1 className="subhero-title">Disipliner <em>mühendislik</em><br />arşivi.</h1>
           <p className="subhero-lead">
-            Akustikten LED ekrana, stüdyo tasarımından EN 54-16 voice alarm sistemine — her hizmet kendi
+            Akustikten LED ekrana, stüdyo tasarımından EN 54-16 voice alarm sistemine - her hizmet kendi
             ölçüm hedefiyle, ürün-bağımsız mühendislik diliyle teslim edilir.
           </p>
         </div>
