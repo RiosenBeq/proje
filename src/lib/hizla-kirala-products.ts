@@ -69,6 +69,8 @@ export type ProductDetail = {
   tag: string | null;
   /** "1.850" gibi başlangıç fiyatı (en uzun süredeki en düşük aylık) */
   priceFrom: string;
+  /** hizlakirala.com anasayfasındaki "En Çok Kiralananlar" carousel'inde geçen ürünler */
+  popular?: boolean;
 };
 
 const PARTNER_BASE = 'https://www.hizlakirala.com';
@@ -158,6 +160,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KKH3YA4THFSY8EG0RSV3CDWE.webp`],
     tag: 'YENİ',
     priceFrom: '1.450',
+    popular: true,
   },
 
   // 2 — Dreame AirStyle Pro saç şekillendirici
@@ -288,6 +291,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KFJCTAAAWDJAZPBMK7ARP1ZH.webp`],
     tag: 'YENİ',
     priceFrom: '1.400',
+    popular: true,
   },
 
   // 4 — FOREO FAQ 202 LED Yüz Maskesi
@@ -353,6 +357,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KKH6NNTN4CSB4WWTETVCYK4B.webp`],
     tag: 'YENİ',
     priceFrom: '3.750',
+    popular: true,
   },
 
   // 5 — Xiaomi Mi Pro 4 Scooter
@@ -417,6 +422,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KFN908M3HWPVSDG52MSWCWGW.webp`],
     tag: 'YENİ',
     priceFrom: '2.350',
+    popular: true,
   },
 
   // 6 — Philips GC810/20 Buharlı Düzleştirici
@@ -615,6 +621,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KKH2M0E907VV6SFN50PGQ270.jpg`],
     tag: 'YENİ',
     priceFrom: '1.850',
+    popular: true,
   },
 
   // 9 — Dreame PM10 Hava Temizleyici
@@ -873,6 +880,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KKK8Y3Q6VJHRW9Q7H63HJ8KM.jpg`],
     tag: 'YENİ',
     priceFrom: '1.980',
+    popular: true,
   },
 
   // 13 — Dyson V15 Detect Süpürge
@@ -940,6 +948,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KFNFX3ATF6A6RD6Z6DF8PH4A.webp`],
     tag: 'YENİ',
     priceFrom: '1.600',
+    popular: true,
   },
 
   /* ─────────── Anne & Bebek ─────────── */
@@ -1140,6 +1149,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KFG8AZ4884YDW586D0QWMAW0.webp`],
     tag: 'YENİ',
     priceFrom: '2.300',
+    popular: true,
   },
 
   // 17 — Nintendo Switch OLED
@@ -1207,6 +1217,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KFJC3X2XSJGCS1C87T3EK1R0.webp`],
     tag: 'YENİ',
     priceFrom: '1.030',
+    popular: true,
   },
 
   /* ─────────── Kamera & Aksesuar ─────────── */
@@ -1343,6 +1354,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KFX4B3K7VKFEYHK6EDTX95N3.webp`],
     tag: 'YENİ',
     priceFrom: '7.500',
+    popular: true,
   },
 
   /* ─────────── Bilgisayar & Tablet ─────────── */
@@ -1410,6 +1422,7 @@ export const PRODUCTS: ProductDetail[] = [
     images: [`${CDN}/01KKH1NMV49VNJE3J8ZC1BY2B4.jpg`],
     tag: 'YENİ',
     priceFrom: '2.450',
+    popular: true,
   },
 ];
 

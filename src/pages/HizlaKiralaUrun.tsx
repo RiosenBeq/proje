@@ -100,7 +100,7 @@ function Gallery({ product }: { product: ProductDetail }) {
           alt={alt}
           loading="eager"
           decoding="async"
-          style={{ maxWidth: '88%', maxHeight: '88%', objectFit: 'contain' }}
+          style={{ maxWidth: '88%', maxHeight: '88%', objectFit: 'contain', mixBlendMode: 'multiply' }}
         />
         <div style={{ position: 'absolute', top: 18, left: 18, display: 'flex', flexDirection: 'column', gap: 6 }}>
           {product.tag && (
@@ -129,7 +129,7 @@ function Gallery({ product }: { product: ProductDetail }) {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}
             >
-              <img src={src} alt={`${alt} ${i + 1}`} loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+              <img src={src} alt={`${alt} ${i + 1}`} loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
             </button>
           ))}
         </div>
@@ -432,7 +432,7 @@ const Related = ({ product }: { product: ProductDetail }) => {
           {related.map((p) => (
             <Link key={p.slug} to={`/hizla-kirala/${p.slug}`} style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(20,20,26,0.08)', textDecoration: 'none', color: INK }}>
               <div style={{ background: CREAM, height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                <img src={p.images[0]} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '78%', maxHeight: '85%', objectFit: 'contain' }} />
+                <img src={p.images[0]} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '78%', maxHeight: '85%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
               </div>
               <div style={{ padding: 18 }}>
                 <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.12em', color: 'rgba(20,20,26,0.5)', textTransform: 'uppercase' }}>{p.brand}</div>

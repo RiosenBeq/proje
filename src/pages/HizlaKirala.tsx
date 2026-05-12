@@ -103,14 +103,15 @@ const Silhouette = ({ kind, color = INK, glow = RED }: { kind: Glyph; color?: st
   return null;
 };
 
-type Category = { name: string; count: number; glyph: Glyph; href: string };
+type Category = { name: string; count: number; glyph: Glyph; href: string; subs: string[] };
 const CATS: Category[] = [
-  { name: 'Ev Aletleri',         count: 22, glyph: 'vacuum',    href: `${PARTNER_BASE}/urunler/kategori/ev-aletleri-kiralama` },
-  { name: 'Bilgisayar & Tablet', count: 28, glyph: 'laptop',    href: `${PARTNER_BASE}/urunler/kategori/bilgisayar-tablet-kiralama` },
-  { name: 'Oyun & Hobi',         count: 14, glyph: 'console',   href: `${PARTNER_BASE}/urunler/kategori/oyun-ve-hobi-kiralama` },
-  { name: 'Kamera & Aksesuar',   count: 18, glyph: 'projector', href: `${PARTNER_BASE}/urunler/kategori/kamera-ve-aksesuar-kiralama` },
-  { name: 'Anne & Bebek',        count: 9,  glyph: 'bottle',    href: `${PARTNER_BASE}/urunler/kategori/anne-bebek-urunleri-kiralama` },
-  { name: 'Şımart Kendini',      count: 11, glyph: 'wand',      href: `${PARTNER_BASE}/urunler/kategori/simart-kendini` },
+  { name: 'Şımart Kendini',      count: 11, glyph: 'wand',      href: `${PARTNER_BASE}/urunler/kategori/simart-kendini`,                        subs: ['Saç Bakımı', 'Cilt Bakımı'] },
+  { name: 'Ev Aletleri',         count: 22, glyph: 'vacuum',    href: `${PARTNER_BASE}/urunler/kategori/ev-aletleri-kiralama`,                  subs: ['Süpürge', 'Robot Süpürge', 'Hava Temizleyici', 'Buharlı Ütü'] },
+  { name: 'Anne & Bebek',        count: 9,  glyph: 'bottle',    href: `${PARTNER_BASE}/urunler/kategori/anne-bebek-urunleri-kiralama`,          subs: ['Oto Koltuğu', 'Bebek Beşiği'] },
+  { name: 'Oyun & Hobi',         count: 14, glyph: 'console',   href: `${PARTNER_BASE}/urunler/kategori/oyun-ve-hobi-kiralama`,                 subs: ['Konsol', 'VR', 'Drone'] },
+  { name: 'Kamera & Aksesuar',   count: 18, glyph: 'projector', href: `${PARTNER_BASE}/urunler/kategori/kamera-ve-aksesuar-kiralama`,           subs: ['Aksiyon Kamera'] },
+  { name: 'Telefon',             count: 6,  glyph: 'phone',     href: `${PARTNER_BASE}/urunler/kategori/telefon-kiralama`,                      subs: ['iPhone', 'Samsung'] },
+  { name: 'Bilgisayar & Tablet', count: 28, glyph: 'laptop',    href: `${PARTNER_BASE}/urunler/kategori/bilgisayar-tablet-kiralama`,            subs: ['MacBook', 'iPad'] },
 ];
 
 type Product = {
@@ -123,6 +124,8 @@ type Product = {
   href: string;
   image: string;
   internal: true;
+  popular: boolean;
+  slug: string;
 };
 
 // Tüm 20 ürünü tek bir kaynaktan (hizla-kirala-products.ts) çekiyoruz.
@@ -137,7 +140,10 @@ const PRODUCTS: Product[] = PRODUCTS_FULL.map((p) => ({
   href: `/hizla-kirala/${p.slug}`,
   image: p.images[0],
   internal: true,
+  popular: !!p.popular,
+  slug: p.slug,
 }));
+const POPULAR_PRODUCTS: Product[] = PRODUCTS.filter((p) => p.popular);
 
 const SITE_NAV: Array<{ label: string; to: string; external?: boolean }> = [
   { label: 'Hizmetler', to: '/hizmetler' },
@@ -253,7 +259,7 @@ const Hero = () => (
       <div className="hk-hero-collage" style={{ position: 'relative', height: 540 }}>
         <Link to="/hizla-kirala/anker-nebula-apollo" style={{ position: 'absolute', top: 0, right: 20, width: 280, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 18px 40px rgba(20,20,26,0.10)', border: '1px solid rgba(20,20,26,0.06)', textDecoration: 'none', color: 'inherit', display: 'block' }}>
           <div style={{ background: CREAM, borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg" alt="Anker Nebula Apollo Taşınabilir Projeksiyon Cihazı" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+            <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg" alt="Anker Nebula Apollo Taşınabilir Projeksiyon Cihazı" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(20,20,26,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Anker</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.2 }}>Nebula Apollo Projeksiyon</div>
@@ -261,7 +267,7 @@ const Hero = () => (
         </Link>
         <Link to="/hizla-kirala/dyson-airwrap" style={{ position: 'absolute', top: 220, left: 0, width: 260, background: INK, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(-3deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.25)', textDecoration: 'none', display: 'block' }}>
           <div style={{ background: '#1f1f28', borderRadius: 14, height: 150, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp" alt="Dyson Airwrap ID Ceramic Pink Saç Şekillendirici" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+            <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp" alt="Dyson Airwrap ID Ceramic Pink Saç Şekillendirici" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'screen' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(245,239,226,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Dyson</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 17, letterSpacing: '-0.02em', marginTop: 4 }}>Airwrap ID</div>
@@ -269,7 +275,7 @@ const Hero = () => (
         </Link>
         <Link to="/hizla-kirala/playstation-5-slim" style={{ position: 'absolute', bottom: 0, right: 60, width: 280, background: RED, color: CREAM, borderRadius: 22, padding: 18, transform: 'rotate(4deg)', boxShadow: '0 18px 40px rgba(248,56,72,0.30)', textDecoration: 'none', display: 'block' }}>
           <div style={{ background: '#d0202f', borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="https://api.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp" alt="Sony PlayStation 5 Slim 1TB Oyun Konsolu" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+            <img src="https://api.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp" alt="Sony PlayStation 5 Slim 1TB Oyun Konsolu" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'screen' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, opacity: 0.85, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Sony</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4 }}>PlayStation 5 Slim</div>
@@ -332,14 +338,15 @@ const Categories = () => (
             border: '1px solid rgba(20,20,26,0.06)',
             textDecoration: 'none', color: INK,
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-            minHeight: 200, transition: 'all .2s',
+            minHeight: 220, transition: 'all .2s',
           }}>
             <div style={{ height: 110, marginBottom: 4 }}>
               <Silhouette kind={c.glyph} color={INK} glow={RED} />
             </div>
             <div>
               <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 19, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{c.name}</div>
-              <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: 'rgba(20,20,26,0.55)', letterSpacing: '0.08em', marginTop: 6 }}>{c.count} ÜRÜN →</div>
+              <div style={{ fontFamily: '"Inter", sans-serif', fontSize: 13, color: 'rgba(20,20,26,0.55)', marginTop: 6, lineHeight: 1.35 }}>{c.subs.join(' · ')}</div>
+              <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: 'rgba(20,20,26,0.55)', letterSpacing: '0.08em', marginTop: 8 }}>{c.count} ÜRÜN →</div>
             </div>
           </a>
         ))}
@@ -356,7 +363,7 @@ function renderProductCard(p: Product) {
     display: 'flex', flexDirection: 'column', transition: 'transform .2s',
   }}>
     <div style={{ background: CREAM, height: 220, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <img src={p.image} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '88%', maxHeight: '88%', objectFit: 'contain' }} />
+      <img src={p.image} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '88%', maxHeight: '88%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
       {p.tag && (
         <span style={{
           position: 'absolute', top: 14, left: 14,
@@ -403,16 +410,33 @@ function renderProductCard(p: Product) {
   );
 }
 
-const Products = () => (
-  <section id="urunler" className="hk-section" style={{ background: '#fff', padding: '80px 64px' }}>
+const EnCokKiralananlar = () => (
+  <section id="en-cok-kiralananlar" className="hk-section" style={{ background: '#fff', padding: '80px 64px' }}>
     <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <div className="hk-section-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 36, gap: 20, flexWrap: 'wrap' }}>
         <div>
-          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: RED, marginBottom: 10 }}>/ Öne çıkan kiralıklar</div>
-          <h2 className="hk-h2" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 56, lineHeight: 1, letterSpacing: '-0.04em', margin: 0 }}>En çok kiralananlar.</h2>
+          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: RED, marginBottom: 10 }}>/ En Çok Kiralananlar</div>
+          <h2 className="hk-h2" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 56, lineHeight: 1, letterSpacing: '-0.04em', margin: 0 }}>Kullanıcıların ilk tercihi.</h2>
+        </div>
+        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, color: 'rgba(20,20,26,0.5)', letterSpacing: '0.08em' }}>{POPULAR_PRODUCTS.length} ÜRÜN · GERÇEK ZAMANLI</div>
+      </div>
+      <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+        {POPULAR_PRODUCTS.map(renderProductCard)}
+      </div>
+    </div>
+  </section>
+);
+
+const Products = () => (
+  <section id="urunler" className="hk-section" style={{ background: CREAM, padding: '80px 64px', borderTop: '1px solid rgba(20,20,26,0.06)' }}>
+    <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+      <div className="hk-section-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 36, gap: 20, flexWrap: 'wrap' }}>
+        <div>
+          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: RED, marginBottom: 10 }}>/ Tüm katalog</div>
+          <h2 className="hk-h2" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 56, lineHeight: 1, letterSpacing: '-0.04em', margin: 0 }}>Tüm kiralık ürünler.</h2>
         </div>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {['Tümü', 'Yeni', 'Oyun & Hobi', 'Bilgisayar', 'Şımart Kendini'].map((f, i) => (
+          {['Tümü', 'Şımart Kendini', 'Ev Aletleri', 'Oyun & Hobi', 'Telefon'].map((f, i) => (
             <span key={f} style={{
               background: i === 0 ? INK : 'transparent',
               color: i === 0 ? CREAM : INK,
@@ -688,6 +712,23 @@ export default function HizlaKirala() {
     })),
   };
 
+  const popularList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${SITE}/hizla-kirala#en-cok-kiralananlar`,
+    name: 'En Çok Kiralananlar — On Music × Hızla Kirala',
+    description:
+      'Hızla Kirala kataloğunda en çok kiralanan 11 ürün — FOREO FAQ 202, Dyson Airwrap, MacBook Neo M4, iPhone 17 Pro, Dyson V15 Detect, Anker Nebula Apollo, Kärcher SC 3 EasyFix, Xiaomi Mi Pro 4, Dyson Airstrait, Nintendo Switch OLED, Meta Quest 3.',
+    numberOfItems: POPULAR_PRODUCTS.length,
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    itemListElement: POPULAR_PRODUCTS.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${SITE}${p.href}`,
+      name: `${p.brand} ${p.name}`,
+    })),
+  };
+
   const breadcrumb = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -728,7 +769,7 @@ export default function HizlaKirala() {
     image: '/assets/hizla-kirala/og-image.png',
     keywords:
       'kiralık ürün, ürün kiralama, projeksiyon kiralama, anker nebula apollo kiralama, macbook m4 kiralama, playstation 5 kiralama, ps5 slim kiralama, dyson airwrap kiralama, samsung galaxy a36 kiralama, hızla kirala, on music, on muzik proje, kiralama, aylık kiralama, günlük kiralama, iyzico taksit, 24 saat teslim',
-    jsonLd: [collectionPage, itemList, breadcrumb, partnership],
+    jsonLd: [collectionPage, itemList, popularList, breadcrumb, partnership],
   });
 
   return (
@@ -740,6 +781,7 @@ export default function HizlaKirala() {
           <Hero />
           <Benefits />
           <Categories />
+          <EnCokKiralananlar />
           <Products />
           <HowItWorks />
           <CTABanner />
