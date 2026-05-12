@@ -236,7 +236,7 @@ const Hero = () => (
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 10, color: 'rgba(245,239,226,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Dyson</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 16, letterSpacing: '-0.02em', marginTop: 4 }}>Airwrap ID</div>
-          <div style={{ marginTop: 8, color: RED, fontWeight: 700, fontSize: 16 }}>1.600 TL <span style={{ color: 'rgba(245,239,226,0.5)', fontWeight: 500, fontSize: 11 }}>/ ay</span></div>
+          <div style={{ marginTop: 8, color: RED, fontWeight: 700, fontSize: 16 }}>1.450 TL <span style={{ color: 'rgba(245,239,226,0.5)', fontWeight: 500, fontSize: 11 }}>/ ay</span></div>
         </Link>
 
         {/* PS5 - sağ-alt, hafif sağa eğik */}
