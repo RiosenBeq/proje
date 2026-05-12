@@ -61,13 +61,21 @@ const CASES: Array<{
     st: [['SPL', '105dB'], ['LED', 'P2.6']],
     d: 'Açık hava sahnesi. Cardioid sub array + line array L/R, 64m² LED ana sahne ekranı, dijital yönlendirilebilir delay tower.',
   },
+  {
+    slug: 'kocaeli-sanayi-odasi',
+    t: 'Kocaeli Sanayi Odası', e: 'Kocaeli', year: '2024',
+    img: '/assets/projects/kocaeli-sanayi-odasi/01-stage-wide.jpg',
+    tags: [['indigo', 'LED'], ['red', 'SES'], ['plum', 'KONFERANS']],
+    st: [['LED', 'P2.6'], ['STI', '0.71']],
+    d: '180 kişilik konferans salonu için 9.6 × 3.0 m P2.6 LED arka plan, Pioneer Pro Audio XY-3B cluster ve Q-SYS hibrit toplantı senaryosu. Genel kurul, panel ve basın açıklaması için tek dokunuş kontrol.',
+  },
 ];
 
 const GALLERY: Array<{ src: string; label: string; size: '' | 'wide' | 'tall' }> = [
-  { src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80', label: 'Restoran - Ses Sistemi',         size: 'wide' },
-  { src: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=900&q=80',  label: 'Vinil Duvar Sistemi',            size: 'tall' },
-  { src: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80',  label: 'VOID - Tavan Kurulum',           size: '' },
-  { src: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80',  label: 'Kafe - Ses Tasarımı',            size: '' },
+  { src: '/assets/projects/kocaeli-sanayi-odasi/01-stage-wide.jpg', label: 'Kocaeli Sanayi Odası - LED + Sahne',  size: 'wide' },
+  { src: '/assets/projects/kocaeli-sanayi-odasi/04-pioneer-cluster.jpg', label: 'Pioneer Pro Audio - Cluster Montaj', size: 'tall' },
+  { src: '/assets/projects/kocaeli-sanayi-odasi/03-stage-night.jpg', label: 'KSO - Gece Aydınlatma + LED Sahne',  size: '' },
+  { src: '/assets/projects/kocaeli-sanayi-odasi/02-led-content.jpg', label: 'KSO - LED Görüntü Showcase',         size: '' },
   { src: 'https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?auto=format&fit=crop&w=900&q=80',  label: 'Pioneer - Duvar Montajı',        size: '' },
   { src: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=900', label: 'DJ Booth - Ses Kurulumu',     size: '' },
   { src: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=1600&q=80', label: 'Rooftop - Mekan Ses Sistemi',     size: 'wide' },

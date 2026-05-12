@@ -161,9 +161,9 @@ function Marquee() {
 
 /* ===== Photo Marquee gallery ===== */
 const PHOTO_GALLERY: Array<{ src: string; alt: string; lbl: string }> = [
-  { src: 'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=1200', alt: 'Neytin konsept duvar aydınlatması',           lbl: 'Konsept · Duvar' },
-  { src: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1200',  alt: 'Restoran iç mekan ses sistemi kurulumu',         lbl: 'Restoran · PA' },
-  { src: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=1200', alt: 'Gece ambiyansında hoparlör yakın plan',          lbl: 'Pioneer · Gece' },
+  { src: '/assets/projects/kocaeli-sanayi-odasi/01-stage-wide.jpg', alt: 'Kocaeli Sanayi Odası ana konferans salonu - LED arka plan ve Pioneer Pro Audio cluster', lbl: 'KSO · Konferans' },
+  { src: '/assets/projects/kocaeli-sanayi-odasi/03-stage-night.jpg', alt: 'Kocaeli Sanayi Odası - gece aydınlatması, LED sahne ve step LED',                       lbl: 'KSO · Gece' },
+  { src: '/assets/projects/kocaeli-sanayi-odasi/04-pioneer-cluster.jpg', alt: 'Pioneer Pro Audio XY-3B cluster yakın plan montaj',                                  lbl: 'Pioneer · Cluster' },
   { src: 'https://images.pexels.com/photos/4571219/pexels-photo-4571219.jpeg?auto=compress&cs=tinysrgb&w=1200', alt: 'Vinyl duvar ve ses kurulum detayları',           lbl: 'Vinyl · Duvar' },
   { src: 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=1200',   alt: 'Tavan montaj beyaz hoparlör kurulumu',           lbl: 'Tavan · Montaj' },
   { src: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1200', alt: 'DJ booth ses kurulumu',                          lbl: 'DJ · Booth' },
@@ -675,6 +675,7 @@ function Dashboard() {
 
 /* ===== Portfolio teaser ===== */
 const CASES: Array<{ slug: string; t: string; e: string; tags: VenueTag[]; st: Array<[string, string]>; d: string; img: string }> = [
+  { slug: 'kocaeli-sanayi-odasi', t: 'Kocaeli Sanayi Odası', e: 'Kocaeli', tags: [['indigo', 'LED'], ['red', 'SES'], ['plum', 'KONFERANS']], d: '180 kişilik konferans salonu için 9.6 × 3.0 m P2.6 LED arka plan, Pioneer Pro Audio XY-3B cluster ve Q-SYS hibrit toplantı senaryosu.', st: [['LED', 'P2.6'], ['STI', '0.71']], img: '/assets/projects/kocaeli-sanayi-odasi/01-stage-wide.jpg' },
   { slug: 'bogaz-restoran', t: 'Boğaz Restoran',  e: 'İstanbul', tags: [['red', 'SES'], ['gold', 'AKUSTİK']],                d: '180 kişilik teras restoran için 4 zonlu ses sistemi ve akustik panel mimarisi. Konuşma netliği hedef üstünde teslim edildi.', st: [['RT60', '0.62s'], ['SPL', '82dB']], img: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1400' },
   { slug: 'ballroom-otel', t: 'Ballroom Otel',   e: 'Antalya',  tags: [['red', 'SES'], ['olive', 'VA'], ['indigo', 'LED']], d: '800 kişilik ballroom + lobi + 24 oda zon yönetimi. EN 54-16 uyumlu voice alarm + LED P2.6 sahne ekranı.',                        st: [['RT60', '1.2s'], ['SPL', '98dB']], img: 'https://images.pexels.com/photos/6985136/pexels-photo-6985136.jpeg?auto=compress&cs=tinysrgb&w=1400' },
   { slug: 'konser-sahnesi', t: 'Konser Sahnesi',  e: 'Ankara',   tags: [['red', 'SES'], ['indigo', 'LED']],                  d: '3000 kişilik açık hava sahnesi. Cardioid sub array + line array L/R, 64m² LED ana sahne ekranı.',                                  st: [['SPL', '106dB'], ['LED', 'P3.9']], img: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1400' },
