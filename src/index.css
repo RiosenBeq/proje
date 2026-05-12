@@ -2542,51 +2542,73 @@ a.md-row:hover .md-v { color: var(--red); }
   text-transform: uppercase;
 }
 
-/* Gallery grid (portfolio) */
+/* Gallery grid (portfolio) - editorial 4-col mosaic + premium hover */
 .gal-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(140px, auto);
+  gap: 12px;
 }
 .gal-cell {
   position: relative;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 18px;
   aspect-ratio: 1/1;
   background: var(--ink);
+  box-shadow: 0 8px 22px rgba(20,17,12,0.10);
+  transition: transform 350ms var(--ease), box-shadow 350ms var(--ease);
+  will-change: transform;
 }
-.gal-cell.wide { grid-column: span 2; aspect-ratio: 16/9; }
+/* Editorial mosaic: ilk kart 2x2 hero, ikinci kart 1x2 dikey */
+.gal-cell.wide { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
 .gal-cell.tall { grid-row: span 2; aspect-ratio: 3/4; }
 .gal-cell img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  transition: transform 700ms var(--ease);
+  transition: transform 700ms var(--ease), filter 350ms var(--ease);
 }
 .gal-cell::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(14,12,9,0.65));
+  background: linear-gradient(180deg, transparent 50%, rgba(14,12,9,0.78));
   z-index: 1;
+  transition: opacity 350ms var(--ease);
 }
-.gal-cell:hover img { transform: scale(1.06); }
+.gal-cell::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.10) 50%, transparent 60%);
+  transform: translateX(-110%);
+  transition: transform 850ms var(--ease);
+  z-index: 2;
+  pointer-events: none;
+}
+.gal-cell:hover { transform: translateY(-4px); box-shadow: 0 18px 38px rgba(20,17,12,0.20); }
+.gal-cell:hover img { transform: scale(1.08); }
+.gal-cell:hover::before { transform: translateX(110%); }
 .gal-cell .lbl {
-  position: absolute; left: 16px; bottom: 14px; z-index: 2;
+  position: absolute; left: 18px; bottom: 16px; z-index: 3;
   font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
+  font-size: 11px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(245,239,224,0.85);
+  color: rgba(245,239,224,0.92);
+  font-weight: 600;
+  transform: translateY(4px);
+  opacity: 0;
+  transition: transform 350ms var(--ease), opacity 350ms var(--ease);
 }
+.gal-cell:hover .lbl { transform: translateY(0); opacity: 1; }
 .gal-cell .badge {
-  position: absolute; top: 14px; left: 14px; z-index: 2;
-  background: rgba(20,17,12,0.65);
-  border: 1px solid rgba(245,239,224,0.2);
+  position: absolute; top: 14px; left: 14px; z-index: 3;
+  background: rgba(20,17,12,0.72);
+  border: 1px solid rgba(245,239,224,0.22);
   color: var(--stage-fg);
   font-family: var(--f-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
-  padding: 5px 9px;
+  padding: 5px 10px;
   border-radius: 999px;
   text-transform: uppercase;
   backdrop-filter: blur(8px);
@@ -3532,10 +3554,15 @@ a.md-row:hover .md-v { color: var(--red); }
   .step .title { margin-top: 0; }
 
   .svc-grid { grid-template-columns: repeat(2, 1fr); }
-  .gal-grid { grid-template-columns: repeat(2, 1fr); }
+  .gal-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .t-grid { grid-template-columns: 1fr; }
   .ref-grid { grid-template-columns: repeat(2, 1fr); }
-  .gal-cell.wide { grid-column: span 2; }
+  /* Tablet: hero cell hala iki kolon kaplar (4-col 2-col'a düşünce */
+  .gal-cell.wide { grid-column: span 2; grid-row: span 1; aspect-ratio: 16/9; }
+  .gal-cell.tall { grid-row: span 1; aspect-ratio: 3/4; }
+  /* Mobile'da hover etkilerini kısıtla (touch için lift gereksiz, image zoom OK) */
+  .gal-cell:hover { transform: none; }
+  .gal-cell .lbl { transform: translateY(0); opacity: 1; }
   .legal-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
 
@@ -3587,8 +3614,11 @@ a.md-row:hover .md-v { color: var(--red); }
   .vd-list li { grid-template-columns: 1fr; gap: 4px; }
   .steps { grid-template-columns: 1fr 1fr; }
   .svc-grid { grid-template-columns: 1fr; }
-  .gal-grid { grid-template-columns: 1fr; }
-  .gal-cell.wide, .gal-cell.tall { grid-column: span 1; grid-row: span 1; aspect-ratio: 4/3; }
+  .gal-grid { grid-template-columns: 1fr; gap: 12px; }
+  .gal-cell, .gal-cell.wide, .gal-cell.tall { grid-column: span 1; grid-row: span 1; aspect-ratio: 4/3; border-radius: 14px; }
+  /* Mobil tek-kolon: lbl + badge daha kompakt */
+  .gal-cell .lbl { font-size: 10px; left: 14px; bottom: 12px; }
+  .gal-cell .badge { font-size: 9px; padding: 4px 8px; }
   .hv-rt { left: 0; top: 0; }
   .hv-bpm { right: 0; bottom: 0; }
   .hv-spl { right: 0; top: 50%; }

@@ -206,11 +206,34 @@ const ProductHero = ({ product }: { product: ProductDetail }) => (
           <span style={{ width: 4, height: 4, background: 'rgba(20,20,26,0.3)', borderRadius: 999 }} />
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: 'rgba(20,20,26,0.55)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{product.series}</div>
         </div>
+        {/* Sub-category etiketi: kategori + alt kategori hiyerarşisi */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 14, flexWrap: 'wrap' }}>
+          <a href={product.categoryHref} target="_blank" rel="noopener noreferrer sponsored" style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            background: '#fff', border: '1px solid rgba(20,20,26,0.15)',
+            padding: '5px 12px', borderRadius: 999,
+            fontFamily: '"JetBrains Mono", monospace', fontSize: 10, fontWeight: 600,
+            letterSpacing: '0.08em', textTransform: 'uppercase',
+            color: 'rgba(20,20,26,0.6)', textDecoration: 'none',
+          }}>{product.category}</a>
+          <span style={{ color: 'rgba(20,20,26,0.3)', fontFamily: '"JetBrains Mono", monospace', fontSize: 10 }}>›</span>
+          <span style={{
+            display: 'inline-flex', alignItems: 'center',
+            background: RED, color: CREAM,
+            padding: '5px 12px', borderRadius: 999,
+            fontFamily: '"JetBrains Mono", monospace', fontSize: 10, fontWeight: 600,
+            letterSpacing: '0.08em', textTransform: 'uppercase',
+          }}>{product.subCategory}</span>
+        </div>
         <h1 className="hk-product-h1" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: 56, lineHeight: 0.96, letterSpacing: '-0.04em', margin: 0, color: INK }}>
           {product.name}<br />
           <span style={{ color: RED }}>{product.tagline}</span>
         </h1>
-        <p style={{ marginTop: 18, fontSize: 18, lineHeight: 1.5, color: 'rgba(20,20,26,0.7)' }}>
+        {/* Hedef kullanıcı / audience micro-line — SEO için kim-için sinyali */}
+        <p style={{ marginTop: 14, fontSize: 13, lineHeight: 1.4, color: 'rgba(20,20,26,0.55)', fontStyle: 'italic', fontFamily: '"Fraunces", Georgia, serif' }}>
+          {product.audience}
+        </p>
+        <p style={{ marginTop: 14, fontSize: 18, lineHeight: 1.5, color: 'rgba(20,20,26,0.7)' }}>
           {product.short}
         </p>
 
@@ -582,7 +605,12 @@ function ProductPage({ product }: { product: ProductDetail }) {
     description: product.short,
     image: imageAbs,
     brand: { '@type': 'Brand', name: product.brand },
-    category: product.category,
+    category: `${product.category} > ${product.subCategory}`,
+    keywords: product.keywords.join(', '),
+    audience: {
+      '@type': 'PeopleAudience',
+      audienceType: product.audience,
+    },
     sku: product.slug,
     mpn: product.slug,
     isRelatedTo: product.categoryHref,
@@ -682,7 +710,7 @@ function ProductPage({ product }: { product: ProductDetail }) {
       brand: product.brand,
       category: product.category,
     },
-    keywords: `${product.brand} ${product.name} kiralama, ${product.brand} kiralama, ${product.category} kiralama, ${product.tagline}, ${product.brand} ${product.name} aylık kiralama, ${product.brand} ${product.name} günlük kiralama, hızla kirala, on music, on muzik proje`,
+    keywords: `${product.keywords.join(', ')}, ${product.brand} ${product.name} kiralama, ${product.brand} kiralama, ${product.category} kiralama, ${product.subCategory} kiralama, ${product.tagline}, ${product.brand} ${product.name} aylık kiralama, ${product.brand} ${product.name} günlük kiralama, hızla kirala, on music, on muzik proje`,
     jsonLd: [productLd, breadcrumb, faqPage, webPage, partnership],
   });
 

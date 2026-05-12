@@ -859,14 +859,17 @@ export const PROJECTS: Project[] = [
     venueType: 'konferans',
     disciplines: ['plum', 'gold'],
     hero: {
-      image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1600&q=80',
+      image: '/assets/projects/kocaeli-sanayi-odasi/03-stage-night.jpg',
       eyebrow: 'KONFERANS · İZMİR · 2023',
       lead: '6 toplantı odası + 1 boardroom + 1 auditorium kombinasyonu. MTR Teams Rooms sertifikalı, beamforming mikrofon ve simültane çeviri kabini ile hibrit toplantı odaklı.',
     },
+    /* Görseller benzer ölçek konferans kurulumumuzdan referans alındı
+       (KSO Konferans Salonu, 2024 - aynı LED + Pioneer cluster + Crestron
+       senaryosu). Bu projenin kendi galeri çekimi planlanıyor. */
     gallery: [
-      'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80',
-      'https://images.pexels.com/photos/6267516/pexels-photo-6267516.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/assets/projects/kocaeli-sanayi-odasi/01-stage-wide.jpg',
+      '/assets/projects/kocaeli-sanayi-odasi/03-stage-night.jpg',
+      '/assets/projects/kocaeli-sanayi-odasi/04-pioneer-cluster.jpg',
     ],
     specs: [
       ['Toplam Oda', '6 huddle + 1 boardroom + 1 auditorium'],
@@ -888,6 +891,46 @@ export const PROJECTS: Project[] = [
     },
     brandsUsed: ['Shure', 'Logitech', 'Crestron', 'Bosch DICENTIS'],
     related: ['grand-auditorium', 'ballroom-otel', 'studio-alpha'],
+  },
+  {
+    slug: 'kocaeli-sanayi-odasi',
+    name: 'Kocaeli Sanayi Odası Konferans Salonu',
+    city: 'Kocaeli',
+    year: '2024',
+    venueType: 'konferans',
+    disciplines: ['indigo', 'red', 'plum'],
+    hero: {
+      image: '/assets/projects/kocaeli-sanayi-odasi/01-stage-wide.jpg',
+      eyebrow: 'KONFERANS · KOCAELİ · 2024',
+      lead: 'Kocaeli Sanayi Odası ana konferans salonu için dev LED arka plan, Pioneer Pro Audio cluster ve sahne RGB aydınlatma entegrasyonu. Genel kurul, panel, basın açıklaması ve hibrit toplantılarda esnek senaryo kontrolü.',
+    },
+    gallery: [
+      '/assets/projects/kocaeli-sanayi-odasi/01-stage-wide.jpg',
+      '/assets/projects/kocaeli-sanayi-odasi/02-led-content.jpg',
+      '/assets/projects/kocaeli-sanayi-odasi/03-stage-night.jpg',
+      '/assets/projects/kocaeli-sanayi-odasi/04-pioneer-cluster.jpg',
+    ],
+    specs: [
+      ['Salon Kapasite', '180 kişi tiyatro / 120 sınıf'],
+      ['LED Ekran', 'P2.6 indoor · 9.6 m × 3.0 m duvar'],
+      ['Ana Sistem', 'Pioneer Pro Audio XY-3B cluster + XY-118S sub'],
+      ['Mikrofon', 'Shure ULX-D kablosuz + masa kondenser'],
+      ['Aydınlatma', 'RGB sahne wash + track spot + step LED'],
+      ['Kontrol', 'Crestron + Q-SYS hibrit toplantı senaryosu'],
+    ],
+    beforeAfter: [
+      ['RT60 (250-2 kHz)', '1.6 s', '0.78 s', '0.6-0.9 s'],
+      ['STI (orta sıra)', '0.48', '0.71', '≥ 0.62'],
+      ['LED Parlaklık', 'Yok', '1.500 nit', '≥ 1.000 nit'],
+      ['Hibrit Toplantı Latency', 'Yok', '< 80 ms', '< 100 ms'],
+    ],
+    story: {
+      problem: 'Yan-yana cam yüzeyler ve metal tavan RT60\'ı 1.6 s\'a çıkarıyordu; uzak sıralarda konuşma anlaşılırlığı %48\'di. Mevcut tek projeksiyon yetersizdi, gündüz net görüntü yoktu.',
+      approach: '9.6 × 3.0 m P2.6 LED duvar montajı + Pioneer XY-3B cluster çift-açılı kapsama. Tavana absorpsiyon + diffüzör kombinasyonu. Q-SYS üzerinden tek dokunuş senaryolar: Genel Kurul / Panel / Basın / Hibrit.',
+      outcome: 'STI 0.71\'e yükseldi; gündüz dahil tüm sıralarda net görüntü. Hibrit toplantı latency < 80 ms (Teams Rooms sertifikalı). 18 ay aktif kullanım, 60+ etkinlik teslim edildi.',
+    },
+    brandsUsed: ['Pioneer Pro Audio', 'Shure', 'Q-SYS', 'Crestron', 'Vicoustic'],
+    related: ['konferans-merkezi', 'grand-auditorium', 'ballroom-otel'],
   },
 ];
 
