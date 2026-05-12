@@ -22,6 +22,7 @@ const loadKnowledge      = () => import('./pages/Knowledge');
 const loadArticle        = () => import('./pages/Article');
 const loadPrivacyPolicy  = () => import('./pages/PrivacyPolicy');
 const loadKvkk           = () => import('./pages/Kvkk');
+const loadHizlaKirala    = () => import('./pages/HizlaKirala');
 
 const ServiceDetail   = lazy(loadServiceDetail);
 const Venues          = lazy(loadVenues);
@@ -36,11 +37,13 @@ const Knowledge       = lazy(loadKnowledge);
 const Article         = lazy(loadArticle);
 const PrivacyPolicy   = lazy(loadPrivacyPolicy);
 const Kvkk            = lazy(loadKvkk);
+const HizlaKirala     = lazy(loadHizlaKirala);
 
 const ALL_LOADERS = [
   loadServiceDetail, loadVenues, loadVenueDetail, loadProjectDetail,
   loadAbout, loadFaq, loadService, loadBrands, loadCertifications,
   loadKnowledge, loadArticle, loadPrivacyPolicy, loadKvkk,
+  loadHizlaKirala,
 ];
 
 function usePrefetchRoutes() {
@@ -90,6 +93,7 @@ export default function App() {
           <Route path="iletisim" element={<Contact />} />
           <Route path="gizlilik-politikasi" element={<Suspense fallback={<PageFallback />}><PrivacyPolicy /></Suspense>} />
           <Route path="kvkk" element={<Suspense fallback={<PageFallback />}><Kvkk /></Suspense>} />
+          <Route path="hizla-kirala" element={<Suspense fallback={<PageFallback />}><HizlaKirala /></Suspense>} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
