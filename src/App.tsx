@@ -98,7 +98,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/hizla-kirala" element={<Suspense fallback={<PageFallback />}><HizlaKirala /></Suspense>} />
-        <Route path="/hizla-kirala/anker-nebula-apollo" element={<Suspense fallback={<PageFallback />}><HizlaKiralaUrun /></Suspense>} />
+        <Route path="/hizla-kirala/:slug" element={<Suspense fallback={<PageFallback />}><HizlaKiralaUrun /></Suspense>} />
       </Routes>
     </BrowserRouter>
   );
