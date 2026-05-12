@@ -426,7 +426,7 @@ export default function Layout() {
         </div>
       </footer>}
 
-      <WhatsAppFab />
+      {!location.pathname.startsWith('/hizla-kirala') && <WhatsAppFab />}
       <MobileBottomNav onMenuToggle={() => setDrawer((d) => !d)} drawerOpen={drawer} />
       <CookieBanner />
     </>
