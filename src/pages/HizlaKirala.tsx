@@ -701,12 +701,51 @@ const RESPONSIVE_CSS = `
 .hk-product-card img { transition: transform .35s ease; }
 .hk-product-card:hover img { transform: scale(1.04); }
 
-.hk-hero-anker { transition: transform .3s ease, box-shadow .3s ease; }
-.hk-hero-anker:hover { transform: translateY(-6px); box-shadow: 0 26px 52px rgba(20,20,26,0.16); }
-.hk-hero-dyson { transition: transform .3s ease, box-shadow .3s ease; }
-.hk-hero-dyson:hover { transform: rotate(-3deg) translateY(-6px); box-shadow: 0 26px 52px rgba(20,20,26,0.36); }
-.hk-hero-ps5 { transition: transform .3s ease, box-shadow .3s ease; }
-.hk-hero-ps5:hover { transform: rotate(4deg) translateY(-6px); box-shadow: 0 26px 52px rgba(248,56,72,0.40); }
+/* Hero cards — premium hover: lift + scale + colored glow + image zoom + shine sweep.
+   !important gerekli çünkü inline style attribute'i transform/boxShadow taşıyor. */
+.hk-hero-anker, .hk-hero-dyson, .hk-hero-ps5 {
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+  will-change: transform, box-shadow;
+  overflow: hidden;
+}
+.hk-hero-anker:hover {
+  transform: translateY(-10px) scale(1.025) !important;
+  box-shadow: 0 32px 62px rgba(20,20,26,0.18), 0 0 0 1.5px rgba(248,56,72,0.22) !important;
+  border-color: rgba(248,56,72,0.35) !important;
+}
+.hk-hero-dyson:hover {
+  transform: rotate(-4deg) translateY(-10px) scale(1.025) !important;
+  box-shadow: 0 32px 62px rgba(0,0,0,0.45), 0 0 0 1.5px rgba(248,56,72,0.38) !important;
+}
+.hk-hero-ps5:hover {
+  transform: rotate(5deg) translateY(-10px) scale(1.025) !important;
+  box-shadow: 0 32px 62px rgba(248,56,72,0.52), 0 0 0 1.5px rgba(248,56,72,0.55) !important;
+}
+
+/* Hero card image zoom — applied to the product image inside each card */
+.hk-hero-anker img, .hk-hero-dyson img, .hk-hero-ps5 img {
+  transition: transform .55s cubic-bezier(.2,.7,.2,1);
+}
+.hk-hero-anker:hover img, .hk-hero-dyson:hover img, .hk-hero-ps5:hover img {
+  transform: scale(1.06);
+}
+
+/* Premium shine sweep on hover — subtle diagonal gradient passes across the card */
+.hk-hero-anker::after, .hk-hero-dyson::after, .hk-hero-ps5::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,0.18) 50%, transparent 65%);
+  transform: translateX(-110%);
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 2;
+}
+.hk-hero-anker:hover::after, .hk-hero-dyson:hover::after, .hk-hero-ps5:hover::after {
+  transform: translateX(110%);
+}
+.hk-hero-anker::after { background: linear-gradient(120deg, transparent 35%, rgba(248,56,72,0.10) 50%, transparent 65%); }
 
 .hk-pill { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
 .hk-pill:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(20,20,26,0.20); }
@@ -747,11 +786,13 @@ const RESPONSIVE_CSS = `
   .hk-hero { padding: 56px 22px 64px !important; }
   .hk-hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
   .hk-hero-h1 { font-size: 56px !important; }
-  .hk-hero-collage { height: 540px !important; max-width: 100%; }
-  .hk-hero-anker { width: min(290px, 88%) !important; right: 0 !important; }
-  .hk-hero-dyson { width: min(220px, 70%) !important; }
-  .hk-hero-ps5 { width: min(232px, 76%) !important; right: 8% !important; }
-  .hk-hero-disc { left: 12px !important; top: 32px !important; width: 78px !important; height: 78px !important; font-size: 9.5px !important; }
+  .hk-hero-collage { height: 580px !important; max-width: 100%; }
+  .hk-hero-anker { width: min(300px, 88%) !important; right: 0 !important; top: 0 !important; }
+  .hk-hero-dyson { width: min(220px, 66%) !important; top: 290px !important; left: 0 !important; transform: rotate(-3deg) !important; }
+  .hk-hero-dyson:hover { transform: rotate(-3deg) translateY(-8px) scale(1.025) !important; }
+  .hk-hero-ps5 { width: min(232px, 70%) !important; right: 4% !important; bottom: 0 !important; transform: rotate(3deg) !important; }
+  .hk-hero-ps5:hover { transform: rotate(3deg) translateY(-8px) scale(1.025) !important; }
+  .hk-hero-disc { left: 10px !important; top: 28px !important; width: 76px !important; height: 76px !important; font-size: 9.5px !important; }
   .hk-hero-stats { max-width: 100% !important; }
   .hk-section { padding-left: 22px !important; padding-right: 22px !important; padding-top: 56px !important; padding-bottom: 56px !important; }
   .hk-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
@@ -766,20 +807,26 @@ const RESPONSIVE_CSS = `
   .hk-grid-4 { grid-template-columns: 1fr !important; }
   .hk-grid-3 { grid-template-columns: 1fr !important; }
   .hk-hero-stats { grid-template-columns: repeat(2, 1fr) !important; }
-  .hk-hero-collage { height: 500px !important; }
-  .hk-hero-anker { width: min(260px, 84%) !important; padding: 14px !important; }
-  .hk-hero-anker > div:first-of-type + div { height: 170px !important; }
-  .hk-hero-dyson { width: min(190px, 64%) !important; top: 250px !important; padding: 12px !important; }
-  .hk-hero-ps5 { width: min(200px, 68%) !important; right: 4% !important; padding: 12px !important; }
-  .hk-hero-disc { top: 18px !important; left: 8px !important; width: 64px !important; height: 64px !important; font-size: 8.5px !important; }
+  .hk-hero-collage { height: 620px !important; }
+  .hk-hero-anker { width: min(280px, 86%) !important; padding: 14px !important; }
+  .hk-hero-anker > div:first-of-type + div { height: 180px !important; }
+  .hk-hero-dyson { width: min(200px, 60%) !important; top: 290px !important; padding: 12px !important; transform: rotate(-2.5deg) !important; }
+  .hk-hero-dyson:hover { transform: rotate(-2.5deg) translateY(-6px) scale(1.02) !important; }
+  .hk-hero-ps5 { width: min(220px, 66%) !important; right: 4% !important; padding: 12px !important; transform: rotate(2.5deg) !important; }
+  .hk-hero-ps5:hover { transform: rotate(2.5deg) translateY(-6px) scale(1.02) !important; }
+  .hk-hero-disc { top: 16px !important; left: 6px !important; width: 64px !important; height: 64px !important; font-size: 8.5px !important; }
   .hk-footer-grid { grid-template-columns: 1fr !important; }
   .hk-hero-h1 { font-size: 44px !important; }
   .hk-h2 { font-size: 30px !important; }
   .hk-h1-cta { font-size: 36px !important; }
 }
 @media (max-width: 380px) {
-  /* Çok küçük telefonlarda dekoratif "+150 ÜRÜN" chip'i gizle */
+  /* Çok küçük telefonlarda dekoratif "+150 ÜRÜN" chip'i gizle ve kartları biraz daha küçült */
   .hk-hero-collage > div:last-of-type { display: none; }
+  .hk-hero-collage { height: 580px !important; }
+  .hk-hero-anker { width: 92% !important; }
+  .hk-hero-dyson { width: 64% !important; top: 270px !important; }
+  .hk-hero-ps5 { width: 70% !important; right: 0 !important; }
 }
 `;
 
