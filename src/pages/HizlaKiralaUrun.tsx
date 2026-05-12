@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useState, type CSSProperties, type ReactNode } from 'react';
 import { useSeo } from '../lib/seo';
+import { getProduct, getRelated, PRODUCTS, type Glyph, type ProductDetail } from '../lib/hizla-kirala-products';
 
 const RED = '#F83848';
 const INK = '#14141a';
@@ -8,8 +9,7 @@ const CREAM = '#f7f3eb';
 const WA = '#25d366';
 
 const PARTNER_BASE = 'https://hizlakirala.com';
-const ANKER_RENTAL_URL = `${PARTNER_BASE}/urun/anker-nebula-apollo`;
-const WHATSAPP_HREF = 'https://wa.me/908502419515?text=Merhaba%2C%20Nebula%20Apollo%20kiralamak%20istiyorum.';
+const WHATSAPP_HREF = 'https://wa.me/908502419515?text=Merhaba%2C%20kiralama%20i%C3%A7in%20yaz%C4%B1yorum.';
 const PHONE_HREF = 'tel:+908502419515';
 const PHONE_LABEL = '0850 241 9515';
 
@@ -71,19 +71,21 @@ const Nav = () => (
   </nav>
 );
 
-const Breadcrumb = () => (
+const Breadcrumb = ({ product }: { product: ProductDetail }) => (
   <div style={{ background: CREAM, padding: '24px 64px 8px' }} className="hk-breadcrumb">
     <div style={{ maxWidth: 1280, margin: '0 auto', fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: 'rgba(20,20,26,0.55)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
       <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Anasayfa</Link>
       <span style={{ margin: '0 10px', opacity: 0.4 }}>/</span>
       <Link to="/hizla-kirala" style={{ color: 'inherit', textDecoration: 'none' }}>Kiralık ürünler</Link>
       <span style={{ margin: '0 10px', opacity: 0.4 }}>/</span>
-      <a href={`${PARTNER_BASE}/kategori/projeksiyon`} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Projeksiyon</a>
+      <a href={product.categoryHref} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>{product.category}</a>
       <span style={{ margin: '0 10px', opacity: 0.4 }}>/</span>
-      <span style={{ color: INK }}>Anker Nebula Apollo</span>
+      <span style={{ color: INK }}>{product.breadcrumbName}</span>
     </div>
   </div>
 );
+
+/* ─────────── Anker projector — 4-açılı detaylı galeri ─────────── */
 
 const ProjectorArt = ({ brand = false }: { brand?: boolean }) => (
   <svg viewBox="0 0 600 600" style={{ width: '100%', height: '100%', display: 'block' }}>
@@ -153,59 +155,142 @@ const ProjectorScene = () => (
   </svg>
 );
 
+/* ─────────── Generic silhouette — tüm glyph'ler için tek görsel ─────────── */
+
+function GlyphHero({ kind }: { kind: Glyph }) {
+  // 600×600 viewBox içinde merkezlenmiş bir 320×240 silüet — kiralık sayfası
+  // ile aynı çizimleri kullanır, sadece daha büyük gösterir.
+  const inner = (() => {
+    if (kind === 'laptop') return (
+      <>
+        <rect x="60" y="50" width="200" height="130" rx="8" fill={INK} />
+        <rect x="70" y="60" width="180" height="110" fill={CREAM} />
+        <rect x="40" y="180" width="240" height="14" rx="3" fill={INK} />
+        <rect x="140" y="180" width="40" height="6" rx="2" fill={INK} opacity="0.4" />
+      </>
+    );
+    if (kind === 'console') return (
+      <>
+        <rect x="120" y="30" width="80" height="180" rx="10" fill={INK} />
+        <rect x="120" y="30" width="80" height="180" rx="10" fill="none" stroke={CREAM} strokeWidth="2" />
+        <circle cx="160" cy="190" r="5" fill={RED} />
+        <rect x="220" y="120" width="70" height="40" rx="8" fill={INK} opacity="0.7" />
+        <circle cx="240" cy="140" r="6" fill={CREAM} />
+        <circle cx="270" cy="140" r="6" fill={CREAM} />
+      </>
+    );
+    if (kind === 'vr') return (
+      <>
+        <path d="M 60 90 Q 60 60 100 60 L 220 60 Q 260 60 260 90 L 260 150 Q 260 180 220 180 L 200 180 L 160 150 L 120 180 L 100 180 Q 60 180 60 150 Z" fill={INK} />
+        <ellipse cx="115" cy="120" rx="22" ry="18" fill={CREAM} />
+        <ellipse cx="205" cy="120" rx="22" ry="18" fill={CREAM} />
+        <circle cx="115" cy="120" r="8" fill={RED} />
+        <circle cx="205" cy="120" r="8" fill={RED} />
+      </>
+    );
+    if (kind === 'switch') return (
+      <>
+        <rect x="60" y="70" width="200" height="100" rx="12" fill={INK} />
+        <rect x="100" y="78" width="120" height="84" rx="4" fill={CREAM} />
+        <circle cx="80" cy="100" r="4" fill={RED} />
+        <circle cx="80" cy="140" r="4" fill={CREAM} />
+        <rect x="232" y="92" width="14" height="14" rx="3" fill={CREAM} />
+        <rect x="232" y="118" width="14" height="14" rx="3" fill={CREAM} />
+      </>
+    );
+    if (kind === 'scooter') return (
+      <>
+        <circle cx="80" cy="180" r="28" fill="none" stroke={INK} strokeWidth="6" />
+        <circle cx="240" cy="180" r="28" fill="none" stroke={INK} strokeWidth="6" />
+        <line x1="80" y1="180" x2="220" y2="180" stroke={INK} strokeWidth="6" />
+        <line x1="240" y1="180" x2="240" y2="60" stroke={INK} strokeWidth="6" />
+        <line x1="240" y1="60" x2="220" y2="50" stroke={INK} strokeWidth="6" />
+        <line x1="240" y1="60" x2="260" y2="50" stroke={INK} strokeWidth="6" />
+        <rect x="140" y="170" width="80" height="14" rx="3" fill={RED} />
+      </>
+    );
+    if (kind === 'vacuum') return (
+      <>
+        <rect x="148" y="40" width="24" height="120" rx="6" fill={INK} />
+        <rect x="120" y="160" width="80" height="50" rx="8" fill={INK} />
+        <circle cx="160" cy="55" r="14" fill={RED} />
+        <rect x="130" y="200" width="60" height="14" rx="3" fill={INK} opacity="0.5" />
+      </>
+    );
+    if (kind === 'phone') return (
+      <>
+        <rect x="120" y="20" width="80" height="200" rx="14" fill={INK} />
+        <rect x="128" y="32" width="64" height="176" rx="6" fill={CREAM} />
+        <rect x="150" y="40" width="20" height="6" rx="3" fill={INK} />
+        <circle cx="160" cy="200" r="6" fill={INK} opacity="0.4" />
+      </>
+    );
+    return null;
+  })();
+
+  return (
+    <svg viewBox="0 0 600 600" style={{ width: '100%', height: '100%', display: 'block' }}>
+      <g transform="translate(140 180) scale(1.0)">
+        {inner}
+      </g>
+    </svg>
+  );
+}
+
 type Shot = { key: string; el: ReactNode };
 
-function Gallery() {
+function Gallery({ product }: { product: ProductDetail }) {
   const [active, setActive] = useState(0);
-  const shots: Shot[] = [
-    { key: 'main',  el: <ProjectorArt brand /> },
-    { key: 'top',   el: <ProjectorTop /> },
-    { key: 'port',  el: <ProjectorPorts /> },
-    { key: 'scene', el: <ProjectorScene /> },
-  ];
+
+  const shots: Shot[] = product.hasDetailedGallery
+    ? [
+        { key: 'main',  el: <ProjectorArt brand /> },
+        { key: 'top',   el: <ProjectorTop /> },
+        { key: 'port',  el: <ProjectorPorts /> },
+        { key: 'scene', el: <ProjectorScene /> },
+      ]
+    : [{ key: 'main', el: <GlyphHero kind={product.glyph} /> }];
+
   return (
     <div style={{ display: 'flex', gap: 16, flexDirection: 'column' }}>
       <div style={{ background: CREAM, borderRadius: 24, aspectRatio: '1 / 1', overflow: 'hidden', position: 'relative', border: '1px solid rgba(20,20,26,0.06)' }}>
         {shots[active].el}
         <div style={{ position: 'absolute', top: 18, left: 18, display: 'flex', flexDirection: 'column', gap: 6 }}>
-          <span style={{ background: RED, color: CREAM, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.12em', padding: '5px 10px', borderRadius: 999 }}>● YENİ</span>
+          {product.tag && (
+            <span style={{ background: RED, color: CREAM, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.12em', padding: '5px 10px', borderRadius: 999 }}>● {product.tag}</span>
+          )}
           <span style={{ background: 'rgba(255,255,255,0.92)', color: INK, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.08em', padding: '5px 10px', borderRadius: 999, textTransform: 'uppercase' }}>STOKTA · 24S KARGO</span>
         </div>
-        <div style={{ position: 'absolute', bottom: 18, right: 18, background: 'rgba(20,20,26,0.85)', color: CREAM, padding: '6px 12px', borderRadius: 999, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-          {active + 1} / {shots.length}
+        {shots.length > 1 && (
+          <div style={{ position: 'absolute', bottom: 18, right: 18, background: 'rgba(20,20,26,0.85)', color: CREAM, padding: '6px 12px', borderRadius: 999, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            {active + 1} / {shots.length}
+          </div>
+        )}
+      </div>
+      {shots.length > 1 && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 10 }}>
+          {shots.map((s, i) => (
+            <button key={s.key} onClick={() => setActive(i)} type="button" aria-label={`Görsel ${i + 1}`} style={{
+              background: CREAM, borderRadius: 14, aspectRatio: '1/1',
+              border: `2px solid ${i === active ? INK : 'rgba(20,20,26,0.08)'}`,
+              cursor: 'pointer', padding: 6, overflow: 'hidden',
+            }}>{s.el}</button>
+          ))}
         </div>
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 10 }}>
-        {shots.map((s, i) => (
-          <button key={s.key} onClick={() => setActive(i)} type="button" aria-label={`Görsel ${i + 1}`} style={{
-            background: CREAM, borderRadius: 14, aspectRatio: '1/1',
-            border: `2px solid ${i === active ? INK : 'rgba(20,20,26,0.08)'}`,
-            cursor: 'pointer', padding: 6, overflow: 'hidden',
-          }}>{s.el}</button>
-        ))}
-      </div>
+      )}
     </div>
   );
 }
 
-type Term = { label: string; long: string; short: string };
-const TERMS: Term[] = [
-  { label: '1 Ay',  long: '3.650', short: '350' },
-  { label: '3 Ay',  long: '2.850', short: '280' },
-  { label: '6 Ay',  long: '2.150', short: '230' },
-  { label: '12 Ay', long: '1.850', short: '190' },
-];
-
 const SHORT_TERM_LABELS = ['3 gün', '7 gün', '14 gün', '30 gün'];
 const MONTH_MULTIPLIER = [1, 3, 6, 12];
 
-function PriceCard() {
+function PriceCard({ product }: { product: ProductDetail }) {
   const [termIdx, setTermIdx] = useState(2);
   const [type, setType] = useState<'uzun' | 'kisa'>('uzun');
-  const term = TERMS[termIdx];
-  const price = type === 'uzun' ? term.long : term.short;
+  const price = type === 'uzun' ? product.monthly[termIdx] : product.daily[termIdx];
   const unit = type === 'uzun' ? 'aylık' : 'günlük';
-  const totalMonthly = parseInt(price.replace('.', ''), 10) * MONTH_MULTIPLIER[termIdx];
+  const totalMonthly = parseInt(product.monthly[termIdx].replace('.', ''), 10) * MONTH_MULTIPLIER[termIdx];
   const totalLabel = totalMonthly.toLocaleString('tr-TR');
 
   return (
@@ -230,9 +315,9 @@ function PriceCard() {
         {type === 'uzun' ? 'Kiralama süresi' : 'Gün sayısı seç'}
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 8, marginBottom: 22 }}>
-        {TERMS.map((t, i) => (
+        {(['1 Ay', '3 Ay', '6 Ay', '12 Ay']).map((label, i) => (
           <button
-            key={t.label}
+            key={label}
             type="button"
             onClick={() => setTermIdx(i)}
             style={{
@@ -242,7 +327,7 @@ function PriceCard() {
               borderRadius: 12, padding: '11px 6px', cursor: 'pointer',
               fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 600, fontSize: 14,
             }}
-          >{type === 'uzun' ? t.label : SHORT_TERM_LABELS[i]}</button>
+          >{type === 'uzun' ? label : SHORT_TERM_LABELS[i]}</button>
         ))}
       </div>
 
@@ -262,7 +347,7 @@ function PriceCard() {
 
       <div style={{ display: 'flex', gap: 10, marginTop: 22 }}>
         <a
-          href={ANKER_RENTAL_URL}
+          href={product.rentalUrl}
           target="_blank"
           rel="noopener noreferrer sponsored"
           style={{
@@ -303,26 +388,26 @@ function PriceCard() {
   );
 }
 
-const ProductHero = () => (
+const ProductHero = ({ product }: { product: ProductDetail }) => (
   <section className="hk-section hk-product-hero" style={{ background: CREAM, padding: '32px 64px 80px' }}>
     <div className="hk-product-hero-inner" style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 48, alignItems: 'flex-start' }}>
-      <Gallery />
+      <Gallery product={product} />
       <div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18, flexWrap: 'wrap' }}>
-          <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em' }}>Anker</div>
+          <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em' }}>{product.brand}</div>
           <span style={{ width: 4, height: 4, background: 'rgba(20,20,26,0.3)', borderRadius: 999 }} />
-          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: 'rgba(20,20,26,0.55)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Projeksiyon · Anker Nebula serisi</div>
+          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: 'rgba(20,20,26,0.55)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{product.series}</div>
         </div>
         <h1 className="hk-product-h1" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: 56, lineHeight: 0.96, letterSpacing: '-0.04em', margin: 0, color: INK }}>
-          Nebula Apollo<br />
-          <span style={{ color: RED }}>Taşınabilir Projeksiyon</span>
+          {product.name}<br />
+          <span style={{ color: RED }}>{product.tagline}</span>
         </h1>
         <p style={{ marginTop: 18, fontSize: 18, lineHeight: 1.5, color: 'rgba(20,20,26,0.7)' }}>
-          200 ANSI lümen parlaklık, 4 saat pil ömrü ve dahili Android arayüzü. Cafe açılışları, mekan etkinlikleri ve geçici sinema kurulumları için ideal — kurulum gerektirmez, kutusundan çıkar açarsın.
+          {product.short}
         </p>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 22 }}>
-          {['200 ANSI', '480p · HDR10', '4 saat pil', 'Android TV', 'Bluetooth hoparlör', 'HDMI · USB'].map((c) => (
+          {product.chips.map((c) => (
             <span key={c} style={{
               border: '1px solid rgba(20,20,26,0.15)', background: '#fff',
               padding: '7px 13px', borderRadius: 999,
@@ -332,7 +417,7 @@ const ProductHero = () => (
         </div>
 
         <div style={{ marginTop: 28 }}>
-          <PriceCard />
+          <PriceCard product={product} />
         </div>
 
         <div style={{
@@ -348,15 +433,10 @@ const ProductHero = () => (
   </section>
 );
 
-const Highlights = () => (
+const Highlights = ({ product }: { product: ProductDetail }) => (
   <section className="hk-section" style={{ background: '#fff', padding: '36px 64px', borderTop: '1px solid rgba(20,20,26,0.06)', borderBottom: '1px solid rgba(20,20,26,0.06)' }}>
     <div className="hk-grid-4" style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 24 }}>
-      {[
-        { t: '4 saat',   d: 'kesintisiz pil' },
-        { t: '200 ANSI', d: '480p HDR projeksiyon' },
-        { t: '0.9 kg',   d: 'çantanda taşınır' },
-        { t: '24 ay',    d: 'tam garanti' },
-      ].map((h) => (
+      {product.highlights.map((h) => (
         <div key={h.t} style={{ display: 'flex', flexDirection: 'column', borderLeft: `2px solid ${RED}`, paddingLeft: 16 }}>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 40, lineHeight: 1, letterSpacing: '-0.04em' }}>{h.t}</div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: 'rgba(20,20,26,0.55)', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: 8 }}>{h.d}</div>
@@ -367,33 +447,11 @@ const Highlights = () => (
 );
 
 type TabKey = 'aciklama' | 'ozellikler' | 'kutu' | 'sartlar';
-
 const TABS: Array<[TabKey, string]> = [
   ['aciklama',   'Açıklama'],
   ['ozellikler', 'Teknik özellikler'],
   ['kutu',       'Kutu içeriği'],
   ['sartlar',    'Kiralama şartları'],
-];
-
-const SPECS: Array<[string, string]> = [
-  ['Marka',           'Anker'],                          ['Model',          'Nebula Apollo'],
-  ['Parlaklık',       '200 ANSI lümen'],                 ['Çözünürlük',     '854×480 (1080p destekli)'],
-  ['Görüntü oranı',   '16:9'],                           ['Yansıtma boyutu','40" – 100"'],
-  ['Ses',             '8W dahili hoparlör'],             ['Pil ömrü',       '4 saat'],
-  ['İşletim sistemi', 'Android TV 9.0'],                 ['Bağlantı',       'HDMI · USB-A · USB-C · AUX · Wi-Fi · BT 4.2'],
-  ['Ağırlık',         '0.9 kg'],                         ['Boyut',          '128 × 128 × 52 mm'],
-];
-
-const BOX_CONTENTS = [
-  'Nebula Apollo cihazı',
-  'USB-C şarj kablosu',
-  'Güç adaptörü (30W)',
-  'HDMI kablosu (1.5m)',
-  'Uzaktan kumanda + pil',
-  'Taşıma kılıfı',
-  'Kullanım kılavuzu (TR)',
-  'on music kurulum kartı',
-  'Hijyen sertifikası',
 ];
 
 const FAQS: Array<[string, string]> = [
@@ -403,7 +461,7 @@ const FAQS: Array<[string, string]> = [
   ['Teslimat ne zaman yapılır?',     'Onaydan sonra İstanbul içi aynı gün, Türkiye geneli 24-48 saat içinde Yurtiçi Kargo ile kapına teslim.'],
 ];
 
-function Description() {
+function Description({ product }: { product: ProductDetail }) {
   const [tab, setTab] = useState<TabKey>('aciklama');
   return (
     <section className="hk-section" style={{ background: CREAM, padding: '80px 64px' }}>
@@ -429,20 +487,13 @@ function Description() {
           <div className="hk-desc-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 60, alignItems: 'start' }}>
             <div>
               <h3 className="hk-h3" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 36, lineHeight: 1.05, letterSpacing: '-0.03em', margin: '0 0 18px' }}>
-                Mekanını sinemaya, sahneye, sunum salonuna çevir.
+                {product.description.headline}
               </h3>
-              <p style={{ fontSize: 17, lineHeight: 1.6, color: 'rgba(20,20,26,0.75)', margin: '0 0 16px' }}>
-                Nebula Apollo, 200 ANSI lümen parlaklığı ve 4 saat batarya ömrüyle kafe duvarına maç gösteriminden, kurumsal lansman geceleri için dış mekan projeksiyonuna kadar her senaryoya uyum sağlar. Android TV arayüzü sayesinde Netflix, YouTube, Spotify ve binlerce uygulamayı doğrudan üzerinden çalıştırır.
-              </p>
-              <p style={{ fontSize: 17, lineHeight: 1.6, color: 'rgba(20,20,26,0.75)', margin: 0 }}>
-                Dahili 8W hoparlörü Bluetooth modunda taşınabilir hoparlör olarak da çalışır — tek cihazla iki ihtiyaç. Kalibrasyon, kurulum ve teslim sonrası destek on music ekibi tarafından sağlanır.
-              </p>
+              {product.description.paragraphs.map((p, i) => (
+                <p key={i} style={{ fontSize: 17, lineHeight: 1.6, color: 'rgba(20,20,26,0.75)', margin: i === 0 ? '0 0 16px' : 0 }}>{p}</p>
+              ))}
               <div style={{ display: 'flex', gap: 24, marginTop: 28, flexWrap: 'wrap' }}>
-                {([
-                  ['Dış mekan etkinliği', '🌙'],
-                  ['Kafe & restoran',     '☕'],
-                  ['Lansman & sunum',     '◐'],
-                ] as const).map(([t, e]) => (
+                {product.description.useCases.map(([t, e]) => (
                   <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <span style={{ width: 36, height: 36, background: '#fff', borderRadius: 10, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, border: '1px solid rgba(20,20,26,0.08)' }}>{e}</span>
                     <span style={{ fontWeight: 600, fontSize: 14 }}>{t}</span>
@@ -453,16 +504,7 @@ function Description() {
             <div style={{ background: INK, color: CREAM, borderRadius: 22, padding: 28 }}>
               <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 12, color: RED, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>/ Bir bakışta</div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
-                {[
-                  '200 ANSI lümen parlaklık',
-                  'Native 480p · 1080p destekli',
-                  '4 saat batarya · USB-C şarj',
-                  'Android TV 9.0 dahili',
-                  '8W omnidirectional hoparlör',
-                  'HDMI, USB-A, AUX bağlantı',
-                  'Otomatik keystone düzeltme',
-                  '0.9 kg · cep boyutu',
-                ].map((b, i) => (
+                {product.glance.map((b, i) => (
                   <li key={b} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, fontSize: 15, color: 'rgba(245,239,226,0.85)' }}>
                     <span style={{ color: RED, fontFamily: '"JetBrains Mono", monospace', fontSize: 12, width: 22, paddingTop: 4 }}>0{i + 1}</span>
                     {b}
@@ -475,11 +517,11 @@ function Description() {
 
         {tab === 'ozellikler' && (
           <div className="hk-specs" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 0, background: '#fff', borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(20,20,26,0.08)' }}>
-            {SPECS.map(([k, v], i) => (
+            {product.specs.map(([k, v], i) => (
               <div key={k} style={{
                 padding: '14px 22px',
                 display: 'flex', justifyContent: 'space-between', gap: 16,
-                borderBottom: i < SPECS.length - 2 ? '1px solid rgba(20,20,26,0.06)' : 'none',
+                borderBottom: i < product.specs.length - 2 ? '1px solid rgba(20,20,26,0.06)' : 'none',
                 borderRight: i % 2 === 0 ? '1px solid rgba(20,20,26,0.06)' : 'none',
               }}>
                 <span style={{ color: 'rgba(20,20,26,0.55)', fontSize: 14 }}>{k}</span>
@@ -491,7 +533,7 @@ function Description() {
 
         {tab === 'kutu' && (
           <ul className="hk-grid-3" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 12 }}>
-            {BOX_CONTENTS.map((it) => (
+            {product.box.map((it) => (
               <li key={it} style={{ background: '#fff', border: '1px solid rgba(20,20,26,0.08)', borderRadius: 12, padding: '14px 18px', display: 'flex', alignItems: 'center', gap: 12 }}>
                 <span style={{ width: 22, height: 22, borderRadius: 999, background: RED, color: CREAM, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, flexShrink: 0 }}>✓</span>
                 <span style={{ fontSize: 15 }}>{it}</span>
@@ -518,16 +560,7 @@ function Description() {
   );
 }
 
-type RelatedGlyph = 'laptop' | 'console' | 'vr' | 'switch';
-
-const RELATED: Array<{ brand: string; name: string; price: string; glyph: RelatedGlyph; href: string }> = [
-  { brand: 'Apple',    name: 'MacBook Neo 12" M4',          price: '2.450', glyph: 'laptop',  href: `${PARTNER_BASE}/urun/macbook-neo-m4` },
-  { brand: 'Sony',     name: 'PlayStation 5 Slim · 1TB',     price: '1.850', glyph: 'console', href: `${PARTNER_BASE}/urun/playstation-5-slim` },
-  { brand: 'Meta',     name: 'Quest 3 VR · 128GB',          price: '2.300', glyph: 'vr',      href: `${PARTNER_BASE}/urun/meta-quest-3` },
-  { brand: 'Nintendo', name: 'Switch OLED Model',           price: '1.030', glyph: 'switch',  href: `${PARTNER_BASE}/urun/nintendo-switch-oled` },
-];
-
-function RelatedSilhouette({ kind }: { kind: RelatedGlyph }) {
+function RelatedThumb({ kind }: { kind: Glyph }) {
   if (kind === 'laptop') return (
     <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
       <rect x="60" y="50" width="200" height="130" rx="8" fill={INK} />
@@ -551,43 +584,76 @@ function RelatedSilhouette({ kind }: { kind: RelatedGlyph }) {
       <circle cx="205" cy="120" r="8" fill={RED} />
     </svg>
   );
-  return (
+  if (kind === 'switch') return (
     <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
       <rect x="60" y="70" width="200" height="100" rx="12" fill={INK} />
       <rect x="100" y="78" width="120" height="84" rx="4" fill={CREAM} />
       <circle cx="80" cy="100" r="4" fill={RED} />
     </svg>
   );
+  if (kind === 'projector') return (
+    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
+      <rect x="50" y="80" width="200" height="100" rx="14" fill={INK} />
+      <circle cx="220" cy="130" r="32" fill={CREAM} />
+      <circle cx="220" cy="130" r="20" fill={RED} />
+    </svg>
+  );
+  if (kind === 'scooter') return (
+    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
+      <circle cx="80" cy="180" r="28" fill="none" stroke={INK} strokeWidth="6" />
+      <circle cx="240" cy="180" r="28" fill="none" stroke={INK} strokeWidth="6" />
+      <line x1="80" y1="180" x2="220" y2="180" stroke={INK} strokeWidth="6" />
+      <line x1="240" y1="180" x2="240" y2="60" stroke={INK} strokeWidth="6" />
+      <rect x="140" y="170" width="80" height="14" rx="3" fill={RED} />
+    </svg>
+  );
+  if (kind === 'vacuum') return (
+    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
+      <rect x="148" y="40" width="24" height="120" rx="6" fill={INK} />
+      <rect x="120" y="160" width="80" height="50" rx="8" fill={INK} />
+      <circle cx="160" cy="55" r="14" fill={RED} />
+    </svg>
+  );
+  if (kind === 'phone') return (
+    <svg viewBox="0 0 320 240" style={{ width: '100%', height: '100%' }}>
+      <rect x="120" y="20" width="80" height="200" rx="14" fill={INK} />
+      <rect x="128" y="32" width="64" height="176" rx="6" fill={CREAM} />
+    </svg>
+  );
+  return null;
 }
 
-const Related = () => (
-  <section className="hk-section" style={{ background: '#fff', padding: '80px 64px' }}>
-    <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-      <div className="hk-section-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 36, gap: 20, flexWrap: 'wrap' }}>
-        <div>
-          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: RED, marginBottom: 10 }}>/ Bunlar da ilgini çekebilir</div>
-          <h2 className="hk-h2" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 48, lineHeight: 1, letterSpacing: '-0.04em', margin: 0 }}>Benzer kiralıklar.</h2>
+const Related = ({ product }: { product: ProductDetail }) => {
+  const related = getRelated(product.slug, 4);
+  return (
+    <section className="hk-section" style={{ background: '#fff', padding: '80px 64px' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <div className="hk-section-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 36, gap: 20, flexWrap: 'wrap' }}>
+          <div>
+            <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: RED, marginBottom: 10 }}>/ Bunlar da ilgini çekebilir</div>
+            <h2 className="hk-h2" style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 48, lineHeight: 1, letterSpacing: '-0.04em', margin: 0 }}>Benzer kiralıklar.</h2>
+          </div>
+          <Link to="/hizla-kirala" style={{ color: INK, fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: `1.5px solid ${INK}`, paddingBottom: 3 }}>Tümünü gör →</Link>
         </div>
-        <Link to="/hizla-kirala" style={{ color: INK, fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: `1.5px solid ${INK}`, paddingBottom: 3 }}>Tümünü gör →</Link>
-      </div>
-      <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
-        {RELATED.map((p) => (
-          <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer sponsored" style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(20,20,26,0.08)', textDecoration: 'none', color: INK }}>
-            <div style={{ background: CREAM, height: 200 }}><RelatedSilhouette kind={p.glyph} /></div>
-            <div style={{ padding: 18 }}>
-              <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.12em', color: 'rgba(20,20,26,0.5)', textTransform: 'uppercase' }}>{p.brand}</div>
-              <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.2 }}>{p.name}</div>
-              <div style={{ marginTop: 12, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
-                <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: 22, letterSpacing: '-0.03em' }}>{p.price} TL<span style={{ fontSize: 13, color: 'rgba(20,20,26,0.5)', fontWeight: 500 }}> /ay</span></div>
-                <span style={{ color: RED, fontWeight: 600, fontSize: 14 }}>Kirala →</span>
+        <div className="hk-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
+          {related.map((p) => (
+            <Link key={p.slug} to={`/hizla-kirala/${p.slug}`} style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(20,20,26,0.08)', textDecoration: 'none', color: INK }}>
+              <div style={{ background: CREAM, height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><RelatedThumb kind={p.glyph} /></div>
+              <div style={{ padding: 18 }}>
+                <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, letterSpacing: '0.12em', color: 'rgba(20,20,26,0.5)', textTransform: 'uppercase' }}>{p.brand}</div>
+                <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.2 }}>{p.name}</div>
+                <div style={{ marginTop: 12, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+                  <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 800, fontSize: 22, letterSpacing: '-0.03em' }}>{p.priceFrom} TL<span style={{ fontSize: 13, color: 'rgba(20,20,26,0.5)', fontWeight: 500 }}> /ay</span></div>
+                  <span style={{ color: RED, fontWeight: 600, fontSize: 14 }}>Kirala →</span>
+                </div>
               </div>
-            </div>
-          </a>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const CTABanner = () => (
   <section className="hk-section" style={{ background: RED, color: CREAM, padding: '64px 64px' }}>
@@ -697,25 +763,24 @@ const RESPONSIVE_CSS = `
 }
 `;
 
-export default function HizlaKiralaUrun() {
+function ProductPage({ product }: { product: ProductDetail }) {
   useSeo({
-    title: 'Anker Nebula Apollo Taşınabilir Projeksiyon — Kiralık | On Music × Hızla Kirala',
-    description:
-      '200 ANSI lümen, 4 saat pil, Android TV ve dahili Bluetooth hoparlör ile Anker Nebula Apollo projeksiyon kiralama. Aylık 1.850 TL\'den, 24 saatte kapıda. iyzico güvencesi, 2 yıl garanti.',
-    path: '/hizla-kirala/anker-nebula-apollo',
-    keywords: 'anker nebula apollo, projeksiyon kiralama, taşınabilir projeksiyon, kafe projeksiyon, etkinlik projeksiyon, hızla kirala, on music',
+    title: `${product.brand} ${product.name} ${product.tagline} — Kiralık | On Music × Hızla Kirala`,
+    description: product.short,
+    path: `/hizla-kirala/${product.slug}`,
+    keywords: `${product.brand} ${product.name}, ${product.category} kiralama, ${product.tagline}, hızla kirala, on music`,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Product',
-      name: 'Anker Nebula Apollo Taşınabilir Projeksiyon',
-      brand: { '@type': 'Brand', name: 'Anker' },
-      category: 'Projeksiyon',
-      description: '200 ANSI lümen parlaklık, 4 saat pil ömrü, dahili Android TV ve 8W Bluetooth hoparlör ile taşınabilir projeksiyon. Kafe, etkinlik ve geçici sinema kurulumları için kiralık.',
+      name: `${product.brand} ${product.name} ${product.tagline}`,
+      brand: { '@type': 'Brand', name: product.brand },
+      category: product.category,
+      description: product.short,
       offers: {
         '@type': 'Offer',
         priceCurrency: 'TRY',
-        price: '1850',
-        url: 'https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo',
+        price: product.priceFrom.replace('.', ''),
+        url: `https://onmuzikproje.com/hizla-kirala/${product.slug}`,
         availability: 'https://schema.org/InStock',
         seller: { '@type': 'Organization', name: 'On Muzik Proje × Hızla Kirala' },
       },
@@ -727,14 +792,35 @@ export default function HizlaKiralaUrun() {
       <style>{RESPONSIVE_CSS}</style>
       <div style={{ background: CREAM, color: INK, fontFamily: 'Inter, sans-serif' }}>
         <Nav />
-        <Breadcrumb />
-        <ProductHero />
-        <Highlights />
-        <Description />
-        <Related />
+        <Breadcrumb product={product} />
+        <ProductHero product={product} />
+        <Highlights product={product} />
+        <Description product={product} />
+        <Related product={product} />
         <CTABanner />
         <Footer />
       </div>
     </>
   );
 }
+
+export default function HizlaKiralaUrun() {
+  const { slug } = useParams<{ slug: string }>();
+  const product = slug ? getProduct(slug) : null;
+
+  if (!product) {
+    return <Navigate to="/hizla-kirala" replace />;
+  }
+
+  // Slug değiştiğinde state sıfırlansın (tab/term/active). React-router aynı
+  // komponenti yeniden kullanır; key'i useParams üzerinden değişen bir parent
+  // wrapper'a verirsek useState mount değişiminde sıfırlanır.
+  return (
+    <div data-product={product.slug} key={product.slug}>
+      <ProductPage product={product} />
+    </div>
+  );
+}
+
+// PRODUCTS yan etkisiz import için (typecheck'in unused warning vermemesi)
+export { PRODUCTS };

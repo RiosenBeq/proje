@@ -133,14 +133,14 @@ type Product = {
 };
 
 const PRODUCTS: Product[] = [
-  { brand: 'Anker',    name: 'Nebula Apollo Taşınabilir Projeksiyon',          tag: 'YENİ', price: '1.850', cat: 'Projeksiyon',     glyph: 'projector', spec: '200 ANSI · Android',   href: '/hizla-kirala/anker-nebula-apollo', internal: true },
-  { brand: 'Apple',    name: 'MacBook Neo 12" M4 · 16GB / 512GB',              tag: 'YENİ', price: '2.450', cat: 'Bilgisayar',      glyph: 'laptop',    spec: 'M4 · 16GB',            href: `${PARTNER_BASE}/urun/macbook-neo-m4` },
-  { brand: 'Sony',     name: 'PlayStation 5 Slim · 1TB',                       tag: null,    price: '1.850', cat: 'Oyun & Konsol',   glyph: 'console',   spec: '4K HDR',               href: `${PARTNER_BASE}/urun/playstation-5-slim` },
-  { brand: 'Meta',     name: 'Quest 3 VR Sanal Gerçeklik Gözlüğü · 128GB',     tag: 'YENİ', price: '2.300', cat: 'VR',              glyph: 'vr',        spec: 'Karma gerçeklik',      href: `${PARTNER_BASE}/urun/meta-quest-3` },
-  { brand: 'Apple',    name: 'iPhone 17 Pro · 256GB · Kozmik Turuncu',         tag: 'YENİ', price: '7.500', cat: 'Telefon',         glyph: 'phone',     spec: 'A19 Pro · Ti',         href: `${PARTNER_BASE}/urun/iphone-17-pro` },
-  { brand: 'Nintendo', name: 'Switch OLED Model',                              tag: null,    price: '1.030', cat: 'Handheld',        glyph: 'switch',    spec: '7" OLED',              href: `${PARTNER_BASE}/urun/nintendo-switch-oled` },
-  { brand: 'Xiaomi',   name: 'Mi Pro 4 Elektrikli Scooter',                    tag: null,    price: '2.350', cat: 'Mobilite',        glyph: 'scooter',   spec: 'Şehir içi · 45 km',    href: `${PARTNER_BASE}/urun/xiaomi-mi-pro-4` },
-  { brand: 'Dyson',    name: 'V15 Detect Kablosuz Süpürge',                    tag: 'YENİ', price: '1.600', cat: 'Akıllı Ev',       glyph: 'vacuum',    spec: 'Lazer · 60 dk',        href: `${PARTNER_BASE}/urun/dyson-v15-detect` },
+  { brand: 'Anker',    name: 'Nebula Apollo Taşınabilir Projeksiyon',          tag: 'YENİ', price: '1.850', cat: 'Projeksiyon',     glyph: 'projector', spec: '200 ANSI · Android',   href: '/hizla-kirala/anker-nebula-apollo',     internal: true },
+  { brand: 'Apple',    name: 'MacBook Neo 12" M4 · 16GB / 512GB',              tag: 'YENİ', price: '2.450', cat: 'Bilgisayar',      glyph: 'laptop',    spec: 'M4 · 16GB',            href: '/hizla-kirala/macbook-neo-m4',          internal: true },
+  { brand: 'Sony',     name: 'PlayStation 5 Slim · 1TB',                       tag: null,    price: '1.850', cat: 'Oyun & Konsol',   glyph: 'console',   spec: '4K HDR',               href: '/hizla-kirala/playstation-5-slim',     internal: true },
+  { brand: 'Meta',     name: 'Quest 3 VR Sanal Gerçeklik Gözlüğü · 128GB',     tag: 'YENİ', price: '2.300', cat: 'VR',              glyph: 'vr',        spec: 'Karma gerçeklik',      href: '/hizla-kirala/meta-quest-3',           internal: true },
+  { brand: 'Apple',    name: 'iPhone 17 Pro · 256GB · Kozmik Turuncu',         tag: 'YENİ', price: '7.500', cat: 'Telefon',         glyph: 'phone',     spec: 'A19 Pro · Ti',         href: '/hizla-kirala/iphone-17-pro',          internal: true },
+  { brand: 'Nintendo', name: 'Switch OLED Model',                              tag: null,    price: '1.030', cat: 'Handheld',        glyph: 'switch',    spec: '7" OLED',              href: '/hizla-kirala/nintendo-switch-oled',   internal: true },
+  { brand: 'Xiaomi',   name: 'Mi Pro 4 Elektrikli Scooter',                    tag: null,    price: '2.350', cat: 'Mobilite',        glyph: 'scooter',   spec: 'Şehir içi · 45 km',    href: '/hizla-kirala/xiaomi-mi-pro-4',        internal: true },
+  { brand: 'Dyson',    name: 'V15 Detect Kablosuz Süpürge',                    tag: 'YENİ', price: '1.600', cat: 'Akıllı Ev',       glyph: 'vacuum',    spec: 'Lazer · 60 dk',        href: '/hizla-kirala/dyson-v15-detect',       internal: true },
 ];
 
 const SITE_NAV: Array<{ label: string; to: string; external?: boolean }> = [
