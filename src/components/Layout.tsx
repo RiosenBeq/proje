@@ -12,6 +12,7 @@ const NAV = [
   { to: '/hizmetler', label: 'Hizmetler' },
   { to: '/mekanlar', label: 'Mekânlar' },
   { to: '/portfolyo', label: 'Projeler' },
+  { to: '/hizla-kirala', label: 'Kiralama' },
   { to: '/hakkimizda', label: 'Hakkımızda' },
   { to: '/sss', label: 'SSS' },
   { to: '/iletisim', label: 'İletişim' },
@@ -401,6 +402,7 @@ export default function Layout() {
                 <li><Link to="/bilgi-merkezi">Bilgi Merkezi</Link></li>
                 <li><Link to="/sss">SSS</Link></li>
                 <li><Link to="/servis-bakim">Servis & Bakım</Link></li>
+                <li><Link to="/hizla-kirala">Kiralama · Hizla Kirala</Link></li>
                 <li><Link to="/iletisim">İletişim</Link></li>
                 <li><Link to="/gizlilik-politikasi">Gizlilik</Link></li>
                 <li><Link to="/kvkk">KVKK</Link></li>
