@@ -209,7 +209,8 @@ const Hero = () => (
           fontFamily: '"JetBrains Mono", monospace', fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase',
           color: INK, marginBottom: 26,
         }}>
-          <span style={{ fontWeight: 600 }}>On Music ×</span>
+          <img src="/assets/on-music-logo-dark.png" alt="On Music" width="80" height="16" loading="eager" decoding="async" style={{ display: 'block', height: 16, width: 'auto' }} />
+          <span style={{ opacity: 0.55, fontWeight: 600 }}>×</span>
           <img src="/assets/hizla-kirala/hizlakirala-logo.png" alt="Hızla Kirala" width="78" height="14" loading="eager" decoding="async" style={{ display: 'block', height: 14, width: 'auto' }} />
           <span style={{ opacity: 0.55 }}>· resmi iş ortağı</span>
         </div>
@@ -255,7 +256,7 @@ const Hero = () => (
       </div>
 
       <div className="hk-hero-collage" style={{ position: 'relative', height: 540 }}>
-        <Link to="/hizla-kirala/anker-nebula-apollo" style={{ position: 'absolute', top: 0, right: 20, width: 280, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 18px 40px rgba(20,20,26,0.10)', border: '1px solid rgba(20,20,26,0.06)', textDecoration: 'none', color: 'inherit', display: 'block' }}>
+        <Link to="/hizla-kirala/anker-nebula-apollo" style={{ position: 'absolute', top: 0, right: 20, width: 280, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 18px 40px rgba(20,20,26,0.10)', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: 'inherit', display: 'block' }}>
           <div style={{ background: CREAM, borderRadius: 14, height: 170, marginBottom: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img src="https://api.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg" alt="Anker Nebula Apollo Taşınabilir Projeksiyon Cihazı" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
@@ -306,7 +307,7 @@ const Benefits = () => (
         ].map((b) => (
           <div key={b.n} style={{
             background: CREAM, borderRadius: 20, padding: 26,
-            border: '1px solid rgba(20,20,26,0.06)',
+            border: '1.5px solid rgba(20,20,26,0.14)',
             display: 'flex', flexDirection: 'column', gap: 14, minHeight: 240,
           }}>
             <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 13, color: RED, letterSpacing: '0.12em' }}>{b.n}</div>
@@ -333,7 +334,7 @@ const Categories = () => (
         {CATS.map((c) => (
           <a key={c.name} href={c.href} target="_blank" rel="noopener noreferrer sponsored" style={{
             background: '#fff', borderRadius: 20, padding: '24px 22px',
-            border: '1px solid rgba(20,20,26,0.06)',
+            border: '1.5px solid rgba(20,20,26,0.14)',
             textDecoration: 'none', color: INK,
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
             minHeight: 230, transition: 'all .2s',
@@ -350,7 +351,7 @@ const Categories = () => (
         ))}
         <a href={PARTNER_BASE} target="_blank" rel="noopener noreferrer sponsored" style={{
           background: INK, color: CREAM, borderRadius: 20, padding: '24px 22px',
-          border: '1px solid rgba(20,20,26,0.06)',
+          border: '1.5px solid rgba(245,239,226,0.14)',
           textDecoration: 'none',
           display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
           minHeight: 230, transition: 'all .2s', position: 'relative', overflow: 'hidden',
@@ -382,10 +383,10 @@ function renderProductCard(p: Product) {
   return (
     <div key={p.name} style={{
     background: '#fff', borderRadius: 22, overflow: 'hidden',
-    border: '1px solid rgba(20,20,26,0.06)',
+    border: '1.5px solid rgba(20,20,26,0.14)',
     display: 'flex', flexDirection: 'column', transition: 'transform .2s',
   }}>
-    <div style={{ background: CREAM, height: 220, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ background: CREAM, height: 220, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid rgba(20,20,26,0.10)' }}>
       <img src={p.image} alt={`${p.brand} ${p.name}`} loading="lazy" decoding="async" style={{ maxWidth: '88%', maxHeight: '88%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
       {p.tag && (
         <span style={{
@@ -498,7 +499,7 @@ const HowItWorks = () => (
           { n: '04', t: 'İade et',   d: 'Süre bitince ücretsiz kurye iadesi. Uzatmak istersen tek tıkla.' },
         ].map((s, i) => (
           <div key={s.n} style={{
-            background: '#1d1d24', border: '1px solid rgba(245,239,226,0.08)', borderRadius: 20,
+            background: '#1d1d24', border: '1.5px solid rgba(245,239,226,0.14)', borderRadius: 20,
             padding: 26, position: 'relative',
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 28 }}>
@@ -509,6 +510,13 @@ const HowItWorks = () => (
             <div style={{ fontSize: 15, lineHeight: 1.5, color: 'rgba(245,239,226,0.65)' }}>{s.d}</div>
           </div>
         ))}
+      </div>
+      <div style={{ textAlign: 'center', marginTop: 40 }}>
+        <a href={`${PARTNER_BASE}/nasil-calisir`} target="_blank" rel="noopener noreferrer sponsored" style={{
+          display: 'inline-flex', alignItems: 'center', gap: 10,
+          background: CREAM, color: INK, padding: '14px 26px', borderRadius: 999,
+          fontWeight: 600, fontSize: 16, textDecoration: 'none',
+        }}>Tüm süreci hizlakirala.com'da gör <span style={{ color: RED }}>→</span></a>
       </div>
     </div>
   </section>
