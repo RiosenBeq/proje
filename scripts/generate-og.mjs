@@ -132,17 +132,24 @@ await sharp(Buffer.from(svg))
 
 console.log(`✓ og-image.png  (1200×630)  → public/assets/og-image.png`);
 
-// Also generate a 32×32 favicon from the disc
-await sharp(resolve(ROOT, 'public/assets/on-music-disc.png'))
-  .resize(32, 32, { fit: 'cover' })
-  .png()
-  .toFile(OUT_FAVICON);
-console.log(`✓ favicon.png   (32×32)     → public/favicon.png`);
+// Render the SVG favicon into raster sizes for legacy browsers / OG fallbacks.
+const faviconSvg = readFileSync(resolve(ROOT, 'public/favicon.svg'));
+for (const size of [16, 32, 48, 192]) {
+  const out = size === 32
+    ? OUT_FAVICON
+    : resolve(ROOT, `public/favicon-${size}.png`);
+  await sharp(faviconSvg)
+    .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .png({ compressionLevel: 9 })
+    .toFile(out);
+  console.log(`✓ favicon-${size}  → ${out.replace(ROOT + '/', '')}`);
+}
 
-// Apple touch icon (180×180)
-await sharp(resolve(ROOT, 'public/assets/on-music-disc.png'))
-  .resize(180, 180, { fit: 'cover' })
-  .png()
+// Apple touch icon (180×180) — rendered from the brand favicon SVG so the badge
+// stays sharp on iOS home screens.
+await sharp(faviconSvg)
+  .resize(180, 180, { fit: 'contain', background: { r: 20, g: 17, b: 12, alpha: 1 } })
+  .png({ compressionLevel: 9 })
   .toFile(resolve(ROOT, 'public/apple-touch-icon.png'));
 console.log(`✓ apple-touch-icon (180×180) → public/apple-touch-icon.png`);
 
