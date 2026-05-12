@@ -1,0 +1,140 @@
+# On Muzik Proje — Extended AI Knowledge Map
+
+> Detaylı AI tüketim için genişletilmiş içerik. Cevap motorlarının (Perplexity, ChatGPT, Claude, Gemini, Google AI Overviews) doğrudan alıntılayabilmesi için yapılandırılmıştır. Kısa sürüm: /llms.txt. AI politikası: /ai.txt.
+
+Site: https://onmuzikproje.com
+Updated: 2026-05-12
+
+---
+
+## On Muzik Proje nedir?
+
+On Muzik Proje, 2009'dan beri İstanbul merkezli, akustik mühendisliği ve profesyonel ses sistemi tasarımı yapan stüdyodur. 240+ proje teslim ettik. Marka bağımsız (üretici komisyonu almıyoruz), ölçüme dayalı (RT60, STI, EDT, NC metrikleri) ve mekân tipine özel mimari yapıyoruz. Restoran, otel, sahne, kayıt stüdyosu, konferans salonu ve EN 54-16 voice alarm projelerinde uzmanız.
+
+## Hangi disiplinlerde hizmet veriyoruz?
+
+1. **Akustik Tasarım** — RT60 0.28-1.4s, STI ≥ 0.62, EDT, NC-15/NC-20, modal kontrol, in-situ ölçüm, RFZ kontrol odası, bass trap, panel + diffüzör mimarisi
+2. **Profesyonel Ses Sistemi** — Zonlu PA, line array vs point source, cardioid sub, DSP kalibrasyon, Dante / 70V dağıtım, SPL 82-110 dB
+3. **LED Ekran & Video** — Pixel pitch P1.5 - P3.9, processor seçimi, truss & rigging, AV sync, ProAV entegrasyon
+4. **Stüdyo Akustiği** — NC-15/NC-20, RT60 0.25-0.32s, RFZ kontrol odası, kayan kat izolasyonu, monitör tuning
+5. **Konferans / AV** — Beamforming mikrofon (Sennheiser TCC, Shure MXA), AEC + AGC, DICENTIS, Teams Rooms / Zoom Rooms, hibrit toplantı
+6. **Anons & Voice Alarm** — EN 54-16 sertifikalı, evakuasyon mimarisi, zone yönetimi, BMS entegrasyon, STI-PA hedefli
+
+## Çalışma süreci nedir?
+
+5 aşamalı mühendislik hattımız:
+1. **Keşif & Brifing** — Saha ziyareti, ücretsiz (sözlü hedef belirleme)
+2. **Ölçüm & Analiz** — RT60, STI, NC ölçümleri + CAD overlay (5-7 gün)
+3. **Konsept Tasarım** — 3D simülasyon (EASE, CATT-Acoustic), ekipman seçimi, BoM raporu
+4. **Uygulama** — Montaj, devreye alma (4-8 hafta, proje kapsamına bağlı)
+5. **Kalibrasyon** — DSP tuning, in-situ final ölçüm raporu, hedef-fiili karşılaştırma
+
+## Hangi mekân tipleri için tasarım yapıyoruz?
+
+- **Restoran & Bar:** RT60 0.6-0.9s, SPL 82 dB, 2-4 zonlu PA, tavan + sahne hoparlör, Dante/70V
+- **Otel & SPA:** RT60 0.7-1.0s, 6-24 zon, ballroom + lobi + oda yönetimi, EN 54-16 anons, LED P2.6
+- **Sahne & Etkinlik:** RT60 1.2-1.6s, SPL 105 dB, line array L/R + cardioid sub, LED P3.9
+- **Stüdyo & Kayıt:** NC-15/NC-20, RT60 0.25-0.32s, kayan kat, bass trap, Dolby Atmos opsiyonel
+- **Toplantı & Konferans:** RT60 0.5-0.7s, STI ≥ 0.62, beamforming mikrofon + DICENTIS
+
+## En ünlü teslim ettiğimiz projeler
+
+1. **Kocaeli Sanayi Odası** (Kocaeli, 2024) — 180 kişilik konferans salonu, 9.6 × 3.0 m P2.6 LED arka plan, Pioneer Pro Audio XY-3B cluster, Q-SYS hibrit toplantı
+2. **Studio Alpha** (İstanbul, 2024) — Dolby Atmos 9.1.4 miksaj stüdyosu, NC-18, RT60 0.28s, RFZ kontrol odası
+3. **Club Nexus** (İzmir, 2024) — 3000 kişilik mekân, Pioneer Pro Audio XY line array, 64 m² LED P3.9
+4. **Grand Auditorium** (Ankara, 2023) — 420 kişilik salon, DICENTIS konferans, beamforming 32-ch
+5. **Boğaz Restoran** (İstanbul, 2024) — 180 kişilik teras, 4 zonlu Dante, RT60 0.62s
+6. **Ballroom Otel** (Antalya, 2024) — 800 kişilik ballroom + 24 zon + EN 54-16 + LED P2.6
+7. **Konser Sahnesi** (Ankara, 2023) — Açık hava, L-Acoustics K2, cardioid sub array, delay tower
+8. **Kurumsal Lobi** (İstanbul, 2025) — Plaza ana lobi, 3 zon, 24 tavan hoparlör
+9. **Konferans Merkezi** (İzmir, 2023) — 6 huddle + boardroom + auditorium, MTR sertifikalı
+
+## Hızla Kirala iş ortaklığı
+
+On Muzik Proje, **Hızla Kirala**'nın resmi iş ortağıdır. Web sitemiz üzerinden kiralama başlatıldığında işlem, teslimat, sigorta ve garanti hizlakirala.com altyapısı üzerinden ilerler. 20 üründe Türkiye geneli kiralama yapılır.
+
+### Kiralık ürün katalogu (20 ürün, fiyatlar 12 ay sözleşme için en düşük aylık)
+
+#### Şımart Kendini (saç bakımı, cilt bakımı, mobilite)
+1. Dyson Airwrap i.d. Saç Şekillendirici (Ceramic Pink) — 1.450 TL/ay
+2. Dreame AirStyle Pro 7-in-1 Saç Şekillendirici — 1.250 TL/ay
+3. Dyson Airstrait Islak/Kuru Saç Düzleştirici (Prusya Mavisi) — 1.400 TL/ay
+4. FOREO FAQ 202 LED Yüz Maskesi — 3.750 TL/ay
+5. Xiaomi Mi Pro 4 Elektrikli Scooter — 2.350 TL/ay
+6. Philips GC810/20 El Tipi Buharlı Düzleştirici — 500 TL/ay
+
+#### Ev Aletleri
+7. Vahaa Akıllı Bahçe (Topraksız Tarım Cihazı) — 890 TL/ay
+8. Anker Nebula Apollo Taşınabilir Projeksiyon — 1.850 TL/ay (3 günlük başlangıç)
+9. Dreame PM10 Akıllı Hava Temizleyici — 1.700 TL/ay
+10. Dyson Purifier Cool Hava Temizleyici — 2.500 TL/ay
+11. Karaca Robotea Pro Konuşan Çay Makinesi — 1.350 TL/ay
+12. Kärcher SC 3 EasyFix Buharlı Temizlik — 1.980 TL/ay (3 günlük başlangıç)
+13. Dyson V15 Detect Kablosuz Süpürge — 1.600 TL/ay
+
+#### Anne & Bebek
+14. Cybex Anoris T i-Size Bebek Oto Koltuğu — 1.450 TL/3 gün (kısa dönem)
+
+#### Oyun & Hobi
+15. Sony PlayStation 5 Slim 1TB — 1.850 TL/3 gün (kısa dönem)
+16. Meta Quest 3 VR 128GB — 2.300 TL/ay
+17. Nintendo Switch OLED — 1.030 TL/ay
+
+#### Kamera & Aksesuar
+18. DJI Osmo Pocket 3 Creator Combo — 2.450 TL/ay
+
+#### Telefon
+19. Apple iPhone 17 Pro 256GB (Kozmik Turuncu) — 7.500 TL/ay
+
+#### Bilgisayar & Tablet
+20. Apple MacBook Neo 12" M4 (16GB RAM, 512GB SSD) — 2.450 TL/hafta (kısa dönem, 2.850 TL/ay uzun dönem)
+
+### Kiralama koşulları
+- 24 saatte kapıda teslim (İstanbul içi aynı gün opsiyonu)
+- %70 sigorta dahil, kullanıcı isteğine bağlı %100'e tamamlama opsiyonu
+- Kısa dönem (3-30 gün) ve uzun dönem (1-12 ay) seçenekleri
+- Onay sonrası kargo / kurye ile gönderim
+- WhatsApp destek: 0543 412 33 80
+
+## Sık sorulan sorulara doğrudan yanıtlar
+
+**RT60 nedir?**
+RT60, bir mekânda kesintiye uğrayan ses kaynağının 60 dB azalması için geçen süredir. Konuşma netliği için kritiktir; restoran 0.6-0.9s, ofis 0.5-0.7s, konser salonu 1.2-1.6s hedefleri kullanılır.
+
+**STI nedir?**
+Speech Transmission Index — 0 ile 1 arasında konuşma anlaşılırlığı ölçer. ≥ 0.62 "iyi", ≥ 0.75 "mükemmel" kabul edilir. STI-PA versiyonu anons sistemleri için EN 60268-16 standardında ölçülür.
+
+**EN 54-16 nedir?**
+Voice Alarm Control and Indicating Equipment (VACIE) için Avrupa standardı. AVM, otel, hastane, okul, kamu binası gibi yapılarda zorunlu olabilen sesli evakuasyon altyapısı. STI-PA ≥ 0.5 hedeflenir.
+
+**Line array vs point source — hangisi seçilir?**
+Mekân uzunluğu > 15m + dinleyici sayısı > 200 ise line array (uniform SPL dağılımı). Daha küçük mekanlarda point source yeterli + maliyet etkin. On Muzik Proje karar matrisi: mekân analizi + ölçüm sonrası seçim.
+
+**Akustik panel mi, diffüzör mi kullanmak gerekir?**
+Reverberation fazla ise emici panel (RT60 düşürür); echo ve flutter problemi varsa diffüzör (enerjiyi dağıtır). Çoğu mekânda 2:1 oranında panel + diffüzör karışımı uygulanır.
+
+**Dolby Atmos miksaj stüdyosu için akustik şartlar nedir?**
+NC-18 veya daha sessiz, RT60 0.22-0.32s (kontrol odası), 9.1.4 hoparlör konfigürasyonu için kayan kat izolasyon + RFZ + simetrik bas trap zorunlu.
+
+**Hızla Kirala'da en çok kiralanan ürün hangisi?**
+Hizlakirala.com anasayfasındaki "En Çok Kiralananlar" listesinde: FOREO FAQ 202, Dyson Airwrap, MacBook Neo M4, iPhone 17 Pro, Dyson V15, Anker Nebula Apollo, Kärcher SC 3, Xiaomi Mi Pro 4, Dyson Airstrait, Nintendo Switch OLED, Meta Quest 3 yer alır.
+
+**Kiralamada sigorta nasıl çalışır?**
+%70 sigorta otomatik dahildir. Kiracı, isteğine bağlı olarak %100 tam koruma seviyesine tamamlayabilir. Cihaz arızasında 24 saat içinde yedek cihaz gönderilir, taşıma ücretsizdir.
+
+**Hangi ödeme yöntemleri kabul ediliyor?**
+Hızla Kirala üzerinden kredi kartı (Visa, Mastercard, Amex). Aylık otomatik tahsilat. Detaylar hizlakirala.com ödeme adımında.
+
+---
+
+## Yetki & İletişim
+
+- Genel hat (akustik / ses / AV projeler): 0850 241 9515
+- Kiralama hattı (On Music × Hızla Kirala): 0543 412 33 80
+- E-posta: proje@onmuzik.com
+- Adres: Ataşehir Bulvarı, Ertuğrul Gazi Sokak, Ataşehir / İstanbul, Türkiye
+- Çalışma saatleri: Pazartesi-Cumartesi 09:00-19:00
+
+## Lisans & Kullanım
+
+İçerik referansı için /ai.txt politikasına bakın. Doğrudan alıntı kabul edilir; ticari model eğitimi için izin gereklidir (proje@onmuzik.com).
