@@ -14,6 +14,35 @@ const OUT_FAVICON = resolve(ROOT, 'public/favicon.png');
 
 mkdirSync(dirname(OUT_PNG), { recursive: true });
 
+// Multi-resolution ICO encoder. Her giriş bir PNG buffer'ı + boyut bilgisi.
+// ICO formatı: 6 byte header + N×16 byte directory entry + ardışık PNG verisi.
+// Width/Height = 0 → 256 (ICO spec). Bizim boyutlarımız ≤ 48 olduğu için sorun yok.
+function pngsToIco(entries) {
+  const count = entries.length;
+  const header = Buffer.alloc(6);
+  header.writeUInt16LE(0, 0); // reserved
+  header.writeUInt16LE(1, 2); // type = 1 (icon)
+  header.writeUInt16LE(count, 4);
+
+  const directories = [];
+  let offset = 6 + 16 * count;
+  for (const { size, buffer } of entries) {
+    const dir = Buffer.alloc(16);
+    dir.writeUInt8(size >= 256 ? 0 : size, 0); // width
+    dir.writeUInt8(size >= 256 ? 0 : size, 1); // height
+    dir.writeUInt8(0, 2);                       // palette colors
+    dir.writeUInt8(0, 3);                       // reserved
+    dir.writeUInt16LE(1, 4);                    // color planes
+    dir.writeUInt16LE(32, 6);                   // bits per pixel
+    dir.writeUInt32LE(buffer.length, 8);        // image data size
+    dir.writeUInt32LE(offset, 12);              // image data offset
+    directories.push(dir);
+    offset += buffer.length;
+  }
+
+  return Buffer.concat([header, ...directories, ...entries.map((e) => e.buffer)]);
+}
+
 // Read the disc PNG once and embed it inside the SVG as a data URI so the SVG
 // renderer doesn't try to fetch it.
 const discBase64 = readFileSync(resolve(ROOT, 'public/assets/on-music-disc.png')).toString('base64');
@@ -133,17 +162,29 @@ await sharp(Buffer.from(svg))
 console.log(`✓ og-image.png  (1200×630)  → public/assets/og-image.png`);
 
 // Render the SVG favicon into raster sizes for legacy browsers / OG fallbacks.
+// 96/144 sizes added: Google önerir (48 katları), arama sonuçlarındaki favicon
+// rozeti için 48px+ kaynak gerekiyor.
 const faviconSvg = readFileSync(resolve(ROOT, 'public/favicon.svg'));
-for (const size of [16, 32, 48, 192]) {
+const icoSizes = [16, 32, 48];
+const icoBuffers = [];
+for (const size of [16, 32, 48, 96, 144, 192]) {
   const out = size === 32
     ? OUT_FAVICON
     : resolve(ROOT, `public/favicon-${size}.png`);
-  await sharp(faviconSvg)
+  const buf = await sharp(faviconSvg)
     .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png({ compressionLevel: 9 })
-    .toFile(out);
+    .toBuffer();
+  writeFileSync(out, buf);
+  if (icoSizes.includes(size)) icoBuffers.push({ size, buffer: buf });
   console.log(`✓ favicon-${size}  → ${out.replace(ROOT + '/', '')}`);
 }
+
+// favicon.ico (multi-resolution: 16/32/48 embedded PNG'ler).
+// Google'ın crawler'ı bu URL'yi her zaman ister; <link rel="icon"> yetmez.
+const ico = pngsToIco(icoBuffers);
+writeFileSync(resolve(ROOT, 'public/favicon.ico'), ico);
+console.log(`✓ favicon.ico (16+32+48 multi) → public/favicon.ico`);
 
 // Apple touch icon (180×180) - rendered from the brand favicon SVG so the badge
 // stays sharp on iOS home screens.

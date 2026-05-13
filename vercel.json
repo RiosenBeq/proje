@@ -7,6 +7,10 @@
     { "source": "/robots.txt",                  "destination": "/robots.txt" },
     { "source": "/llms.txt",                    "destination": "/llms.txt" },
     { "source": "/manifest.webmanifest",        "destination": "/manifest.webmanifest" },
+    { "source": "/favicon.ico",                 "destination": "/favicon.ico" },
+    { "source": "/favicon.svg",                 "destination": "/favicon.svg" },
+    { "source": "/favicon(.*).png",             "destination": "/favicon$1.png" },
+    { "source": "/apple-touch-icon.png",        "destination": "/apple-touch-icon.png" },
     { "source": "/((?!.*\\.[a-zA-Z0-9]+$).*)",  "destination": "/index.html" }
   ],
   "headers": [
@@ -26,6 +30,27 @@
       "source": "/(sitemap\\.xml|robots\\.txt|llms\\.txt|manifest\\.webmanifest)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        { "key": "Content-Type", "value": "image/x-icon" },
+        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/favicon.svg",
+      "headers": [
+        { "key": "Content-Type", "value": "image/svg+xml" },
+        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/(favicon(?:-\\d+)?\\.png|apple-touch-icon\\.png)",
+      "headers": [
+        { "key": "Content-Type", "value": "image/png" },
+        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
       ]
     },
     {
