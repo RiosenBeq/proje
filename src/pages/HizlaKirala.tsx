@@ -222,7 +222,7 @@ const Hero = () => (
         <Link to="/hizla-kirala/anker-nebula-apollo" className="hk-hero-anker" style={{ position: 'absolute', top: 8, right: 0, width: 308, background: '#fff', borderRadius: 22, padding: 18, boxShadow: '0 22px 48px rgba(20,20,26,0.14)', border: '1.5px solid rgba(20,20,26,0.14)', textDecoration: 'none', color: 'inherit', display: 'block', zIndex: 3 }}>
           <span style={{ position: 'absolute', top: 14, left: 14, background: RED, color: CREAM, fontFamily: '"JetBrains Mono", monospace', fontSize: 9, fontWeight: 600, letterSpacing: '0.1em', padding: '3px 8px', borderRadius: 999, zIndex: 2 }}>ÇOK KİRALANAN</span>
           <div style={{ background: CREAM, borderRadius: 14, height: 210, marginBottom: 14, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/hk-img/01KKH2M0E907VV6SFN50PGQ270.jpg" alt="Anker Nebula Apollo Taşınabilir Projeksiyon Cihazı" loading="lazy" decoding="async" style={{ maxWidth: '92%', maxHeight: '92%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+            <img src="https://data.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg" alt="Anker Nebula Apollo Taşınabilir Projeksiyon Cihazı" loading="lazy" decoding="async" style={{ maxWidth: '92%', maxHeight: '92%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: 'rgba(20,20,26,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Anker</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 19, letterSpacing: '-0.02em', marginTop: 4, lineHeight: 1.2 }}>Nebula Apollo Projeksiyon</div>
@@ -232,7 +232,7 @@ const Hero = () => (
         {/* Dyson - sol-orta, hafif sola eğik */}
         <Link to="/hizla-kirala/dyson-airwrap" className="hk-hero-dyson" style={{ position: 'absolute', top: 290, left: 0, width: 232, background: INK, color: CREAM, borderRadius: 22, padding: 16, transform: 'rotate(-4deg)', boxShadow: '0 18px 40px rgba(20,20,26,0.28)', textDecoration: 'none', display: 'block', zIndex: 1 }}>
           <div style={{ background: CREAM, borderRadius: 12, height: 132, marginBottom: 10, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/hk-img/01KKH3YA4THFSY8EG0RSV3CDWE.webp" alt="Dyson Airwrap ID Ceramic Pink Saç Şekillendirici" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+            <img src="https://data.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp" alt="Dyson Airwrap ID Ceramic Pink Saç Şekillendirici" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 10, color: 'rgba(245,239,226,0.55)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Dyson</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 16, letterSpacing: '-0.02em', marginTop: 4 }}>Airwrap ID</div>
@@ -242,7 +242,7 @@ const Hero = () => (
         {/* PS5 - sağ-alt, hafif sağa eğik */}
         <Link to="/hizla-kirala/playstation-5-slim" className="hk-hero-ps5" style={{ position: 'absolute', bottom: 0, right: 90, width: 240, background: RED, color: CREAM, borderRadius: 22, padding: 16, transform: 'rotate(5deg)', boxShadow: '0 22px 44px rgba(248,56,72,0.34)', textDecoration: 'none', display: 'block', zIndex: 2 }}>
           <div style={{ background: CREAM, borderRadius: 12, height: 144, marginBottom: 10, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/hk-img/01KF6951YBD8S78SSYDB1N0FAG.webp" alt="Sony PlayStation 5 Slim 1TB Oyun Konsolu" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+            <img src="https://data.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp" alt="Sony PlayStation 5 Slim 1TB Oyun Konsolu" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 10, opacity: 0.85, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Sony</div>
           <div style={{ fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, fontSize: 16, letterSpacing: '-0.02em', marginTop: 4 }}>PlayStation 5 Slim</div>

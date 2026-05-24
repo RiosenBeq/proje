@@ -586,7 +586,9 @@ const FAQ_ITEMS: Array<[string, string]> = [
 
 function ProductPage({ product }: { product: ProductDetail }) {
   const url = `${SITE}/hizla-kirala/${product.slug}`;
-  const imageAbs = product.images.map((img) => `${SITE}${img}`);
+  // product.images mutlak URL ise (data.hizlakirala.com), olduğu gibi kullan;
+  // değilse SITE prefix ekle (legacy /hk-img veya /assets path'leri için).
+  const imageAbs = product.images.map((img) => (/^https?:\/\//.test(img) ? img : `${SITE}${img}`));
   const price = product.priceFrom.replace('.', '');
 
   // İleri SEO: 5 ayrı JSON-LD bloku.
