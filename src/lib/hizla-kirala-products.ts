@@ -87,11 +87,12 @@ export type ProductDetail = {
 };
 
 const PARTNER_BASE = 'https://www.hizlakirala.com';
-// Hizla Kirala CDN'inde her ürün görseli ULID isimle hostlanıyor. Tarayıcı
-// doğrudan istek atarsa CDN "Host not in allowlist" döner; bu yüzden Vercel
-// üzerinde çalışan /api/hk-img proxy'sine yönlendiriyoruz (api/hk-img.ts).
-// vercel.json /hk-img/<dosya> rewrite'ı görsel URL'lerini temiz + indexlenebilir tutuyor.
-const CDN = '/hk-img/';
+// Hizla Kirala'nın canlı görsel CDN'i: data.hizlakirala.com. Hızla Kirala'nın
+// kendi Next.js sitesi de bu domain'i preconnect ediyor ve görselleri buradan
+// servis ediyor. Tarayıcıdan direkt hot-link açık — bu yüzden /hk-img proxy
+// adımına ihtiyacımız yok (proxy `/api/hk-img` hâlâ fallback olarak duruyor,
+// gerekirse <img onError> ile devreye alınabilir).
+const CDN = 'https://data.hizlakirala.com/storage/products/gallery/';
 
 const SHARED_BOX = [
   'on music kurulum kartı',
