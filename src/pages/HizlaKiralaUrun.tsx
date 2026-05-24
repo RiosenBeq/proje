@@ -598,6 +598,35 @@ function ProductPage({ product }: { product: ProductDetail }) {
   // 3. FAQPage - kiralama şartları sekmesi
   // 4. WebPage (productGroup için isPartOf)
   // 5. Organization - iş ortaklığı (parent on muzik proje'ye bağlı)
+  // Marka sameAs (resmi marka URL'leri). Hub sayfasındaki brandSameAs ile
+  // birebir aynı — Brand graph'ı tek bir kaynaktan tanımlamak için. Bilinmeyen
+  // marka için sameAs atlanır.
+  const BRAND_SAMEAS: Record<string, string> = {
+    Apple: 'https://www.apple.com/tr',
+    Sony: 'https://www.sony.com.tr',
+    Dyson: 'https://www.dyson.com.tr',
+    Nintendo: 'https://www.nintendo.com.tr',
+    Meta: 'https://www.meta.com',
+    Oculus: 'https://www.meta.com/quest',
+    Anker: 'https://www.anker.com',
+    Xiaomi: 'https://www.mi.com/tr',
+    DJI: 'https://www.dji.com',
+    Karaca: 'https://www.karaca.com',
+    'Kärcher': 'https://www.karcher.com/tr',
+    Cybex: 'https://cybex-online.com/tr-tr',
+    Dreame: 'https://tr.dreametech.com',
+    FOREO: 'https://www.foreo.com/tr',
+    Foreo: 'https://www.foreo.com/tr',
+    Philips: 'https://www.philips.com.tr',
+  };
+  const brandSameAs = BRAND_SAMEAS[product.brand];
+  const brandLd: Record<string, unknown> = {
+    '@type': 'Brand',
+    '@id': `${SITE}/hizla-kirala#brand-${product.brand.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+    name: product.brand,
+  };
+  if (brandSameAs) brandLd.sameAs = brandSameAs;
+
   const productLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -606,7 +635,7 @@ function ProductPage({ product }: { product: ProductDetail }) {
     alternateName: `${product.brand} ${product.name} ${product.tagline}`,
     description: product.short,
     image: imageAbs,
-    brand: { '@type': 'Brand', name: product.brand },
+    brand: brandLd,
     category: `${product.category} > ${product.subCategory}`,
     keywords: product.keywords.join(', '),
     audience: {
@@ -616,6 +645,7 @@ function ProductPage({ product }: { product: ProductDetail }) {
     sku: product.slug,
     mpn: product.slug,
     isRelatedTo: product.categoryHref,
+    isPartOf: { '@id': `${SITE}/hizla-kirala#catalog` },
     additionalProperty: product.specs.map(([k, v]) => ({
       '@type': 'PropertyValue',
       name: k,
@@ -623,6 +653,7 @@ function ProductPage({ product }: { product: ProductDetail }) {
     })),
     offers: {
       '@type': 'Offer',
+      '@id': `${url}#offer`,
       priceCurrency: 'TRY',
       price,
       url,
@@ -639,12 +670,18 @@ function ProductPage({ product }: { product: ProductDetail }) {
         unitCode: 'DAY',
       },
       businessFunction: 'https://purl.org/goodrelations/v1#LeaseOut',
+      // Hub sayfasındaki AggregateOffer ile aynı ShippingDetails ve
+      // ReturnPolicy entity'lerine referans veriyoruz — Google graph'ı
+      // @id ile birleştirir ve her ürün sayfası bu politikayı miras alır.
+      shippingDetails:        { '@id': `${SITE}/hizla-kirala#shipping` },
+      hasMerchantReturnPolicy:{ '@id': `${SITE}/hizla-kirala#return-policy` },
     },
   };
 
   const breadcrumb = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Anasayfa',         item: `${SITE}/` },
       { '@type': 'ListItem', position: 2, name: 'Kiralık Ürünler',  item: `${SITE}/hizla-kirala` },
@@ -667,14 +704,18 @@ function ProductPage({ product }: { product: ProductDetail }) {
   const webPage = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': url,
+    '@id': `${url}#webpage`,
     name: `${product.brand} ${product.name} ${product.tagline} - Kiralık`,
     url,
     inLanguage: 'tr-TR',
     isPartOf: { '@id': `${SITE}/#website` },
     primaryImageOfPage: { '@type': 'ImageObject', url: imageAbs[0] },
     mainEntity: { '@id': `${url}#product` },
-    breadcrumb: { '@type': 'BreadcrumbList' },
+    breadcrumb: { '@id': `${url}#breadcrumb` },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.hk-product-short', '.hk-faq-q', '.hk-faq-a'],
+    },
   };
 
   const partnership = {
@@ -704,6 +745,10 @@ function ProductPage({ product }: { product: ProductDetail }) {
     description: `${product.brand} ${product.name} kiralama: ${product.short} 24 saatte kapıda teslim, %70 sigorta dahil, isteyen %100'e tamamlayabilir. WhatsApp 0543 412 33 80.`,
     path: `/hizla-kirala/${product.slug}`,
     image: product.images[0],
+    // Hızla Kirala CDN'inden gelen ürün görselleri 1:1 aspect ratio (genelde
+    // 800×800 veya yakın). Facebook büyük kart için yeterli boyut.
+    imageWidth: 800,
+    imageHeight: 800,
     ogType: 'product',
     product: {
       priceAmount: price,
@@ -711,6 +756,21 @@ function ProductPage({ product }: { product: ProductDetail }) {
       availability: 'instock',
       brand: product.brand,
       category: product.category,
+    },
+    // Twitter App Card: marka + fiyat — chip olarak görünür.
+    twitterLabels: {
+      label1: 'Marka',
+      data1:  product.brand,
+      label2: 'Aylık fiyat',
+      data2:  `${product.priceFrom} TL`,
+    },
+    // GEO: Türkiye geneli teslimat ama merkez İstanbul/Ataşehir — yerel
+    // arama bağlamı hub sayfasıyla aynı.
+    geo: {
+      region:    'TR-34',
+      placename: 'İstanbul, Ataşehir',
+      position:  '40.9923;29.1244',
+      icbm:      '40.9923, 29.1244',
     },
     keywords: `${product.keywords.join(', ')}, ${product.brand} ${product.name} kiralama, ${product.brand} kiralama, ${product.category} kiralama, ${product.subCategory} kiralama, ${product.tagline}, ${product.brand} ${product.name} aylık kiralama, ${product.brand} ${product.name} günlük kiralama, hızla kirala, on music, on muzik proje`,
     jsonLd: [productLd, breadcrumb, faqPage, webPage, partnership],
