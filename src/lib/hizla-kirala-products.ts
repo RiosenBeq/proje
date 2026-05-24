@@ -1,5 +1,9 @@
 // Hizla Kirala canlı katalogundaki 20 ürünün tamamı.
-// Görseller hizlakirala.com CDN'inden (api.hizlakirala.com) hot-link.
+// Görseller Hızla Kirala CDN'inden (api.hizlakirala.com) /api/hk-img proxy'si
+// üzerinden çekiliyor — CDN doğrudan tarayıcı isteklerini "Host not in
+// allowlist" hatasıyla reddediyor, bu yüzden Vercel sunucumuz doğru
+// Referer/Origin başlıklarıyla yeniden istek yapıp Hızla Kirala'dan gelen
+// orijinal görseli istemciye iletir.
 // Fiyatlar hizlakirala.com'un canlı keşfet sayfasından alındı.
 // İsim + açıklama metinleri SEO açısından zenginleştirildi (uzun-kuyruk anahtar
 // kelimeler, marka + ürün + özellik üçlüsü, niyet sinyali "kiralama" eklendi).
@@ -83,8 +87,11 @@ export type ProductDetail = {
 };
 
 const PARTNER_BASE = 'https://www.hizlakirala.com';
-// Hizla Kirala CDN'inde her ürün görseli ULID isimle hostlanıyor.
-const CDN = 'https://api.hizlakirala.com/storage/products/gallery';
+// Hizla Kirala CDN'inde her ürün görseli ULID isimle hostlanıyor. Tarayıcı
+// doğrudan istek atarsa CDN "Host not in allowlist" döner; bu yüzden Vercel
+// üzerinde çalışan /api/hk-img proxy'sine yönlendiriyoruz (api/hk-img.ts).
+// vercel.json /hk-img/<dosya> rewrite'ı görsel URL'lerini temiz + indexlenebilir tutuyor.
+const CDN = '/hk-img/';
 
 const SHARED_BOX = [
   'on music kurulum kartı',
@@ -169,7 +176,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'wand',
-    images: [`${CDN}/01KKH3YA4THFSY8EG0RSV3CDWE.webp`],
+    images: [`${CDN}01KKH3YA4THFSY8EG0RSV3CDWE.webp`],
     tag: 'POPÜLER',
     priceFrom: '1.450',
     popular: true,
@@ -239,7 +246,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'wand',
-    images: [`${CDN}/01KKKJ7Q0QXJ43NMP690XXV2GS.jpg`],
+    images: [`${CDN}01KKKJ7Q0QXJ43NMP690XXV2GS.jpg`],
     tag: null,
     priceFrom: '1.250',
   },
@@ -306,7 +313,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'wand',
-    images: [`${CDN}/01KFJCTAAAWDJAZPBMK7ARP1ZH.webp`],
+    images: [`${CDN}01KFJCTAAAWDJAZPBMK7ARP1ZH.webp`],
     tag: null,
     priceFrom: '1.400',
     popular: true,
@@ -375,7 +382,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'mask',
-    images: [`${CDN}/01KKH6NNTN4CSB4WWTETVCYK4B.webp`],
+    images: [`${CDN}01KKH6NNTN4CSB4WWTETVCYK4B.webp`],
     tag: 'POPÜLER',
     priceFrom: '3.750',
     popular: true,
@@ -443,7 +450,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'scooter',
-    images: [`${CDN}/01KFN908M3HWPVSDG52MSWCWGW.webp`],
+    images: [`${CDN}01KFN908M3HWPVSDG52MSWCWGW.webp`],
     tag: null,
     priceFrom: '2.350',
     popular: true,
@@ -511,7 +518,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'iron',
-    images: [`${CDN}/01KFNGAPPXVAXVNGN2G3WGNFMX.webp`],
+    images: [`${CDN}01KFNGAPPXVAXVNGN2G3WGNFMX.webp`],
     tag: null,
     priceFrom: '500',
   },
@@ -581,7 +588,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'plant',
-    images: [`${CDN}/01KNHMSYWDV31KE74XMCEKZDKC.avif`],
+    images: [`${CDN}01KNHMSYWDV31KE74XMCEKZDKC.avif`],
     tag: null,
     priceFrom: '890',
   },
@@ -651,7 +658,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'projector',
-    images: [`${CDN}/01KKH2M0E907VV6SFN50PGQ270.jpg`],
+    images: [`${CDN}01KKH2M0E907VV6SFN50PGQ270.jpg`],
     tag: 'ÇOK KİRALANAN',
     priceFrom: '1.850',
     popular: true,
@@ -720,7 +727,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'fan',
-    images: [`${CDN}/01KKH0DSZGCJSQ0QSX3DKMHGFK.webp`],
+    images: [`${CDN}01KKH0DSZGCJSQ0QSX3DKMHGFK.webp`],
     tag: null,
     priceFrom: '1.700',
   },
@@ -787,7 +794,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'fan',
-    images: [`${CDN}/01KFJDHGTWGVSYR65E8NVJXX5E.webp`],
+    images: [`${CDN}01KFJDHGTWGVSYR65E8NVJXX5E.webp`],
     tag: null,
     priceFrom: '2.500',
   },
@@ -854,7 +861,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'kettle',
-    images: [`${CDN}/01KKH2PSAM1X8QN41S28HEFQF8.avif`],
+    images: [`${CDN}01KKH2PSAM1X8QN41S28HEFQF8.avif`],
     tag: null,
     priceFrom: '1.350',
   },
@@ -922,7 +929,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'vacuum',
-    images: [`${CDN}/01KKK8Y3Q6VJHRW9Q7H63HJ8KM.jpg`],
+    images: [`${CDN}01KKK8Y3Q6VJHRW9Q7H63HJ8KM.jpg`],
     tag: null,
     priceFrom: '1.980',
     popular: true,
@@ -993,7 +1000,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'vacuum',
-    images: [`${CDN}/01KFNFX3ATF6A6RD6Z6DF8PH4A.webp`],
+    images: [`${CDN}01KFNFX3ATF6A6RD6Z6DF8PH4A.webp`],
     tag: 'ÇOK KİRALANAN',
     priceFrom: '1.600',
     popular: true,
@@ -1064,7 +1071,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'bottle',
-    images: [`${CDN}/01KKGZX1JKWMJPYCJHQSMG2S6M.webp`],
+    images: [`${CDN}01KKGZX1JKWMJPYCJHQSMG2S6M.webp`],
     tag: null,
     priceFrom: '1.450',
   },
@@ -1134,7 +1141,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'console',
-    images: [`${CDN}/01KF6951YBD8S78SSYDB1N0FAG.webp`],
+    images: [`${CDN}01KF6951YBD8S78SSYDB1N0FAG.webp`],
     tag: null,
     priceFrom: '1.850',
   },
@@ -1203,7 +1210,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'vr',
-    images: [`${CDN}/01KFG8AZ4884YDW586D0QWMAW0.webp`],
+    images: [`${CDN}01KFG8AZ4884YDW586D0QWMAW0.webp`],
     tag: null,
     priceFrom: '2.300',
     popular: true,
@@ -1274,7 +1281,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'switch',
-    images: [`${CDN}/01KFJC3X2XSJGCS1C87T3EK1R0.webp`],
+    images: [`${CDN}01KFJC3X2XSJGCS1C87T3EK1R0.webp`],
     tag: null,
     priceFrom: '1.030',
     popular: true,
@@ -1347,7 +1354,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'camera',
-    images: [`${CDN}/01KFNH0B4D3HGTA3VPEB2B20VE.jpg`],
+    images: [`${CDN}01KFNH0B4D3HGTA3VPEB2B20VE.jpg`],
     tag: null,
     priceFrom: '2.450',
   },
@@ -1417,7 +1424,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'phone',
-    images: [`${CDN}/01KFX4B3K7VKFEYHK6EDTX95N3.webp`],
+    images: [`${CDN}01KFX4B3K7VKFEYHK6EDTX95N3.webp`],
     tag: 'PREMIUM',
     priceFrom: '7.500',
     popular: true,
@@ -1488,7 +1495,7 @@ export const PRODUCTS: ProductDetail[] = [
       ...SHARED_BOX,
     ],
     glyph: 'laptop',
-    images: [`${CDN}/01KKH1NMV49VNJE3J8ZC1BY2B4.jpg`],
+    images: [`${CDN}01KKH1NMV49VNJE3J8ZC1BY2B4.jpg`],
     tag: 'PREMIUM',
     priceFrom: '2.450',
     popular: true,
