@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Allow: /assets/
 Allow: /gallery/
+Allow: /hk-img/
 Disallow: /api/
 
 # Modern crawlers can follow our prefetch + ESM module imports - be explicit.

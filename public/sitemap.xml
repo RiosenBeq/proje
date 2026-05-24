@@ -40,27 +40,28 @@
   <url><loc>https://onmuzikproje.com/hakkimizda</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://onmuzikproje.com/sss</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://onmuzikproje.com/servis-bakim</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala</loc><lastmod>2026-05-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-airwrap</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dreame-airstyle-pro</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-airstrait</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/foreo-faq-202</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/xiaomi-mi-pro-4</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/philips-gc810-20</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/vahaa-akilli-bahce</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dreame-pm10</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-purifier-cool</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/karaca-robotea-pro</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/karcher-sc3-easyfix</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-v15-detect</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/cybex-anoris-t</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/playstation-5-slim</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/meta-quest-3</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/nintendo-switch-oled</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dji-osmo-pocket-3</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/iphone-17-pro</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/macbook-neo-m4</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- Kiralama hub - Anasayfa ile aynı seviyede öne çıkarılmış, günlük taze -->
+  <url><loc>https://onmuzikproje.com/hizla-kirala</loc><lastmod>2026-05-24</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-airwrap</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/dreame-airstyle-pro</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-airstrait</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/foreo-faq-202</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/xiaomi-mi-pro-4</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/philips-gc810-20</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/vahaa-akilli-bahce</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/dreame-pm10</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-purifier-cool</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/karaca-robotea-pro</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/karcher-sc3-easyfix</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-v15-detect</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/cybex-anoris-t</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/playstation-5-slim</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/meta-quest-3</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/nintendo-switch-oled</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/dji-osmo-pocket-3</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/iphone-17-pro</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://onmuzikproje.com/hizla-kirala/macbook-neo-m4</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://onmuzikproje.com/markalar</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://onmuzikproje.com/sertifikalar</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://onmuzikproje.com/iletisim</loc><lastmod>2026-05-12</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
