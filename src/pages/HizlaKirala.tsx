@@ -850,7 +850,7 @@ export default function HizlaKirala() {
     about: { '@id': PARTNER_ORG_ID },
     primaryImageOfPage: {
       '@type': 'ImageObject',
-      url: `${SITE}/assets/hizla-kirala/anker-nebula-apollo.png`,
+      url: `${SITE}/assets/hizla-kirala/og-image.png`,
     },
   };
 

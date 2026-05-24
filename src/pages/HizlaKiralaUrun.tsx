@@ -48,7 +48,7 @@ const Breadcrumb = ({ product }: { product: ProductDetail }) => (
 
 function Gallery({ product }: { product: ProductDetail }) {
   const [active, setActive] = useState(0);
-  const images = product.images.length ? product.images : ['/assets/hizla-kirala/placeholder.png'];
+  const images = product.images.length ? product.images : ['/assets/hizla-kirala/og-image.png'];
   const alt = `${product.brand} ${product.name}`;
 
   return (
