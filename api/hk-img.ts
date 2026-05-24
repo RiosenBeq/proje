@@ -22,6 +22,15 @@ const ALLOWED = /^[A-Za-z0-9]{16,40}\.(jpg|jpeg|png|webp|avif)$/;
 // Sırayla denenecek upstream URL şablonları. `{file}` yer tutucusu dosya
 // adıyla değiştirilir.
 const UPSTREAMS: Array<{ url: (file: string) => string; referer: string }> = [
+  // Hızla Kirala'nın Next.js sitesindeki canlı sayfa kaynağından doğrulandı:
+  // gerçek görsel CDN'i `data.hizlakirala.com` — `api.hizlakirala.com` artık
+  // (en azından statik medya için) kullanılmıyor ve "Host not in allowlist"
+  // hatasıyla cevap veriyor.
+  {
+    url:     (f) => `https://data.hizlakirala.com/storage/products/gallery/${f}`,
+    referer: 'https://hizlakirala.com/',
+  },
+  // Eski API CDN'i — bazı dosyalar hâlâ taşınmamış olabilir, yedek olarak dene.
   {
     url:     (f) => `https://api.hizlakirala.com/storage/products/gallery/${f}`,
     referer: 'https://www.hizlakirala.com/',
@@ -34,11 +43,10 @@ const UPSTREAMS: Array<{ url: (file: string) => string; referer: string }> = [
     url:     (f) => `https://hizlakirala.com/storage/products/gallery/${f}`,
     referer: 'https://hizlakirala.com/',
   },
-  // images.weserv.nl bağımsız Cloudflare-tabanlı public image proxy. Türkiye
-  // dahil global erişim. Hızla Kirala CDN'i Cloudflare IP'lerini izin
-  // veriyorsa bu üzerinden gelecek.
+  // images.weserv.nl bağımsız Cloudflare-tabanlı public image proxy.
+  // Doğrudan upstream'ler bir IP/coğrafi nedenle erişilemezse son şans.
   {
-    url:     (f) => `https://images.weserv.nl/?url=${encodeURIComponent(`api.hizlakirala.com/storage/products/gallery/${f}`)}`,
+    url:     (f) => `https://images.weserv.nl/?url=${encodeURIComponent(`data.hizlakirala.com/storage/products/gallery/${f}`)}`,
     referer: 'https://images.weserv.nl/',
   },
 ];
