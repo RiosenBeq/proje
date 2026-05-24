@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://onmuzikproje.com/</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://onmuzikproje.com/assets/og-image.png</image:loc>
+      <image:title>On Muzik Proje - Akustik ve Ses Mühendisliği</image:title>
+      <image:caption>İstanbul merkezli akustik tasarım, profesyonel ses sistemi, LED görüntü mimarisi ve konferans/AV çözümleri.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://onmuzikproje.com/assets/on-music-logo.png</image:loc>
+      <image:title>On Muzik Proje logosu</image:title>
+    </image:image>
   </url>
 
   <!-- Hizmetler -->
@@ -34,34 +44,265 @@
   <url><loc>https://onmuzikproje.com/projeler/konser-sahnesi</loc><lastmod>2026-05-12</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://onmuzikproje.com/projeler/kurumsal-lobi</loc><lastmod>2026-05-12</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://onmuzikproje.com/projeler/konferans-merkezi</loc><lastmod>2026-05-12</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://onmuzikproje.com/projeler/kocaeli-sanayi-odasi</loc><lastmod>2026-05-12</lastmod><changefreq>yearly</changefreq><priority>0.75</priority></url>
+  <url>
+    <loc>https://onmuzikproje.com/projeler/kocaeli-sanayi-odasi</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://onmuzikproje.com/assets/projects/kocaeli-sanayi-odasi/01-stage-wide.jpg</image:loc>
+      <image:title>Kocaeli Sanayi Odası - sahne genel görünüm</image:title>
+      <image:caption>Kocaeli Sanayi Odası konferans salonu ses ve LED ekran kurulumu - sahne geneli.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://onmuzikproje.com/assets/projects/kocaeli-sanayi-odasi/02-led-content.jpg</image:loc>
+      <image:title>Kocaeli Sanayi Odası - LED ekran içerik</image:title>
+      <image:caption>Sahne arkası LED ekranda canlı içerik aktarımı.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://onmuzikproje.com/assets/projects/kocaeli-sanayi-odasi/03-stage-night.jpg</image:loc>
+      <image:title>Kocaeli Sanayi Odası - gece sahne aydınlatması</image:title>
+      <image:caption>Etkinlik gecesi sahne aydınlatması ve ses sistemi.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://onmuzikproje.com/assets/projects/kocaeli-sanayi-odasi/04-pioneer-cluster.jpg</image:loc>
+      <image:title>Kocaeli Sanayi Odası - Pioneer hoparlör kümesi</image:title>
+      <image:caption>Pioneer Pro Audio sahne hoparlör kümesi yakın çekim.</image:caption>
+    </image:image>
+  </url>
 
   <!-- Kurumsal -->
   <url><loc>https://onmuzikproje.com/hakkimizda</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://onmuzikproje.com/sss</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://onmuzikproje.com/servis-bakim</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+
   <!-- Kiralama hub - Anasayfa ile aynı seviyede öne çıkarılmış, günlük taze -->
-  <url><loc>https://onmuzikproje.com/hizla-kirala</loc><lastmod>2026-05-24</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-airwrap</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dreame-airstyle-pro</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-airstrait</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/foreo-faq-202</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/xiaomi-mi-pro-4</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/philips-gc810-20</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/vahaa-akilli-bahce</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dreame-pm10</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-purifier-cool</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/karaca-robotea-pro</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/karcher-sc3-easyfix</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dyson-v15-detect</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/cybex-anoris-t</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/playstation-5-slim</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/meta-quest-3</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/nintendo-switch-oled</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/dji-osmo-pocket-3</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/iphone-17-pro</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://onmuzikproje.com/hizla-kirala/macbook-neo-m4</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://onmuzikproje.com/assets/hizla-kirala/og-image.png</image:loc>
+      <image:title>On Music × Hızla Kirala kiralık ürün katalogu</image:title>
+      <image:caption>20 üründe aylık kiralama: projeksiyon, MacBook, PS5, Dyson, FOREO, scooter, bebek koltuğu ve daha fazlası.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg</image:loc>
+      <image:title>Anker Nebula Apollo Taşınabilir Projeksiyon</image:title>
+      <image:caption>Hero kart - Anker Nebula Apollo projeksiyon cihazı, aylık 1.850 TL'den kiralık.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp</image:loc>
+      <image:title>Dyson Airwrap i.d. Saç Şekillendirici (Ceramic Pink)</image:title>
+      <image:caption>Hero kart - Dyson Airwrap i.d. saç şekillendirici, aylık 1.450 TL'den kiralık.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp</image:loc>
+      <image:title>Sony PlayStation 5 Slim 1TB</image:title>
+      <image:caption>Hero kart - Sony PlayStation 5 Slim oyun konsolu, aylık 1.850 TL'den kiralık.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/dyson-airwrap</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKH3YA4THFSY8EG0RSV3CDWE.webp</image:loc>
+      <image:title>Dyson Airwrap i.d. Ceramic Pink</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/dreame-airstyle-pro</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKKJ7Q0QXJ43NMP690XXV2GS.jpg</image:loc>
+      <image:title>Dreame AirStyle Pro</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/dyson-airstrait</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KFJCTAAAWDJAZPBMK7ARP1ZH.webp</image:loc>
+      <image:title>Dyson Airstrait Prusya Mavisi</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/foreo-faq-202</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKH6NNTN4CSB4WWTETVCYK4B.webp</image:loc>
+      <image:title>FOREO FAQ 202 LED Yüz Maskesi</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/xiaomi-mi-pro-4</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KFN908M3HWPVSDG52MSWCWGW.webp</image:loc>
+      <image:title>Xiaomi Mi Pro 4 Scooter</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/philips-gc810-20</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KFNGAPPXVAXVNGN2G3WGNFMX.webp</image:loc>
+      <image:title>Philips GC810/20 Buharlı Düzleştirici</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/vahaa-akilli-bahce</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KNHMSYWDV31KE74XMCEKZDKC.avif</image:loc>
+      <image:title>Vahaa Akıllı Bahçe İnox Gri</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/anker-nebula-apollo</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKH2M0E907VV6SFN50PGQ270.jpg</image:loc>
+      <image:title>Anker Nebula Apollo Projeksiyon</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/dreame-pm10</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKH0DSZGCJSQ0QSX3DKMHGFK.webp</image:loc>
+      <image:title>Dreame PM10 Hava Temizleyici</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/dyson-purifier-cool</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KFJDHGTWGVSYR65E8NVJXX5E.webp</image:loc>
+      <image:title>Dyson Purifier Cool</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/karaca-robotea-pro</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKH2PSAM1X8QN41S28HEFQF8.avif</image:loc>
+      <image:title>Karaca Robotea Pro</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/karcher-sc3-easyfix</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKK8Y3Q6VJHRW9Q7H63HJ8KM.jpg</image:loc>
+      <image:title>Kärcher SC 3 EasyFix</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/dyson-v15-detect</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KFNFX3ATF6A6RD6Z6DF8PH4A.webp</image:loc>
+      <image:title>Dyson V15 Detect</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/cybex-anoris-t</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKGZX1JKWMJPYCJHQSMG2S6M.webp</image:loc>
+      <image:title>Cybex Anoris T i-Size Bebek Oto Koltuğu</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/playstation-5-slim</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KF6951YBD8S78SSYDB1N0FAG.webp</image:loc>
+      <image:title>Sony PlayStation 5 Slim 1TB</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/meta-quest-3</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KFG8AZ4884YDW586D0QWMAW0.webp</image:loc>
+      <image:title>Meta Quest 3 VR 128GB</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/nintendo-switch-oled</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KFJC3X2XSJGCS1C87T3EK1R0.webp</image:loc>
+      <image:title>Nintendo Switch OLED</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/dji-osmo-pocket-3</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KFNH0B4D3HGTA3VPEB2B20VE.jpg</image:loc>
+      <image:title>DJI Osmo Pocket 3 Creator Combo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/iphone-17-pro</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KFX4B3K7VKFEYHK6EDTX95N3.webp</image:loc>
+      <image:title>Apple iPhone 17 Pro 256GB Kozmik Turuncu</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://onmuzikproje.com/hizla-kirala/macbook-neo-m4</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://data.hizlakirala.com/storage/products/gallery/01KKH1NMV49VNJE3J8ZC1BY2B4.jpg</image:loc>
+      <image:title>Apple MacBook Neo 12&quot; M4 (16GB / 512GB)</image:title>
+    </image:image>
+  </url>
   <url><loc>https://onmuzikproje.com/markalar</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://onmuzikproje.com/sertifikalar</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://onmuzikproje.com/iletisim</loc><lastmod>2026-05-12</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
