@@ -174,7 +174,7 @@ const Hero = () => (
         }}>
           Almak<br />yerine, <span style={{ color: RED }}>kirala.</span>
         </h1>
-        <p style={{ marginTop: 28, fontSize: 22, lineHeight: 1.4, color: 'rgba(20,20,26,0.7)', maxWidth: 540 }}>
+        <p className="hk-hero-lead" style={{ marginTop: 28, fontSize: 22, lineHeight: 1.4, color: 'rgba(20,20,26,0.7)', maxWidth: 540 }}>
           Projeksiyondan oyun konsoluna, MacBook'tan elektrikli scooter'a - On Music aracılığıyla kurduğumuz Hızla Kirala portföyünden ihtiyacın olanı aylıkla kullan.
         </p>
         <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
@@ -834,9 +834,44 @@ const SITE = 'https://onmuzikproje.com';
 const PARTNER_ORG_ID = `${SITE}/hizla-kirala#partnership`;
 
 export default function HizlaKirala() {
-  // İleri SEO: 4 ayrı JSON-LD bloku - CollectionPage, ItemList (ürün katalog),
-  // BreadcrumbList ve resmi iş ortaklığı için Organization (partner sameAs).
-  // Arama motoru ve LLM'lere yapı + ilişki + her ürünün fiyat/kategori bilgisi.
+  // İleri SEO: çoklu JSON-LD bloku — WebPage, CollectionPage, Service,
+  // ItemList (katalog), AggregateOffer, MerchantReturnPolicy, HowTo, FAQPage,
+  // BreadcrumbList, Brand[] ve iş ortaklığı için Organization. Speakable
+  // hero h1 + lead + FAQ bölümleri için tanımlı (sesli asistan + Google
+  // Discover için kritik).
+  //
+  // Katalog-seviyesi fiyat istatistikleri (low/high) PRODUCTS'tan canlı
+  // hesaplanır — fiyatlar değişirse bu bloklar otomatik güncellenir.
+  const priceNums = PRODUCTS.map((p) => parseInt(p.price.replace('.', ''), 10)).filter((n) => Number.isFinite(n));
+  const lowPrice  = String(Math.min(...priceNums));
+  const highPrice = String(Math.max(...priceNums));
+
+  // ─── 1. WebPage (primary entity, breadcrumb + significantLink + speakable) ───
+  const webPage = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${SITE}/hizla-kirala#webpage`,
+    name: 'Kiralık Ürünler - On Music × Hızla Kirala',
+    url: `${SITE}/hizla-kirala`,
+    inLanguage: 'tr-TR',
+    isPartOf: { '@id': `${SITE}/#website` },
+    primaryImageOfPage: { '@id': `${SITE}/hizla-kirala#hero-image` },
+    breadcrumb: { '@id': `${SITE}/hizla-kirala#breadcrumb` },
+    mainEntity: { '@id': `${SITE}/hizla-kirala#catalog` },
+    about: [
+      { '@id': PARTNER_ORG_ID },
+      { '@id': `${SITE}/hizla-kirala#service` },
+    ],
+    significantLink: CATS.map((c) => c.href),
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.hk-hero-h1', '.hk-hero-lead', '.hk-h2'],
+    },
+    datePublished: '2026-05-12',
+    dateModified:  '2026-05-24',
+  };
+
+  // ─── 2. CollectionPage (kategoriler hub'ı) ───
   const collectionPage = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -848,10 +883,110 @@ export default function HizlaKirala() {
     inLanguage: 'tr-TR',
     isPartOf: { '@id': `${SITE}/#website` },
     about: { '@id': PARTNER_ORG_ID },
+    mainEntity: { '@id': `${SITE}/hizla-kirala#catalog` },
     primaryImageOfPage: {
       '@type': 'ImageObject',
+      '@id': `${SITE}/hizla-kirala#hero-image`,
       url: `${SITE}/assets/hizla-kirala/og-image.png`,
+      width: 1200,
+      height: 630,
+      caption: 'On Music × Hızla Kirala kiralık ürün katalogu',
     },
+    hasPart: CATS.map((c) => ({
+      '@type': 'WebPage',
+      name: c.name,
+      url: c.href,
+    })),
+  };
+
+  // ─── 3. Service (Cihaz Kiralama olarak hizmet) ───
+  const service = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${SITE}/hizla-kirala#service`,
+    name: 'Cihaz ve Ürün Kiralama Hizmeti',
+    serviceType: 'Cihaz Kiralama',
+    category: 'Tüketici Elektroniği Kiralama',
+    description:
+      'Projeksiyon, oyun konsolu, MacBook, hava temizleyici, saç şekillendirici, bebek oto koltuğu, scooter ve daha fazlasını aylık veya günlük kiralama. 24 saatte İstanbul içi, 24-48 saatte Türkiye geneli teslim. %70 sigorta dahil (%100\'e tamamlama opsiyonel).',
+    provider: { '@id': PARTNER_ORG_ID },
+    brand: { '@id': PARTNER_ORG_ID },
+    areaServed: [
+      { '@type': 'Country', name: 'Türkiye' },
+      { '@type': 'City',    name: 'İstanbul' },
+      { '@type': 'City',    name: 'Ankara' },
+      { '@type': 'City',    name: 'İzmir' },
+      { '@type': 'City',    name: 'Antalya' },
+      { '@type': 'City',    name: 'Bursa' },
+    ],
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'Bireysel kullanıcılar, küçük ve orta ölçekli işletmeler, etkinlik organizatörleri, hediye/test ihtiyacı olan tüketiciler',
+      geographicArea: { '@type': 'Country', name: 'Türkiye' },
+    },
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      serviceUrl: `${SITE}/hizla-kirala`,
+      servicePhone: '+90-543-412-33-80',
+      availableLanguage: ['Turkish'],
+    },
+    offers: { '@id': `${SITE}/hizla-kirala#aggregate-offer` },
+    hoursAvailable: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+      opens:  '09:00',
+      closes: '19:00',
+    },
+  };
+
+  // ─── 4. AggregateOffer (katalog-seviyesi fiyat aralığı + offer sayısı) ───
+  const aggregateOffer = {
+    '@context': 'https://schema.org',
+    '@type': 'AggregateOffer',
+    '@id': `${SITE}/hizla-kirala#aggregate-offer`,
+    priceCurrency: 'TRY',
+    lowPrice,
+    highPrice,
+    offerCount: PRODUCTS.length,
+    availability: 'https://schema.org/InStock',
+    offeredBy: { '@id': PARTNER_ORG_ID },
+    eligibleRegion: { '@type': 'Country', name: 'Türkiye' },
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      priceCurrency: 'TRY',
+      minPrice: lowPrice,
+      maxPrice: highPrice,
+      valueAddedTaxIncluded: true,
+    },
+    shippingDetails: { '@id': `${SITE}/hizla-kirala#shipping` },
+    hasMerchantReturnPolicy: { '@id': `${SITE}/hizla-kirala#return-policy` },
+  };
+
+  // ─── 5. OfferShippingDetails (kargo + teslimat) ───
+  const shipping = {
+    '@context': 'https://schema.org',
+    '@type': 'OfferShippingDetails',
+    '@id': `${SITE}/hizla-kirala#shipping`,
+    shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'TR' },
+    shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'TRY' },
+    deliveryTime: {
+      '@type': 'ShippingDeliveryTime',
+      handlingTime:  { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' },
+      transitTime:   { '@type': 'QuantitativeValue', minValue: 0, maxValue: 2, unitCode: 'DAY' },
+    },
+  };
+
+  // ─── 6. MerchantReturnPolicy (iade politikası) ───
+  const returnPolicy = {
+    '@context': 'https://schema.org',
+    '@type': 'MerchantReturnPolicy',
+    '@id': `${SITE}/hizla-kirala#return-policy`,
+    name: 'Hızla Kirala iade politikası',
+    applicableCountry: 'TR',
+    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+    merchantReturnDays: 14,
+    returnMethod: 'https://schema.org/ReturnByMail',
+    returnFees:   'https://schema.org/FreeReturn',
   };
 
   const itemList = {
@@ -859,29 +994,65 @@ export default function HizlaKirala() {
     '@type': 'ItemList',
     '@id': `${SITE}/hizla-kirala#catalog`,
     name: 'On Music × Hızla Kirala kiralık ürün katalogu',
+    description:
+      'Hızla Kirala portföyünden 20 ürün — Apple, Sony, Dyson, Nintendo, Meta, Anker, Xiaomi, DJI, Karaca, Kärcher, Cybex, Dreame, FOREO, Philips, Vahaa, Vogue. Aylık kiralama 890 TL\'den, 24 saatte kapıda teslim.',
     numberOfItems: PRODUCTS.length,
     itemListOrder: 'https://schema.org/ItemListOrderManual',
+    aggregateOffer: { '@id': `${SITE}/hizla-kirala#aggregate-offer` },
     itemListElement: PRODUCTS.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       url: `${SITE}${p.href}`,
       item: {
         '@type': 'Product',
+        '@id': `${SITE}${p.href}#product`,
         name: `${p.brand} ${p.name}`,
         brand: { '@type': 'Brand', name: p.brand },
         category: p.cat,
         image: `${SITE}${p.image}`,
+        url: `${SITE}${p.href}`,
         offers: {
           '@type': 'Offer',
           priceCurrency: 'TRY',
           price: p.price.replace('.', ''),
           url: `${SITE}${p.href}`,
           availability: 'https://schema.org/InStock',
+          itemCondition: 'https://schema.org/NewCondition',
           seller: { '@id': PARTNER_ORG_ID },
+          shippingDetails: { '@id': `${SITE}/hizla-kirala#shipping` },
+          hasMerchantReturnPolicy: { '@id': `${SITE}/hizla-kirala#return-policy` },
+          priceValidUntil: '2026-12-31',
         },
       },
     })),
   };
+
+  // ─── Brand schemas — katalogdaki ana üreticiler ───
+  // Her marka için Schema.org/Brand ile sameAs ekleyerek arama motorlarına
+  // ve LLM'lere "bu site şu markaların distribütörü" sinyali veriyoruz.
+  const brandSameAs: Record<string, string> = {
+    Apple:    'https://www.apple.com/tr',
+    Sony:     'https://www.sony.com.tr',
+    Dyson:    'https://www.dyson.com.tr',
+    Nintendo: 'https://www.nintendo.com.tr',
+    Meta:     'https://www.meta.com',
+    Anker:    'https://www.anker.com',
+    Xiaomi:   'https://www.mi.com/tr',
+    DJI:      'https://www.dji.com',
+    Karaca:   'https://www.karaca.com',
+    'Kärcher': 'https://www.karcher.com/tr',
+    Cybex:    'https://cybex-online.com/tr-tr',
+    Dreame:   'https://tr.dreametech.com',
+    FOREO:    'https://www.foreo.com/tr',
+    Philips:  'https://www.philips.com.tr',
+  };
+  const brands = Object.entries(brandSameAs).map(([name, sameAs]) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Brand',
+    '@id': `${SITE}/hizla-kirala#brand-${name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+    name,
+    sameAs,
+  }));
 
   const popularList = {
     '@context': 'https://schema.org',
@@ -978,19 +1149,63 @@ export default function HizlaKirala() {
     alternateName: 'Hızla Kirala - On Music iş ortaklığı',
     url: `${SITE}/hizla-kirala`,
     logo: `${SITE}/assets/hizla-kirala/hizlakirala-logo.png`,
+    image: `${SITE}/assets/hizla-kirala/og-image.png`,
+    description:
+      'Hızla Kirala\'nın resmi iş ortağı On Muzik Proje. Aylık ve kısa dönemli cihaz/ürün kiralama: projeksiyon, oyun konsolu, MacBook, Dyson, FOREO, scooter, bebek koltuğu ve daha fazlası — 24 saatte kapıda teslim, 81 ilde.',
     parentOrganization: { '@id': `${SITE}/#org` },
+    memberOf: { '@id': `${SITE}/#business` },
     sameAs: [
       'https://www.hizlakirala.com',
       'https://www.instagram.com/onmuzik',
+      'https://www.instagram.com/hizlakirala',
     ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer service',
-      telephone: '+90-543-412-33-80',
-      email: 'proje@onmuzik.com',
-      areaServed: 'TR',
-      availableLanguage: ['Turkish'],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Atatürk Mahallesi Ataşehir Bulvarı, Ertuğrul Gazi Sokak',
+      addressLocality: 'Ataşehir',
+      addressRegion: 'İstanbul',
+      postalCode: '34758',
+      addressCountry: 'TR',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 40.9923,
+      longitude: 29.1244,
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Türkiye' },
+      { '@type': 'City',    name: 'İstanbul' },
+      { '@type': 'City',    name: 'Ankara' },
+      { '@type': 'City',    name: 'İzmir' },
+      { '@type': 'City',    name: 'Antalya' },
+      { '@type': 'City',    name: 'Bursa' },
+    ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: '+90-543-412-33-80',
+        email: 'proje@onmuzik.com',
+        areaServed: 'TR',
+        availableLanguage: ['Turkish'],
+        contactOption: ['TollFree', 'HearingImpairedSupported'],
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'sales',
+        telephone: '+90-850-241-9515',
+        email: 'proje@onmuzik.com',
+        areaServed: 'TR',
+        availableLanguage: ['Turkish', 'English'],
+      },
+    ],
+    makesOffer: { '@id': `${SITE}/hizla-kirala#aggregate-offer` },
+    knowsAbout: [
+      'Cihaz Kiralama', 'Elektronik Kiralama', 'Projeksiyon Kiralama',
+      'Oyun Konsolu Kiralama', 'MacBook Kiralama', 'Saç Şekillendirici Kiralama',
+      'Bebek Oto Koltuğu Kiralama', 'Elektrikli Scooter Kiralama',
+      'Hava Temizleyici Kiralama', 'Sanal Gerçeklik Kiralama',
+    ],
   };
 
   useSeo({
@@ -999,9 +1214,52 @@ export default function HizlaKirala() {
       'On Muzik Proje × Hızla Kirala resmi iş ortaklığı: Anker Nebula projeksiyon, Apple MacBook M4, Sony PlayStation 5 Slim, Dyson Airwrap & V15 Detect, iPhone 17 Pro, Meta Quest 3 VR, Nintendo Switch OLED, DJI Pocket 3, Kärcher buharlı temizlik, Cybex bebek oto koltuğu, Xiaomi Mi Pro 4 scooter, FOREO LED maske, Karaca akıllı çay makinesi ve daha fazlası - aylık 890 TL\'den, 24 saatte kapıda teslim, %70 sigorta dahil (%100\'e tamamlama opsiyonel). WhatsApp 0543 412 33 80.',
     path: '/hizla-kirala',
     image: '/assets/hizla-kirala/og-image.png',
+    imageWidth: 1200,
+    imageHeight: 630,
+    imageType: 'image/png',
+    ogType: 'product',
     keywords:
       'kiralık ürün, ürün kiralama, projeksiyon kiralama, anker nebula apollo kiralama, macbook m4 kiralama, playstation 5 kiralama, ps5 slim kiralama, dyson airwrap kiralama, samsung galaxy a36 kiralama, hızla kirala, on music, on muzik proje, kiralama, aylık kiralama, günlük kiralama, 24 saat teslim, sigorta dahil kiralama',
-    jsonLd: [collectionPage, itemList, popularList, howTo, faqPage, breadcrumb, partnership],
+    // og:type=product için katalog-seviyesi alt fiyat — Facebook product
+    // catalog ve Pinterest Rich Pin bu meta'dan başlangıç fiyatı çıkarır.
+    product: {
+      priceAmount: lowPrice,
+      priceCurrency: 'TRY',
+      availability: 'instock',
+      brand: 'On Music × Hızla Kirala',
+      category: 'Cihaz Kiralama',
+    },
+    // Twitter App Card altında "Etiket: Değer" şeklinde küçük chip'ler.
+    twitterLabels: {
+      label1: 'Fiyat aralığı',
+      data1:  `${lowPrice} - ${highPrice} TL/ay`,
+      label2: 'Teslimat',
+      data2:  '24s kapıda, 81 il',
+    },
+    // GEO meta — TR-34 İstanbul / Ataşehir. Bing Local, Yandex, Apple Maps
+    // ve AI yanıt motorları (Perplexity, ChatGPT) yerel arama bağlamı için
+    // bu meta'lardan yararlanır.
+    geo: {
+      region:    'TR-34',
+      placename: 'İstanbul, Ataşehir',
+      position:  '40.9923;29.1244',
+      icbm:      '40.9923, 29.1244',
+    },
+    jsonLd: [
+      webPage,
+      collectionPage,
+      service,
+      aggregateOffer,
+      shipping,
+      returnPolicy,
+      itemList,
+      popularList,
+      howTo,
+      faqPage,
+      breadcrumb,
+      partnership,
+      ...brands,
+    ],
   });
 
   return (

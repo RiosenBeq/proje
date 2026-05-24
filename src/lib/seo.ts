@@ -18,6 +18,11 @@ export type SeoOptions = {
   path: string;
   /** Tek bir OG image URL'i. SITE_URL prefix yoksa eklenir. */
   image?: string;
+  /** og:image:width / og:image:height. Facebook/LinkedIn'in büyük kart hazırlığı
+      için kritik — yoksa Facebook fallback'e düşüp küçük kart kullanır. */
+  imageWidth?: number;
+  imageHeight?: number;
+  imageType?: 'image/png' | 'image/jpeg' | 'image/webp';
   ogType?: OgType;
   /** og:type=product için. SITE_URL prefix yoksa eklenir, gerekirse fiyat + currency. */
   product?: {
@@ -38,6 +43,26 @@ export type SeoOptions = {
     modifiedTime?: string;
     author?: string;
     section?: string;
+  };
+  /** GEO meta tags — yerel arama, harita servisleri ve AI engine'leri için.
+      region ISO 3166-2 formatında ("TR-34" = İstanbul). placename açık isim.
+      position "lat;lng" formatında. ICBM aynı koordinat virgülle. */
+  geo?: {
+    region: string;
+    placename: string;
+    /** "lat;lng" örn "40.9923;29.1244" (Ataşehir/İstanbul) */
+    position: string;
+    /** "lat, lng" örn "40.9923, 29.1244" */
+    icbm: string;
+  };
+  /** Twitter App Card label/data çiftleri — fiyat aralığı, lokasyon, kategori
+      gibi sayısal/ek bilgiler. Twitter kartının altında "Label: Data" şeklinde
+      render olur. Sayfa türüne göre 2 çift kullanılabilir. */
+  twitterLabels?: {
+    label1?: string;
+    data1?: string;
+    label2?: string;
+    data2?: string;
   };
 };
 
@@ -91,15 +116,45 @@ export function useSeo(opts: SeoOptions) {
     setMeta('property', 'og:description', opts.description);
     setMeta('property', 'og:url', url);
     setMeta('property', 'og:image', image);
+    setMeta('property', 'og:image:secure_url', image);
     setMeta('property', 'og:image:alt', opts.title);
     setMeta('property', 'og:locale', 'tr_TR');
     setMeta('property', 'og:site_name', 'On Muzik Proje');
+    if (opts.imageWidth)  setMeta('property', 'og:image:width',  String(opts.imageWidth));
+    else                  removeMeta('property', 'og:image:width');
+    if (opts.imageHeight) setMeta('property', 'og:image:height', String(opts.imageHeight));
+    else                  removeMeta('property', 'og:image:height');
+    if (opts.imageType)   setMeta('property', 'og:image:type',   opts.imageType);
+    else                  removeMeta('property', 'og:image:type');
     setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:title', opts.title);
     setMeta('name', 'twitter:description', opts.description);
     setMeta('name', 'twitter:image', image);
     setMeta('name', 'twitter:image:alt', opts.title);
+    setMeta('name', 'twitter:site', '@onmuzik');
+    if (opts.twitterLabels?.label1) setMeta('name', 'twitter:label1', opts.twitterLabels.label1);
+    else                            removeMeta('name', 'twitter:label1');
+    if (opts.twitterLabels?.data1)  setMeta('name', 'twitter:data1',  opts.twitterLabels.data1);
+    else                            removeMeta('name', 'twitter:data1');
+    if (opts.twitterLabels?.label2) setMeta('name', 'twitter:label2', opts.twitterLabels.label2);
+    else                            removeMeta('name', 'twitter:label2');
+    if (opts.twitterLabels?.data2)  setMeta('name', 'twitter:data2',  opts.twitterLabels.data2);
+    else                            removeMeta('name', 'twitter:data2');
     setLink('canonical', url);
+
+    // GEO meta — yerel arama (Bing, Yandex), Apple Maps, AI yanıt motorları
+    // ürünün/hizmetin coğrafi bağlamını bu meta'lardan çıkarır.
+    if (opts.geo) {
+      setMeta('name', 'geo.region',    opts.geo.region);
+      setMeta('name', 'geo.placename', opts.geo.placename);
+      setMeta('name', 'geo.position',  opts.geo.position);
+      setMeta('name', 'ICBM',          opts.geo.icbm);
+    } else {
+      removeMeta('name', 'geo.region');
+      removeMeta('name', 'geo.placename');
+      removeMeta('name', 'geo.position');
+      removeMeta('name', 'ICBM');
+    }
 
     // og:type=product için ek meta (Facebook product catalog, Pinterest Rich Pin,
     // bazı arama motorları bu meta'lardan fiyat / availability çıkarır).
@@ -146,9 +201,12 @@ export function useSeo(opts: SeoOptions) {
     }
   }, [
     opts.title, opts.description, opts.path, opts.image,
+    opts.imageWidth, opts.imageHeight, opts.imageType,
     opts.noIndex, opts.ogType, opts.keywords,
     JSON.stringify(opts.product ?? null),
     JSON.stringify(opts.article ?? null),
+    JSON.stringify(opts.geo ?? null),
+    JSON.stringify(opts.twitterLabels ?? null),
     JSON.stringify(opts.jsonLd ?? null),
   ]);
 }
