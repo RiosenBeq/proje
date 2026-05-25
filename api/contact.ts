@@ -295,16 +295,12 @@ function buildUserText(b: Body) {
 
 /* ============================================================ Internal notification
  *
- * Every form submission also sends an internal notification.  proje@onmuzik.com
- * is the canonical destination (always included) and CONTACT_TO_EMAIL can list
- * extra recipients (comma- or semicolon-separated).
- *
- * NOTE: Resend will reject the send with "recipient is on the suppression list"
- * if proje@onmuzik.com remains suppressed.  Manage suppressions in the Resend
- * dashboard → Suppressions panel.  We attempt the send anyway because each
- * admin-side failure is logged but doesn't break the user's confirmation flow.
+ * Every form submission also sends an internal notification. bizimfutbol9@gmail.com
+ * is the canonical destination (always included, hard-coded so it cannot be
+ * accidentally disabled by missing env vars). CONTACT_TO_EMAIL can list extra
+ * recipients (comma- or semicolon-separated).
  */
-const PRIMARY_ADMIN_RECIPIENT = 'proje@onmuzik.com';
+const PRIMARY_ADMIN_RECIPIENT = 'bizimfutbol9@gmail.com';
 
 function notificationRecipients(): string[] {
   const set = new Set<string>([PRIMARY_ADMIN_RECIPIENT]);
